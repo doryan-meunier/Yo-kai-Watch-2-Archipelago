@@ -106,43 +106,7 @@ The client reads the game's memory through Azahar's built-in debugger.
 
 ---
 
-## 7. Showing item names in-game (optional)
-
-By default, when a request gives you a reward, the game displays the **original**
-item — not the Archipelago item you actually receive.
-
-You can show the **real** name: the client knows how to patch the game's language
-archive, provided it is installed as a **LayeredFS mod**.
-
-> ℹ️ **Purely cosmetic.** Without this mod everything works: checks are sent and
-> items are delivered normally. Only the reward display changes.
-> **Your ROM is never modified** — the client only writes to the copy placed in
-> the mods folder.
-
-### Setup
-
-1. Extract `yw2_lg_fr.fa` from the romfs of **your own copy** of the game
-   (using a tool such as *3dstool* / *ctrtool*). That file cannot be
-   distributed here: it is part of the game.
-2. Place it here (create the folders if needed):
-   ```
-   %APPDATA%\Azahar\load\mods\00040000001B2900\romfs\yw2_lg_fr.fa
-   ```
-   A helper script does the copy for you:
-   ```
-   python tools/install_mod.py "D:\path	oomfs"
-   ```
-3. In Azahar, make sure mods (LayeredFS) are enabled for the game.
-4. Connect the client: it patches the file automatically on connection.
-
-Then, in-game:
-- a reward that is a **real game item** → its true name is displayed;
-- a reward belonging to **another player** → "**Item AP**" is displayed
-  (the exact name stays visible in the client and the tracker).
-
----
-
-## 8. The tracker (optional but recommended)
+## 7. The tracker (optional but recommended)
 
 1. Install **PopTracker**: https://github.com/black-sliver/PopTracker/releases
 2. Copy the `tracker/ykw2-poptracker` folder into PopTracker's `packs/` folder.
@@ -155,7 +119,7 @@ highlighted.
 
 ---
 
-## 9. Good to know
+## 8. Good to know
 
 - **Save often in-game**: checks are detected in RAM, but your progress itself
   depends on the game's own save.
