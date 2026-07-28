@@ -129,6 +129,10 @@ langue du jeu, à condition qu'elle soit installée comme **mod LayeredFS**.
    ```
    %APPDATA%\Azahar\load\mods\00040000001B2900\romfs\yw2_lg_fr.fa
    ```
+   Un script fait la copie pour vous :
+   ```
+   python tools/install_mod.py "D:\cheminersomfs"
+   ```
 3. Dans Azahar, vérifiez que les mods (LayeredFS) sont activés pour le jeu.
 4. Connectez le client : il patche le fichier tout seul au moment de la
    connexion.

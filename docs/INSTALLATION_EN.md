@@ -128,6 +128,10 @@ archive, provided it is installed as a **LayeredFS mod**.
    ```
    %APPDATA%\Azahar\load\mods\00040000001B2900\romfs\yw2_lg_fr.fa
    ```
+   A helper script does the copy for you:
+   ```
+   python tools/install_mod.py "D:\path	oomfs"
+   ```
 3. In Azahar, make sure mods (LayeredFS) are enabled for the game.
 4. Connect the client: it patches the file automatically on connection.
 
