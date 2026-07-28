@@ -1,0 +1,16 @@
+{
+  "name": "Yo-kai Watch 2 (Archipelago)",
+  "game_name": "Yo-kai Watch 2",
+  "package_uid": "ykw2_ap_doteos",
+  "package_version": "0.1.0",
+  "author": "Doteos",
+  "min_poptracker_version": "0.26.2",
+  "variants": {
+    "standard": {
+      "display_name": "Standard",
+      "flags": [
+        "ap"
+      ]
+    }
+  }
+}

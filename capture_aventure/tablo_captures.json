@@ -1,0 +1,256 @@
+{
+ "note": "Captures live des flags Tablo-blabla (base bitfield 0x086CFB1C)",
+ "tablos": [
+  {
+   "date": "2026-07-16",
+   "numero": 11,
+   "zone": "Centre-ville de Granval",
+   "sous_zone": "Tour de commerce",
+   "yokai": "Hiblusion",
+   "bit_resolu": 1285,
+   "bit_complete": 1281,
+   "note": "bits relatifs a 0x086CFB1C ; +flag 1344 a la presentation (event Tour ?) ; compteur 0x086CFC13 +1 par evenement",
+   "tracker_coords": [
+    500,
+    426
+   ],
+   "tracker_map": "det_centre_ville_de_granval"
+  },
+  {
+   "date": "2026-07-16",
+   "numero": 9,
+   "zone": "Centre-ville de Granval",
+   "sous_zone": "Chantier",
+   "yokai": "Sumochi",
+   "bit_resolu": 1283,
+   "bit_complete": 1279,
+   "note": "diff combine (reponse+presentation) ; attribution resolu/complete par parite avec tablo 11",
+   "tracker_coords": [
+    466,
+    374
+   ],
+   "tracker_map": "det_centre_ville_de_granval"
+  },
+  {
+   "date": "2026-07-20",
+   "numero": 1,
+   "zone": "Les Hauts de Granval",
+   "chapitre": 2,
+   "yokai": "Granpapeti",
+   "type": "histoire",
+   "bit_resolu": 1259,
+   "bit_complete": 1255,
+   "note": "Tablo d'HISTOIRE (reponse -> chercher le yokai -> le placer). Bits relatifs a 0x086CFB1C : 0x086cfbb8 b7=complete(1255), 0x086cfbb9 b3=resolu(1259). Meme motif que Hiblusion (complete<resolu, ecart 4). Diff bonne fenetre 0x086CFB00+0x400 (la 1re tentative avec fenetre 0x086CFE00 avait capte le medallium 0x086cfed0 = bruit). numero a confirmer par Doteos.",
+   "tracker_coords": [
+    261,
+    350
+   ],
+   "tracker_map": "det_les_hauts_de_granval"
+  },
+  {
+   "date": "2026-07-20",
+   "numero": 20,
+   "zone": "San Fantastico",
+   "sous_zone": "Grotte du littoral",
+   "yokai": "Noripop",
+   "chapitre": 6,
+   "prerequis": "rang C",
+   "bits_observes": [
+    1,
+    1318,
+    1319
+   ],
+   "note": "0x086cfb1c b1 = bit 1 (grappe GROTTE) + 0x086cfbc0 b6/b7 = bits 1318/1319 (PAIRE CONSECUTIVE). ATTRIBUTION CONFIRMEE LIVE 2026-07-27 : ecrire la reponse pose SEULEMENT 1319 (bit HAUT = resolu) ; 1318 (complete) reste a 0 jusqu'a la completion totale. -> 1319 mappe dans TABLO_BIT_TO_LOCATION. Regle generalisable aux paires consecutives : bit haut = resolu.",
+   "bit_resolu": 1319,
+   "bit_complete": 1318,
+   "detection_active": true
+  },
+  {
+   "date": "2026-07-20",
+   "numero": 21,
+   "zone": "San Fantastico",
+   "sous_zone": "Grotte du littoral",
+   "yokai": "Wakapoeira",
+   "chapitre": 6,
+   "prerequis": "rang C",
+   "bit_complete": 1320,
+   "bits_observes": [
+    1320,
+    1321
+   ],
+   "note": "0x086cfbc1 b0/b1 = bits 1320/1321 + bit 2 de la grappe Grotte (0x086CFB1C). DIFF LIVE 2026-07-27 : ecrire la reponse pose 0x086cfb1c 0x02->0x06 (bit 2) et 0x086cfbc1 0x00->0x02 = SEUL 1321 (bit HAUT = resolu ; 1320 complete reste a 0). Regle 'bit haut = resolu' confirmee 2e fois (apres Noripop 1319).",
+   "bit_resolu": 1321,
+   "detection_active": true
+  },
+  {
+   "date": "2026-07-20",
+   "numero": 22,
+   "zone": "San Fantastico",
+   "sous_zone": "Grotte du littoral",
+   "yokai": "Salsalga",
+   "chapitre": 6,
+   "prerequis": "rang C",
+   "bit_complete": 1322,
+   "bits_observes": [
+    1322,
+    1323
+   ],
+   "note": "0x086cfbc1 b2/b3 = bits 1322/1323 + bit 3 de la grappe Grotte. VERIFIE LIVE 2026-07-27 : diff a l'ecriture de la reponse = 0x086cfb1c 0x06->0x0e (bit 3) et 0x086cfbc1 0x03->0x0b = SEUL 1323 (bit HAUT = resolu, 1322 complete reste a 0). Le mapping deduit par la regle etait CORRECT. Regle 'bit haut = resolu' desormais verifiee 3x (1319, 1321, 1323).",
+   "bit_resolu": 1323,
+   "detection_active": true,
+   "verifie_live": true
+  },
+  {
+   "date": "2026-07-24",
+   "numero": 5,
+   "zone": "Mont Sylvestre",
+   "sous_zone": "Tunnel abandonné ouest",
+   "yokai": "Draconfus",
+   "bit_resolu": 1268,
+   "bit_complete": 1264,
+   "tracker_coords": [
+    206,
+    118
+   ],
+   "tracker_map": "det_mont_sylvestre",
+   "note": "RE Doteos 2026-07-24 ; diff 0x086cfbba b0(1264)+b4(1268), résolu=complété+4 (comme tablo 11). Location « Tablo-blabla n°05 : Draconfus » existe déjà. A MAPPER SUR LE TRACKER PLUS TARD (206,118) Mont Sylvestre — détection tablo pas encore activée."
+  },
+  {
+   "date": "2026-07-24",
+   "numero": 4,
+   "zone": "Mont Sylvestre",
+   "sous_zone": "Tunnel abandonné est",
+   "yokai": "Robonyan",
+   "bit_resolu": 1267,
+   "bit_complete": 1263,
+   "tracker_coords": [
+    366,
+    162
+   ],
+   "tracker_map": "det_mont_sylvestre",
+   "note": "RE Doteos 2026-07-24 ; diff 0x086cfbb9 b7(1263)+0x086cfbba b3(1267), résolu=complété+4. Requiert Huile de Tendino (levier). Location « Tablo-blabla n°04 : Robonyan » existe. A MAPPER PLUS TARD (366,162)."
+  },
+  {
+   "date": "2026-07-25",
+   "numero": 2,
+   "zone": "Les Hauts de Granval",
+   "sous_zone": "Troc safari",
+   "yokai": "Feulion",
+   "bit_resolu": 1260,
+   "bit_complete": 1256,
+   "rang_min": "C",
+   "tracker_coords": [
+    496,
+    656
+   ],
+   "tracker_map": "det_les_hauts_de_granval",
+   "note": "RE Doteos 2026-07-25 ; 0x086cfbb9 b0(1256)+b4(1260), résolu=complété+4. Rang C min. Location « Tablo-blabla n°02 : Feulion » existe. Tracker à mapper plus tard (496,656)."
+  },
+  {
+   "date": "2026-07-25",
+   "numero": 8,
+   "zone": "Coteau fleuri",
+   "yokai": "Ronimpec",
+   "bit_resolu": 1275,
+   "bit_complete": 1271,
+   "rang_min": "B",
+   "tracker_coords": [
+    409,
+    359
+   ],
+   "tracker_map": "det_coteau_fleuri",
+   "note": "RE Doteos 2026-07-25 ; 0x086cfbba b7(1271)+0x086cfbbb b3(1275), résolu=complété+4."
+  },
+  {
+   "date": "2026-07-25",
+   "numero": 12,
+   "zone": "Quartier des boutiques",
+   "yokai": "Maître Oden",
+   "bit_resolu": 1291,
+   "bit_complete": 1287,
+   "rang_min": "A",
+   "tracker_coords": [
+    616,
+    211
+   ],
+   "tracker_map": "det_quartier_des_boutiques",
+   "note": "RE Doteos 2026-07-25 ; 0x086cfbbc b7(1287)+0x086cfbbd b3(1291), résolu=complété+4."
+  },
+  {
+   "date": "2026-07-25",
+   "numero": 16,
+   "zone": "La Corniche",
+   "yokai": "Grégrigry",
+   "bit_resolu": 1302,
+   "bit_complete": 1298,
+   "rang_min": "A",
+   "tracker_coords": [
+    480,
+    391
+   ],
+   "tracker_map": "det_la_corniche",
+   "note": "RE Doteos 2026-07-25 ; 0x086cfbbe b2(1298)+b6(1302), résolu=complété+4."
+  },
+  {
+   "date": "2026-07-25",
+   "numero": 18,
+   "zone": "San Fantastico",
+   "yokai": "Croquin",
+   "bit_resolu": 1309,
+   "bit_complete": 1308,
+   "rang_min": "C",
+   "tracker_coords": [
+    196,
+    202
+   ],
+   "tracker_map": "det_san_fantastico",
+   "note": "RE Doteos 2026-07-25 ; 0x086cfbbf b4(1308)+b5(1309) ADJACENTS (pas +4). résolu=1309 (bit haut)."
+  },
+  {
+   "date": "2026-07-25",
+   "numero": 19,
+   "zone": "San Fantastico",
+   "yokai": "Supernoël",
+   "bit_resolu": 1315,
+   "bit_complete": 1314,
+   "rang_min": "B",
+   "tracker_coords": [
+    324,
+    128
+   ],
+   "tracker_map": "det_san_fantastico",
+   "note": "RE Doteos 2026-07-25 ; 0x086cfbc0 b2(1314)+b3(1315) adjacents. résolu=1315. +présentation 0x086cfbc3 b7(1343)."
+  },
+  {
+   "date": "2026-07-25",
+   "numero": 17,
+   "zone": "Tour Excellence",
+   "yokai": "Chaipô",
+   "bit_resolu": 1307,
+   "bit_complete": 1306,
+   "rang_min": "E",
+   "tracker_coords": [
+    75,
+    399
+   ],
+   "tracker_map": "det_tour_excellence",
+   "note": "RE Doteos 2026-07-25 ; 0x086cfbbf b2(1306)+b3(1307) adjacents. résolu=1307. Byte partagé avec Croquin (b4/b5)."
+  },
+  {
+   "date": "2026-07-25",
+   "numero": 3,
+   "zone": "Les Hauts de Granval",
+   "yokai": "Triptic-tac",
+   "bit_resolu": 1261,
+   "bit_complete": 1257,
+   "chapitre": 9,
+   "tracker_coords": [
+    292,
+    296
+   ],
+   "tracker_map": "det_les_hauts_de_granval",
+   "note": "RE Doteos 2026-07-25 ; 0x086cfbb9 b1(1257)+b5(1261), résolu=complété+4. Ch9."
+  }
+ ],
+ "_schema": "Stockage PAR GRAPPES DE ZONE (pas global lineaire) : Grotte = bits 1-3 de 0x086CFB1C ; Centre-ville = bits 1279-1285 (base+0x9F..0xA4). Le check AP = bit_complete. Campagne : capturer chaque tablo individuellement."
+}

@@ -1,0 +1,339 @@
+{
+  "tracker_default": {
+    "type": "dock",
+    "h_alignment": "stretch",
+    "v_alignment": "stretch",
+    "content": [
+      {
+        "type": "itemgrid",
+        "dock": "left",
+        "item_size": "56,56",
+        "item_margin": "5,5",
+        "v_alignment": "top",
+        "rows": [
+          [
+            "rang_e",
+            "chapitre",
+            "canne_a_peche"
+          ],
+          [
+            "pile_ou_passe",
+            "cles_de_l_ecole",
+            "herbe_ancestrale"
+          ],
+          [
+            "super_tournevis",
+            "tenue_de_rocker",
+            "modele_zero"
+          ],
+          [
+            "jolie_petite_cle",
+            "jolie_grande_cle",
+            "cle_appartement_c_101"
+          ],
+          [
+            "cle_appartement_c_303",
+            "cle_appartement_b_301",
+            "cle_de_derriere"
+          ],
+          [
+            "filet_a_insectes",
+            "indications_de_maman",
+            "cle_magnetique_or"
+          ],
+          [
+            "cle_salle_du_tresor",
+            "cle_appartement_b_204",
+            "huile_de_tendino"
+          ],
+          [
+            "poignee_etrange",
+            "velo"
+          ]
+        ]
+      },
+      {
+        "type": "array",
+        "dock": "bottom",
+        "orientation": "horizontal",
+        "max_height": 185,
+        "content": [
+          {
+            "type": "canvas",
+            "width": 330,
+            "height": 175,
+            "content": [
+              {
+                "type": "map",
+                "maps": [
+                  "grp_chapitres"
+                ],
+                "canvas_left": 0,
+                "canvas_top": 0,
+                "width": 320,
+                "height": 168
+              },
+              {
+                "type": "item",
+                "item": "stat_chapitres",
+                "canvas_left": 245,
+                "canvas_top": 118,
+                "width": 80,
+                "height": 50
+              }
+            ]
+          },
+          {
+            "type": "canvas",
+            "width": 330,
+            "height": 175,
+            "content": [
+              {
+                "type": "map",
+                "maps": [
+                  "grp_criminels"
+                ],
+                "canvas_left": 0,
+                "canvas_top": 0,
+                "width": 320,
+                "height": 168
+              },
+              {
+                "type": "item",
+                "item": "stat_criminels",
+                "canvas_left": 245,
+                "canvas_top": 118,
+                "width": 80,
+                "height": 50
+              }
+            ]
+          },
+          {
+            "type": "container"
+          }
+        ]
+      },
+      {
+        "type": "array",
+        "dock": "right",
+        "orientation": "vertical",
+        "max_width": 260,
+        "content": [
+          {
+            "type": "item",
+            "item": "stat_checked",
+            "item_size": "210,58",
+            "margin": "4,4"
+          },
+          {
+            "type": "item",
+            "item": "stat_accessible",
+            "item_size": "210,58",
+            "margin": "4,4"
+          },
+          {
+            "type": "item",
+            "item": "stat_remaining",
+            "item_size": "210,58",
+            "margin": "4,4"
+          }
+        ]
+      },
+      {
+        "type": "tabbed",
+        "h_alignment": "stretch",
+        "v_alignment": "stretch",
+        "tabs": [
+          {
+            "title": "Les Hauts de Granval",
+            "content": {
+              "type": "map",
+              "maps": [
+                "det_les_hauts_de_granval"
+              ],
+              "h_alignment": "stretch",
+              "v_alignment": "stretch"
+            }
+          },
+          {
+            "title": "École élémentaire de Granval",
+            "content": {
+              "type": "map",
+              "maps": [
+                "det_ecole_elementaire_de_granval"
+              ],
+              "h_alignment": "stretch",
+              "v_alignment": "stretch"
+            }
+          },
+          {
+            "title": "Égouts",
+            "content": {
+              "type": "map",
+              "maps": [
+                "det_egouts"
+              ],
+              "h_alignment": "stretch",
+              "v_alignment": "stretch"
+            }
+          },
+          {
+            "title": "La Corniche",
+            "content": {
+              "type": "map",
+              "maps": [
+                "det_la_corniche"
+              ],
+              "h_alignment": "stretch",
+              "v_alignment": "stretch"
+            }
+          },
+          {
+            "title": "Mont Sylvestre",
+            "content": {
+              "type": "map",
+              "maps": [
+                "det_mont_sylvestre"
+              ],
+              "h_alignment": "stretch",
+              "v_alignment": "stretch"
+            }
+          },
+          {
+            "title": "Centre-ville de Granval",
+            "content": {
+              "type": "map",
+              "maps": [
+                "det_centre_ville_de_granval"
+              ],
+              "h_alignment": "stretch",
+              "v_alignment": "stretch"
+            }
+          },
+          {
+            "title": "Quartier des boutiques",
+            "content": {
+              "type": "map",
+              "maps": [
+                "det_quartier_des_boutiques"
+              ],
+              "h_alignment": "stretch",
+              "v_alignment": "stretch"
+            }
+          },
+          {
+            "title": "Coteau fleuri",
+            "content": {
+              "type": "map",
+              "maps": [
+                "det_coteau_fleuri"
+              ],
+              "h_alignment": "stretch",
+              "v_alignment": "stretch"
+            }
+          },
+          {
+            "title": "Tour Excellence",
+            "content": {
+              "type": "map",
+              "maps": [
+                "det_tour_excellence"
+              ],
+              "h_alignment": "stretch",
+              "v_alignment": "stretch"
+            }
+          },
+          {
+            "title": "Ourcival",
+            "content": {
+              "type": "map",
+              "maps": [
+                "det_ourcival"
+              ],
+              "h_alignment": "stretch",
+              "v_alignment": "stretch"
+            }
+          },
+          {
+            "title": "Vieil Ourcival",
+            "content": {
+              "type": "map",
+              "maps": [
+                "det_vieil_ourcival"
+              ],
+              "h_alignment": "stretch",
+              "v_alignment": "stretch"
+            }
+          },
+          {
+            "title": "Vieux Granval",
+            "content": {
+              "type": "map",
+              "maps": [
+                "det_vieux_granval"
+              ],
+              "h_alignment": "stretch",
+              "v_alignment": "stretch"
+            }
+          },
+          {
+            "title": "San Fantastico",
+            "content": {
+              "type": "map",
+              "maps": [
+                "det_san_fantastico"
+              ],
+              "h_alignment": "stretch",
+              "v_alignment": "stretch"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "tracker_broadcast": {
+    "type": "itemgrid",
+    "item_size": "40,40",
+    "rows": [
+      [
+        "rang_e",
+        "chapitre",
+        "canne_a_peche"
+      ],
+      [
+        "pile_ou_passe",
+        "cles_de_l_ecole",
+        "herbe_ancestrale"
+      ],
+      [
+        "super_tournevis",
+        "tenue_de_rocker",
+        "modele_zero"
+      ],
+      [
+        "jolie_petite_cle",
+        "jolie_grande_cle",
+        "cle_appartement_c_101"
+      ],
+      [
+        "cle_appartement_c_303",
+        "cle_appartement_b_301",
+        "cle_de_derriere"
+      ],
+      [
+        "filet_a_insectes",
+        "indications_de_maman",
+        "cle_magnetique_or"
+      ],
+      [
+        "cle_salle_du_tresor",
+        "cle_appartement_b_204",
+        "huile_de_tendino"
+      ],
+      [
+        "poignee_etrange",
+        "velo"
+      ]
+    ]
+  }
+}

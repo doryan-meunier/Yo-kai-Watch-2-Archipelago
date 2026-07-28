@@ -1,0 +1,796 @@
+{
+ "Requête : Spécialiste des cigales": [
+  {
+   "nom": "Riz à la crevette",
+   "hash": "0x1bef34f5",
+   "qte": 1
+  },
+  {
+   "nom": "Blablagel",
+   "hash": "0x1a2d5ec2",
+   "qte": 1
+  }
+ ],
+ "Requête : Courage, Max !": [
+  {
+   "nom": "Badge simple",
+   "hash": "0x4757147f",
+   "qte": 1
+  },
+  {
+   "nom": "Badge noir",
+   "hash": "0xd93381dc",
+   "qte": 1
+  }
+ ],
+ "Requête : Ça attire les clients !": [
+  {
+   "nom": "Vivez Karaté",
+   "hash": "0xf5f618bf",
+   "qte": 1
+  },
+  {
+   "nom": "Techni-clopédie",
+   "hash": "0x1c95bd8a",
+   "qte": 1
+  }
+ ],
+ "Requête : Musée en détresse": [
+  {
+   "nom": "Coiffe de singe",
+   "hash": "0xaf92b7b8",
+   "qte": 1
+  }
+ ],
+ "Requête : Officiellement officiel !": [
+  {
+   "nom": "Bracelet rocker",
+   "hash": "0xdc18fb9c",
+   "qte": 1
+  },
+  {
+   "nom": "Bracelet de force",
+   "hash": "0xac720f13",
+   "qte": 1
+  }
+ ],
+ "Requête : Bam boum ! Fusion !": [
+  {
+   "nom": "Clochette force",
+   "hash": "0xdb115340",
+   "qte": 1
+  },
+  {
+   "nom": "Clochette force",
+   "hash": "0xdb115340",
+   "qte": 1
+  }
+ ],
+ "Requête : Les portails mystère": [
+  {
+   "nom": "Ceinture retenue",
+   "hash": "0x419cd694",
+   "qte": 1
+  },
+  {
+   "nom": "Coiffe de singe",
+   "hash": "0xaf92b7b8",
+   "qte": 1
+  }
+ ],
+ "Requête : Super Balaise : l'origine": [
+  {
+   "nom": "Bonbons fruits",
+   "hash": "0x186be09b",
+   "qte": 1
+  }
+ ],
+ "Requête : Soirée chaotique": [
+  {
+   "nom": "Carte cadeau musique",
+   "hash": "0x429b4455",
+   "qte": 1
+  }
+ ],
+ "Requête : Chasseurs de trésors 1": [
+  {
+   "nom": "EXPorbe moyen",
+   "hash": "0x8a29bb7a",
+   "qte": 1
+  }
+ ],
+ "Requête : La base secrète": [
+  {
+   "nom": "Billet de loterie",
+   "hash": "0x359c74c3",
+   "qte": 1
+  }
+ ],
+ "Requête : Nouveau look": [
+  {
+   "nom": "Badge mignon",
+   "hash": "0xae34b14a",
+   "qte": 1
+  }
+ ],
+ "Requête : Agonigiri a des soucis": [
+  {
+   "nom": "Riz à la prune",
+   "hash": "0x6b85c07a",
+   "qte": 1
+  },
+  {
+   "nom": "Coups secrets",
+   "hash": "0x10a43eae",
+   "qte": 2
+  }
+ ],
+ "Obtenons le rang C !": [
+  {
+   "nom": "EXPorbe moyen",
+   "hash": "0x8a29bb7a",
+   "qte": 1
+  }
+ ],
+ "Requête : La star de Granval 1": [
+  {
+   "nom": "Bague mimi",
+   "hash": "0xddda91ab",
+   "qte": 1
+  }
+ ],
+ "Requête : Secrets de l'Âmechimie": [
+  {
+   "nom": "Amulette armure",
+   "hash": "0xa89b1f64",
+   "qte": 1
+  },
+  {
+   "nom": "Amulette antique",
+   "hash": "0xd8f1ebeb",
+   "qte": 1
+  }
+ ],
+ "Requête : Pas le temps de pêcher !": [
+  {
+   "nom": "Anneau illusion",
+   "hash": "0xaadda13d",
+   "qte": 1
+  },
+  {
+   "nom": "Anneau féérique",
+   "hash": "0x3d0f78b5",
+   "qte": 1
+  }
+ ],
+ "Requête : Vrai cache-cache": [
+  {
+   "nom": "Badge d'Hermès",
+   "hash": "0xa9597553",
+   "qte": 1
+  },
+  {
+   "nom": "Badge de l'aurore",
+   "hash": "0x3e8bacdb",
+   "qte": 1
+  }
+ ],
+ "Requête : Le meilleur scarabée": [
+  {
+   "nom": "Bracelet de force",
+   "hash": "0xac720f13",
+   "qte": 1
+  }
+ ],
+ "Requête : Pièce Au Phil du temps": [
+  {
+   "nom": "Laméliore",
+   "hash": "0x2c04032d",
+   "qte": 1
+  },
+  {
+   "nom": "Réflector",
+   "hash": "0xc20a6201",
+   "qte": 1
+  }
+ ],
+ "Requête : Pièce sanctuaire": [
+  {
+   "nom": "Amulette céleste",
+   "hash": "0x36ff8ac7",
+   "qte": 1
+  },
+  {
+   "nom": "Amulette de terre",
+   "hash": "0x484ef67a",
+   "qte": 1
+  }
+ ],
+ "Requête : Pièce ferronnerie": [
+  {
+   "nom": "Clochette force",
+   "hash": "0xdb115340",
+   "qte": 1
+  },
+  {
+   "nom": "Clochette force",
+   "hash": "0xdb115340",
+   "qte": 1
+  }
+ ],
+ "Requête : Trouvons Parasolal !": [
+  {
+   "nom": "Secrets de l'âme",
+   "hash": "0xfeaa5f82",
+   "qte": 1
+  },
+  {
+   "nom": "La vie en tête",
+   "hash": "0x1bf87993",
+   "qte": 1
+  }
+ ],
+ "Requête : Trouvons Lulutin !": [
+  {
+   "nom": "Bracelet solaire",
+   "hash": "0x357b5ea9",
+   "qte": 1
+  },
+  {
+   "nom": "Bracelet de comète",
+   "hash": "0x4bca2214",
+   "qte": 1
+  }
+ ],
+ "Requête : Trouvons Métaureaulog !": [
+  {
+   "nom": "Grand EXPorbe",
+   "hash": "0xfd2e8bec",
+   "qte": 1
+  },
+  {
+   "nom": "Poupée d'argent",
+   "hash": "0x886f0523",
+   "qte": 1
+  }
+ ],
+ "Requête : Trouvons Sirénée !": [
+  {
+   "nom": "Anneau lunaire",
+   "hash": "0x34b9349e",
+   "qte": 1
+  },
+  {
+   "nom": "Anneau du destin",
+   "hash": "0x4a084823",
+   "qte": 1
+  }
+ ],
+ "Requête : Trouvons Faux Kappa !": [
+  {
+   "nom": "Bracelet de farceur",
+   "hash": "0xb50d5297",
+   "qte": 1
+  },
+  {
+   "nom": "Bracelet de bouffi",
+   "hash": "0x2b69c734",
+   "qte": 1
+  }
+ ],
+ "Requête : Le portail final": [
+  {
+   "nom": "Méga EXPorbe",
+   "hash": "0x634a1e4f",
+   "qte": 1
+  }
+ ],
+ "Requête : Prix de Gastronomie": [
+  {
+   "nom": "Morceau de lard",
+   "hash": "0x49b422cb",
+   "qte": 1
+  },
+  {
+   "nom": "Cuisse de poulet",
+   "hash": "0xd0bd7371",
+   "qte": 1
+  }
+ ],
+ "Requête : Un amour perdu": [
+  {
+   "nom": "Remède amer",
+   "hash": "0x8d2013a6",
+   "qte": 1
+  }
+ ],
+ "Requête : Votre mascotte locale": [
+  {
+   "nom": "Vivez Karaté",
+   "hash": "0xf5f618bf",
+   "qte": 1
+  },
+  {
+   "nom": "Sec. hors-série",
+   "hash": "0xeced29fe",
+   "qte": 1
+  }
+ ],
+ "Requête : Blues du déménagement": [
+  {
+   "nom": "Pousse bambou",
+   "hash": "0x3cf5ac04",
+   "qte": 1
+  },
+  {
+   "nom": "Double burger",
+   "hash": "0x834063bd",
+   "qte": 1
+  }
+ ],
+ "Requête : Oden de l'âme 1": [
+  {
+   "nom": "Daikon à la vapeur",
+   "hash": "0xd7b4dbad",
+   "qte": 3
+  }
+ ],
+ "Requête : Oden de l'âme 2": [
+  {
+   "nom": "Brochettes bœuf",
+   "hash": "0x39baba81",
+   "qte": 3
+  }
+ ],
+ "Requête : Oden de l'âme 3": [
+  {
+   "nom": "Oden de luxe",
+   "hash": "0xa7de2f22",
+   "qte": 1
+  }
+ ],
+ "Requête : Chasse nocturne": [
+  {
+   "nom": "Amulette antique",
+   "hash": "0xd8f1ebeb",
+   "qte": 1
+  }
+ ],
+ "Requête : Voyage de l'envoûtement": [
+  {
+   "nom": "Baguettes de tamb.",
+   "hash": "0x5c6ef7a2",
+   "qte": 1
+  }
+ ],
+ "Requête : Virée en mer !": [
+  {
+   "nom": "Maquereau séché",
+   "hash": "0xd17f1946",
+   "qte": 1
+  },
+  {
+   "nom": "Sériole",
+   "hash": "0xf632a4fa",
+   "qte": 1
+  },
+  {
+   "nom": "Oursin cru",
+   "hash": "0x3f71786a",
+   "qte": 1
+  }
+ ],
+ "Requête : Super cache-cache": [
+  {
+   "nom": "Staminum Alpha",
+   "hash": "0x8ea4c7c8",
+   "qte": 2
+  }
+ ],
+ "Requête : Tous à bord": [
+  {
+   "nom": "Riz à la crevette",
+   "hash": "0x1bef34f5",
+   "qte": 1
+  },
+  {
+   "nom": "Thé de l'âme",
+   "hash": "0xf585391c",
+   "qte": 1
+  },
+  {
+   "nom": "Chips",
+   "hash": "0xdd2af6a7",
+   "qte": 1
+  }
+ ],
+ "Requête : Ectoplasmes à l'école": [
+  {
+   "nom": "Talisman de force",
+   "hash": "0xd13aae1a",
+   "qte": 1
+  },
+  {
+   "nom": "Talisman d'esprit",
+   "hash": "0x4833ffa0",
+   "qte": 1
+  }
+ ],
+ "Requête : Le prix du fer": [
+  {
+   "nom": "Poupée d'argent",
+   "hash": "0x886f0523",
+   "qte": 1
+  }
+ ],
+ "Requête : Super Balaise : le retour": [
+  {
+   "nom": "Staminum Alpha",
+   "hash": "0x8ea4c7c8",
+   "qte": 1
+  }
+ ],
+ "Requête : Chasseurs de trésors 2": [
+  {
+   "nom": "Poupée de fuite",
+   "hash": "0x166ffc45",
+   "qte": 3
+  }
+ ],
+ "Requête : Le secret de Jibanyan": [
+  {
+   "nom": "Grelot du souvenir",
+   "hash": "0x22df8b1f",
+   "qte": 1
+  }
+ ],
+ "Requête : Sur les traces de Papa": [
+  {
+   "nom": "Badge étoiles",
+   "hash": "0x373de0f0",
+   "qte": 1
+  },
+  {
+   "nom": "Badge de foudre",
+   "hash": "0x498c9c4d",
+   "qte": 1
+  }
+ ],
+ "Obtenons le rang B !": [
+  {
+   "nom": "Coups secrets",
+   "hash": "0x10a43eae",
+   "qte": 1
+  },
+  {
+   "nom": "Tech. tip-top",
+   "hash": "0x89ad6f14",
+   "qte": 1
+  }
+ ],
+ "Requête : Triangle amoureux": [
+  {
+   "nom": "Amulette armure",
+   "hash": "0xa89b1f64",
+   "qte": 1
+  }
+ ],
+ "Requête : Un look trop sophistiqué": [
+  {
+   "nom": "Sceptre d'amour",
+   "hash": "0x74261273",
+   "qte": 1
+  }
+ ],
+ "Requête : La reine des cigales": [
+  {
+   "nom": "Pièce mauve",
+   "hash": "0x73ea1a49",
+   "qte": 1
+  }
+ ],
+ "Requête : Les sources de l'amitié": [
+  {
+   "nom": "Café au lait",
+   "hash": "0xf0ca2f99",
+   "qte": 1
+  },
+  {
+   "nom": "Lait aux fruits",
+   "hash": "0x87cd1f0f",
+   "qte": 1
+  },
+  {
+   "nom": "Lait merveilleux",
+   "hash": "0x19a98aac",
+   "qte": 1
+  }
+ ],
+ "Requête : Je veux grandir": [
+  {
+   "nom": "Anneau illusion",
+   "hash": "0xaadda13d",
+   "qte": 1
+  }
+ ],
+ "Requête : C1- Grand Prix": [
+  {
+   "nom": "Pièce rose",
+   "hash": "0xeae34bf3",
+   "qte": 1
+  }
+ ],
+ "Requête : Un super fan-club": [
+  {
+   "nom": "Crêpes nappées",
+   "hash": "0x3bfc04d8",
+   "qte": 1
+  }
+ ],
+ "Requête : Coup de bluff": [
+  {
+   "nom": "La vie en tête",
+   "hash": "0x1bf87993",
+   "qte": 1
+  }
+ ],
+ "Requête : Querelles gourmandes": [
+  {
+   "nom": "Pièce jaune",
+   "hash": "0x0380eec6",
+   "qte": 1
+  }
+ ],
+ "Requête : Jouets d'antan": [
+  {
+   "nom": "Carte cadeau musique",
+   "hash": "0x429b4455",
+   "qte": 2
+  }
+ ],
+ "Requête : Tout droit sorti du futur !": [
+  {
+   "nom": "Robovitamine E",
+   "hash": "0xc567a618",
+   "qte": 1
+  }
+ ],
+ "Requête : C1- Grand Prix A": [
+  {
+   "nom": "Pièce bleue",
+   "hash": "0x04ed2adf",
+   "qte": 1
+  }
+ ],
+ "Requête : Une armure sinistre": [
+  {
+   "nom": "Bracelet brute",
+   "hash": "0xab1fcb0a",
+   "qte": 1
+  }
+ ],
+ "Requête : Méga cache-cache": [
+  {
+   "nom": "Badge d'Hermès",
+   "hash": "0xa9597553",
+   "qte": 1
+  }
+ ],
+ "Obtenons le rang A !": [
+  {
+   "nom": "Poupée d'argent",
+   "hash": "0x886f0523",
+   "qte": 1
+  }
+ ],
+ "Requête : Chasseurs de trésors 3": [
+  {
+   "nom": "Amulette de terre",
+   "hash": "0x484ef67a",
+   "qte": 1
+  }
+ ],
+ "Requête : Épreuves de Nyada IV": [
+  {
+   "nom": "Aiguisoir brut",
+   "hash": "0xe0324303",
+   "qte": 1
+  },
+  {
+   "nom": "Aiguisoir sinistre",
+   "hash": "0x97357395",
+   "qte": 1
+  }
+ ],
+ "Requête : Épreuves de Nyada V": [
+  {
+   "nom": "Bracelet obscur",
+   "hash": "0x427c6e3f",
+   "qte": 1
+  },
+  {
+   "nom": "Anneau obscur",
+   "hash": "0x43be0408",
+   "qte": 1
+  }
+ ],
+ "Requête : Épreuves de Nyada VI": [
+  {
+   "nom": "Grand EXPorbe",
+   "hash": "0xfd2e8bec",
+   "qte": 1
+  },
+  {
+   "nom": "Poupée d'or",
+   "hash": "0xff6835b5",
+   "qte": 1
+  }
+ ],
+ "Requête : La star de Granval 2": [
+  {
+   "nom": "Anneau lunaire",
+   "hash": "0x34b9349e",
+   "qte": 1
+  }
+ ],
+ "Requête : Qui est cette fille": [
+  {
+   "nom": "Pièce verte",
+   "hash": "0x9de47b65",
+   "qte": 1
+  }
+ ],
+ "Obtenons le rang S !": [
+  {
+   "nom": "Méga EXPorbe",
+   "hash": "0x634a1e4f",
+   "qte": 1
+  }
+ ],
+ "Requête : C1- Grand Prix S": [
+  {
+   "nom": "Bracelet solaire",
+   "hash": "0x357b5ea9",
+   "qte": 1
+  }
+ ],
+ "Requête : La faim justifie le moyen": [
+  {
+   "nom": "Raviolis chinois",
+   "hash": "0x6454fbf5",
+   "qte": 1
+  },
+  {
+   "nom": "Foie à l'oignon",
+   "hash": "0xfd5daa4f",
+   "qte": 1
+  },
+  {
+   "nom": "Omelette crabe",
+   "hash": "0x8a5a9ad9",
+   "qte": 1
+  }
+ ],
+ "Requête : Super Méga Balaise": [
+  {
+   "nom": "Amulette céleste",
+   "hash": "0x36ff8ac7",
+   "qte": 1
+  }
+ ],
+ "Requête : La clinique hantée": [
+  {
+   "nom": "Pièce orange",
+   "hash": "0x7487de50",
+   "qte": 1
+  }
+ ],
+ "Requête : Le prix du monde": [
+  {
+   "nom": "Remède infect",
+   "hash": "0x1429421c",
+   "qte": 1
+  },
+  {
+   "nom": "Remède amer",
+   "hash": "0x8d2013a6",
+   "qte": 1
+  },
+  {
+   "nom": "Remède puiss.",
+   "hash": "0xfa272330",
+   "qte": 1
+  }
+ ],
+ "Requête : C1- Grand Prix X": [
+  {
+   "nom": "Badge obscur",
+   "hash": "0x403ad066",
+   "qte": 1
+  }
+ ],
+ "Requête : Le général des bouffis / farceurs": [
+  {
+   "nom": "Bracelet usé",
+   "hash": "0x4511aa26",
+   "qte": 1
+  }
+ ],
+ "Requête : Retour au Yo-kai World": [
+  {
+   "nom": "Remède puiss.",
+   "hash": "0xfa272330",
+   "qte": 1
+  }
+ ],
+ "Requête : Vision du cauchemar": [
+  {
+   "nom": "EXPorbe sacré",
+   "hash": "0x144d2ed9",
+   "qte": 1
+  }
+ ],
+ "Requête : Regardez les cieux": [
+  {
+   "nom": "Amulette antique",
+   "hash": "0xd8f1ebeb",
+   "qte": 1
+  }
+ ],
+ "Requête : Cache-cache expert": [
+  {
+   "nom": "Badge de foudre",
+   "hash": "0x498c9c4d",
+   "qte": 1
+  }
+ ],
+ "Requête : L'histoire de M. Loiseau": [
+  {
+   "nom": "Poupée d'or",
+   "hash": "0xff6835b5",
+   "qte": 1
+  }
+ ],
+ "Requête : Le sanctuaire du renard": [
+  {
+   "nom": "Anneau obscur",
+   "hash": "0x43be0408",
+   "qte": 1
+  }
+ ],
+ "Requête : Le géant fantôme": [
+  {
+   "nom": "Bracelet de comète",
+   "hash": "0x4bca2214",
+   "qte": 1
+  }
+ ],
+ "Requête : Le dieu de l'océan": [
+  {
+   "nom": "Amulette antique",
+   "hash": "0xd8f1ebeb",
+   "qte": 1
+  }
+ ],
+ "Requête : Épreuves de Nyada I": [
+  {
+   "nom": "Pièce bleu ciel",
+   "hash": "0xe35507d8",
+   "qte": 1
+  }
+ ],
+ "Requête : Épreuves de Nyada II": [
+  {
+   "nom": "Coups secrets",
+   "hash": "0x10a43eae",
+   "qte": 1
+  }
+ ],
+ "Requête : Épreuves de Nyada III": [
+  {
+   "nom": "Badge légendaire",
+   "hash": "0x294b15a8",
+   "qte": 1
+  }
+ ]
+}

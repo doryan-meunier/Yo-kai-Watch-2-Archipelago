@@ -1,0 +1,92 @@
+[
+  {
+    "name": "det_les_hauts_de_granval",
+    "location_size": 10,
+    "location_border_thickness": 1,
+    "img": "images/det_les_hauts_de_granval.png"
+  },
+  {
+    "name": "det_ecole_elementaire_de_granval",
+    "location_size": 10,
+    "location_border_thickness": 1,
+    "img": "images/det_ecole_elementaire_de_granval.png"
+  },
+  {
+    "name": "det_egouts",
+    "location_size": 10,
+    "location_border_thickness": 1,
+    "img": "images/det_egouts.png"
+  },
+  {
+    "name": "det_la_corniche",
+    "location_size": 10,
+    "location_border_thickness": 1,
+    "img": "images/det_la_corniche.png"
+  },
+  {
+    "name": "det_mont_sylvestre",
+    "location_size": 10,
+    "location_border_thickness": 1,
+    "img": "images/det_mont_sylvestre.png"
+  },
+  {
+    "name": "det_centre_ville_de_granval",
+    "location_size": 10,
+    "location_border_thickness": 1,
+    "img": "images/det_centre_ville_de_granval.png"
+  },
+  {
+    "name": "det_quartier_des_boutiques",
+    "location_size": 10,
+    "location_border_thickness": 1,
+    "img": "images/det_quartier_des_boutiques.png"
+  },
+  {
+    "name": "det_coteau_fleuri",
+    "location_size": 10,
+    "location_border_thickness": 1,
+    "img": "images/det_coteau_fleuri.png"
+  },
+  {
+    "name": "det_tour_excellence",
+    "location_size": 10,
+    "location_border_thickness": 1,
+    "img": "images/det_tour_excellence.png"
+  },
+  {
+    "name": "det_ourcival",
+    "location_size": 10,
+    "location_border_thickness": 1,
+    "img": "images/det_ourcival.png"
+  },
+  {
+    "name": "det_vieil_ourcival",
+    "location_size": 10,
+    "location_border_thickness": 1,
+    "img": "images/det_vieil_ourcival.png"
+  },
+  {
+    "name": "det_vieux_granval",
+    "location_size": 10,
+    "location_border_thickness": 1,
+    "img": "images/det_vieux_granval.png"
+  },
+  {
+    "name": "det_san_fantastico",
+    "location_size": 10,
+    "location_border_thickness": 1,
+    "img": "images/det_san_fantastico.png"
+  },
+  {
+    "name": "grp_chapitres",
+    "location_size": 64,
+    "location_border_thickness": 3,
+    "img": "images/grp_chapitres.png"
+  },
+  {
+    "name": "grp_criminels",
+    "location_size": 64,
+    "location_border_thickness": 3,
+    "img": "images/grp_criminels.png"
+  }
+]

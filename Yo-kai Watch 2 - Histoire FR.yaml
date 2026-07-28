@@ -1,0 +1,69 @@
+# =============================================================================
+# Yo-kai Watch 2 : Spectres Psychiques — Archipelago — VERSION 1 : HISTOIRE SEULE
+# -----------------------------------------------------------------------------
+# On joue TOUTE L'HISTOIRE jusqu'à battre Lady Démona (fin de l'aventure).
+# Le POST-GAME n'est PAS inclus dans cette version.
+# Placez ce fichier dans Archipelago/Players/ puis lancez Generate.
+# =============================================================================
+
+name: Doteos
+description: "Yo-kai Watch 2 - Histoire (v1)"
+game: Yo-kai Watch 2
+
+requires:
+  version: 0.5.0
+
+Yo-kai Watch 2:
+  # ---------------------------------------------------------------------------
+  # Options communes Archipelago
+  # ---------------------------------------------------------------------------
+  progression_balancing: 50
+  accessibility: full
+  exclude_locations: []
+  priority_locations: []
+
+  # ===========================================================================
+  # SECTION HISTOIRE (v1) — objectif : battre Lady Démona
+  # ===========================================================================
+  goal: final_boss                 # v1 : fin de l'histoire (Lady Démona). NE PAS changer.
+  logic_difficulty: normal         # casual / normal / hard / expert
+
+  # --- CHECKS MODIFIABLES (mets true ou false selon ton envie) ---
+  quest_shuffle: true              # requêtes + services = checks
+  chest_shuffle: true              # coffres = checks
+  tablo_shuffle: true              # Tablo-blabla = checks. Seuls les 19 RE'd sont pris
+                                   # en compte ; les 7 non détectables (6,7,10,23,24,25,26)
+                                   # sont exclus automatiquement. false = aucun tablo.
+                                   # ⚠ NE coupe PAS quest_shuffle ET chest_shuffle en même
+                                   #   temps : la génération échoue (pool trop petit).
+  criminel_shuffle: false          # ⛔ NE PAS ACTIVER — LAISSE SUR FALSE.
+                                   # Paliers de Yo-criminels (1/5/10/20/30). La détection
+                                   # n'est PAS assez testée : un palier qui ne part pas
+                                   # bloque la run (surtout en multi, si un objet de
+                                   # progression y tombe).
+
+  # NB : les BOSS, les CHAPITRES d'histoire et les RANGS de montre sont TOUJOURS
+  #      des checks, et les OBJETS-CLÉS sont TOUJOURS dans le pool multiworld
+  #      (non désactivables — c'est la colonne vertébrale de la progression).
+
+  # --- PIÈGES / DEATHLINK ---
+  trap_percentage: 0               # v1 : PAS de pièges (effet pas encore setup côté client)
+  death_link: true                 # perdre un combat = tout le monde meurt (et inversement :
+                                   # une mort reçue met ta roue à 1 PV). Mets false pour désactiver.
+
+  # ===========================================================================
+  # SECTION POST-GAME (v2) — NON IMPLÉMENTÉ : tout doit rester false / none
+  # ---------------------------------------------------------------------------
+  # Sera activable quand le post-game sera fait (détection Potofeu/Filomène,
+  # rang S, donjons Limbes éternelles / Paradis divin, légendaires).
+  # Les goals post-game (infinite_inferno, divine_paradise, all_legendaries,
+  # all_checks) ne sont PAS encore jouables.
+  # ===========================================================================
+  ground_item_shuffle: false       # objets au sol (non détectés)
+  planque_shuffle: false           # planques Yo-kai (non détectées)
+  komasan_shuffle: false           # aventures de Komasan (non détectées)
+  collection_shuffle: false        # insectes / poissons
+  yokai_shuffle: none              # amitiés Yo-kai
+  legendary_shuffle: false         # médailles légendaires (post-game)
+  fusion_shuffle: false            # objets de fusion
+  evolution_shuffle: false         # évolutions

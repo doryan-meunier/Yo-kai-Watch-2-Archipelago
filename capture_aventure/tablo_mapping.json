@@ -1,0 +1,33 @@
+{
+  "bit1": {
+    "octet": "0x086cfb1c",
+    "bit": 1,
+    "zone": "Grotte du littoral",
+    "yokai": "Noripop",
+    "chapitre": 6,
+    "combat_rank": 2
+  },
+  "bit2": {
+    "octet": "0x086cfb1c",
+    "bit": 2,
+    "zone": "Grotte du littoral",
+    "yokai": "(2e Yo-kai)",
+    "chapitre": 6,
+    "combat_rank": 2
+  },
+  "bit3": {
+    "octet": "0x086cfb1c",
+    "bit": 3,
+    "zone": "Grotte du littoral",
+    "yokai": "Salsalga",
+    "chapitre": 6,
+    "combat_rank": 2
+  },
+  "_note_structure": "IMPORTANT: le bitfield 0x086cfb1c ne contient QUE les Tablos de la Grotte du littoral (bits 1,2,3). Le Tablo 'Triptic-tac' (Ch10, autre zone) n'y apparait PAS (avant/apres identiques = 0x0e sur 8 octets). => Le stockage Tablo n'est PAS un bitfield global unique : soit par-zone, soit un flag hors 0x086cfb1c..+8. A localiser par un avant/apres LARGE (0x086cf800+0x800) sur le PROCHAIN Tablo.",
+  "Triptic-tac": {
+    "yokai": "Triptic-tac",
+    "chapitre": 10,
+    "bit": "TBD",
+    "note": "resolu Ch10. Bit hors 0x086cfb1c..+8. A back-fill quand on aura localise la region Tablo Ch10 (via prochain Tablo diff large)."
+  }
+}

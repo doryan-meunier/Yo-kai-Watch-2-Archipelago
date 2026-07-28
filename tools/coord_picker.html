@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Pointeur de coordonnées — cartes tracker YKW2</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:system-ui,Segoe UI,Arial,sans-serif; background:#1b1e24; color:#e6e6e6; }
+  header { padding:10px 16px; background:#232833; border-bottom:1px solid #333; position:sticky; top:0; z-index:5; }
+  header h1 { font-size:15px; margin:0 0 4px; }
+  header p { margin:0; font-size:12px; color:#9fb0bd; }
+  #wrap { display:flex; gap:14px; padding:14px; align-items:flex-start; flex-wrap:wrap; }
+  #stage { position:relative; border:2px dashed #556; border-radius:8px; overflow:auto;
+           max-width:75vw; max-height:82vh; background:#12141a; }
+  #stage.drop { border-color:#4caf50; background:#16241a; }
+  #stage.empty { display:flex; align-items:center; justify-content:center; width:520px; height:360px; }
+  #hint { color:#8aa; font-size:14px; text-align:center; padding:20px; pointer-events:none; }
+  #img { display:block; }
+  #cursor { position:fixed; pointer-events:none; background:#000c; color:#0f0; font:12px monospace;
+            padding:3px 6px; border-radius:4px; z-index:9; display:none; }
+  .dot { position:absolute; width:10px; height:10px; margin:-5px 0 0 -5px; border-radius:50%;
+         background:#ff3b3b; border:2px solid #fff; box-shadow:0 0 3px #000; }
+  .dot span { position:absolute; left:12px; top:-4px; font:11px monospace; color:#fff;
+              background:#000a; padding:1px 4px; border-radius:3px; white-space:nowrap; }
+  #panel { flex:1; min-width:280px; }
+  #panel h2 { font-size:13px; margin:0 0 6px; color:#9fb0bd; }
+  #meta { font:12px monospace; color:#8fb; margin-bottom:8px; }
+  textarea { width:100%; height:300px; background:#0e1014; color:#cfe; border:1px solid #334;
+             border-radius:6px; font:12px/1.5 monospace; padding:8px; resize:vertical; }
+  .row { display:flex; gap:8px; margin-top:8px; flex-wrap:wrap; }
+  button { background:#2f6fd6; color:#fff; border:0; border-radius:6px; padding:8px 12px;
+           font-size:13px; cursor:pointer; }
+  button.sec { background:#444b57; }
+  button:hover { filter:brightness(1.1); }
+  label.lbl { font-size:12px; color:#9fb0bd; display:flex; align-items:center; gap:6px; margin-top:8px; }
+  input[type=text] { flex:1; background:#0e1014; color:#cfe; border:1px solid #334; border-radius:6px; padding:6px 8px; font-size:13px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Pointeur de coordonnées — cartes du tracker</h1>
+  <p>Glisse une carte (ex. <code>tracker_assets/map asset/égout.jpg</code>) dans la zone. Bouge la souris = coordonnées en pixels natifs. Clique = enregistre un point. Ce sont exactement les valeurs à me donner (x, y).</p>
+</header>
+
+<div id="wrap">
+  <div id="stage" class="empty">
+    <div id="hint">⬇️ Glisse-dépose l'image ici<br>(ou clique pour choisir un fichier)</div>
+    <input id="file" type="file" accept="image/*" style="display:none">
+  </div>
+
+  <div id="panel">
+    <h2>Points enregistrés</h2>
+    <div id="meta">aucune image chargée</div>
+    <label class="lbl">Nom du prochain point&nbsp;:
+      <input id="label" type="text" placeholder="ex. Coffre 09 / #9 Pièce rose">
+    </label>
+    <textarea id="log" spellcheck="false" placeholder="Chaque clic ajoute une ligne :  nom  ->  (x, y)"></textarea>
+    <div class="row">
+      <button id="copy">📋 Copier tout</button>
+      <button id="undo" class="sec">↶ Annuler dernier</button>
+      <button id="clear" class="sec">🗑 Tout effacer</button>
+    </div>
+    <p style="font-size:11px;color:#778;margin-top:10px">
+      Astuce : mets un nom avant chaque clic, sinon le point est numéroté automatiquement.
+      L'affichage est en 1:1 (taille réelle de l'image) donc les coordonnées sont directement utilisables.
+    </p>
+  </div>
+</div>
+
+<div id="cursor"></div>
+
+<script>
+const stage=document.getElementById('stage'), fileInput=document.getElementById('file');
+const cursor=document.getElementById('cursor'), meta=document.getElementById('meta');
+const logEl=document.getElementById('log'), labelEl=document.getElementById('label');
+let img=null, points=[], counter=0;
+
+function loadFile(f){
+  if(!f) return;
+  const url=URL.createObjectURL(f);
+  const im=new Image();
+  im.onload=()=>{
+    stage.classList.remove('empty');
+    stage.innerHTML=''; stage.appendChild(fileInput);
+    im.id='img'; stage.appendChild(im);
+    img=im; points=[]; counter=0; renderLog();
+    meta.textContent=`${f.name} — ${im.naturalWidth} × ${im.naturalHeight} px`;
+  };
+  im.src=url;
+}
+
+fileInput.addEventListener('change',e=>loadFile(e.target.files[0]));
+stage.addEventListener('click',e=>{ if(!img){fileInput.click();} });
+
+['dragover','dragenter'].forEach(ev=>stage.addEventListener(ev,e=>{e.preventDefault();stage.classList.add('drop');}));
+['dragleave','drop'].forEach(ev=>stage.addEventListener(ev,e=>{e.preventDefault();stage.classList.remove('drop');}));
+stage.addEventListener('drop',e=>{ const f=e.dataTransfer.files[0]; if(f) loadFile(f); });
+
+stage.addEventListener('mousemove',e=>{
+  if(!img) return;
+  const r=img.getBoundingClientRect();
+  const sx=img.naturalWidth/r.width, sy=img.naturalHeight/r.height;
+  const x=Math.round((e.clientX-r.left)*sx), y=Math.round((e.clientY-r.top)*sy);
+  if(x<0||y<0||x>img.naturalWidth||y>img.naturalHeight){cursor.style.display='none';return;}
+  cursor.style.display='block';
+  cursor.style.left=(e.clientX+14)+'px'; cursor.style.top=(e.clientY+14)+'px';
+  cursor.textContent=`x=${x}  y=${y}`;
+});
+stage.addEventListener('mouseleave',()=>cursor.style.display='none');
+
+img===null;
+stage.addEventListener('click',e=>{
+  if(!img || e.target===fileInput) return;
+  if(e.target.tagName!=='IMG') return;
+  const r=img.getBoundingClientRect();
+  const sx=img.naturalWidth/r.width, sy=img.naturalHeight/r.height;
+  const x=Math.round((e.clientX-r.left)*sx), y=Math.round((e.clientY-r.top)*sy);
+  const name=(labelEl.value.trim())||('point '+(++counter));
+  points.push({name,x,y});
+  // marqueur visuel (en coord d'affichage)
+  const dot=document.createElement('div'); dot.className='dot';
+  dot.style.left=(e.clientX-r.left)+'px'; dot.style.top=(e.clientY-r.top)+'px';
+  dot.innerHTML=`<span>${name}</span>`;
+  stage.appendChild(dot);
+  labelEl.value=''; labelEl.focus();
+  renderLog();
+});
+
+function renderLog(){
+  logEl.value=points.map(p=>`${p.name}  ->  (${p.x}, ${p.y})`).join('\n');
+}
+document.getElementById('copy').onclick=()=>{ navigator.clipboard.writeText(logEl.value); };
+document.getElementById('undo').onclick=()=>{
+  points.pop(); const dots=stage.querySelectorAll('.dot'); if(dots.length) dots[dots.length-1].remove(); renderLog();
+};
+document.getElementById('clear').onclick=()=>{
+  points=[]; counter=0; stage.querySelectorAll('.dot').forEach(d=>d.remove()); renderLog();
+};
+</script>
+</body>
+</html>

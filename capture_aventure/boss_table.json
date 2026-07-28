@@ -1,0 +1,15 @@
+{
+  "_detection": "DETECTION BOSS = bitfield 'enregistre/vu' du Medallium. Base 0x086cfebc, bit = N Medallium (LINEAIRE). Verifie: 388/389/390 -> 0x086cfeec bits 4/5/6 (=0x70), 392/393 -> 0x086cfeed bits 0/1 (=0x03). Formule: octet = 0x086cfebc + N//8, bit = N%8. Fiable. (Les bits 'defeated' 0x086cfee1/0x086cfebd sont une AUTRE structure non-lineaire -> abandonnes.)",
+  "_note_checks": "Laure(392) et Marge(393) = 2 boss en 1 combat MAIS 2 checks distincts (demande Doteos).",
+  "_note_timing": "Le bit 'enregistre' fire a la RENCONTRE (biographie affichee), PAS a la mort (confirme: bit 391 Tourboeillon deja mis dans baseline prise avant le fight). OK pour boss d'histoire obligatoires (rencontre => victoire garantie, combat non-esquivable). Si un jour on veut le vrai 'defeated', utiliser les bits disperses (0x086cfee1, 0x086cfebd) a mapper 1 par 1.",
+  "bosses": {
+    "Grolos": { "medallium": 388, "octet": "0x086cfeec", "bit": 4, "chapitre": 3, "note": "fin Ch3 -> Ch4 (ecole)" },
+    "Meganyan": { "medallium": 389, "octet": "0x086cfeec", "bit": 5, "chapitre": 4, "note": "fin Ch4 -> Ch5" },
+    "Barbefrousse": { "medallium": 390, "octet": "0x086cfeec", "bit": 6, "chapitre": 6, "note": "avant fin quete Retrouvons Sirenee (Grotte du littoral)" },
+    "Tourboeillon": { "medallium": 391, "octet": "0x086cfeec", "bit": 7, "chapitre": 7, "note": "boss fin Ch7 (apres quetes Le secret de Jibanyan/Sur les traces de Papa/rang B). Bit deja mis a la RENCONTRE (baseline avant fight) -> confirme: le bit 'enregistre' fire a l'ENCOUNTER, pas a la mort." },
+    "Laure": { "medallium": 392, "octet": "0x086cfeed", "bit": 0, "chapitre": 6, "note": "boss fin quetes cles Ch6 (2-en-1 avec Marge) = check 1/2" },
+    "Marge": { "medallium": 393, "octet": "0x086cfeed", "bit": 1, "chapitre": 6, "note": "boss fin quetes cles Ch6 (2-en-1 avec Laure) = check 2/2" },
+    "Lady Perpetua": { "medallium": 394, "octet": "0x086cfeed", "bit": 2, "chapitre": 10, "note": "boss Ch10 (antagoniste principale, maitresse de Laure/Marge). N=394 CONFIRME (screenshot Medallium). Bit mis a la rencontre. 1ere forme (se transforme en Lady Demona)." },
+    "Lady Demona": { "medallium": 395, "octet": "0x086cfeed", "bit": 3, "chapitre": 10, "GOAL": true, "detecteur_goal": "COMPTEUR CHAPITRE 0x086cfa24 >= 11 (0x0b)", "note": "BOSS FINAL = GOAL (FINAL_BOSS_EVENT / 'Repaire de Lady Demona'). Forme finale de Lady Perpetua. N=395 CONFIRME. Le bit registered 395 fire a la RENCONTRE (inutilisable pour victoire). SOLUTION PROPRE TROUVEE: battre Lady Demona fait passer le compteur chapitre 0x086cfa24 de 10 (0x0a) -> 11 (0x0b). Donc GOAL 'default'/boss final = detecter chapitre>=11. Ch11 = debut post-game. Le client surveille deja ce compteur (STORY_CHAPTER_ADDR)." }
+  }
+}
