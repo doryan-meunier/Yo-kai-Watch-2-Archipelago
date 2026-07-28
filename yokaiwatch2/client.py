@@ -327,8 +327,8 @@ class YKW2CommandProcessor(ClientCommandProcessor):
         if isinstance(self.ctx, YKW2Context):
             for name, (addr, size) in MEMORY_REGIONS.items():
                 state = f"{addr:#010x} ({size:#x} octets)" if addr else "non trouvée"
-                logger.info("  %s : %s", name, state)
-            logger.info("Pont mémoire %s ; émulateur %s.",
+                logger.debug("  %s : %s", name, state)
+            logger.debug("Pont mémoire %s ; émulateur %s.",
                         "prêt" if memory_map_ready() else "non configuré",
                         "attaché" if self.ctx.gdb.connected else "non attaché")
 
@@ -470,7 +470,7 @@ class YKW2Context(CommonContext):
         if (location_id and location_id in self.missing_locations
                 and location_id not in new_checks):
             new_checks.append(location_id)
-            logger.info("Check : %s", location_name)
+            logger.debug("Check : %s", location_name)
 
     # ------------------------------------------------------------------
     # Livraison des items reçus -> écriture inventaire (recette memory_map)
@@ -527,7 +527,7 @@ class YKW2Context(CommonContext):
                             INVENTORY_COUNT_ADDR, 4), "little")
                         await self.gdb.write_memory(
                             INVENTORY_COUNT_ADDR, struct.pack("<I", cnt + 1))
-                        logger.info("Entrée épuisée réactivée (slot %d) pour "
+                        logger.debug("Entrée épuisée réactivée (slot %d) pour "
                                     "%#010x : bit de slot reposé.", _slot,
                                     item_hash)
                 return True
@@ -551,12 +551,12 @@ class YKW2Context(CommonContext):
             # (ex. inventaire pas encore initialisé) -> on réessaie, sans écrire.
             _hslot, _htyp, _hh, _hq, _hptr = struct.unpack_from("<HHIII", inv, 0)
             if not (_hh or _hptr or _htyp):
-                logger.info("Inventaire vide sans en-tête exploitable : livraison "
+                logger.debug("Inventaire vide sans en-tête exploitable : livraison "
                             "de %#010x reportée (réessai au prochain poll).", item_hash)
                 return False
             chain_off, new_off, new_slot = 0, INVENTORY_ENTRY_SIZE, 0
         elif last_off + 2 * INVENTORY_ENTRY_SIZE > span:
-            logger.info("Inventaire plein : livraison de %#010x reportée "
+            logger.debug("Inventaire plein : livraison de %#010x reportée "
                         "(réessai au prochain poll).", item_hash)
             return False
         else:
@@ -582,7 +582,7 @@ class YKW2Context(CommonContext):
         await self.gdb.write_memory(
             byte_addr, bytes([cur | (1 << (new_slot % 8))]))
         if chain_off == 0:
-            logger.info("Livraison %#010x sur inventaire vide : 1re entrée créée "
+            logger.debug("Livraison %#010x sur inventaire vide : 1re entrée créée "
                         "à 0x10 (slot 0).", item_hash)
         return True
 
@@ -747,7 +747,7 @@ class YKW2Context(CommonContext):
                 # (doublon) -> _queue_check ignore alors le check.
                 self._queue_check(native_key_check_name(name), native_checks)
                 if await self._remove_from_key_items(h):
-                    logger.info("Objet-clé natif retiré (shuffle dur) : %s", name)
+                    logger.debug("Objet-clé natif retiré (shuffle dur) : %s", name)
         if native_checks:
             await self.send_msgs([{"cmd": "LocationChecks",
                                    "locations": native_checks}])
@@ -854,7 +854,7 @@ class YKW2Context(CommonContext):
                             changed = True
                 if has_item:
                     if changed:
-                        logger.info("Capacité débloquée (« %s » reçu)", item)
+                        logger.debug("Capacité débloquée (« %s » reçu)", item)
                     self._gates_logged.discard(item)
                     continue
 
@@ -862,7 +862,7 @@ class YKW2Context(CommonContext):
             # reposer la valeur -> sinon spam à chaque poll).
             if changed and item not in self._gates_logged:
                 self._gates_logged.add(item)
-                logger.info("Verrouillé (objet AP « %s » non reçu)", item)
+                logger.debug("Verrouillé (objet AP « %s » non reçu)", item)
 
 
     # --- neutralisation de l'item natif des coffres (design unifié) ---------
@@ -963,7 +963,7 @@ class YKW2Context(CommonContext):
             added = (current_inv.get(h, 0) - self._prev_inv.get(h, 0)
                      - self._delivered_last_poll.get(h, 0))
             if added > 0:
-                logger.info("Neutralisation coffre (registre) : %#010x  "
+                logger.debug("Neutralisation coffre (registre) : %#010x  "
                             "(courant=%d, précédent=%d, livré=%d -> retire %d)",
                             h, current_inv.get(h, 0), self._prev_inv.get(h, 0),
                             self._delivered_last_poll.get(h, 0), added)
@@ -1086,10 +1086,10 @@ class YKW2Context(CommonContext):
         await self.gdb.write_memory(WATCH_RANK_VALUE_ADDR, bytes([floor]))
         letters = "EDCBAS"
         if floor > current:
-            logger.info("Rang de montre livré : %s (items AP : %d).",
+            logger.debug("Rang de montre livré : %s (items AP : %d).",
                         letters[floor], floor)
         else:
-            logger.info("Rang natif neutralisé (shuffle dur) : %s -> %s "
+            logger.debug("Rang natif neutralisé (shuffle dur) : %s -> %s "
                         "(le rang vient des items AP ; le check de la "
                         "quête est conservé).",
                         letters[min(current, 5)], letters[floor])
@@ -1117,7 +1117,7 @@ class YKW2Context(CommonContext):
                 if item_hash is not None:
                     await self._deliver_to_key_items(item_hash)
                     self._keyitem_done.add(name)
-                    logger.info("Reçu et livré (objet-clé) : %s", name)
+                    logger.debug("Reçu et livré (objet-clé) : %s", name)
 
         # 2) Consommables : gated par le compteur (anti-duplication).
         if self.delivered_count is None:
@@ -1137,7 +1137,7 @@ class YKW2Context(CommonContext):
                 # Objet reçu depuis TA PROPRE quête : le JEU l'a déjà donné (patch
                 # de récompense) -> ne PAS re-livrer (design unifié, évite le
                 # doublon). Les objets-clés (idempotents) sont exclus ci-dessus.
-                logger.info("Reçu (donné par la quête en jeu) : %s",
+                logger.debug("Reçu (donné par la quête en jeu) : %s",
                             name or net_item.item)
             elif item_hash is not None:
                 inv_type = ITEM_GAME_TYPE.get(name, DEFAULT_INVENTORY_TYPE)
@@ -1154,14 +1154,14 @@ class YKW2Context(CommonContext):
                 # de coffre (diff d'inventaire) n'attribue pas ce surplus au jeu.
                 self._delivered_this_poll[item_hash] = \
                     self._delivered_this_poll.get(item_hash, 0) + amount
-                logger.info("Reçu et livré : %s x%d", name, amount)
+                logger.debug("Reçu et livré : %s x%d", name, amount)
             elif name == PROGRESSIVE_RANK_ITEM or name in RANK_ITEM_NAMES.values():
                 # rangs de montre : appliqués DIRECTEMENT en jeu par
                 # _deliver_watch_rank (force-write, design 2026-07-16).
-                logger.info("Reçu : %s -> rang appliqué en jeu.", name)
+                logger.debug("Reçu : %s -> rang appliqué en jeu.", name)
             else:
                 # items abstraits : le jeu les délivre via l'histoire (no-op ici)
-                logger.info("Reçu (délivré par l'histoire) : %s",
+                logger.debug("Reçu (délivré par l'histoire) : %s",
                             name or net_item.item)
             self.delivered_count += 1
             changed = True
@@ -1215,10 +1215,10 @@ class YKW2Context(CommonContext):
                     "locations": scout,
                     "create_as_hint": 0}]))
             if memory_map_ready():
-                logger.info("Carte mémoire configurée : tapez /citra pour "
+                logger.debug("Carte mémoire configurée : tapez /citra pour "
                             "activer l'envoi automatique des checks.")
             else:
-                logger.info("Carte mémoire non renseignée (memory_map.py) : "
+                logger.debug("Carte mémoire non renseignée (memory_map.py) : "
                             "client en mode texte. Voir "
                             "docs/memory_map_fr.md pour la compléter.")
         elif cmd == "LocationInfo":
@@ -1270,7 +1270,7 @@ class YKW2Context(CommonContext):
             return
         try:
             count, warnings = mod_patcher.patch_mod(mod_path, placements)
-            logger.info("Récompenses de quêtes affichées en jeu : %d quêtes "
+            logger.debug("Récompenses de quêtes affichées en jeu : %d quêtes "
                         "patchées (%d écritures).", len(placements), count)
             for w in warnings[:3]:
                 logger.debug("patch mod : %s", w)
@@ -1287,7 +1287,7 @@ class YKW2Context(CommonContext):
         # reçues avant le même poll = un seul kill mais toutes les sources
         # sont journalisées.
         self._deathlink_pending.append(data.get("source") or "?")
-        logger.info("DeathLink reçu de %s — l'équipe sera mise K.O. au "
+        logger.debug("DeathLink reçu de %s — l'équipe sera mise K.O. au "
                     "prochain cycle.", self._deathlink_pending[-1])
 
     async def _apply_deathlink_kill(self, sources: List[str],
@@ -1338,7 +1338,7 @@ class YKW2Context(CommonContext):
                 if live_max > 0 and live_cur > 1:
                     await self.gdb.write_memory(
                         base + BATTLE_HP_CUR_OFFSET, b"\x01\x00")
-        logger.info("DeathLink appliqué (mort de %s) : équipe à 1 PV%s.",
+        logger.debug("DeathLink appliqué (mort de %s) : équipe à 1 PV%s.",
                     ", ".join(sources),
                     " (combat en cours : prochaine attaque fatale)"
                     if battle_active else "")
@@ -1441,7 +1441,7 @@ class YKW2Context(CommonContext):
         live_alive = any(live_cur)
         if self._dl_kill_lock and array_alive:
             self._dl_kill_lock = False
-            logger.info("DeathLink : équipe revue vivante -> détection "
+            logger.debug("DeathLink : équipe revue vivante -> détection "
                         "réarmable.")
         wiped = (live_exists and not live_alive and self._prev_live_alive
                  and state != 0)
@@ -1458,7 +1458,7 @@ class YKW2Context(CommonContext):
             # effectif attend un serveur joignable (_death_to_send).
             self._can_send_death = False
             self._death_to_send = True
-            logger.info("Défaite détectée -> DeathLink pour les autres "
+            logger.debug("Défaite détectée -> DeathLink pour les autres "
                         "joueurs.")
         elif (state != 0 and live_alive and not kill_applied
                 and not self._dl_kill_lock):
@@ -1505,14 +1505,14 @@ class YKW2Context(CommonContext):
                 # pertes de connexion en mode no-halt (stub instable).
                 if getattr(self, "_no_halt_losses", 0) < 2:
                     await self.gdb.probe_no_halt()
-            logger.info("Attaché au stub GDB (port %d). L'émulation reprend.",
+            logger.debug("Attaché au stub GDB (port %d). L'émulation reprend.",
                         port)
             if self.gdb.no_halt:
-                logger.info("Lectures sans pause ACTIVES : l'émulation n'est "
+                logger.debug("Lectures sans pause ACTIVES : l'émulation n'est "
                             "plus haltée pour lire (fini le micro-freeze). Les "
                             "écritures restent ponctuellement synchronisées.")
             else:
-                logger.info("Lectures sans pause non supportées par ce stub : "
+                logger.debug("Lectures sans pause non supportées par ce stub : "
                             "mode halt classique conservé.")
         except OSError as error:
             logger.error("Connexion au stub GDB impossible (port %d) : %s. "
@@ -1609,7 +1609,7 @@ class YKW2Context(CommonContext):
                                                     0) + 1
                     if self._nh_zero_strikes >= 3:
                         self.gdb.no_halt = False
-                        logger.info("Lectures sans pause : données incohérentes "
+                        logger.debug("Lectures sans pause : données incohérentes "
                                     "(3 cycles à zéro) -> retour au mode halt.")
                     return
                 # chapitre 0 confirmé (menu / pas de save) : cycle normal ; se
@@ -1649,7 +1649,7 @@ class YKW2Context(CommonContext):
                                 _loc = MEDALLIUM_BIT_TO_LOCATION.get(_i * 8 + _b)
                                 if _loc and _loc not in self._boss_won:
                                     self._boss_pending.add(_loc)
-                                    logger.info("Boss rencontré : %s — le check "
+                                    logger.debug("Boss rencontré : %s — le check "
                                                 "partira à la victoire.", _loc)
                 self._prev_medallium = _md_now
             if self._boss_pending:
@@ -1673,12 +1673,12 @@ class YKW2Context(CommonContext):
                         self._boss_lost = True
                 if self._prev_battle_state != 0 and _st == 0:
                     if self._boss_lost:
-                        logger.info("Combat de boss PERDU -> aucun check envoyé "
+                        logger.debug("Combat de boss PERDU -> aucun check envoyé "
                                     "(%d boss toujours en attente).",
                                     len(self._boss_pending))
                     else:
                         for _loc in sorted(self._boss_pending):
-                            logger.info("Boss VAINCU : %s", _loc)
+                            logger.debug("Boss VAINCU : %s", _loc)
                         self._boss_won |= self._boss_pending
                         self._boss_pending = set()
                     self._boss_lost = False
@@ -1750,7 +1750,7 @@ class YKW2Context(CommonContext):
             if mod_patcher.DEDICATED_AP_ITEM_HASH in ki_present:
                 if await self._remove_from_key_items(
                         mod_patcher.DEDICATED_AP_ITEM_HASH):
-                    logger.info("Item AP dédié (récompense de quête étrangère) "
+                    logger.debug("Item AP dédié (récompense de quête étrangère) "
                                 "retiré des objets-clés.")
                     ki_present = await self._key_items_cached()  # relu (invalidé)
             # Shuffle DUR des objets-clés : retire les dons natifs (histoire)
@@ -1799,7 +1799,7 @@ class YKW2Context(CommonContext):
                          and LOCATION_NAME_TO_ID[self.chapter_locations[n]]
                          in self.missing_locations)
                      for n in chapters_completed(chapter)}
-            logger.info("[diag] compteur chapitre = %d ; terminés = %s ; "
+            logger.debug("[diag] compteur chapitre = %d ; terminés = %s ; "
                         "locations = %s ; encore manquantes = %s",
                         chapter, chapters_completed(chapter), _cl, _miss)
             self._dbg_prev_chapter = chapter
@@ -1907,7 +1907,7 @@ async def game_watcher(ctx: YKW2Context) -> None:
             if ctx.gdb.no_halt and isinstance(error, asyncio.TimeoutError):
                 ctx._no_halt_losses = getattr(ctx, "_no_halt_losses", 0) + 1
                 if ctx._no_halt_losses >= 2:
-                    logger.info("Lectures sans pause désactivées pour la "
+                    logger.debug("Lectures sans pause désactivées pour la "
                                 "session (2 pertes par timeout).")
             # close() sous io_lock (revue 2026-07-26) : sinon course avec un
             # /citra concurrent (attach_emulator tient le verrou pendant
