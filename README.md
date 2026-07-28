@@ -51,6 +51,16 @@ Le verrouillage est **prudent** : il n'intervient qu'une fois l'événement du j
 déclenché. Le tutoriel et les scènes d'histoire se déroulent donc normalement,
 et rien ne casse que vous receviez l'objet avant ou après.
 
+## Voir les noms d'objets Archipelago en jeu
+
+Le client sait patcher l'**archive de langue** du jeu (installée en mod
+LayeredFS) pour que les récompenses de requêtes affichent le **vrai** objet
+Archipelago au lieu de l'objet d'origine.
+
+C'est **optionnel et purement cosmétique** — sans ça tout fonctionne — et votre
+**ROM n'est jamais modifiée**. Le fichier concerné fait partie du jeu, il n'est
+donc pas distribué ici : la marche à suivre est dans les guides d'installation.
+
 ## Options principales
 
 | Option | Effet |

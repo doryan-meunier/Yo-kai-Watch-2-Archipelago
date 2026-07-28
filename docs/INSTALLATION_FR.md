@@ -107,7 +107,40 @@ Le client lit la mémoire du jeu via le débogueur intégré d'Azahar.
 
 ---
 
-## 7. Le tracker (optionnel mais conseillé)
+## 7. Affichage des noms d'objets en jeu (optionnel)
+
+Par défaut, quand une requête vous donne une récompense, le jeu affiche l'objet
+**d'origine** — pas l'objet Archipelago que vous recevez réellement.
+
+Il est possible d'afficher le **vrai** nom : le client sait patcher l'archive de
+langue du jeu, à condition qu'elle soit installée comme **mod LayeredFS**.
+
+> ℹ️ **Purement cosmétique.** Sans ce mod, tout fonctionne : les checks partent
+> et les objets vous sont bien livrés. Seul l'affichage de la récompense change.
+> **Votre ROM n'est jamais modifiée** — le client n'écrit que dans la copie
+> placée dans le dossier des mods.
+
+### Mise en place
+
+1. Extrayez `yw2_lg_fr.fa` du **romfs de votre propre copie** du jeu
+   (avec un outil type *3dstool* / *ctrtool*). Ce fichier ne peut pas être
+   distribué ici : il fait partie du jeu.
+2. Placez-le ici (créez les dossiers au besoin) :
+   ```
+   %APPDATA%\Azahar\load\mods\00040000001B2900\romfs\yw2_lg_fr.fa
+   ```
+3. Dans Azahar, vérifiez que les mods (LayeredFS) sont activés pour le jeu.
+4. Connectez le client : il patche le fichier tout seul au moment de la
+   connexion.
+
+Ensuite, en jeu :
+- récompense qui est un **objet réel du jeu** → son vrai nom s'affiche ;
+- récompense appartenant à **un autre joueur** → « **Item AP** » s'affiche
+  (le nom exact reste visible dans le client et le tracker).
+
+---
+
+## 8. Le tracker (optionnel mais conseillé)
 
 1. Installez **PopTracker** : https://github.com/black-sliver/PopTracker/releases
 2. Copiez le dossier `tracker/ykw2-poptracker` dans le dossier `packs/` de
@@ -121,7 +154,7 @@ Les checks dont l'objet a été « hint » par un autre joueur sont surlignés.
 
 ---
 
-## 8. Bon à savoir
+## 9. Bon à savoir
 
 - **Sauvegardez régulièrement en jeu** : les checks sont détectés en mémoire
   vive, mais votre progression, elle, dépend de la sauvegarde du jeu.
