@@ -44,7 +44,10 @@ from .constants import (
     RANK_ITEM_NAMES,
 )
 from .items import (
+    BICYCLE_HASHES,
     DEFAULT_INVENTORY_TYPE,
+    KEY_ITEM_CATEGORY_BY_HASH,
+    KEY_ITEM_CATEGORY_FALLBACK,
     FILLER_WEIGHTS,
     ITEM_GAME_HASH,
     ITEM_GAME_TYPE,
@@ -604,27 +607,39 @@ class YKW2Context(CommonContext):
         Le mot haut de `data` = ordre d'acquisition = max(existants)+1."""
         count = int.from_bytes(
             await self.gdb.read_memory(KEY_ITEM_COUNT_ADDR, 4), "little")
-        # scan des `count` entrées : déjà possédé ? + plus grand `haut`.
+        # scan des `count` entrées : l'objet est-il déjà possédé ?
         span = max(count, 1) * KEY_ITEM_ENTRY_SIZE
         listing = await self.gdb.read_memory(KEY_ITEM_BASE, span)
-        max_order = 0
         for i in range(count):
             base = i * KEY_ITEM_ENTRY_SIZE
             if struct.unpack_from(
                     "<I", listing, base + KEY_ITEM_HASH_OFFSET)[0] == item_hash:
                 return
-            data = struct.unpack_from(
-                "<I", listing, base + KEY_ITEM_DATA_OFFSET)[0]
-            max_order = max(max_order, data >> 16)
         if count >= 180:  # capacité 0xB4
             logger.warning("Liste d'objets-clés pleine : %#010x ignoré.",
                            item_hash)
             return
         index = count
         entry = KEY_ITEM_BASE + index * KEY_ITEM_ENTRY_SIZE
-        # data = (ordre_acquisition << 16) | 0x2000 | index ; validé en jeu :
-        # Canne à pêche 0x00022003, Clé de cabane 0x0012200A.
-        data_word = ((max_order + 1) << 16) | KEY_ITEM_DATA_MARK | index
+        # data = (CATÉGORIE << 16) | 0x2000 | index.
+        # ⚠️ CORRECTION (RE Doteos 2026-07-29) : le mot haut est la CATÉGORIE de
+        # l'objet (onglet d'affichage), PAS un ordre d'acquisition — 5 entrées
+        # consécutives d'une vraie save portaient 4, 3, 11, 4, 9. On écrivait
+        # `max_order + 1`, ce qui finissait par produire une catégorie
+        # INEXISTANTE : le slot était créé mais le jeu n'affichait RIEN (bug du
+        # vélo livré, invisible dans la liste). On écrit désormais la vraie
+        # catégorie quand on la connaît, sinon une valeur valide de repli.
+        category = KEY_ITEM_CATEGORY_BY_HASH.get(item_hash)
+        if category is None:
+            # repli : réutiliser une catégorie DÉJÀ présente dans la liste du
+            # joueur (donc forcément valide) ; sinon la constante de repli.
+            seen = [(struct.unpack_from("<I", listing,
+                                        i * KEY_ITEM_ENTRY_SIZE
+                                        + KEY_ITEM_DATA_OFFSET)[0] >> 16)
+                    for i in range(count)]
+            seen = [c for c in seen if c]
+            category = seen[0] if seen else KEY_ITEM_CATEGORY_FALLBACK
+        data_word = (category << 16) | KEY_ITEM_DATA_MARK | index
         # 1. écrire l'entrée [ptr constant][data][hash]
         await self.gdb.write_memory(entry, struct.pack(
             "<III", KEY_ITEM_PTR_VALUE, data_word, item_hash))
@@ -734,8 +749,19 @@ class YKW2Context(CommonContext):
         anti-soft-lock à ajouter). Ne tourne que si activé (hard_key_shuffle)."""
         legit = {ITEM_ID_TO_NAME.get(ni.item) for ni in self.items_received}
         legit |= self._keyitem_done
+        # « Vélo » et « Vélo (progressif) » (option progressive_bicycle) sont le
+        # MÊME objet en jeu : recevoir l'un rend l'autre légitime, sinon le vélo
+        # serait retiré alors qu'il a bien été donné par Archipelago.
+        if legit & {"Vélo", "Vélo (progressif)"}:
+            legit |= {"Vélo", "Vélo (progressif)"}
         ap_key_hashes = {ITEM_GAME_HASH[n]: n
                          for n in KEY_ITEM_GAME if n in ITEM_GAME_HASH}
+        # VÉLO : le joueur CHOISIT son modèle parmi 20 à l'obtention native
+        # (RE Doteos 2026-07-29) -> on doit tous les reconnaître pour pouvoir
+        # retirer celui qu'il a pris, sinon la neutralisation raterait 19 cas
+        # sur 20. Ils pointent tous vers l'item AP « Vélo ».
+        for _bh in BICYCLE_HASHES:
+            ap_key_hashes.setdefault(_bh, "Vélo")
         if present is None:      # lecture partagée par poll_game (perf) sinon
             present = await self._read_key_item_hashes()
         native_checks: List[int] = []
@@ -1505,7 +1531,9 @@ class YKW2Context(CommonContext):
                 # pertes de connexion en mode no-halt (stub instable).
                 if getattr(self, "_no_halt_losses", 0) < 2:
                     await self.gdb.probe_no_halt()
-            logger.debug("Attaché au stub GDB (port %d). L'émulation reprend.",
+            # SEUL message d'information conservé (demande Doteos 2026-07-29) :
+            # le joueur doit voir que /citra a bien connecté le client au jeu.
+            logger.info("Attaché au stub GDB (port %d). L'émulation reprend.",
                         port)
             if self.gdb.no_halt:
                 logger.debug("Lectures sans pause ACTIVES : l'émulation n'est "

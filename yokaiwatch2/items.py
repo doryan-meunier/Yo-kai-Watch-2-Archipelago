@@ -342,6 +342,42 @@ KEY_ITEM_GAME_ORDER: List[str] = [
     "Clé de cabane",
 ]
 KEY_ITEM_GAME: set = set(KEY_ITEM_GAME_ORDER)
+
+# --- VÉLO (RE Doteos 2026-07-29) ---------------------------------------------
+# Le vélo est un VRAI OBJET-CLÉ (catégorie 0x0a) écrit dans la liste d'objets-clés,
+# pas un simple bit. MAIS le jeu laisse le joueur CHOISIR son modèle parmi 20
+# (Vélo du vent, du couchant, sylvestre…), tous équivalents.
+#  * LIVRAISON : on donne toujours le « Vélo du vent » (1er de la liste en jeu) ;
+#  * NEUTRALISATION : il faut reconnaître les 20 hash, puisqu'on ne sait pas
+#    lequel le joueur aura choisi (cf. client._neutralize_native_key_items).
+BICYCLE_DELIVERY_HASH = 0x5670B1D6            # Vélo du vent
+BICYCLE_HASHES: set = {
+    int(_h, 16) for _h, _n in json.loads(pkgutil.get_data(
+        __package__, "data/item_hashes.json").decode("utf-8")).items()
+    if _n.startswith("Vélo ")
+}
+for _bike_name in ("Vélo", "Vélo (progressif)"):
+    ITEM_GAME_HASH[_bike_name] = BICYCLE_DELIVERY_HASH
+    KEY_ITEM_GAME.add(_bike_name)
+
+# --- CATÉGORIE d'une entrée de la liste d'objets-clés -------------------------
+# Le mot HAUT du champ `data` d'une entrée = la CATÉGORIE de l'objet (onglet
+# d'affichage), PAS un ordre d'acquisition. Preuve (RE Doteos 2026-07-29, save
+# réelle) : les 5 entrées d'affilée portaient 4, 3, 11, 4, 9 — non séquentiel.
+# ⚠️ Écrire une catégorie INEXISTANTE crée bien le slot mais le jeu n'affiche
+# RIEN (cas du vélo livré : on écrivait max+1 = 12 -> case vide en jeu).
+# Catégories relevées en jeu ; KEY_ITEM_CATEGORY_FALLBACK sert aux objets dont
+# on ne connaît pas encore la catégorie (valeur valide et sûre).
+KEY_ITEM_CATEGORY_FALLBACK = 0x04         # celle du Médallium / Cahier de vacances
+KEY_ITEM_CATEGORY_BY_HASH: Dict[int, int] = {
+    0x4F6B8097: 3,    # Yo-kai Watch
+    0xA165E1BB: 4,    # Médallium des Yo-kai
+    0xB87ED0FA: 4,    # Cahier de vacances
+    0x6EDED648: 9,    # (objet-clé non identifié, relevé en jeu)
+    0x5C007505: 11,   # Capsules de lait
+}
+for _bh in BICYCLE_HASHES:
+    KEY_ITEM_CATEGORY_BY_HASH[_bh] = 0x0A   # tous les vélos (relevé en jeu)
 # Les objets importants du jeu -> tous livrés dans la liste d'objets-clés
 # (shuffle dur) + leur hash de livraison.
 for _iki in _IMPORTANT_KEY_ITEMS:

@@ -225,9 +225,18 @@ STORY_GATES: Tuple[dict, ...] = (
      "bits": ((0x086CFAB6, 0x20),)},          # b5 : fonctions de combat de la montre
     # Vélo : capacité de rouler (comme la Modèle zéro, ne débloque aucune zone).
     # 2 noms possibles selon l'option progressive_bicycle -> "items" (liste).
+    # PAS de "trigger" (décision Doteos 2026-07-29, comme la Modèle zéro) : le
+    # vélo est une CAPACITÉ, elle doit être utilisable DÈS la réception de l'item
+    # AP, sans attendre « Sur les traces de Papa ». Sans l'item, les bits restent
+    # effacés en continu -> le vélo reste inutilisable même obtenu nativement.
     {"items": ("Vélo", "Vélo (progressif)"), "kind": "bits",
-     "trigger": (0x086CFFF8, 0x20),           # b5 : event vélo fait
-     "bits": ((0x086CFAB9, 0x01),)},          # b0 : faire du vélo
+     # ⚠️ L'obtention native pose DEUX bits (RE Doteos 2026-07-29, diff
+     # avant/après) : 0x086CFAB8 b7 ET 0x086CFAB9 b0. On ne gérait que le b0 ->
+     # au déverrouillage il manquait le b7, ce qui explique très probablement le
+     # vélo inutilisable signalé par Doteos (même bug que les Indications de
+     # Maman). NB : le vélo est aussi un VRAI objet-clé écrit dans la liste
+     # (livraison + neutralisation gérées côté client, cf. items.BICYCLE_HASHES).
+     "bits": ((0x086CFAB8, 0x80), (0x086CFAB9, 0x01))},
 )
 
 # Checks détectés par un FLAG d'event (et non par l'objet). Indispensable pour les
@@ -276,7 +285,14 @@ EVENT_CHECK_FLAGS: Tuple[dict, ...] = (
     # Vélo : marqueur d'event 0x086CFFF8 b5 (RE 2026-07-24, event « Sur les traces de
     # Papa » ; miroir 0x086D0048 b5 confirme) au lieu du bit capacité 0x086CFAB9 b0
     # (posé par le client à la livraison -> le check partait trop tôt).
-    {"location": "Objet-clé : Vélo", "addr": 0x086CFFF8, "mask": 0x20},
+    # ⚠️ CORRECTION (RE Doteos 2026-07-29, DEUX acquisitions comparées) : le
+    # marqueur dépend du MODÈLE de vélo choisi par le joueur — « Vélo du vent »
+    # pose 0x086CFFF8 b5, « Vélo du couchant » pose 0x086CFFFE b7. L'ancienne
+    # détection sur 0x086CFFF8 b5 ne partait donc QUE si le joueur prenait ce
+    # modèle-là (bug constaté : check jamais envoyé). Les SEULS bits communs aux
+    # deux acquisitions sont 0x086D0128 b0 et 0x086D0129 b2 -> on détecte sur le
+    # premier, indépendant du modèle.
+    {"location": "Objet-clé : Vélo", "addr": 0x086D0128, "mask": 0x01},
     # Clé magnétique or : marqueur d'event 0x086D0006 b2 (RE 2026-07-24, diff ISOLÉ en
     # s'arrêtant AVANT la fin de « La base secrète » ; miroir 0x086D0056 b2 confirme).
     # Robuste (part à l'obtention, pas de faille exemplaire-unique).
