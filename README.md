@@ -100,11 +100,10 @@ Limites connues, sans conséquence sur une partie normale :
 | Chemin | Quoi |
 |---|---|
 | `yokaiwatch2.apworld` | **l'APWorld à installer** dans `custom_worlds/` |
-| `Yo-kai Watch 2 - *.yaml` | configurations prêtes à l'emploi (FR, EN, exemple complet) |
+| `Yo-kai Watch 2 - *.yaml` | configurations prêtes à l'emploi (FR et EN) |
 | `docs/` | guides d'installation FR et EN |
 | `tracker/` | le pack PopTracker |
 | `yokaiwatch2/` | le code source de l'APWorld |
-| `tools/` | utilitaires de développement (génération du tracker, extraction de données) |
 
 ---
 

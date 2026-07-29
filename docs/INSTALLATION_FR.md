@@ -37,9 +37,7 @@ Prenez l'un des fichiers fournis à la racine du dépôt :
 
 - **`Yo-kai Watch 2 - Histoire FR.yaml`** — recommandé pour commencer
   (toute l'histoire jusqu'à Lady Démona, commentaires en français) ;
-- **`Yo-kai Watch 2 - Story EN.yaml`** — même chose, commentaires en anglais ;
-- **`Yo-kai Watch 2 - Example.yaml`** — toutes les options possibles, à explorer
-  une fois à l'aise.
+- **`Yo-kai Watch 2 - Story EN.yaml`** — même chose, commentaires en anglais.
 
 Ouvrez-le dans un éditeur de texte et changez au minimum la ligne `name:` par
 votre pseudo. Les options sont commentées directement dans le fichier.

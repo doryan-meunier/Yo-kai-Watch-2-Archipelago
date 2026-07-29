@@ -37,9 +37,7 @@ Pick one of the files in the repository root:
 
 - **`Yo-kai Watch 2 - Story EN.yaml`** — recommended to start with
   (the full story up to Lady Démona, English comments);
-- **`Yo-kai Watch 2 - Histoire FR.yaml`** — same thing, French comments;
-- **`Yo-kai Watch 2 - Example.yaml`** — every available option, worth exploring
-  once you are comfortable.
+- **`Yo-kai Watch 2 - Histoire FR.yaml`** — same thing, French comments.
 
 Open it in a text editor and change at least the `name:` line to your nickname.
 Every option is documented inline in the file.
