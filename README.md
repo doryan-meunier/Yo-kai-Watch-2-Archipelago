@@ -103,7 +103,6 @@ Limites connues, sans conséquence sur une partie normale :
 | `Yo-kai Watch 2 - *.yaml` | configurations prêtes à l'emploi (FR et EN) |
 | `docs/` | guides d'installation FR et EN |
 | `tracker/` | le pack PopTracker |
-| `yokaiwatch2/` | le code source de l'APWorld |
 
 ---
 
