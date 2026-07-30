@@ -37,7 +37,12 @@ Prenez l'un des fichiers fournis à la racine du dépôt :
 
 - **`Yo-kai Watch 2 - Histoire FR.yaml`** — recommandé pour commencer
   (toute l'histoire jusqu'à Lady Démona, commentaires en français) ;
-- **`Yo-kai Watch 2 - Story EN.yaml`** — même chose, commentaires en anglais.
+- **`Yo-kai Watch 2 - Story EN.yaml`** — même chose, commentaires en anglais
+  (le jeu reste **« Yo-kai Watch 2 »**, donc les noms de checks sont en français).
+
+> Pour jouer avec les noms de checks et d'objets **en anglais**, c'est un autre
+> apworld : voir [INSTALLATION_EN.md](INSTALLATION_EN.md). Les deux versions
+> peuvent participer au **même multiworld**.
 
 Ouvrez-le dans un éditeur de texte et changez au minimum la ligne `name:` par
 votre pseudo. Les options sont commentées directement dans le fichier.
