@@ -1,0 +1,339 @@
+{
+  "tracker_default": {
+    "type": "dock",
+    "h_alignment": "stretch",
+    "v_alignment": "stretch",
+    "content": [
+      {
+        "type": "itemgrid",
+        "dock": "left",
+        "item_size": "56,56",
+        "item_margin": "5,5",
+        "v_alignment": "top",
+        "rows": [
+          [
+            "rang_e",
+            "chapitre",
+            "fishing_rod"
+          ],
+          [
+            "select_a_coin",
+            "school_keys",
+            "ancient_herb"
+          ],
+          [
+            "pro_screwdriver",
+            "rockin_jumpsuit",
+            "model_zero"
+          ],
+          [
+            "small_fancy_key",
+            "large_fancy_key",
+            "key_to_apt_c_101"
+          ],
+          [
+            "key_to_apt_c_303",
+            "key_to_apt_b_301",
+            "back_door_key"
+          ],
+          [
+            "bug_net",
+            "mom_s_directions",
+            "gold_card_key"
+          ],
+          [
+            "treasure_room_key",
+            "key_to_apt_b_204",
+            "payn_oil"
+          ],
+          [
+            "strange_handle",
+            "bicycle"
+          ]
+        ]
+      },
+      {
+        "type": "array",
+        "dock": "bottom",
+        "orientation": "horizontal",
+        "max_height": 185,
+        "content": [
+          {
+            "type": "canvas",
+            "width": 330,
+            "height": 175,
+            "content": [
+              {
+                "type": "map",
+                "maps": [
+                  "grp_chapitres"
+                ],
+                "canvas_left": 0,
+                "canvas_top": 0,
+                "width": 320,
+                "height": 168
+              },
+              {
+                "type": "item",
+                "item": "stat_chapitres",
+                "canvas_left": 245,
+                "canvas_top": 118,
+                "width": 80,
+                "height": 50
+              }
+            ]
+          },
+          {
+            "type": "canvas",
+            "width": 330,
+            "height": 175,
+            "content": [
+              {
+                "type": "map",
+                "maps": [
+                  "grp_criminels"
+                ],
+                "canvas_left": 0,
+                "canvas_top": 0,
+                "width": 320,
+                "height": 168
+              },
+              {
+                "type": "item",
+                "item": "stat_criminels",
+                "canvas_left": 245,
+                "canvas_top": 118,
+                "width": 80,
+                "height": 50
+              }
+            ]
+          },
+          {
+            "type": "container"
+          }
+        ]
+      },
+      {
+        "type": "array",
+        "dock": "right",
+        "orientation": "vertical",
+        "max_width": 260,
+        "content": [
+          {
+            "type": "item",
+            "item": "stat_checked",
+            "item_size": "210,58",
+            "margin": "4,4"
+          },
+          {
+            "type": "item",
+            "item": "stat_accessible",
+            "item_size": "210,58",
+            "margin": "4,4"
+          },
+          {
+            "type": "item",
+            "item": "stat_remaining",
+            "item_size": "210,58",
+            "margin": "4,4"
+          }
+        ]
+      },
+      {
+        "type": "tabbed",
+        "h_alignment": "stretch",
+        "v_alignment": "stretch",
+        "tabs": [
+          {
+            "title": "Uptown Springdale",
+            "content": {
+              "type": "map",
+              "maps": [
+                "det_uptown_springdale"
+              ],
+              "h_alignment": "stretch",
+              "v_alignment": "stretch"
+            }
+          },
+          {
+            "title": "Springdale Elementary School",
+            "content": {
+              "type": "map",
+              "maps": [
+                "det_springdale_elementary_school"
+              ],
+              "h_alignment": "stretch",
+              "v_alignment": "stretch"
+            }
+          },
+          {
+            "title": "Underground Waterway",
+            "content": {
+              "type": "map",
+              "maps": [
+                "det_underground_waterway"
+              ],
+              "h_alignment": "stretch",
+              "v_alignment": "stretch"
+            }
+          },
+          {
+            "title": "Breezy Hills",
+            "content": {
+              "type": "map",
+              "maps": [
+                "det_breezy_hills"
+              ],
+              "h_alignment": "stretch",
+              "v_alignment": "stretch"
+            }
+          },
+          {
+            "title": "Mt. Wildwood",
+            "content": {
+              "type": "map",
+              "maps": [
+                "det_mt_wildwood"
+              ],
+              "h_alignment": "stretch",
+              "v_alignment": "stretch"
+            }
+          },
+          {
+            "title": "Downtown Springdale",
+            "content": {
+              "type": "map",
+              "maps": [
+                "det_downtown_springdale"
+              ],
+              "h_alignment": "stretch",
+              "v_alignment": "stretch"
+            }
+          },
+          {
+            "title": "Shopper's Row",
+            "content": {
+              "type": "map",
+              "maps": [
+                "det_shopper_s_row"
+              ],
+              "h_alignment": "stretch",
+              "v_alignment": "stretch"
+            }
+          },
+          {
+            "title": "Blossom Heights",
+            "content": {
+              "type": "map",
+              "maps": [
+                "det_blossom_heights"
+              ],
+              "h_alignment": "stretch",
+              "v_alignment": "stretch"
+            }
+          },
+          {
+            "title": "Excellent Tower",
+            "content": {
+              "type": "map",
+              "maps": [
+                "det_excellent_tower"
+              ],
+              "h_alignment": "stretch",
+              "v_alignment": "stretch"
+            }
+          },
+          {
+            "title": "Harrisville",
+            "content": {
+              "type": "map",
+              "maps": [
+                "det_harrisville"
+              ],
+              "h_alignment": "stretch",
+              "v_alignment": "stretch"
+            }
+          },
+          {
+            "title": "Old Harrisville",
+            "content": {
+              "type": "map",
+              "maps": [
+                "det_old_harrisville"
+              ],
+              "h_alignment": "stretch",
+              "v_alignment": "stretch"
+            }
+          },
+          {
+            "title": "Old Springdale",
+            "content": {
+              "type": "map",
+              "maps": [
+                "det_old_springdale"
+              ],
+              "h_alignment": "stretch",
+              "v_alignment": "stretch"
+            }
+          },
+          {
+            "title": "San Fantastico",
+            "content": {
+              "type": "map",
+              "maps": [
+                "det_san_fantastico"
+              ],
+              "h_alignment": "stretch",
+              "v_alignment": "stretch"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "tracker_broadcast": {
+    "type": "itemgrid",
+    "item_size": "40,40",
+    "rows": [
+      [
+        "rang_e",
+        "chapitre",
+        "fishing_rod"
+      ],
+      [
+        "select_a_coin",
+        "school_keys",
+        "ancient_herb"
+      ],
+      [
+        "pro_screwdriver",
+        "rockin_jumpsuit",
+        "model_zero"
+      ],
+      [
+        "small_fancy_key",
+        "large_fancy_key",
+        "key_to_apt_c_101"
+      ],
+      [
+        "key_to_apt_c_303",
+        "key_to_apt_b_301",
+        "back_door_key"
+      ],
+      [
+        "bug_net",
+        "mom_s_directions",
+        "gold_card_key"
+      ],
+      [
+        "treasure_room_key",
+        "key_to_apt_b_204",
+        "payn_oil"
+      ],
+      [
+        "strange_handle",
+        "bicycle"
+      ]
+    ]
+  }
+}

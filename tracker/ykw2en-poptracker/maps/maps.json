@@ -1,0 +1,92 @@
+[
+  {
+    "name": "det_uptown_springdale",
+    "location_size": 10,
+    "location_border_thickness": 1,
+    "img": "images/det_uptown_springdale.png"
+  },
+  {
+    "name": "det_springdale_elementary_school",
+    "location_size": 10,
+    "location_border_thickness": 1,
+    "img": "images/det_springdale_elementary_school.png"
+  },
+  {
+    "name": "det_underground_waterway",
+    "location_size": 10,
+    "location_border_thickness": 1,
+    "img": "images/det_underground_waterway.png"
+  },
+  {
+    "name": "det_breezy_hills",
+    "location_size": 10,
+    "location_border_thickness": 1,
+    "img": "images/det_breezy_hills.png"
+  },
+  {
+    "name": "det_mt_wildwood",
+    "location_size": 10,
+    "location_border_thickness": 1,
+    "img": "images/det_mt_wildwood.png"
+  },
+  {
+    "name": "det_downtown_springdale",
+    "location_size": 10,
+    "location_border_thickness": 1,
+    "img": "images/det_downtown_springdale.png"
+  },
+  {
+    "name": "det_shopper_s_row",
+    "location_size": 10,
+    "location_border_thickness": 1,
+    "img": "images/det_shopper_s_row.png"
+  },
+  {
+    "name": "det_blossom_heights",
+    "location_size": 10,
+    "location_border_thickness": 1,
+    "img": "images/det_blossom_heights.png"
+  },
+  {
+    "name": "det_excellent_tower",
+    "location_size": 10,
+    "location_border_thickness": 1,
+    "img": "images/det_excellent_tower.png"
+  },
+  {
+    "name": "det_harrisville",
+    "location_size": 10,
+    "location_border_thickness": 1,
+    "img": "images/det_harrisville.png"
+  },
+  {
+    "name": "det_old_harrisville",
+    "location_size": 10,
+    "location_border_thickness": 1,
+    "img": "images/det_old_harrisville.png"
+  },
+  {
+    "name": "det_old_springdale",
+    "location_size": 10,
+    "location_border_thickness": 1,
+    "img": "images/det_old_springdale.png"
+  },
+  {
+    "name": "det_san_fantastico",
+    "location_size": 10,
+    "location_border_thickness": 1,
+    "img": "images/det_san_fantastico.png"
+  },
+  {
+    "name": "grp_chapitres",
+    "location_size": 64,
+    "location_border_thickness": 3,
+    "img": "images/grp_chapitres.png"
+  },
+  {
+    "name": "grp_criminels",
+    "location_size": 64,
+    "location_border_thickness": 3,
+    "img": "images/grp_criminels.png"
+  }
+]

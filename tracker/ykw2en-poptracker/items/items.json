@@ -1,0 +1,219 @@
+[
+  {
+    "name": "Rank (logic)",
+    "type": "consumable",
+    "codes": "rang",
+    "min_quantity": 0,
+    "max_quantity": 5,
+    "img": "images/rang.png"
+  },
+  {
+    "name": "Yo-kai Watch Rank",
+    "type": "progressive",
+    "allow_disabled": false,
+    "initial_stage_idx": 0,
+    "loop": false,
+    "stages": [
+      {
+        "img": "images/rang_e.png",
+        "codes": "rang_e",
+        "inherit_codes": false,
+        "name": "Rank E"
+      },
+      {
+        "img": "images/rang_d.png",
+        "codes": "rang_d",
+        "inherit_codes": false,
+        "name": "Rank D"
+      },
+      {
+        "img": "images/rang_c.png",
+        "codes": "rang_c",
+        "inherit_codes": false,
+        "name": "Rank C"
+      },
+      {
+        "img": "images/rang_b.png",
+        "codes": "rang_b",
+        "inherit_codes": false,
+        "name": "Rank B"
+      },
+      {
+        "img": "images/rang_a.png",
+        "codes": "rang_a",
+        "inherit_codes": false,
+        "name": "Rank A"
+      },
+      {
+        "img": "images/rang_s.png",
+        "codes": "rang_s",
+        "inherit_codes": false,
+        "name": "Rank S"
+      }
+    ]
+  },
+  {
+    "name": "Story Chapter",
+    "type": "consumable",
+    "codes": "chapitre",
+    "min_quantity": 0,
+    "max_quantity": 11,
+    "img": "images/chapitre.png"
+  },
+  {
+    "name": "Fishing Rod",
+    "type": "toggle",
+    "codes": "fishing_rod",
+    "img": "images/key_fishing_rod.png"
+  },
+  {
+    "name": "Select-A-Coin",
+    "type": "toggle",
+    "codes": "select_a_coin",
+    "img": "images/key_select_a_coin.png"
+  },
+  {
+    "name": "School Keys",
+    "type": "toggle",
+    "codes": "school_keys",
+    "img": "images/key_school_keys.png"
+  },
+  {
+    "name": "Ancient Herb",
+    "type": "toggle",
+    "codes": "ancient_herb",
+    "img": "images/key_ancient_herb.png"
+  },
+  {
+    "name": "Pro Screwdriver",
+    "type": "toggle",
+    "codes": "pro_screwdriver",
+    "img": "images/key_pro_screwdriver.png"
+  },
+  {
+    "name": "Rockin' Jumpsuit",
+    "type": "toggle",
+    "codes": "rockin_jumpsuit",
+    "img": "images/key_rockin_jumpsuit.png"
+  },
+  {
+    "name": "Model Zero",
+    "type": "toggle",
+    "codes": "model_zero",
+    "img": "images/key_model_zero.png"
+  },
+  {
+    "name": "Small Fancy Key",
+    "type": "toggle",
+    "codes": "small_fancy_key",
+    "img": "images/key_small_fancy_key.png"
+  },
+  {
+    "name": "Large Fancy Key",
+    "type": "toggle",
+    "codes": "large_fancy_key",
+    "img": "images/key_large_fancy_key.png"
+  },
+  {
+    "name": "Key to Apt. C-101",
+    "type": "toggle",
+    "codes": "key_to_apt_c_101",
+    "img": "images/key_key_to_apt_c_101.png"
+  },
+  {
+    "name": "Key to Apt. C-303",
+    "type": "toggle",
+    "codes": "key_to_apt_c_303",
+    "img": "images/key_key_to_apt_c_303.png"
+  },
+  {
+    "name": "Key to Apt. B-301",
+    "type": "toggle",
+    "codes": "key_to_apt_b_301",
+    "img": "images/key_key_to_apt_b_301.png"
+  },
+  {
+    "name": "Back Door Key",
+    "type": "toggle",
+    "codes": "back_door_key",
+    "img": "images/key_back_door_key.png"
+  },
+  {
+    "name": "Bug Net",
+    "type": "toggle",
+    "codes": "bug_net",
+    "img": "images/key_bug_net.png"
+  },
+  {
+    "name": "Mom's Directions",
+    "type": "toggle",
+    "codes": "mom_s_directions",
+    "img": "images/key_mom_s_directions.png"
+  },
+  {
+    "name": "Gold Card Key",
+    "type": "toggle",
+    "codes": "gold_card_key",
+    "img": "images/key_gold_card_key.png"
+  },
+  {
+    "name": "Treasure Room Key",
+    "type": "toggle",
+    "codes": "treasure_room_key",
+    "img": "images/key_treasure_room_key.png"
+  },
+  {
+    "name": "Key to Apt. B-204",
+    "type": "toggle",
+    "codes": "key_to_apt_b_204",
+    "img": "images/key_key_to_apt_b_204.png"
+  },
+  {
+    "name": "Payn Oil",
+    "type": "toggle",
+    "codes": "payn_oil",
+    "img": "images/key_payn_oil.png"
+  },
+  {
+    "name": "Strange Handle",
+    "type": "toggle",
+    "codes": "strange_handle",
+    "img": "images/key_strange_handle.png"
+  },
+  {
+    "name": "Bicycle",
+    "type": "toggle",
+    "codes": "bicycle",
+    "img": "images/key_bicycle.png"
+  },
+  {
+    "name": "Locations Checked",
+    "type": "static",
+    "codes": "stat_checked",
+    "img": "images/stat_checked.png"
+  },
+  {
+    "name": "Locations Accessible",
+    "type": "static",
+    "codes": "stat_accessible",
+    "img": "images/stat_accessible.png"
+  },
+  {
+    "name": "Locations Remaining",
+    "type": "static",
+    "codes": "stat_remaining",
+    "img": "images/stat_remaining.png"
+  },
+  {
+    "name": "Chapters done",
+    "type": "static",
+    "codes": "stat_chapitres",
+    "img": "images/blank.png"
+  },
+  {
+    "name": "Yo-criminals done",
+    "type": "static",
+    "codes": "stat_criminels",
+    "img": "images/blank.png"
+  }
+]
