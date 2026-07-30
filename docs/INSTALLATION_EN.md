@@ -114,22 +114,19 @@ The client reads the game's memory through Azahar's built-in debugger.
 2. Connect to the server (address and port), using your **slot name** = the
    `name:` from your YAML.
 3. In the client, type **`/citra`** and press Enter.
-   - Expected message: *"Attaché au stub GDB (port 24689)"*.
+   - Expected message: *"Attached to the GDB stub (port 24689). Emulation resumes."*
 4. Just play! Your checks are sent automatically and received items show up
    in-game.
-
-> The client's own messages are still in French — only the location and item
-> names are translated. The table below quotes them as you will see them.
 
 ### Troubleshooting
 
 | Symptom | Fix |
 |---|---|
 | *"No world found to handle game Yo-kai Watch 2 (English)"* | The apworld is not in `custom_worlds/`, or Archipelago was not restarted after copying it. |
-| *"Connexion au stub GDB impossible"* | The stub is not enabled, or the game was not restarted after ticking it. Also make sure no other program is using port 24689. |
-| *"Connexion émulateur perdue"* | Type `/citra` again. If it is refused, make a save state, restart the game in Azahar, load the state, then `/citra`. |
+| *"Cannot connect to the GDB stub"* | The stub is not enabled, or the game was not restarted after ticking it. Also make sure no other program is using port 24689. |
+| *"Emulator connection lost"* | Type `/citra` again. If it is refused, make a save state, restart the game in Azahar, load the state, then `/citra`. |
 | Nothing happens / no checks | Make sure a save is actually **loaded** (not the title screen) and that you ran `/citra`. |
-| In-game slowdowns | Check the message after `/citra`: *"Lectures sans pause ACTIVES"* means everything is fine. |
+| In-game slowdowns | Check the message after `/citra`: *"Pause-free reads ACTIVE"* means everything is fine. |
 | Received items never show up | Close the client, delete `Archipelago/ykw2/delivered_unknown_<your slot number>.txt`, then reconnect with your save loaded. The client will deliver everything again. |
 
 ---
