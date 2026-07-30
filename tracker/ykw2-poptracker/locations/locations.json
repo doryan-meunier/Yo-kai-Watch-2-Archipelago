@@ -117,10 +117,10 @@
     ]
   },
   {
-    "name": "Requête : C1- Grand Prix",
+    "name": "Requête : C-1 Grand Prix",
     "children": [
       {
-        "name": "Requête : C1- Grand Prix",
+        "name": "Requête : C-1 Grand Prix",
         "map_locations": [
           {
             "map": "det_les_hauts_de_granval",
@@ -130,7 +130,7 @@
         ],
         "sections": [
           {
-            "name": "Requête : C1- Grand Prix",
+            "name": "Requête : C-1 Grand Prix",
             "item_count": 1,
             "access_rules": [
               "chapitre:7,filet_a_insectes"
@@ -1801,10 +1801,10 @@
     ]
   },
   {
-    "name": "Service : A la chasse aux insectes !",
+    "name": "Service : À la chasse aux insectes !",
     "children": [
       {
-        "name": "Service : A la chasse aux insectes !",
+        "name": "Service : À la chasse aux insectes !",
         "map_locations": [
           {
             "map": "det_mont_sylvestre",
@@ -1814,7 +1814,7 @@
         ],
         "sections": [
           {
-            "name": "Service : A la chasse aux insectes !",
+            "name": "Service : À la chasse aux insectes !",
             "item_count": 1,
             "access_rules": [
               "chapitre:1,filet_a_insectes"
@@ -2304,7 +2304,7 @@
             "name": "Tablo-blabla n°04 : Robonyan",
             "item_count": 1,
             "access_rules": [
-              "chapitre:2,rang:1,cle_du_tunnel_abandonne,filet_a_insectes"
+              "chapitre:5,filet_a_insectes"
             ]
           }
         ]
@@ -2331,7 +2331,7 @@
             "name": "Tablo-blabla n°05 : Draconfus",
             "item_count": 1,
             "access_rules": [
-              "chapitre:2,rang:1,cle_du_tunnel_abandonne,filet_a_insectes"
+              "chapitre:5,filet_a_insectes"
             ]
           }
         ]
@@ -2423,33 +2423,6 @@
     ]
   },
   {
-    "name": "Mont Sylvestre",
-    "children": [
-      {
-        "name": "Mont Sylvestre",
-        "map_locations": [
-          {
-            "map": "det_mont_sylvestre",
-            "x": 30,
-            "y": 30
-          }
-        ],
-        "sections": [
-          {
-            "name": "Montée de rang : D",
-            "item_count": 1,
-            "access_rules": [
-              "chapitre:1,filet_a_insectes"
-            ]
-          }
-        ]
-      }
-    ],
-    "access_rules": [
-      "chapitre:1"
-    ]
-  },
-  {
     "name": "Obtenons le rang C !",
     "children": [
       {
@@ -2470,6 +2443,13 @@
             ]
           },
           {
+            "name": "Montée de rang : D",
+            "item_count": 1,
+            "access_rules": [
+              "chapitre:1,filet_a_insectes"
+            ]
+          },
+          {
             "name": "Obtenons le rang B !",
             "item_count": 1,
             "access_rules": [
@@ -2481,6 +2461,41 @@
             "item_count": 1,
             "access_rules": [
               "chapitre:8,rang:3,filet_a_insectes"
+            ]
+          },
+          {
+            "name": "Obtenons le rang S !",
+            "item_count": 1,
+            "access_rules": [
+              "chapitre:10,rang:4,filet_a_insectes"
+            ]
+          },
+          {
+            "name": "Montée de rang : C",
+            "item_count": 1,
+            "access_rules": [
+              "chapitre:5,rang:1,filet_a_insectes"
+            ]
+          },
+          {
+            "name": "Montée de rang : B",
+            "item_count": 1,
+            "access_rules": [
+              "chapitre:6,rang:2,filet_a_insectes"
+            ]
+          },
+          {
+            "name": "Montée de rang : A",
+            "item_count": 1,
+            "access_rules": [
+              "chapitre:8,rang:3,filet_a_insectes"
+            ]
+          },
+          {
+            "name": "Montée de rang : S",
+            "item_count": 1,
+            "access_rules": [
+              "chapitre:10,rang:4,filet_a_insectes"
             ]
           }
         ]
@@ -2660,10 +2675,10 @@
     ]
   },
   {
-    "name": "Côté fleuri - Coffre 01",
+    "name": "Coteau fleuri - Coffre 01",
     "children": [
       {
-        "name": "Côté fleuri - Coffre 01",
+        "name": "Coteau fleuri - Coffre 01",
         "map_locations": [
           {
             "map": "det_coteau_fleuri",
@@ -2673,7 +2688,7 @@
         ],
         "sections": [
           {
-            "name": "Côté fleuri - Coffre 01",
+            "name": "Coteau fleuri - Coffre 01",
             "item_count": 1,
             "access_rules": [
               "chapitre:2,filet_a_insectes"
@@ -2687,10 +2702,10 @@
     ]
   },
   {
-    "name": "Côté fleuri - Coffre 02",
+    "name": "Coteau fleuri - Coffre 02",
     "children": [
       {
-        "name": "Côté fleuri - Coffre 02",
+        "name": "Coteau fleuri - Coffre 02",
         "map_locations": [
           {
             "map": "det_coteau_fleuri",
@@ -2700,7 +2715,7 @@
         ],
         "sections": [
           {
-            "name": "Côté fleuri - Coffre 02",
+            "name": "Coteau fleuri - Coffre 02",
             "item_count": 1,
             "access_rules": [
               "chapitre:2,filet_a_insectes"
@@ -2714,10 +2729,10 @@
     ]
   },
   {
-    "name": "Côté fleuri - Coffre 03",
+    "name": "Coteau fleuri - Coffre 03",
     "children": [
       {
-        "name": "Côté fleuri - Coffre 03",
+        "name": "Coteau fleuri - Coffre 03",
         "map_locations": [
           {
             "map": "det_coteau_fleuri",
@@ -2727,7 +2742,7 @@
         ],
         "sections": [
           {
-            "name": "Côté fleuri - Coffre 03",
+            "name": "Coteau fleuri - Coffre 03",
             "item_count": 1,
             "access_rules": [
               "chapitre:2,filet_a_insectes"
@@ -2741,10 +2756,10 @@
     ]
   },
   {
-    "name": "Côté fleuri - Coffre 04",
+    "name": "Coteau fleuri - Coffre 04",
     "children": [
       {
-        "name": "Côté fleuri - Coffre 04",
+        "name": "Coteau fleuri - Coffre 04",
         "map_locations": [
           {
             "map": "det_coteau_fleuri",
@@ -2754,7 +2769,7 @@
         ],
         "sections": [
           {
-            "name": "Côté fleuri - Coffre 04",
+            "name": "Coteau fleuri - Coffre 04",
             "item_count": 1,
             "access_rules": [
               "chapitre:2,filet_a_insectes"
@@ -2768,10 +2783,10 @@
     ]
   },
   {
-    "name": "Côté fleuri - Coffre 05",
+    "name": "Coteau fleuri - Coffre 05",
     "children": [
       {
-        "name": "Côté fleuri - Coffre 05",
+        "name": "Coteau fleuri - Coffre 05",
         "map_locations": [
           {
             "map": "det_coteau_fleuri",
@@ -2781,7 +2796,7 @@
         ],
         "sections": [
           {
-            "name": "Côté fleuri - Coffre 05",
+            "name": "Coteau fleuri - Coffre 05",
             "item_count": 1,
             "access_rules": [
               "chapitre:2,filet_a_insectes"
@@ -2795,10 +2810,10 @@
     ]
   },
   {
-    "name": "Côté fleuri - Coffre 06",
+    "name": "Coteau fleuri - Coffre 06",
     "children": [
       {
-        "name": "Côté fleuri - Coffre 06",
+        "name": "Coteau fleuri - Coffre 06",
         "map_locations": [
           {
             "map": "det_coteau_fleuri",
@@ -2808,7 +2823,7 @@
         ],
         "sections": [
           {
-            "name": "Côté fleuri - Coffre 06",
+            "name": "Coteau fleuri - Coffre 06",
             "item_count": 1,
             "access_rules": [
               "chapitre:2,filet_a_insectes"
@@ -2822,10 +2837,10 @@
     ]
   },
   {
-    "name": "Côté fleuri - Coffre 07",
+    "name": "Coteau fleuri - Coffre 07",
     "children": [
       {
-        "name": "Côté fleuri - Coffre 07",
+        "name": "Coteau fleuri - Coffre 07",
         "map_locations": [
           {
             "map": "det_coteau_fleuri",
@@ -2835,7 +2850,7 @@
         ],
         "sections": [
           {
-            "name": "Côté fleuri - Coffre 07",
+            "name": "Coteau fleuri - Coffre 07",
             "item_count": 1,
             "access_rules": [
               "chapitre:2,filet_a_insectes"
@@ -3366,61 +3381,6 @@
             "item_count": 1,
             "access_rules": [
               "chapitre:4,cle_de_derriere,jolie_grande_cle,jolie_petite_cle,filet_a_insectes"
-            ]
-          }
-        ]
-      }
-    ],
-    "access_rules": [
-      "chapitre:2"
-    ]
-  },
-  {
-    "name": "Coteau fleuri",
-    "children": [
-      {
-        "name": "Coteau fleuri",
-        "map_locations": [
-          {
-            "map": "det_coteau_fleuri",
-            "x": 30,
-            "y": 30
-          }
-        ],
-        "sections": [
-          {
-            "name": "Obtenons le rang S !",
-            "item_count": 1,
-            "access_rules": [
-              "chapitre:10,rang:4,filet_a_insectes"
-            ]
-          },
-          {
-            "name": "Montée de rang : C",
-            "item_count": 1,
-            "access_rules": [
-              "chapitre:5,rang:1,filet_a_insectes"
-            ]
-          },
-          {
-            "name": "Montée de rang : B",
-            "item_count": 1,
-            "access_rules": [
-              "chapitre:6,rang:2,filet_a_insectes"
-            ]
-          },
-          {
-            "name": "Montée de rang : A",
-            "item_count": 1,
-            "access_rules": [
-              "chapitre:8,rang:3,filet_a_insectes"
-            ]
-          },
-          {
-            "name": "Montée de rang : S",
-            "item_count": 1,
-            "access_rules": [
-              "chapitre:10,rang:4,filet_a_insectes"
             ]
           }
         ]
@@ -4892,10 +4852,10 @@
     ]
   },
   {
-    "name": "Service : Espiégleries",
+    "name": "Service : Espiègleries",
     "children": [
       {
-        "name": "Service : Espiégleries",
+        "name": "Service : Espiègleries",
         "map_locations": [
           {
             "map": "det_ourcival",
@@ -4905,7 +4865,7 @@
         ],
         "sections": [
           {
-            "name": "Service : Espiégleries",
+            "name": "Service : Espiègleries",
             "item_count": 1,
             "access_rules": [
               "chapitre:2,filet_a_insectes"
@@ -5675,10 +5635,10 @@
     ]
   },
   {
-    "name": "Requête : C1- Grand Prix A",
+    "name": "Requête : C-1 Grand Prix A",
     "children": [
       {
-        "name": "Requête : C1- Grand Prix A",
+        "name": "Requête : C-1 Grand Prix A",
         "map_locations": [
           {
             "map": "det_san_fantastico",
@@ -5688,7 +5648,7 @@
         ],
         "sections": [
           {
-            "name": "Requête : C1- Grand Prix A",
+            "name": "Requête : C-1 Grand Prix A",
             "item_count": 1,
             "access_rules": [
               "chapitre:7,indications_de_maman,filet_a_insectes"
