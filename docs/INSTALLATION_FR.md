@@ -86,8 +86,11 @@ Le client lit la mémoire du jeu via le débogueur intégré d'Azahar.
 1. Dans **Azahar** : *Émulation → Configurer → Debug*, cochez
    **« Enable GDB stub »** et laissez le port sur **24689**.
 2. **Relancez le jeu** pour que le réglage prenne effet.
-3. Lancez le jeu et **chargez votre sauvegarde** (important : le client a besoin
-   d'une partie chargée, pas de l'écran-titre).
+3. Le jeu **se fige au démarrage** : c'est normal — avec le stub activé, il
+   attend le débogueur. C'est la commande `/citra` du client (étape suivante)
+   qui le libère.
+4. Une fois le jeu débloqué, **chargez votre sauvegarde** : le client ne livre
+   aucun objet tant qu'une partie n'est pas chargée.
 
 ---
 
@@ -96,9 +99,10 @@ Le client lit la mémoire du jeu via le débogueur intégré d'Azahar.
 1. Ouvrez **ArchipelagoLauncher** → **Yo-kai Watch 2 Client**.
 2. Connectez-vous au serveur (adresse et port), avec le **nom de slot** = le
    `name:` de votre YAML.
-3. Dans le client, tapez **`/citra`** puis Entrée.
+3. Dans le client, tapez **`/citra`** puis Entrée — c'est ce qui **débloque le
+   jeu** figé au démarrage.
    - Message attendu : *« Attaché au stub GDB (port 24689) »*.
-4. Jouez normalement ! Vos checks partent tout seuls, et les objets reçus
+4. Chargez votre sauvegarde et jouez normalement ! Vos checks partent tout seuls, et les objets reçus
    apparaissent en jeu.
 
 ### En cas de souci

@@ -105,8 +105,11 @@ The client reads the game's memory through Azahar's built-in debugger.
 1. In **Azahar**: *Emulation → Configure → Debug*, tick **"Enable GDB stub"**
    and leave the port on **24689**.
 2. **Restart the game** for the setting to take effect.
-3. Start the game and **load your save** (important: the client needs a loaded
-   save, not the title screen).
+3. The game **freezes at boot**: this is normal — with the stub enabled it
+   waits for the debugger. The client's `/citra` command (next step) is what
+   releases it.
+4. Once the game is running, **load your save**: the client delivers nothing
+   until a save is loaded.
 
 ---
 
@@ -115,9 +118,10 @@ The client reads the game's memory through Azahar's built-in debugger.
 1. Open **ArchipelagoLauncher** → **Yo-kai Watch 2 (English) Client**.
 2. Connect to the server (address and port), using your **slot name** = the
    `name:` from your YAML.
-3. In the client, type **`/citra`** and press Enter.
+3. In the client, type **`/citra`** and press Enter — this is what **releases
+   the game** frozen at boot.
    - Expected message: *"Attached to the GDB stub (port 24689). Emulation resumes."*
-4. Just play! Your checks are sent automatically and received items show up
+4. Load your save and just play! Your checks are sent automatically and received items show up
    in-game.
 
 ### Troubleshooting
