@@ -21,7 +21,7 @@ This guide explains how to play **Yo-kai Watch 2: Psychic Specters** in an
 | Item | Where to get it |
 |---|---|
 | **Archipelago** 0.6.0 or newer | https://github.com/ArchipelagoMW/Archipelago/releases |
-| **Azahar** (3DS emulator) | https://azahar-emu.org |
+| **Azahar** (3DS emulator) — **version 2124.3 recommended** | https://github.com/azahar-emu/azahar/releases/tag/2124.3 |
 | Your copy of **Yo-kai Watch 2: Psychic Specters** (EU) | — |
 | **`yokaiwatch2en.apworld`** | this repository (root folder) |
 | **`Yo-kai Watch 2 (English) - Story EN.yaml`** | this repository (root folder) |
@@ -101,6 +101,11 @@ Then drop your YAML into Archipelago's `Players/` folder.
 ## 6. Enable the emulator link
 
 The client reads the game's memory through Azahar's built-in debugger.
+
+> ⚠️ **Azahar version: 2124.3 is recommended.** The 2125.x builds proved
+> unstable with the client (the GDB stub stops answering while the game runs:
+> micro-freezes then disconnection loops); 2126 fully rewrites the stub and is
+> untested yet. If you get repeated disconnections, installing 2124.3 fixes it.
 
 1. In **Azahar**: *Emulation → Configure → Debug*, tick **"Enable GDB stub"**
    and leave the port on **24689**.

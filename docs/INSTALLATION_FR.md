@@ -13,7 +13,7 @@ dans un multiworld [Archipelago](https://archipelago.gg), seul ou avec des amis.
 | Élément | Où l'obtenir |
 |---|---|
 | **Archipelago** 0.5.0 ou plus | https://github.com/ArchipelagoMW/Archipelago/releases |
-| **Azahar** (émulateur 3DS) | https://azahar-emu.org |
+| **Azahar** (émulateur 3DS) — **version 2124.3 recommandée** | https://github.com/azahar-emu/azahar/releases/tag/2124.3 |
 | Votre copie de **Yo-kai Watch 2 : Spectres Psychiques** (EU/FR) | — |
 | **`yokaiwatch2.apworld`** | ce dépôt (à la racine) |
 | Un fichier **YAML** de configuration | ce dépôt (voir §3) |
@@ -82,6 +82,12 @@ Placez ensuite votre YAML dans le dossier `Players/` d'Archipelago.
 ## 5. Activer le lien avec l'émulateur
 
 Le client lit la mémoire du jeu via le débogueur intégré d'Azahar.
+
+> ⚠️ **Version d'Azahar : la 2124.3 est recommandée.** Les versions 2125.x se
+> sont montrées instables avec le client (le stub GDB ne répond plus pendant
+> que le jeu tourne : micro-freezes puis déconnexions en boucle) ; la 2126
+> réécrit entièrement le stub et n'est pas encore testée. En cas de
+> déconnexions répétées, installer la 2124.3 règle le problème.
 
 1. Dans **Azahar** : *Émulation → Configurer → Debug*, cochez
    **« Enable GDB stub »** et laissez le port sur **24689**.
