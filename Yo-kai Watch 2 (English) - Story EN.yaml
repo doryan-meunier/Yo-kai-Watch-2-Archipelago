@@ -29,7 +29,9 @@ Yo-kai Watch 2 (English):
   logic_difficulty: normal         # casual / normal / hard / expert
 
   # --- TOGGLEABLE CHECKS (set true or false as you like) ---
-  quest_shuffle: true              # requests + services = checks
+  quest_shuffle: true              # requests + services = checks ; ALSO drives the
+                                   # in-game display of the AP item on each quest
+                                   # (mod patch). false = the mod is left alone.
   chest_shuffle: true              # chests = checks
   tablo_shuffle: true              # Tablo-blabla = checks. ONLY the 19 reverse-engineered
                                    # ones are used; the 7 undetectable ones (6,7,10,23,24,
@@ -45,6 +47,16 @@ Yo-kai Watch 2 (English):
   # NB: BOSSES, story CHAPTERS and watch RANKS are ALWAYS checks, and KEY ITEMS
   #     are ALWAYS in the multiworld pool (cannot be disabled — they are the
   #     backbone of progression).
+
+  # --- MELANGE DES YO-KAI (patch de la ROM) ---
+  encounter_shuffle: false        # melange les Yo-kai sauvages de chaque zone
+  boss_encounter_shuffle: false   # shuffles BOSS fights among themselves (33 fights,
+                                  # mechanics/stuns preserved: the whole fight travels)
+  encounter_levels: keep_location # keep_location = le niveau reste sur place
+                                  # follow_yokai  = le niveau suit le Yo-kai (chaotique)
+                                  # /!\ la ROM .3ds doit etre DECRYPTEE et dans un
+                                  #     dossier accessible en ecriture (PAS Program Files).
+                                  #     Relancer le jeu apres le patch.
 
   # --- TRAPS / DEATHLINK ---
   trap_percentage: 0               # v1: NO traps (effect not set up client-side yet)

@@ -51,6 +51,21 @@ Le verrouillage est **prudent** : il n'intervient qu'une fois l'événement du j
 déclenché. Le tutoriel et les scènes d'histoire se déroulent donc normalement,
 et rien ne casse que vous receviez l'objet avant ou après.
 
+## Ce qu'on voit en jeu
+
+Depuis la V1.1, le client patche le jeu à la connexion : **les coffres
+affichent et donnent l'objet du multiworld** (le vôtre tel quel, celui d'un
+autre joueur comme « Item AP »), et la plupart des obtentions d'objets-clés
+affichent « Item AP ». Plus besoin de deviner — ce que montre le jeu est ce
+qui se passe vraiment.
+
+## Randomizer de Yo-kai
+
+En option dans le YAML : les **Yo-kai sauvages** de chaque zone sont mélangés,
+et les **79 combats scriptés** (boss, histoire) sont mélangés entre eux — un
+boss reste un boss. Le mélange suit la seed de la partie : tout le monde voit
+le même jeu. Le niveau des rencontres reste attaché au lieu (réglable).
+
 ## Options principales
 
 | Option | Effet |
@@ -59,6 +74,7 @@ et rien ne casse que vous receviez l'objet avant ou après.
 | `quest_shuffle` · `chest_shuffle` · `tablo_shuffle` | activer ou non ces catégories de checks |
 | `key_item_shuffle` | les objets-clés passent dans le pool multiworld |
 | `progressive_watch_rank` | les rangs de montre en objets progressifs |
+| `encounter_shuffle` · `boss_encounter_shuffle` | le randomizer de Yo-kai |
 | `death_link` | quand un joueur tombe au combat, tout le monde tombe |
 
 Tout est commenté directement dans les fichiers YAML fournis.
@@ -99,10 +115,11 @@ Limites connues, sans conséquence sur une partie normale :
 
 | Chemin | Quoi |
 |---|---|
-| `yokaiwatch2.apworld` | **l'APWorld à installer** dans `custom_worlds/` |
+| `yokaiwatch2.apworld` | **l'APWorld français** à installer dans `custom_worlds/` |
+| `yokaiwatch2en.apworld` | **l'APWorld anglais** (jeu « Yo-kai Watch 2 (English) ») |
 | `Yo-kai Watch 2 - *.yaml` | configurations prêtes à l'emploi (FR et EN) |
 | `docs/` | guides d'installation FR et EN |
-| `tracker/` | le pack PopTracker |
+| `tracker/` | les packs PopTracker (français et anglais) |
 
 ---
 

@@ -29,7 +29,9 @@ Yo-kai Watch 2:
   logic_difficulty: normal         # casual / normal / hard / expert
 
   # --- CHECKS MODIFIABLES (mets true ou false selon ton envie) ---
-  quest_shuffle: true              # requêtes + services = checks
+  quest_shuffle: true              # requêtes + services = checks ; pilote AUSSI
+                                   # l'affichage en jeu de l'item AP sur la quête
+                                   # (patch du mod). false = aucun patch du mod.
   chest_shuffle: true              # coffres = checks
   tablo_shuffle: true              # Tablo-blabla = checks. Seuls les 19 RE'd sont pris
                                    # en compte ; les 7 non détectables (6,7,10,23,24,25,26)
@@ -45,6 +47,16 @@ Yo-kai Watch 2:
   # NB : les BOSS, les CHAPITRES d'histoire et les RANGS de montre sont TOUJOURS
   #      des checks, et les OBJETS-CLÉS sont TOUJOURS dans le pool multiworld
   #      (non désactivables — c'est la colonne vertébrale de la progression).
+
+  # --- MÉLANGE DES YO-KAI (patch de la ROM) ---
+  encounter_shuffle: false        # mélange les Yo-kai sauvages de chaque zone
+  boss_encounter_shuffle: false   # mélange les combats de BOSS entre eux (33 combats,
+                                  # mécaniques/stun préservées : le combat voyage entier)
+  encounter_levels: keep_location # keep_location = le niveau reste sur place
+                                  # follow_yokai  = le niveau suit le Yo-kai (chaotique)
+                                  # /!\ la ROM .3ds doit être DÉCRYPTÉE et dans un
+                                  #     dossier accessible en écriture (PAS Program Files).
+                                  #     Relancer le jeu après le patch.
 
   # --- PIÈGES / DEATHLINK ---
   trap_percentage: 0               # v1 : PAS de pièges (effet pas encore setup côté client)

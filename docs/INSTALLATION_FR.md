@@ -56,6 +56,8 @@ votre pseudo. Les options sont commentées directement dans le fichier.
 | `tablo_shuffle` | `true` | 19 Tablo-blabla jouables (les autres sont exclus d'office) |
 | `criminel_shuffle` | **`false`** | ⛔ détection pas assez fiable, peut bloquer la partie |
 | `death_link` | au choix | si un joueur tombe, tout le monde tombe |
+| `encounter_shuffle` | au choix | **randomizer** : mélange les Yo-kai sauvages (voir §8) |
+| `boss_encounter_shuffle` | au choix | mélange les boss entre eux (voir §8) |
 
 > ⚠️ **Ne désactivez jamais `quest_shuffle` ET `chest_shuffle` en même temps** :
 > il ne resterait pas assez de checks et la génération échouerait.
@@ -107,10 +109,63 @@ Le client lit la mémoire du jeu via le débogueur intégré d'Azahar.
 | *« Connexion émulateur perdue »* | Retapez `/citra`. Si c'est refusé, faites une sauvegarde d'état, redémarrez le jeu dans Azahar, rechargez l'état, puis `/citra`. |
 | Rien ne se passe / aucun check | Vérifiez qu'une sauvegarde est bien **chargée** (pas l'écran-titre) et que `/citra` a été fait. |
 | Ralentissements en jeu | Vérifiez le message au `/citra` : *« Lectures sans pause ACTIVES »* signifie que tout va bien. |
+| *« ROM introuvable »* | Indiquez votre `.3ds` au client : `/rom <chemin complet>`. |
+| *« ROM non modifiable »* | Déplacez la ROM hors de `Program Files` (Windows y interdit l'écriture), puis rouvrez-la dans Azahar. |
+| Un coffre affiche encore l'objet d'origine | Le jeu tournait pendant le patch : relancez-le (la ROM est lue au démarrage). |
 
 ---
 
-## 7. Le tracker (optionnel mais conseillé)
+## 7. Ce que vous verrez en jeu (affichage des objets AP)
+
+Le client modifie le jeu à la **connexion au serveur** pour que ce que vous
+trouvez corresponde à ce qui est réellement placé dans le multiworld :
+
+- **Coffres** : le coffre affiche **et donne** l'objet du multiworld. Votre
+  propre objet apparaît tel quel ; l'objet d'un autre joueur apparaît comme
+  « **Item AP** » (il disparaît ensuite tout seul, le vrai objet part à son
+  destinataire).
+- **Objets-clés** : la plupart des obtentions affichent aussi « Item AP ».
+  Cinq dons d'histoire (Filet, Herbe ancestrale, Modèle zéro, Clé de derrière,
+  Indications de Maman) gardent leur visuel d'origine — le check et la
+  livraison restent corrects, seul le popup ment une seconde.
+
+Pour cela, le client écrit directement dans votre ROM `.3ds` (voir les
+prérequis du §8 : ROM déchiffrée, dossier accessible en écriture). D'où
+l'ordre conseillé : **connectez le client d'abord, lancez le jeu ensuite** —
+la ROM est lue au démarrage du jeu.
+
+---
+
+## 8. Randomizer de Yo-kai (optionnel)
+
+Trois options du YAML mélangent les Yo-kai du jeu, avec la seed de la partie
+(tous les joueurs d'une même seed voient le même mélange) :
+
+```yaml
+encounter_shuffle: true          # mélange les Yo-kai sauvages de chaque zone
+boss_encounter_shuffle: true     # mélange les combats de BOSS entre eux (mécaniques préservées)
+encounter_levels: keep_location  # keep_location = le niveau reste sur place (conseillé)
+                                 # follow_yokai  = le niveau suit le Yo-kai (chaotique)
+```
+
+**Prérequis** : une ROM `.3ds` **déchiffrée**, dans un dossier accessible en
+écriture (**pas** `C:\Program Files`). Le client la trouve tout seul via les
+fichiers récents d'Azahar ; sinon indiquez-la avec `/rom <chemin du .3ds>`.
+
+Le patch s'applique à la **connexion au serveur** : le client vous demande
+alors de **relancer le jeu**. Les reconnexions suivantes ne réécrivent rien.
+
+Bon à savoir :
+
+- des petits fichiers `*.ykw2*.json` apparaissent à côté de la ROM — ce sont
+  les données d'**annulation**, ne les supprimez pas ;
+- `/unrandomize` restaure la ROM d'origine à tout moment ;
+- changer de seed restaure d'abord la ROM, puis applique le nouveau mélange —
+  rien ne s'empile.
+
+---
+
+## 9. Le tracker (optionnel mais conseillé)
 
 1. Installez **PopTracker** : https://github.com/black-sliver/PopTracker/releases
 2. Copiez le dossier `tracker/ykw2-poptracker` dans le dossier `packs/` de
@@ -124,7 +179,7 @@ Les checks dont l'objet a été « hint » par un autre joueur sont surlignés.
 
 ---
 
-## 8. Bon à savoir
+## 10. Bon à savoir
 
 - **Sauvegardez régulièrement en jeu** : les checks sont détectés en mémoire
   vive, mais votre progression, elle, dépend de la sauvegarde du jeu.

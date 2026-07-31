@@ -76,6 +76,8 @@ Every option is documented inline in the file.
 | `tablo_shuffle` | `true` | 19 playable Baffle Boards (the rest are excluded automatically) |
 | `criminel_shuffle` | **`false`** | ⛔ detection is not reliable enough, it can block the run |
 | `death_link` | your call | when one player dies, everyone dies |
+| `encounter_shuffle` | your call | **randomizer**: shuffles wild Yo-kai (see §9) |
+| `boss_encounter_shuffle` | your call | shuffles bosses among themselves (see §9) |
 
 > ⚠️ **Never disable `quest_shuffle` AND `chest_shuffle` at the same time**:
 > too few checks would remain and generation would fail.
@@ -128,10 +130,62 @@ The client reads the game's memory through Azahar's built-in debugger.
 | Nothing happens / no checks | Make sure a save is actually **loaded** (not the title screen) and that you ran `/citra`. |
 | In-game slowdowns | Check the message after `/citra`: *"Pause-free reads ACTIVE"* means everything is fine. |
 | Received items never show up | Close the client, delete `Archipelago/ykw2/delivered_unknown_<your slot number>.txt`, then reconnect with your save loaded. The client will deliver everything again. |
+| *"ROM not found"* | Point the client to your `.3ds`: `/rom <full path>`. |
+| *"ROM not writable"* | Move the ROM out of `Program Files` (Windows forbids writing there), then reopen it in Azahar. |
+| A chest still shows its original item | The game was running during the patch: restart it (the ROM is read at boot). |
 
 ---
 
-## 8. The tracker (optional but recommended)
+## 8. What you will see in game (AP item display)
+
+The client modifies the game **when you connect to the server**, so what you
+find matches what the multiworld actually placed there:
+
+- **Chests** display **and give** the multiworld item. Your own items appear
+  as themselves; another player's item appears as "**Item AP**" (it then
+  removes itself, the real item goes to its owner).
+- **Key items**: most pickups also display "Item AP". Five story gives
+  (Bug Net, Ancient Herb, Model Zero, Back Door Key, Mom's Directions) keep
+  their native visual — the check and the delivery stay correct, only the
+  popup lies for a second.
+
+This works by writing directly into your `.3ds` ROM (see §9 for the
+requirements: decrypted ROM, writable folder). Hence the recommended order:
+**connect the client first, launch the game after** — the ROM is read at
+game boot.
+
+---
+
+## 9. Yo-kai randomizer (optional)
+
+Three YAML options shuffle the game's Yo-kai, using the multiworld seed
+(every player of the same seed gets the same shuffle):
+
+```yaml
+encounter_shuffle: true          # shuffles the wild Yo-kai of every area
+boss_encounter_shuffle: true     # shuffles BOSS fights among themselves (mechanics preserved)
+encounter_levels: keep_location  # keep_location = the level stays put (recommended)
+                                 # follow_yokai  = the level travels with the Yo-kai
+```
+
+**Requirements**: a **decrypted** `.3ds` ROM, in a writable folder (**not**
+`C:\Program Files`). The client finds it by itself through Azahar's recent
+files; otherwise point to it with `/rom <path to the .3ds>`.
+
+The patch is applied **when connecting to the server**: the client then asks
+you to **restart the game**. Later reconnections rewrite nothing.
+
+Good to know:
+
+- small `*.ykw2*.json` files appear next to the ROM — they are the **undo**
+  data, do not delete them;
+- `/unrandomize` restores the original ROM at any time;
+- changing seeds first restores the ROM, then applies the new shuffle —
+  nothing ever stacks.
+
+---
+
+## 10. The tracker (optional but recommended)
 
 1. Install **PopTracker**: https://github.com/black-sliver/PopTracker/releases
 2. Copy the **`tracker/ykw2en-poptracker`** folder into PopTracker's `packs/`
@@ -145,7 +199,7 @@ highlighted.
 
 ---
 
-## 9. Good to know
+## 11. Good to know
 
 - **Save often in-game**: checks are detected in RAM, but your progress itself
   depends on the game's own save.
