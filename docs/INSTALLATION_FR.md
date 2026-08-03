@@ -98,15 +98,15 @@ Le client lit la mémoire du jeu via le débogueur intégré d'Azahar.
 4. Une fois le jeu débloqué, **chargez votre sauvegarde** : le client ne livre
    aucun objet tant qu'une partie n'est pas chargée.
 
-> ### ⚠️ Vous n'avez pas encore de sauvegarde ?
-> Il vous en faut une **avant** de vous connecter — le client ne peut rien
-> faire sur l'écran-titre. Si vous démarrez une nouvelle partie :
-> 1. lancez le jeu **sans** le stub GDB (décochez-le le temps du prologue),
-> 2. jouez jusqu'à pouvoir **sauvegarder**, puis sauvegardez,
-> 3. réactivez le stub, relancez le jeu, et suivez la procédure ci-dessus.
+> ### Vous n'avez pas encore de sauvegarde ?
+> Aucun problème, et **rien de spécial à faire** : lancez simplement une
+> **nouvelle partie** après le `/citra`. Le client n'exige pas une sauvegarde
+> préexistante — il attend seulement que vous soyez **dans le jeu** plutôt que
+> sur l'écran-titre. Il patiente pendant l'intro, puis se réveille tout seul.
 >
-> Sans ça, vous resterez bloqué : le jeu se fige au démarrage, `/citra` le
-> libère, mais vous n'avez aucune partie à charger et rien ne se passera.
+> Ce qu'il ne peut pas faire, c'est travailler sur l'écran-titre ou dans le
+> menu de sélection : là, il affiche « en attente d'une sauvegarde chargée »
+> et ne livre rien. C'est normal, et ça se débloque dès que vous jouez.
 
 ---
 

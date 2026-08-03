@@ -116,15 +116,15 @@ The client reads the game's memory through Azahar's built-in debugger.
 4. Once the game is running, **load your save**: the client delivers nothing
    until a save is loaded.
 
-> ### ⚠️ No save file yet?
-> You need one **before** connecting — the client cannot do anything on the
-> title screen. If you are starting a brand-new game:
-> 1. launch the game **without** the GDB stub (untick it for the prologue),
-> 2. play until you can **save**, then save,
-> 3. tick the stub again, restart the game, and follow the steps above.
+> ### No save file yet?
+> That is fine, and there is **nothing special to do**: just start a **new
+> game** after running `/citra`. The client does not require a pre-existing
+> save — it only needs you to be **inside the game** rather than on the title
+> screen. It waits through the intro, then picks up on its own.
 >
-> Otherwise you will be stuck: the game freezes at boot, `/citra` releases it,
-> but you have no save to load and nothing will happen.
+> What it cannot do is work on the title screen or in the file-select menu:
+> there it reports "waiting for a loaded save" and delivers nothing. That is
+> expected, and it clears up as soon as you are playing.
 
 ---
 
