@@ -83,18 +83,23 @@ Placez ensuite votre YAML dans le dossier `Players/` d'Archipelago.
 
 Le client lit la mémoire du jeu via le débogueur intégré d'Azahar.
 
-> ⚠️ **Version d'Azahar : la 2124.3 est recommandée.** Les versions 2125.x se
-> sont montrées instables avec le client (le stub GDB ne répond plus pendant
-> que le jeu tourne : micro-freezes puis déconnexions en boucle) ; la 2126
-> réécrit entièrement le stub et n'est pas encore testée. En cas de
-> déconnexions répétées, installer la 2124.3 règle le problème.
+> ⚠️ **Installez la 2124.3.** C'est la seule version sur laquelle le client est
+> validé, et les autres posent des problèmes concrets :
+> - **2125.x** : le stub GDB cesse de répondre pendant que le jeu tourne —
+>   micro-freezes, puis déconnexions en boucle.
+> - **2126** : le stub a été entièrement réécrit. Le jeu **ne se fige plus** au
+>   démarrage et `/citra` échoue (rapporté par une joueuse). Si vous êtes dans
+>   ce cas, ce n'est pas votre installation : c'est la version.
+>
+> En cas de doute, vérifiez dans *Aide → À propos*.
 
 1. Dans **Azahar** : *Émulation → Configurer → Debug*, cochez
    **« Enable GDB stub »** et laissez le port sur **24689**.
 2. **Relancez le jeu** pour que le réglage prenne effet.
-3. Le jeu **se fige au démarrage** : c'est normal — avec le stub activé, il
-   attend le débogueur. C'est la commande `/citra` du client (étape suivante)
-   qui le libère.
+3. Sur la 2124.3, le jeu **se fige au démarrage** : c'est normal — avec le stub
+   activé, il attend le débogueur, et la commande `/citra` du client (étape
+   suivante) le libère. D'autres versions ne figent pas le jeu ; ce n'est pas
+   un problème en soi, mais si `/citra` échoue derrière, revenez à la 2124.3.
 4. Une fois le jeu débloqué, **chargez votre sauvegarde** : le client ne livre
    aucun objet tant qu'une partie n'est pas chargée.
 

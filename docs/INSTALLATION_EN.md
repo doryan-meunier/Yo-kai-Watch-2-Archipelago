@@ -102,17 +102,23 @@ Then drop your YAML into Archipelago's `Players/` folder.
 
 The client reads the game's memory through Azahar's built-in debugger.
 
-> ⚠️ **Azahar version: 2124.3 is recommended.** The 2125.x builds proved
-> unstable with the client (the GDB stub stops answering while the game runs:
-> micro-freezes then disconnection loops); 2126 fully rewrites the stub and is
-> untested yet. If you get repeated disconnections, installing 2124.3 fixes it.
+> ⚠️ **Install 2124.3.** It is the only version the client is validated on,
+> and the others cause concrete problems:
+> - **2125.x**: the GDB stub stops responding while the game runs — micro
+>   freezes, then repeated disconnections.
+> - **2126**: the stub was fully rewritten. The game **no longer freezes** at
+>   boot and `/citra` fails (reported by a player). If that happens to you, it
+>   is not your setup — it is the version.
+>
+> Check yours under *Help → About*.
 
 1. In **Azahar**: *Emulation → Configure → Debug*, tick **"Enable GDB stub"**
    and leave the port on **24689**.
 2. **Restart the game** for the setting to take effect.
-3. The game **freezes at boot**: this is normal — with the stub enabled it
-   waits for the debugger. The client's `/citra` command (next step) is what
-   releases it.
+3. On 2124.3 the game **freezes at boot**: this is normal — with the stub
+   enabled it waits for the debugger, and the client's `/citra` command (next
+   step) releases it. Other versions do not freeze the game; that is not a
+   problem by itself, but if `/citra` then fails, go back to 2124.3.
 4. Once the game is running, **load your save**: the client delivers nothing
    until a save is loaded.
 
