@@ -198,5 +198,10 @@
  "\"   %-34s à la place de %s\"": "\"   %-34s in place of %s\"",
  "\"définitive.\"": "\"permanent.\"",
  "\"  %-22s reçu=%-5s | %s | %s\"": "\"  %-22s received=%-5s | %s | %s\"",
- "\"OUI\" if has_item else \"non\"": "\"YES\" if has_item else \"no\""
+ "\"OUI\" if has_item else \"non\"": "\"YES\" if has_item else \"no\"",
+ "\"Affichage des récompenses en jeu indisponible : %s\"": "\"In-game reward display unavailable: %s\"",
+ "\"Votre mod de traduction embarque une autre version \"": "\"Your translation mod ships a different version \"",
+ "\"des fichiers du jeu. Vos checks fonctionnent \"": "\"of the game files. Your checks work \"",
+ "\"normalement, seuls les noms d'objets affichés sur \"": "\"normally; only the item names shown on \"",
+ "\"les quêtes restent ceux d'origine.\"": "\"quests stay the original ones.\""
 }
