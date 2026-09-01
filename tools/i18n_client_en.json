@@ -203,5 +203,11 @@
  "\"Votre mod de traduction embarque une autre version \"": "\"Your translation mod ships a different version \"",
  "\"des fichiers du jeu. Vos checks fonctionnent \"": "\"of the game files. Your checks work \"",
  "\"normalement, seuls les noms d'objets affichés sur \"": "\"normally; only the item names shown on \"",
- "\"les quêtes restent ceux d'origine.\"": "\"quests stay the original ones.\""
+ "\"les quêtes restent ceux d'origine.\"": "\"quests stay the original ones.\"",
+ "\"item_text_fr.cfg.bin\"": "\"item_text_engb.cfg.bin\"",
+ "\"yw2_lg_fr.fa\"": "\"yw2_lg_engb.fa\"",
+ "\"Affichage des récompenses de quêtes : ROM \"": "\"Quest reward display: ROM \"",
+ "\"introuvable, indiquez-la avec /rom <chemin>.\"": "\"not found, point to it with /rom <path>.\"",
+ "\"Récompenses de quêtes patchées dans la ROM : \"": "\"Quest rewards patched into the ROM: \"",
+ "\"%d écritures. RELANCEZ LE JEU pour les voir.\"": "\"%d writes. RESTART THE GAME to see them.\""
 }
