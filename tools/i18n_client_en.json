@@ -209,5 +209,6 @@
  "\"Affichage des récompenses de quêtes : ROM \"": "\"Quest reward display: ROM \"",
  "\"introuvable, indiquez-la avec /rom <chemin>.\"": "\"not found, point to it with /rom <path>.\"",
  "\"Récompenses de quêtes patchées dans la ROM : \"": "\"Quest rewards patched into the ROM: \"",
- "\"%d écritures. RELANCEZ LE JEU pour les voir.\"": "\"%d writes. RESTART THE GAME to see them.\""
+ "\"%d écritures. RELANCEZ LE JEU pour les voir.\"": "\"%d writes. RESTART THE GAME to see them.\"",
+ "\"Récompenses de quêtes restaurées : %d écritures.\"": "\"Quest rewards restored: %d writes.\""
 }
