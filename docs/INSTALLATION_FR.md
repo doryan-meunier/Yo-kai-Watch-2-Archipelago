@@ -131,7 +131,9 @@ Le client lit la mémoire du jeu via le débogueur intégré d'Azahar.
 | Symptôme | Solution |
 |---|---|
 | *« Connexion au stub GDB impossible »* | Le stub n'est pas activé, ou le jeu n'a pas été relancé après l'avoir coché. Vérifiez aussi qu'aucun autre programme n'utilise le port 24689. |
-| *« Connexion émulateur perdue »* | Retapez `/citra`. Si c'est refusé, faites une sauvegarde d'état, redémarrez le jeu dans Azahar, rechargez l'état, puis `/citra`. |
+| *« Connexion émulateur perdue »* | Retapez `/citra` **une fois**. Si le client redit aussitôt « connexion perdue », n'insistez pas : le débogueur d'Azahar n'accorde qu'**une session par lancement du jeu**. Relancez le jeu (*Émulation → Redémarrer*), puis `/citra`. |
+| `/citra` marche, puis déconnexions en boucle | Vérifiez votre version d'Azahar (*Aide → À propos*) : les **2125.x** et **2126** donnent exactement ça. Installez la **2124.3**. |
+| Vous signalez un bug | Envoyez le journal détaillé : `C:\ProgramData\Archipelago\logs\YoKaiWatch2Client_diagnostic.txt` (réécrit à chaque lancement du client — envoyez-le **après** le problème, sans relancer le client entre-temps). |
 | Rien ne se passe / aucun check | Vérifiez qu'une sauvegarde est bien **chargée** (pas l'écran-titre) et que `/citra` a été fait. |
 | Ralentissements en jeu | Vérifiez le message au `/citra` : *« Lectures sans pause ACTIVES »* signifie que tout va bien. |
 | *« ROM introuvable »* | Indiquez votre `.3ds` au client : `/rom <chemin complet>`. |

@@ -151,7 +151,9 @@ The client reads the game's memory through Azahar's built-in debugger.
 |---|---|
 | *"No world found to handle game Yo-kai Watch 2 (English)"* | The apworld is not in `custom_worlds/`, or Archipelago was not restarted after copying it. |
 | *"Cannot connect to the GDB stub"* | The stub is not enabled, or the game was not restarted after ticking it. Also make sure no other program is using port 24689. |
-| *"Emulator connection lost"* | Type `/citra` again. If it is refused, make a save state, restart the game in Azahar, load the state, then `/citra`. |
+| *"Emulator connection lost"* | Type `/citra` again **once**. If the client immediately says "connection lost" again, do not keep trying: Azahar's debugger grants only **one session per game launch**. Restart the game (*Emulation → Restart*), then `/citra`. |
+| `/citra` works, then disconnects in a loop | Check your Azahar version (*Help → About*): **2125.x** and **2126** do exactly this. Install **2124.3**. |
+| Reporting a bug | Send the detailed log: `C:\ProgramData\Archipelago\logs\YoKaiWatch2Client_diagnostic.txt` (rewritten each time the client starts — send it **after** the problem, without restarting the client in between). |
 | Nothing happens / no checks | Make sure a save is actually **loaded** (not the title screen) and that you ran `/citra`. |
 | In-game slowdowns | Check the message after `/citra`: *"Pause-free reads ACTIVE"* means everything is fine. |
 | Received items never show up | Close the client, delete `Archipelago/ykw2/delivered_unknown_<your slot number>.txt`, then reconnect with your save loaded. The client will deliver everything again. |
