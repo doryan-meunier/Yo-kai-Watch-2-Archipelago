@@ -1,18 +1,12 @@
-# Setup Guide — Yo-kai Watch 2 on Archipelago (English)
+# Setup guide: Yo-kai Watch 2 on Archipelago (V2)
 
-This guide explains how to play **Yo-kai Watch 2: Psychic Specters** in an
-[Archipelago](https://archipelago.gg) multiworld, alone or with friends, with
-**every location and item name in English**.
+This guide explains, step by step and with no technical knowledge needed, how to play **Yo-kai Watch 2** (European version, 3DS) in
+an [Archipelago](https://archipelago.gg) multiworld, alone or with friends.
 
-> **Supported version: European 3DS release**, played on the **Azahar**
-> emulator. The game itself is not provided — you must own your own copy.
+> The game is **not provided**. You need your own copy and must make your own decrypted ROM from it. The mod contains no game data: it
+> is built on your computer from your ROM.
 
-> **Two versions exist.** `yokaiwatch2en.apworld` is the game
-> **"Yo-kai Watch 2 (English)"**; `yokaiwatch2.apworld` is the French one,
-> **"Yo-kai Watch 2"**. They are the same world — same logic, same checks, same
-> IDs — only the displayed names differ, and **both can take part in the same
-> multiworld**. This guide covers the English one; for the French version see
-> [INSTALLATION_FR.md](INSTALLATION_FR.md).
+Version française : [INSTALLATION_FR.md](INSTALLATION_FR.md)
 
 ---
 
@@ -20,218 +14,144 @@ This guide explains how to play **Yo-kai Watch 2: Psychic Specters** in an
 
 | Item | Where to get it |
 |---|---|
-| **Archipelago** 0.6.0 or newer | https://github.com/ArchipelagoMW/Archipelago/releases |
-| **Azahar** (3DS emulator) — **version 2124.3 recommended** | https://github.com/azahar-emu/azahar/releases/tag/2124.3 |
-| Your copy of **Yo-kai Watch 2: Psychic Specters** (EU) | — |
-| **`yokaiwatch2en.apworld`** | this repository (root folder) |
-| **`Yo-kai Watch 2 (English) - Story EN.yaml`** | this repository (root folder) |
-| *(optional)* the **PopTracker** pack | this repository, `tracker/ykw2en-poptracker` |
+| Windows 10 or 11 (64-bit) | for the mod launcher |
+| **Archipelago 0.6.7 or later** | <https://github.com/ArchipelagoMW/Archipelago/releases> (only the person generating the game needs it, but every player can have it) |
+| **Azahar 2124.3** (3DS emulator) | <https://github.com/azahar-emu/azahar/releases/tag/2124.3> (the only validated version) |
+| **Your decrypted ROM** of the European Yo-kai Watch 2 (`.3ds`, `.cci` or `.cxi`) | made with GodMode9 from your own cartridge. Original version, no merged update, no modification. An "encrypted" ROM is refused |
+| **The APWorld** | `yokaiwatch2.apworld` (French names) or `yokaiwatch2en.apworld` (English names), at the root of this repository |
+| **A YAML** | `Yo-kai Watch 2 - FR.yaml` or `Yo-kai Watch 2 (English) - EN.yaml`, at the root of this repository |
+| **The mod launcher** | the [`lanceur/`](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/tree/main/lanceur) folder of this repository: the `ykw2ap-exe-2.0.0.zip` file (recommended, no Python to install). Alternative: `ykw2ap-2.0.0.zip`, which needs Python 3.11 or later |
+
+The French and English APWorlds can play in the **same** multiworld. The launcher and the game patch are the same in both cases.
 
 ---
 
-## 2. Put the game itself in English
+## 2. Install the APWorld in Archipelago
 
-The European cartridge contains **all seven languages** in one build, and the
-game follows the **console's system language**. So:
+*(This step is for the person generating the game; any player can also do it for their own tests.)*
 
-1. In **Azahar**: *Emulation → Configure → System*.
-2. Set the language to **English**.
-3. Restart the game.
-
-Nothing else changes — the memory addresses are identical in every language, so
-the client works the same way.
+1. Close Archipelago if it is open.
+2. Copy `yokaiwatch2.apworld` (and/or `yokaiwatch2en.apworld`) into Archipelago's `custom_worlds` folder. With the standard Windows
+   install: `C:\ProgramData\Archipelago\custom_worlds\`. You can also double-click the `.apworld` file if Archipelago is installed
+   normally.
+3. At the next Archipelago start, the games "Yo-kai Watch 2" (French) and "Yo-kai Watch 2 (English)" are recognised.
 
 ---
 
-## 3. Install the APWorld
+## 3. Prepare the YAML and generate the game
 
-1. Close Archipelago if it is running.
-2. Copy **`yokaiwatch2en.apworld`** into the `custom_worlds/` folder of your
-   Archipelago installation.
-   - Windows (standard install): `C:\ProgramData\Archipelago\custom_worlds\`
-3. That's it — **"Yo-kai Watch 2 (English)"** will be recognised on the next
-   launch. You can keep `yokaiwatch2.apworld` next to it; the two games coexist.
+1. Open the YAML of your choice with a text editor (Notepad is enough). Every option is explained in French **and** English: what each value
+   does, what checks or items it adds, and its dependencies.
+2. The provided settings are the **default settings**. For the "everything on" profile (about 1,060 locations), follow the "Everything on" line
+   of each option. Change the `name:` line if you want a specific player name.
+3. Do not translate option or value names: they stay in French in both versions.
+4. Put the YAML in Archipelago's `Players` folder (with the other players' files, if any).
+5. Run the generation (Archipelago Launcher > "Generate", or `ArchipelagoGenerate.exe`). A `.zip` archive appears in the `output` folder.
+6. Host the game in one of these ways:
+   - **Online**: upload the `.zip` to <https://archipelago.gg/uploads>; the site gives an address and port to share (easiest with several
+     players);
+   - **Locally**: run `ArchipelagoServer` with the `.zip`; for friends to connect you need to open port 38281 (default) on your router.
 
----
-
-## 4. Prepare your configuration (YAML)
-
-Use **`Yo-kai Watch 2 (English) - Story EN.yaml`** from the repository root. It
-plays the whole story up to Dame Demona; the post-game is not part of this
-version.
-
-> The file **must** declare `game: Yo-kai Watch 2 (English)`. If you start from
-> a French YAML instead, generation will fail with *"No world found to handle
-> game …"*.
-
-Open it in a text editor and change at least the `name:` line to your nickname.
-Every option is documented inline in the file.
-
-### Recommended settings
-
-| Option | Recommended | Why |
-|---|---|---|
-| `quest_shuffle` | `true` | requests and services become checks |
-| `chest_shuffle` | `true` | every chest becomes a check |
-| `tablo_shuffle` | `true` | 19 playable Baffle Boards (the rest are excluded automatically) |
-| `criminel_shuffle` | **`false`** | ⛔ detection is not reliable enough, it can block the run |
-| `death_link` | your call | when one player dies, everyone dies |
-| `encounter_shuffle` | your call | **randomizer**: shuffles wild Yo-kai (see §9) |
-| `boss_encounter_shuffle` | your call | shuffles bosses among themselves (see §9) |
-
-> ⚠️ **Never disable `quest_shuffle` AND `chest_shuffle` at the same time**:
-> too few checks would remain and generation would fail.
-
-Then drop your YAML into Archipelago's `Players/` folder.
+> If the client refuses a game, it requires a lock your mod package lacks: use the latest launcher from the `lanceur/` folder of this repository (see §9).
 
 ---
 
-## 5. Generate and host the game
+## 4. Install and start the launcher
 
-1. Run **ArchipelagoGenerate** (or `ArchipelagoLauncher` → *Generate*).
-2. A `.zip` archive appears in `output/`.
-3. Two ways to play:
-   - **Online**: upload the `.zip` to https://archipelago.gg/uploads — the site
-     gives you an address and port to share (easiest for a group);
-   - **Locally**: run `ArchipelagoServer` with the `.zip`. For friends to
-     connect you will need to forward the port (38281 by default) on your router.
+1. Download the launcher `.zip` from the `lanceur/` folder of this repository (`ykw2ap-exe-2.0.0.zip`) and **extract it** anywhere (for example in Documents).
+2. Double-click **`Lanceur Yo-kai Watch 2 Archipelago.exe`** (the window can be switched to English). Keep the `_internal` folder **next to**
+   the exe (do not move the exe alone; for a shortcut: right-click the exe, "Create shortcut").
+3. **Windows warning**: the first time, Windows may show "Windows protected your PC" (unknown publisher). This is expected: the launcher
+   is not signed (a code-signing certificate costs money). Click **"More info"**, then **"Run anyway"**. If your antivirus blocks the launcher,
+   use the `.pyw` variant below.
 
----
-
-## 6. Enable the emulator link
-
-The client reads the game's memory through Azahar's built-in debugger.
-
-> ⚠️ **Install 2124.3.** It is the only version the client is validated on,
-> and the others cause concrete problems:
-> - **2125.x**: the GDB stub stops responding while the game runs — micro
->   freezes, then repeated disconnections.
-> - **2126**: the stub was fully rewritten. The game **no longer freezes** at
->   boot and `/citra` fails (reported by a player). If that happens to you, it
->   is not your setup — it is the version.
->
-> Check yours under *Help → About*.
-
-1. In **Azahar**: *Emulation → Configure → Debug*, tick **"Enable GDB stub"**
-   and leave the port on **24689**.
-2. **Restart the game** for the setting to take effect.
-3. On 2124.3 the game **freezes at boot**: this is normal — with the stub
-   enabled it waits for the debugger, and the client's `/citra` command (next
-   step) releases it. Other versions do not freeze the game; that is not a
-   problem by itself, but if `/citra` then fails, go back to 2124.3.
-4. Once the game is running, **load your save**: the client delivers nothing
-   until a save is loaded.
-
-> ### No save file yet?
-> That is fine, and there is **nothing special to do**: just start a **new
-> game** after running `/citra`. The client does not require a pre-existing
-> save — it only needs you to be **inside the game** rather than on the title
-> screen. It waits through the intro, then picks up on its own.
->
-> What it cannot do is work on the title screen or in the file-select menu:
-> there it reports "waiting for a loaded save" and delivers nothing. That is
-> expected, and it clears up as soon as you are playing.
+**Python variant (`.pyw`)**: install Python 3.11 or later (with Tcl/Tk, included by default), extract `ykw2ap-2.0.0.zip`, then double-click
+`Lanceur Yo-kai Watch 2 Archipelago.pyw`. It works the same way.
 
 ---
 
-## 7. Run the client and play
+## 5. Set up the launcher
 
-1. Open **ArchipelagoLauncher** → **Yo-kai Watch 2 (English) Client**.
-2. Connect to the server (address and port), using your **slot name** = the
-   `name:` from your YAML.
-3. In the client, type **`/citra`** and press Enter — this is what **releases
-   the game** frozen at boot.
-   - Expected message: *"Attached to the GDB stub (port 24689). Emulation resumes."*
-4. Load your save and just play! Your checks are sent automatically and received items show up
-   in-game.
+The steps are numbered in the window:
 
-### Troubleshooting
+1. **Game ROM**: click **"Browse..."** and pick your ROM. The launcher checks that it is the right version. Possible messages: "encrypted"
+   (make the decrypted ROM again with GodMode9), "unsupported version" (the European version is required, without a merged update or modification).
+2. **Azahar**: usually found automatically; otherwise **"Browse..."** and pick `azahar.exe`. Azahar must have been **started at least once**
+   before. Look at the line "Link with the game (GDB stub)":
+   - if it says "enabled", you are fine;
+   - if it says "disabled", click **"Enable..."**. The launcher asks for your consent before changing Azahar's configuration: it makes a **backup
+     copy** next to it and only changes the GDB stub settings. **Azahar must be closed** at that moment. You can also do it yourself in Azahar:
+     Emulation > Configure > Debug, tick "Enable GDB Stub".
+3. **Mod**: its state is shown (not installed / up to date / other version). Installation happens by itself on the first "Play" (up to one minute).
+   The "Install", "Repair" and "Uninstall" buttons are there if needed; they are refused while Azahar is open.
 
-| Symptom | Fix |
+---
+
+## 6. Connect to the Archipelago game
+
+In the launcher's **"Archipelago connection"** card:
+
+- **Server**: the address and port, for example `archipelago.gg:38281`;
+- **Slot name**: your player name in the game (the YAML's name);
+- **Password**: only if the game has one ("Remember password" keeps it, encrypted for your Windows account).
+
+Click **"Save"**. You can change these fields mid-game: the client reconnects by itself. The launcher shows the connection state. As soon as
+the connection is saved, the tracker (Checks, Chat and Yo-kai tabs) works **even without starting the game**.
+
+---
+
+## 7. Play
+
+1. Click **"Play"**. The launcher checks everything, installs the mod if needed, starts the invisible client, then Azahar with the game.
+   **Always use "Play"**, never Azahar directly.
+2. **Start a NEW game** (an empty save slot). It is **linked automatically** to the Archipelago game.
+3. A save that was already started is **never used**: the launcher shows "This save is not linked to the Archipelago game: start a new game." and
+   nothing is received or sent. A save linked to **another** seed is refused the same way. There is no manual linking of an old save.
+4. In the launcher's "State" frame: client, game, server, and save ("linked to this Archipelago game" when all is well).
+5. While you play, received items show up in a banner and checks are sent by themselves.
+
+**Azahar save states: not recommended.** They are tied to the exact installed mod version; loading one from another build can bring back the old
+code. Use **in-game** saves. If you update the mod, save in game first.
+
+---
+
+## 8. Where to find the tracker
+
+The tracker is **inside the launcher** (no more PopTracker):
+
+- **Checks** tab: your locations by area (done, available, later, blocked), received items, and a **map** with markers and, if you tick "Follow
+  the game", your position;
+- **Yo-kai** tab: where to find each wild Yo-kai, under the shuffle actually applied; pinning on the map; filters;
+- **Chat** tab: Archipelago's text client (coloured messages, chat with other players, `!hint`, `!remaining`...), with a "Hints" sub-tab.
+
+No spoilers by default: a check's content only appears once it is done or hinted.
+
+---
+
+## 9. Troubleshooting
+
+| Symptom | What to do |
 |---|---|
-| *"No world found to handle game Yo-kai Watch 2 (English)"* | The apworld is not in `custom_worlds/`, or Archipelago was not restarted after copying it. |
-| *"Cannot connect to the GDB stub"* | The stub is not enabled, or the game was not restarted after ticking it. Also make sure no other program is using port 24689. |
-| *"Emulator connection lost"* | Type `/citra` again **once**. If the client immediately says "connection lost" again, do not keep trying: Azahar's debugger grants only **one session per game launch**. Restart the game (*Emulation → Restart*), then `/citra`. |
-| `/citra` works, then disconnects in a loop | Check your Azahar version (*Help → About*): **2125.x** and **2126** do exactly this. Install **2124.3**. |
-| Reporting a bug | Send the detailed log: `C:\ProgramData\Archipelago\logs\YoKaiWatch2Client_diagnostic.txt` (rewritten each time the client starts — send it **after** the problem, without restarting the client in between). |
-| Nothing happens / no checks | Make sure a save is actually **loaded** (not the title screen) and that you ran `/citra`. |
-| In-game slowdowns | Check the message after `/citra`: *"Pause-free reads ACTIVE"* means everything is fine. |
-| Received items never show up | Close the client, delete `Archipelago/ykw2/delivered_unknown_<your slot number>.txt`, then reconnect with your save loaded. The client will deliver everything again. |
-| *"ROM not found"* | Point the client to your `.3ds`: `/rom <full path>`. |
-| *"ROM not writable"* | Move the ROM out of `Program Files` (Windows forbids writing there), then reopen it in Azahar. |
-| A chest still shows its original item | The game was running during the patch: restart it (the ROM is read at boot). |
+| The game stays on a **black screen** | the client did not start. Close Azahar and start again from the launcher ("Play"). |
+| "Link with the game (GDB stub): disabled" | click "Enable..." (Azahar closed), or enable it in Azahar. |
+| "This save is not linked..." / "...belongs to another Archipelago game" | start a new game in an empty slot. |
+| "the game must be updated (mod too old)" or "the installed game lacks some locks of this seed" | get the latest launcher from the `lanceur/` folder of this repository; click "Play" (updates the mod) or "Repair". |
+| A window mentions **insufficient memory** | your computer is probably saturated: close other programs (browser, games...) and start again. *(Presumed cause, not verified in every case.)* |
+| The game crashes (panic) | `plantage.json` in the client's data folder (`%APPDATA%\ykw2-ap`) keeps the cause; attach it to your help request. |
+| You need help | **"Logs"** button in the launcher: opens the logs folder; attach `client.log`. |
+| The mod looks damaged | **"Repair"** button (uninstalls then reinstalls). |
+| ROM refused | see §5, step 1. |
+
+Server messages: "server unreachable" (wrong address or port, server stopped), "unknown slot" (slot name), "password refused", "wrong game" (the
+YAML is not for this game).
 
 ---
 
-## 8. What you will see in game (AP item display)
+## 10. Uninstall
 
-The client modifies the game **when you connect to the server**, so what you
-find matches what the multiworld actually placed there:
-
-- **Chests** display **and give** the multiworld item. Your own items appear
-  as themselves; another player's item appears as "**Item AP**" (it then
-  removes itself, the real item goes to its owner).
-- **Key items**: most pickups also display "Item AP". Five story gives
-  (Bug Net, Ancient Herb, Model Zero, Back Door Key, Mom's Directions) keep
-  their native visual — the check and the delivery stay correct, only the
-  popup lies for a second.
-
-This works by writing directly into your `.3ds` ROM (see §9 for the
-requirements: decrypted ROM, writable folder). Hence the recommended order:
-**connect the client first, launch the game after** — the ROM is read at
-game boot.
-
----
-
-## 9. Yo-kai randomizer (optional)
-
-Three YAML options shuffle the game's Yo-kai, using the multiworld seed
-(every player of the same seed gets the same shuffle):
-
-```yaml
-encounter_shuffle: true          # shuffles the wild Yo-kai of every area
-boss_encounter_shuffle: true     # shuffles BOSS fights among themselves (mechanics preserved)
-encounter_levels: keep_location  # keep_location = the level stays put (recommended)
-                                 # follow_yokai  = the level travels with the Yo-kai
-```
-
-**Requirements**: a **decrypted** `.3ds` ROM, in a writable folder (**not**
-`C:\Program Files`). The client finds it by itself through Azahar's recent
-files; otherwise point to it with `/rom <path to the .3ds>`.
-
-The patch is applied **when connecting to the server**: the client then asks
-you to **restart the game**. Later reconnections rewrite nothing.
-
-Good to know:
-
-- small `*.ykw2*.json` files appear next to the ROM — they are the **undo**
-  data, do not delete them;
-- `/unrandomize` restores the original ROM at any time;
-- changing seeds first restores the ROM, then applies the new shuffle —
-  nothing ever stacks.
-
----
-
-## 10. The tracker (optional but recommended)
-
-1. Install **PopTracker**: https://github.com/black-sliver/PopTracker/releases
-2. Copy the **`tracker/ykw2en-poptracker`** folder into PopTracker's `packs/`
-   folder. (`tracker/ykw2-poptracker` is the French pack — take the `en` one.)
-3. Open PopTracker, pick the pack, then connect it to the Archipelago server
-   (the **AP** button) using the same slot name.
-
-You get a map per area with every check placed, your key items, your watch rank
-and live counters. Checks whose item was hinted by another player are
-highlighted.
-
----
-
-## 11. Good to know
-
-- **Save often in-game**: checks are detected in RAM, but your progress itself
-  depends on the game's own save.
-- **Do not run another debugging tool** (memory scanner, second client…) while
-  the client is running: Azahar's debugger accepts **only one connection** at a
-  time.
-- If you play **offline** for a while, just reconnect the client afterwards: it
-  catches up on missed checks once your save is loaded.
+1. Close Azahar.
+2. In the launcher, click **"Uninstall"**: Azahar's mods folder is back exactly as it was (another mod that was there is restored; a translation or
+   another mod in `romfs` is never modified).
+3. Delete the launcher folder. Your settings and logs are in `%APPDATA%\ykw2-ap`, delete them if you wish.
+4. The backup copy of Azahar's configuration made by the launcher stays next to Azahar's configuration file; you can restore it if you want the GDB
+   stub off, or turn it off in Azahar.

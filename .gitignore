@@ -1,28 +1,8 @@
-# Python
-__pycache__/
-*.py[cod]
-
-# Rétro-ingénierie / travail local — NE PAS publier
-tools/snaps/            # dumps mémoire (plusieurs centaines de Mo)
-tools/scan.log
-tools/cmd.txt
-tools/regions.json
-tools/candidates.json
-scratchpad/
-
-# Sauvegardes de jeu personnelles
-save_backup*/
-save_backups/
-*.yw
-
-# ROM et fichiers du jeu (ne jamais publier)
-*.fa
+# Rien du jeu ne doit etre publie / never publish game files
 *.3ds
-*.cia
+*.cci
 *.cxi
-romfs/
-
-# Divers local
-.claude/
-chest_read.txt
-grille_placement/
+*.fa
+*.yw
+code.bin
+__pycache__/

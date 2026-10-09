@@ -1,0 +1,344 @@
+# =====================================================================================================
+# Yo-kai Watch 2 (EUR, 3DS) - Archipelago V2 : fichier YAML modèle
+# =====================================================================================================
+# Modèle au format officiel d'Archipelago : chaque option liste ses valeurs avec un poids ; la valeur
+# choisie porte le poids 50, les autres 0. Les réglages ci-dessous sont les réglages PAR DÉFAUT de la V2.
+# Pour le profil « tout activé » (environ 1 060 locations), remplacez les valeurs comme indiqué à la ligne
+# « Tout activé » de chaque option. Changez au besoin la ligne `name:` (« Joueur{number} » donne Joueur1,
+# Joueur2... si plusieurs joueurs partagent le fichier). Les noms d'options et de valeurs restent en français
+# dans les DEUX mondes (français et anglais) ; ne les traduisez pas. Des alias anglais existent
+# (none, all, story...), mais les noms français sont toujours acceptés.
+#
+# Ce fichier ne contient aucune donnée du jeu. Il faut l'APWorld correspondant dans custom_worlds
+# (yokaiwatch2.apworld pour « Yo-kai Watch 2 », yokaiwatch2en.apworld pour « Yo-kai Watch 2 (English) »),
+# Archipelago 0.6.7 ou plus, et le lanceur du mod (voir docs/INSTALLATION_FR.md).
+#
+# Les deux mondes peuvent jouer dans la MÊME partie multiworld : seuls les noms de lieux et d'objets changent.
+# =====================================================================================================
+
+name: Joueur{number}
+description: "Yo-kai Watch 2 V2 - réglages par défaut"
+game: Yo-kai Watch 2
+requires:
+  version: 0.6.7
+
+Yo-kai Watch 2:
+
+  progression_balancing:
+    random: 0
+    normal: 50
+    extreme: 0
+    disabled: 0
+
+  # -- accessibility ----------------------------------------------------------------------------------
+  # full (défaut) : toutes les locations doivent pouvoir être atteintes. minimal : seul le but doit l'être.
+  # ATTENTION : avec de nombreuses locations de remplissage, « full » est le réglage normal de ce mod.
+  accessibility:
+    full: 50
+    minimal: 0
+
+  # -- objectif / goal --------------------------------------------------------------------------------
+  # Condition de victoire. Une seule valeur : « finir_chapitre_10 » = terminer le chapitre 10 (le jeu pose son
+  # indicateur « partie terminée » à la fin de l'histoire). Ce n'est PAS « battre Lady Démona » : avec le
+  # randomizer des boss, un autre boss peut prendre sa place ; la fin du chapitre 10 reste la même.
+  # Tout activé : finir_chapitre_10 (identique).
+  objectif:
+    finir_chapitre_10: 50
+
+  # -- objets_cles_melanges / key item shuffle --------------------------------------------------------
+  # Mélange les objets-clés qui sont donnés par un évènement de l'histoire (Filet à insectes, Clés de l'école...) :
+  # leur emplacement d'origine devient un check (location « Objet-clé : ... », environ 22) et l'objet va dans le
+  # pool du multiworld. Seuls sont mélangés les objets que le jeu verrouille vraiment (verrou garanti par le jeu,
+  # ou coché dans « verrous_actifs ») ; les autres restent à leur place d'origine. Les objets-clés trouvés dans des
+  # coffres sont toujours mélangés.
+  #   'true'  : activé (défaut).
+  #   'false' : les objets-clés d'évènement restent à leur place d'origine.
+  # Tout activé : 'true'.
+  objets_cles_melanges:
+    'false': 0
+    'true': 50
+
+  # -- verrous_actifs / active locks ------------------------------------------------------------------
+  # Liste des VERROUS RÉELS du jeu à activer. Un objet-clé coché ici est mélangé, exigé par la logique, et le jeu
+  # refuse VRAIMENT l'action correspondante tant que vous ne l'avez pas reçu (ce n'est pas qu'une affaire de logique).
+  # Chaque ligne ci-dessous (décommentez-la dans la liste pour l'activer) :
+  #   filet_a_insectes     Filet à insectes : sans lui, les points de recherche à la loupe sont inutilisables, dès le
+  #                        tutoriel du chapitre 1 (l'histoire s'arrête en 1-50). Le générateur le place très tôt.
+  #   canne_a_peche        Canne à pêche : la pêche à la loupe est fermée ; une fois reçue, on pêche tout de suite (sans
+  #                        attendre la requête qui la donnait). Exigée pour finir le chapitre 4 (la requête « Pas le temps
+  #                        de pêcher ! » demande trois poissons).
+  #   modele_zero          Modèle zéro : son interface de combat n'est disponible qu'une fois l'objet reçu (dès la fin des
+  #                        tutoriels, début du chapitre 2, sans attendre le chapitre 6).
+  #   cles_de_l_ecole      Clés de l'école : l'école reste fermée ; la suite de l'histoire du chapitre 3 est bloquée.
+  #   herbe_ancestrale     Herbe ancestrale : la scène de la maison de Coteau fleuri n'a pas lieu ; chapitre 3 bloqué.
+  #   super_tournevis      Super tournevis : l'Heure funeste du Quartier des boutiques n'est pas déclenchée ; chapitre 3
+  #                        bloqué.
+  #   indications_de_maman Indications de Maman : le Centre-ville reste fermé (routes, refoulements et scènes d'arrivée)
+  #                        avant la seconde remise d'objets de Maman ; chapitre 4 bloqué.
+  #   cle_salle_du_tresor  Clé salle du trésor : le combat de Volteface (Tunnel abandonné) ne se déclenche pas ; la
+  #                        quête 51 et la suivante (Misterre) ne peuvent pas finir.
+  #   poignee_etrange      Poignée étrange : son utilisation la nuit à la Clinique du Crépuscule est sans effet ; les
+  #                        quêtes de Firmain et d'Ombraptor ne peuvent pas finir.
+  #   pile_ou_passe        Pile ou passe : la Crank-a-kai du tutoriel du chapitre 2 (phase 2-60) n'accepte QUE cette
+  #                        pièce, c'est le jeu lui-même qui bloque (aucun code du mod). La pièce est mélangée et exigée
+  #                        pour tout ce qui suit.
+  #   rangs                4 objets PROGRESSIFS « Rang de montre » (D, C, B, A) : chaque exemplaire reçu fait VRAIMENT
+  #                        monter la montre (le menu l'affiche) ; l'histoire et les requêtes « Obtenons le rang ... » ne
+  #                        la montent plus (ce sont seulement des checks). Tout ce que le jeu soumet au rang l'exige :
+  #                        portes de montre, requêtes et histoire (chapitre 4 : D ; chapitre 7 : C ; chapitre 9 : A).
+  #                        Ajoute 36 coffres dorés (dont la Clinique du Crépuscule). Indépendant de
+  #                        objets_cles_melanges. Exige le paquet du mod à jour (le client refuse sinon).
+  #   velo                 Objet « Vélo » : le recevoir donne VRAIMENT le vélo (bouton vélo, on roule tout de suite) ; la
+  #                        requête « Sur les traces de Papa » ne le donne plus, elle devient un check (« Objet-clé :
+  #                        Vélo »). Aucune location n'exige le vélo. Indépendant de objets_cles_melanges. Exige le
+  #                        paquet à jour.
+  # Un verrou absent du paquet installé fait REFUSER la partie par le client (message clair) : gardez le paquet du
+  # lanceur à jour. Défaut : liste vide (aucun verrou réel ; les objets-clés restent à leur place sauf ceux qui sont
+  # dans des coffres).
+  # Tout activé : all twelve keys below.
+  verrous_actifs: []
+  # Tout activé : remplacez la ligne ci-dessus par cette liste:
+  # verrous_actifs:
+  #  - filet_a_insectes
+  #  - canne_a_peche
+  #  - modele_zero
+  #  - cles_de_l_ecole
+  #  - herbe_ancestrale
+  #  - super_tournevis
+  #  - indications_de_maman
+  #  - cle_salle_du_tresor
+  #  - poignee_etrange
+  #  - pile_ou_passe
+  #  - rangs
+  #  - velo
+
+  # -- boss / bosses ----------------------------------------------------------------------------------
+  # Boss vaincus comme locations (le check part à la VICTOIRE ; une défaite n'envoie rien).
+  #   aucun              : pas de boss.
+  #   histoire (défaut)  : les 12 boss de l'histoire (Grolos, Méganyan, Laure, Marge, Tourbœillon, Injustin, Cyrustre,
+  #                        Fielippine, Maudicko, Ronéan, Lady Perpétua, Lady Démona). La location de Lady Démona (fin du
+  #                        chapitre 10) ne reçoit jamais d'objet de progression.
+  #   histoire_et_quetes : en plus les 11 boss de quête (check à la fin de la quête, après la victoire). Plusieurs exigent
+  #                        des rangs de montre élevés : partie plus longue. Tromplœil ne reçoit jamais de progression.
+  #   tous               : en plus 6 autres boss d'avant la fin (Fumella, Draconfus, Faux Kappa, Sabrille, Anguigne, et
+  #                        Taprice au bout du Tunnel sans fin : cinq traversées, une par jour du jeu, jamais de
+  #                        progression). 29 boss en tout. Exige le client et le paquet à jour.
+  # Avec le randomizer des boss, le check reste attaché au LIEU du combat.
+  # Tout activé : tous.
+  boss:
+    aucun: 0
+    histoire: 50
+    histoire_et_quetes: 0
+    tous: 0
+
+  # -- tablos / Baffle Boards -------------------------------------------------------------------------
+  # Tablo-blabla (panneaux à énigme) comme locations : 25 (le n° 24, au Yo-kai World d'après-jeu, n'existe jamais). Le
+  # check part quand le Yo-kai du panneau est APPELÉ (après la bonne réponse, au point du Yo-kai, ce qui exige de le
+  # posséder), pas à la seule bonne réponse. Comme posséder un Yo-kai précis dépend du hasard, 24 panneaux ne reçoivent
+  # jamais d'objet de progression (le n° 3, imposé par l'histoire du chapitre 10, peut en recevoir). Les réponses ne sont
+  # pas fournies par le mod.
+  #   aucun : pas de Tablo-blabla.   tous (défaut) : les 25.
+  # Tout activé : tous.
+  tablos:
+    aucun: 0
+    tous: 50
+
+  # -- quetes / requests and services -----------------------------------------------------------------
+  # Requêtes (et services) terminées comme locations : le check part à la FIN de la quête. Dans l'écran de résultat, la
+  # récompense d'objet de la quête est REMPLACÉE par l'objet Archipelago (l'argent et l'expérience restent).
+  #   aucune                : pas de quête.
+  #   requetes (défaut)     : environ 76 requêtes d'avant l'après-jeu, dont les 3 de rang de montre (« Le portail final »
+  #                           et « Les sources de l'amitié » ne reçoivent jamais de progression).
+  #   requetes_et_services  : en plus les 16 services (tirés au hasard par le jeu, jamais de progression).
+  # Pandanoko (Auberge des voyageurs) vient quand toutes les requêtes-checks sont faites : il dépend de cette option.
+  # Tout activé : requetes_et_services.
+  quetes:
+    aucune: 0
+    requetes: 50
+    requetes_et_services: 0
+
+  # -- chapitres / chapters ---------------------------------------------------------------------------
+  # Chapitres 1 à 9 terminés comme locations (« Histoire : chapitre N terminé »), plus « Montée de rang : D » (la scène du
+  # chapitre 3 qui donne le rang D ; avec le verrou « rangs » elle ne monte plus la montre, c'est seulement un check).
+  # Le chapitre 10 n'en a pas : sa fin est la victoire.
+  #   'true' (défaut) : activé.   'false' : désactivé.
+  # Tout activé : 'true'.
+  chapitres:
+    'false': 0
+    'true': 50
+
+  # -- objets_evenement / event items -----------------------------------------------------------------
+  # Objets des Yo-kai d'évènement dans le pool, à la place de remplissage : 6 Rouages (robots des gares), 6 Graines (fruits
+  # d'Ourcival), 5 Grelots (aérien, voyageur, de série F, marin, masqué) et la Marque d'Ultramax, un exemplaire de chacun
+  # (objets « utiles »). Posséder l'objet fait apparaître son Yo-kai (combat proposé à chaque visite) ; pour les grelots
+  # d'eShop, le jeu pose aussi le marqueur de l'eShop. Avec « amis: tous », chacun a un check « Ami » (remplissage) qui exige
+  # son objet. Aussi : la Capsule favorite fait apparaître Hovernyan à sa place d'origine (Vieil Ourcival) une fois le
+  # chapitre 6 terminé, sans attendre la fin du jeu.
+  #   'true' (défaut) : activé.   'false' : désactivé.
+  # Tout activé : 'true'.
+  objets_evenement:
+    'false': 0
+    'true': 50
+
+  # -- invites / Wayfarer Manor guests ----------------------------------------------------------------
+  # Invités de l'Auberge des voyageurs : 30 Yo-kai d'avant la fin qu'une partie normale ne garantit pas (Buchinyan, Komasan,
+  # Noko, Trodésolé, Apélicain, Dracunyan, Raltesse, Corniot, Loubarbare, Toutouïe, Épinyan, Bandinyan, les 9 Yo-kai
+  # régionaux et leurs 9 fusions). Chacun a un objet « Invitation : <nom> » dans le pool ; quand il est reçu, le Yo-kai
+  # vient à l'Auberge (Coteau fleuri : la Suite, puis les chambres), une fenêtre l'annonce, et on le combat (niveau du plus
+  # haut Yo-kai de l'équipe) autant de fois qu'il faut pour qu'il devienne ami (taux d'amitié du jeu). 30 objets et 30
+  # checks « Ami : <nom> » (remplissage seulement : l'amitié est au hasard).
+  # Avec cette option aussi : « Invitation : Jibanyan S / Komasan S / Komajiro S » ; ces trois-là ne viennent pas à l'Auberge :
+  # ils apparaissent à leur place d'origine (niveau 80) avant la fin du jeu, avec un check « Ami ». Jibanyan S n'apparaît que
+  # lorsque Jibanyan est déjà votre ami (avant, l'invitation attend).
+  # Les invitations peuvent aussi être de vrais objets du sac (installés par le lanceur chez vous).
+  # Pandanoko ne dépend pas de cette option. 'false' : ni objets ni checks.
+  # Tout activé : 'true'.
+  invites:
+    'false': 0
+    'true': 50
+
+  # -- amis / friends ---------------------------------------------------------------------------------
+  # Amis comme locations : un check « Ami : <Yo-kai> » par Yo-kai du Médaillium devenu ami (lu dans la sauvegarde). Environ
+  # 290 en tout avec les autres options :
+  #   - 198 Yo-kai recrutables en combat sauvage avant l'après-jeu, ou obtenus par évolution ou fusion Yo-kai + Yo-kai
+  #     (remplissage seulement : les lieux dépendent du randomizer et l'amitié du hasard) ;
+  #   - 11 Yo-kai donnés par l'histoire ou une requête (locations ordinaires, don certain) ;
+  #   - avec « objets_evenement » : 18 Yo-kai d'évènement (chacun exige son objet) ;
+  #   - avec « invites » : les 6 évolutions par niveau des invités de l'Auberge, et les checks des invités ;
+  #   - 5 fusions avec un objet qu'on obtient à coup sûr avant la fin ;
+  #   - avec un randomizer de Yo-kai « par_rencontre_* » : les 16 Yo-kai des armées.
+  #   aucun (défaut) : pas de check « Ami ».   tous : tous ces checks.
+  # Tout activé : tous.
+  amis:
+    aucun: 50
+    tous: 0
+
+  # -- yo_criminels / Yo-criminals --------------------------------------------------------------------
+  # Un check « Yo-criminel n°NN » par criminel ARRÊTÉ (toutes ses étapes gagnées ; lu dans la sauvegarde) : 52 locations. Avec
+  # le patch du mod, la limite d'un criminel par semaine réelle est levée : le jeu propose toujours le prochain criminel
+  # non arrêté (du plus faible au plus fort), dès le chapitre 3, sur l'une des 5 cartes de la ville. Ces locations peuvent
+  # contenir de la progression (règle : chapitre 4 terminé au moins, plus selon la force du criminel).
+  #   aucun : désactivé.   tous (défaut) : les 52.
+  # Tout activé : tous.
+  yo_criminels:
+    aucun: 0
+    tous: 50
+
+  # -- boutiques / shops ------------------------------------------------------------------------------
+  # Articles des boutiques comme locations : le PREMIER achat de chaque article retenu est un check (la boutique montre l'objet
+  # Archipelago à sa place, au prix de l'article, quantité 1 ; l'article redevient aussitôt l'objet d'origine). Boutiques
+  # normales payées en euros seulement (pas les distributeurs, billets, vélos ni boutiques à points).
+  #   aucune (défaut)  : pas de boutique.
+  #   une_par_boutique : le 1er article de chacune des 33 boutiques.
+  #   principales      : 209 articles des boutiques ouvertes par une carte ou un script, hors après-jeu et rang S.
+  #   toutes           : en plus 76 articles incertains (trains, étals de beignets, boutique des portails...), jamais de
+  #                      progression. Environ 285 locations au total.
+  # Exige le paquet du mod à jour (le client refuse sinon). Voir aussi boutiques_prix_max.
+  # Tout activé : toutes.
+  boutiques:
+    aucune: 50
+    une_par_boutique: 0
+    principales: 0
+    toutes: 0
+
+  # -- boutiques_prix_max / shop price limit ----------------------------------------------------------
+  # Prix au-delà duquel un article de boutique ne reçoit JAMAIS d'objet de progression (la location est « exclue » : il faudrait
+  # d'abord gagner l'argent). Sans effet si « boutiques » vaut « aucune ». Valeurs : jusqu_a_500, jusqu_a_1000,
+  # jusqu_a_3000 (défaut), jusqu_a_10000, sans_limite.
+  # Tout activé : jusqu_a_10000 (ou sans_limite).
+  boutiques_prix_max:
+    jusqu_a_500: 0
+    jusqu_a_1000: 0
+    jusqu_a_3000: 50
+    jusqu_a_10000: 0
+    sans_limite: 0
+
+  # -- rando_yokai / Yo-kai randomizer ----------------------------------------------------------------
+  # Randomizer de Yo-kai : les Yo-kai SAUVAGES (loupe et errants) changent ; le niveau reste celui du lieu. Boss,
+  # Yo-criminels, Crank-a-kai et Yo-kai donnés ne changent pas. Le mélange est calculé par le client à partir de VOTRE
+  # ROM (même mélange pour tous les joueurs d'une graine) ; il n'ajoute aucune location. Seuls des Yo-kai recrutables
+  # normalement en combat sont placés, et seul ce qu'on trouve AVANT l'après-jeu est mélangé. Le lanceur (onglet « Yo-kai »)
+  # dit où trouver chaque Yo-kai.
+  #   aucun               : Yo-kai d'origine.
+  #   par_rang            : une espèce entière en remplace une autre du même rang (mêmes lieux) ; ancien mode.
+  #   total               : idem, tous rangs.
+  #   par_rencontre_rang  (défaut) : CHAQUE Yo-kai sauvage de chaque rencontre reçoit une espèce du même rang (E à S) :
+  #                         presque toutes les zones changent. Un Yo-kai exigé par le jeu (quête, Tablo-blabla, sceau,
+  #                         évolution...) reste trouvable à chacun de ses lieux d'origine ; chaque Yo-kai du mélange reste
+  #                         trouvable quelque part avant la fin.
+  #   par_rencontre_total : idem, tous rangs.
+  # Tout activé : par_rencontre_rang (identique).
+  rando_yokai:
+    aucun: 0
+    par_rang: 0
+    total: 0
+    par_rencontre_rang: 50
+    par_rencontre_total: 0
+
+  # -- rando_boss / boss randomizer -------------------------------------------------------------------
+  # Randomizer des boss : un boss d'histoire ou de quête est remplacé par un autre (avec son script de combat, sa musique, ses
+  # statistiques) ; le lieu, les scènes, les conditions d'apparition et le check restent ceux du boss d'origine (battre le
+  # remplaçant compte comme battre le boss du lieu). Les boss d'après-jeu ne sont jamais mélangés, ni Lady Perpétua, les
+  # revanches, les Oni et les tutoriels. Le mélange est calculé par le client à partir de votre ROM.
+  #   aucun (défaut) : boss d'origine.
+  #   meme_classe    : un boss est remplacé par un boss de la même classe (chapitres 3-7 ; chapitres 8-10 avec Lady Démona).
+  #   total          : n'importe quel boss d'avant l'après-jeu (un boss du chapitre 10 peut arriver au chapitre 3).
+  # Tout activé : meme_classe.
+  rando_boss:
+    aucun: 50
+    meme_classe: 0
+    total: 0
+
+  # -- bingo_kai_infini / endless Crank-a-kai ---------------------------------------------------------
+  # Bingo-kai infini : la machine du Bingo-kai (Crank-a-kai) ne ferme jamais. Dans le jeu d'origine elle n'a qu'un nombre
+  # limité de tours par jour (entre 3 et 30) et reste fermée la nuit (de 23 h à 6 h, horloge de la console). Avec cette option
+  # elle reste ouverte ; il faut toujours une pièce (ou 10 pièces de jeu) par tour, les lots sont tirés comme d'habitude.
+  # Aucune location n'en dépend ; rien n'est écrit en plus dans la sauvegarde.
+  #   'true' (défaut) : activé.   'false' : jeu d'origine.
+  # Tout activé : 'true'.
+  bingo_kai_infini:
+    'false': 0
+    'true': 50
+
+  # -- death_link -------------------------------------------------------------------------------------
+  # DeathLink standard d'Archipelago : quand vous perdez un combat dans le jeu, les autres joueurs DeathLink « meurent » ; et
+  # leur mort déclenche une VRAIE défaite dans votre jeu : en combat, le combat est perdu par la voie normale du jeu ; sur le
+  # terrain, une fenêtre du jeu annonce « Vous êtes tombé... » puis vous revenez au point de reprise, équipe soignée. Les
+  # combats sans pénalité de défaite (Yo-kai d'évènement, Oni, bains...) comptent aussi. Ne se déclenche qu'à un moment sûr
+  # (terrain libre, ni scène ni dialogue).
+  #   'false' (défaut) : désactivé.   'true' : activé.
+  # Tout activé : 'true'.
+  death_link:
+    'false': 50
+    'true': 0
+
+  # -- langue_notifications / notification language ---------------------------------------------------
+  # Langue des textes que le mod écrit dans le jeu (contenu des coffres « objet (pour joueur) », bandeaux « Reçu : ... »).
+  # automatique (défaut) : celle du monde (français pour « Yo-kai Watch 2 », anglais pour « Yo-kai Watch 2 (English) »).
+  # francais / anglais : force une langue.
+  # Tout activé : automatique.
+  langue_notifications:
+    automatique: 50
+    francais: 0
+    anglais: 0
+
+  # -- politique_reessai / retry policy ---------------------------------------------------------------
+  # Que faire d'un don refusé par le jeu (inventaire plein...) ?
+  #   reessayer (défaut) : la file de dons attend et réessaie toutes les 5 secondes ; rien n'est perdu.
+  #   ignorer            : passe au don suivant ; l'objet refusé est PERDU.
+  # Tout activé : reessayer.
+  politique_reessai:
+    reessayer: 50
+    ignorer: 0
+
+  # -- part_argent / money share ----------------------------------------------------------------------
+  # Pourcentage (0 à 100) des objets de remplissage remplacés par de l'argent (100,00 EUR ou 500,00 EUR). Défaut : 15.
+  # Tout activé : 15 (identique).
+  part_argent:
+    random: 0
+    random-low: 0
+    random-high: 0
+    0: 0
+    15: 50
+    50: 0
+    100: 0

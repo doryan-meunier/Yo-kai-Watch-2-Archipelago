@@ -1,0 +1,333 @@
+# =====================================================================================================
+# Yo-kai Watch 2 (EUR, 3DS) - Archipelago V2 : template YAML file
+# =====================================================================================================
+# Template in Archipelago's official format: every option lists its values with a weight; the chosen
+# value gets weight 50, the others 0. The settings below are the V2 DEFAULT settings. For the "everything
+# on" profile (about 1,060 locations) change the values as shown on the "Everything on" line of each
+# option. Edit the `name:` line if you like ("Player{number}" gives Player1, Player2... when several
+# players share the file). Option and value names stay in French in BOTH worlds (French and English);
+# do not translate them. English aliases exist (none, all, story...) but the French names always work.
+#
+# This file contains no game data. You need the matching APWorld in custom_worlds (yokaiwatch2.apworld for
+# "Yo-kai Watch 2", yokaiwatch2en.apworld for "Yo-kai Watch 2 (English)"), Archipelago 0.6.7 or later,
+# and the mod launcher (see docs/INSTALLATION_EN.md).
+#
+# Both worlds can play in the SAME multiworld: only the location and item names differ.
+# =====================================================================================================
+
+name: Player{number}
+description: "Yo-kai Watch 2 V2 - default settings / réglages par défaut"
+game: Yo-kai Watch 2 (English)
+requires:
+  version: 0.6.7
+
+Yo-kai Watch 2 (English):
+
+  progression_balancing:
+    random: 0
+    normal: 50
+    extreme: 0
+    disabled: 0
+
+  # -- accessibility ----------------------------------------------------------------------------------
+  # full (default): every location must be reachable. minimal: only the goal must be.
+  # NOTE: "full" is the normal setting for this mod.
+  accessibility:
+    full: 50
+    minimal: 0
+
+  # -- objectif / goal --------------------------------------------------------------------------------
+  # Win condition. A single value: "finir_chapitre_10" = finish chapter 10 (the game's "game cleared" flag is set at
+  # the end of the story). It is NOT "defeat Dame Demona": with the boss randomizer another boss may take her place;
+  # the end of chapter 10 stays the same.
+  # Everything on: finir_chapitre_10 (same).
+  objectif:
+    finir_chapitre_10: 50
+
+  # -- objets_cles_melanges / key item shuffle --------------------------------------------------------
+  # Shuffles key items given by story events (Bug Net, School Keys...): their original spot becomes a check
+  # ("Key Item: ..." location, about 22) and the item goes into the multiworld pool. Only items the game really locks
+  # are shuffled (lock enforced by the game, or ticked in "verrous_actifs"); the others stay at their vanilla spot. Key
+  # items found in chests are always shuffled.
+  #   'true'  : on (default).
+  #   'false' : event key items stay at their vanilla location.
+  # Everything on: 'true'.
+  objets_cles_melanges:
+    'false': 0
+    'true': 50
+
+  # -- verrous_actifs / active locks ------------------------------------------------------------------
+  # List of the game's REAL LOCKS to enable. A key item listed here is shuffled, required by the logic, and the game
+  # REALLY refuses the matching action until you have received it (not only a logic matter). Each line below
+  # (uncomment it in the list to enable it):
+  #   filet_a_insectes     Bug Net: without it the lens search points are unusable, starting with the chapter 1 tutorial
+  #                        (the story stops at 1-50). The generator places it very early.
+  #   canne_a_peche        Fishing Rod: lens fishing is closed; once received you can fish right away (no need to wait for
+  #                        the request that used to give it). Required to finish chapter 4 (the request "No Time For
+  #                        Fishin'!" asks for three fish).
+  #   modele_zero          Model Zero: its battle interface is only available once the item is received (from the end of
+  #                        the tutorials, start of chapter 2, instead of chapter 6).
+  #   cles_de_l_ecole      School Keys: the school stays closed; the chapter 3 story is blocked.
+  #   herbe_ancestrale     Ancient Herb: the Blossom Heights house scene does not happen; chapter 3 blocked.
+  #   super_tournevis      Pro Screwdriver: the chapter 3 event at Shopper's Row is not triggered; chapter 3 blocked.
+  #   indications_de_maman Mom's Directions: Downtown stays closed (routes, repulsion zones and arrival scenes) before
+  #                        Mom's second hand-over; chapter 4 blocked.
+  #   cle_salle_du_tresor  Treasure Room Key: the Duwheel fight (Abandoned Tunnel) does not trigger; quest 51 and the
+  #                        next one (Dromp) cannot finish.
+  #   poignee_etrange      Strange Handle: using it at night at the Nocturne Hospital has no effect; the Hans Full and
+  #                        Massiface quests cannot finish.
+  #   pile_ou_passe        Select-A-Coin: the tutorial Crank-a-kai of chapter 2 (phase 2-60) ONLY accepts this coin; the game
+  #                        itself blocks (no mod code). The coin is shuffled and required for everything after it.
+  #   rangs                4 PROGRESSIVE "Watch Rank" items (D, C, B, A): each copy received REALLY upgrades the watch
+  #                        (shown in the menu); the story and the "Go for rank ..." requests no longer upgrade it (they are
+  #                        only checks). Everything the game gates by rank requires them: watch doors, requests and the story
+  #                        itself (chapter 4: D; chapter 7: C; chapter 9: A). Adds 36 golden chests (including the Twilight
+  #                        Clinic). Independent of objets_cles_melanges. Needs the up-to-date mod package (the client
+  #                        refuses otherwise).
+  #   velo                 "Bicycle" item: receiving it REALLY gives the bicycle (bicycle button, you can ride at once); the
+  #                        request "Retrace Dad's Steps" no longer gives it, it becomes a check ("Key Item: Bicycle").
+  #                        No location requires the bicycle. Independent of objets_cles_melanges. Needs the up-to-date
+  #                        package.
+  # A lock missing from the installed package makes the client REFUSE the game (clear message): keep the launcher
+  # package up to date. Default: empty list (no real lock; key items stay put except those found in chests).
+  # Everything on: all twelve keys below.
+  verrous_actifs: []
+  # Everything on: replace the line above with this list:
+  # verrous_actifs:
+  #  - filet_a_insectes
+  #  - canne_a_peche
+  #  - modele_zero
+  #  - cles_de_l_ecole
+  #  - herbe_ancestrale
+  #  - super_tournevis
+  #  - indications_de_maman
+  #  - cle_salle_du_tresor
+  #  - poignee_etrange
+  #  - pile_ou_passe
+  #  - rangs
+  #  - velo
+
+  # -- boss / bosses ----------------------------------------------------------------------------------
+  # Defeated bosses as locations (the check is sent on VICTORY; a defeat sends nothing).
+  #   aucun (none)               : no boss locations.
+  #   histoire (story, default)  : the 12 story bosses (Gutsy Bones... Dame Dedtime, Dame Demona). Dame Demona's location (end of
+  #                                chapter 10) never holds a progression item.
+  #   histoire_et_quetes         : also the 11 quest bosses (checked when the quest is completed, after the victory). Several
+  #                                need high watch ranks: longer game. Eyephoon never holds progression.
+  #   tous (all)                 : also 6 more pre-ending bosses (Badsmella, Draaagin, Faux Kappa, Ray O'Light, Loiter, and
+  #                                Mallice at the end of the Infinite Tunnel: five runs, one per in-game day, never
+  #                                progression). 29 bosses in total. Needs the up-to-date client and package.
+  # With the boss randomizer, the check stays with the PLACE of the fight.
+  # Everything on: tous.
+  boss:
+    aucun: 0
+    histoire: 50
+    histoire_et_quetes: 0
+    tous: 0
+
+  # -- tablos / Baffle Boards -------------------------------------------------------------------------
+  # Baffle Boards (riddle boards) as locations: 25 (#24, in the post-game Yo-kai World, is never created). The check is
+  # sent when the board's Yo-kai is CALLED (after the right answer, at the Yo-kai's spot, which requires owning it), not
+  # on the right answer alone. Since owning a given Yo-kai is random, 24 boards never hold a progression item (#3, forced
+  # by the chapter 10 story, may). Answers are not provided by the mod.
+  #   aucun (none): no board.   tous (all, default): the 25.
+  # Everything on: tous.
+  tablos:
+    aucun: 0
+    tous: 50
+
+  # -- quetes / requests and services -----------------------------------------------------------------
+  # Completed requests (and services) as locations: the check is sent at the END of the quest. In the result screen the
+  # quest's item reward is REPLACED by the Archipelago item (money and experience are kept).
+  #   aucune (none)                    : no quest.
+  #   requetes (requests, default)     : about 76 pre-post-game requests, including the 3 watch-rank ones ("The Final
+  #                                      Gate" and "A Steamy Friendship" never hold progression).
+  #   requetes_et_services             : also the 16 services (random in the game, never progression).
+  # Pandanoko (Wayfarer Manor) comes once all request checks are done: he depends on this option.
+  # Everything on: requetes_et_services.
+  quetes:
+    aucune: 0
+    requetes: 50
+    requetes_et_services: 0
+
+  # -- chapitres / chapters ---------------------------------------------------------------------------
+  # Chapters 1 to 9 completed as locations ("Story: Chapter N complete"), plus "Rank Up: D" (the chapter 3 scene that gives
+  # rank D; with the "rangs" lock it no longer upgrades the watch, it is only a check). Chapter 10 has none: its end is
+  # the goal.
+  #   'true' (default): on.   'false': off.
+  # Everything on: 'true'.
+  chapitres:
+    'false': 0
+    'true': 50
+
+  # -- objets_evenement / event items -----------------------------------------------------------------
+  # Event Yo-kai items in the pool instead of filler: 6 Cogs, 6 Seeds, 5 Bells and the Moxie Mark, one of each ("useful"
+  # items). Owning one makes its Yo-kai appear (battle offered at each visit); for the eShop bells the game also sets the
+  # eShop marker. With "amis: tous", each one has a "Friend" check (filler only) that requires its item. Also: the
+  # Favorite Capsule makes Hovernyan appear at his original place (Old Springdale) once chapter 6 is done, without
+  # waiting for the end of the game.
+  #   'true' (default): on.   'false': off.
+  # Everything on: 'true'.
+  objets_evenement:
+    'false': 0
+    'true': 50
+
+  # -- invites / Wayfarer Manor guests ----------------------------------------------------------------
+  # Wayfarer Manor guests: 30 pre-ending Yo-kai a normal playthrough does not guarantee (Buchinyan, Komasan, Noko, ... the 9
+  # regional Yo-kai and their 9 fusions). Each has an "Invitation: <name>" item in the pool; once received, the Yo-kai
+  # comes to the Manor (Blossom Heights: the Suite, then the rooms), a window announces it, and you battle it (at your
+  # team's highest level) as many times as needed to befriend it (the game's befriend odds). 30 items and 30 "Friend:
+  # <name>" checks (filler only: befriending is random).
+  # This option also adds "Invitation: Jibanyan S / Komasan S / Komajiro S"; those three do not come to the Manor: they
+  # appear at their original place (level 80) before the end of the game, with a "Friend" check. Jibanyan S only appears
+  # once Jibanyan is already your friend (until then the invitation simply waits).
+  # Invitations can also be real bag items (installed by the launcher on your side).
+  # Pandanoko does not depend on this option. 'false': neither items nor checks.
+  # Everything on: 'true'.
+  invites:
+    'false': 0
+    'true': 50
+
+  # -- amis / friends ---------------------------------------------------------------------------------
+  # Friends as locations: one "Friend: <Yo-kai>" check per Medallium Yo-kai befriended (read from the save). About 290 in all
+  # with the other options:
+  #   - 198 Yo-kai befriendable in wild battles before the post-game, or obtained by evolution or Yo-kai + Yo-kai fusion
+  #     (filler only: places depend on the randomizer and befriending is random);
+  #   - 11 Yo-kai given by the story or a request (regular locations, certain gift);
+  #   - with "objets_evenement": 18 event Yo-kai (each requires its item);
+  #   - with "invites": the 6 level-up evolutions of the Manor guests, and the guests' checks;
+  #   - 5 fusions with an item you always get before the end;
+  #   - with a "par_rencontre_*" Yo-kai randomizer: the 16 army Yo-kai.
+  #   aucun (none, default): no "Friend" check.   tous (all): all of them.
+  # Everything on: tous.
+  amis:
+    aucun: 50
+    tous: 0
+
+  # -- yo_criminels / Yo-criminals --------------------------------------------------------------------
+  # One "Yo-criminal #NN" check per criminal ARRESTED (all its stages won; read from the save): 52 locations. With the mod's
+  # patch the one-per-real-week limit is lifted: the game always offers the next criminal not yet arrested (weakest first)
+  # from chapter 3, on one of the 5 town maps. These locations may hold progression (rule: at least chapter 4 completed,
+  # more for stronger criminals).
+  #   aucun (none): off.   tous (all, default): the 52.
+  # Everything on: tous.
+  yo_criminels:
+    aucun: 0
+    tous: 50
+
+  # -- boutiques / shops ------------------------------------------------------------------------------
+  # Shop items as locations: the FIRST purchase of each selected item is a check (the shop shows the Archipelago item in its
+  # place, at the item's price, quantity 1; the item becomes the original one right away). Regular shops paid in money only
+  # (no vending machines, tickets, bicycles or point shops).
+  #   aucune (none, default) : no shop.
+  #   une_par_boutique       : the first item of each of the 33 shops.
+  #   principales (main)     : 209 items from shops opened by a map or a script, excluding post-game and rank S.
+  #   toutes (all)           : also 76 uncertain items (trains, doughnut stalls, portal shop...), never progression. About
+  #                            285 locations in total.
+  # Needs the up-to-date package (the client refuses otherwise). See also boutiques_prix_max.
+  # Everything on: toutes.
+  boutiques:
+    aucune: 50
+    une_par_boutique: 0
+    principales: 0
+    toutes: 0
+
+  # -- boutiques_prix_max / shop price limit ----------------------------------------------------------
+  # Price above which a shop item NEVER holds a progression item (the location is "excluded": you would have to earn the money
+  # first). No effect when "boutiques" is "aucune". Values: jusqu_a_500, jusqu_a_1000, jusqu_a_3000 (default),
+  # jusqu_a_10000, sans_limite (no limit).
+  # Everything on: jusqu_a_10000 (or sans_limite).
+  boutiques_prix_max:
+    jusqu_a_500: 0
+    jusqu_a_1000: 0
+    jusqu_a_3000: 50
+    jusqu_a_10000: 0
+    sans_limite: 0
+
+  # -- rando_yokai / Yo-kai randomizer ----------------------------------------------------------------
+  # Yo-kai randomizer: WILD Yo-kai (lens search and wandering) change; the level stays the place's. Bosses, Yo-criminals,
+  # Crank-a-kai and given Yo-kai do not change. The shuffle is computed by the client from YOUR ROM (same shuffle for every
+  # player of a seed); it adds no location. Only Yo-kai that can normally be recruited in battle are placed, and only
+  # what you can find BEFORE the post-game is shuffled. The launcher ("Yo-kai" tab) tells where to find each Yo-kai.
+  #   aucun (none)        : original Yo-kai.
+  #   par_rang (by rank)  : a whole species replaces another of the same rank (same places); older mode.
+  #   total (full)        : same, any rank.
+  #   par_rencontre_rang (default) : EVERY wild Yo-kai of every encounter gets a species of the same rank (E to S): almost
+  #                         every area changes. A Yo-kai required by the game (quest, Baffle Board, seal, evolution...) stays
+  #                         findable at each of its original places; every shuffled Yo-kai stays findable somewhere before
+  #                         the end.
+  #   par_rencontre_total : same, any rank.
+  # Everything on: par_rencontre_rang (same).
+  rando_yokai:
+    aucun: 0
+    par_rang: 0
+    total: 0
+    par_rencontre_rang: 50
+    par_rencontre_total: 0
+
+  # -- rando_boss / boss randomizer -------------------------------------------------------------------
+  # Boss randomizer: a story or quest boss is replaced by another one (with its battle script, music, stats); the place,
+  # scenes, appearance conditions and the check stay those of the original boss (beating the replacement counts as beating
+  # the boss of that place). Post-game bosses are never shuffled, nor Lady Perpetua, rematches, Oni and tutorials. The
+  # shuffle is computed by the client from your ROM.
+  #   aucun (none, default) : original bosses.
+  #   meme_classe (same class) : a boss is replaced by one of the same class (chapters 3-7; chapters 8-10 with Dame Demona).
+  #   total (full)          : any pre-post-game boss (a chapter 10 boss may show up in chapter 3).
+  # Everything on: meme_classe.
+  rando_boss:
+    aucun: 50
+    meme_classe: 0
+    total: 0
+
+  # -- bingo_kai_infini / endless Crank-a-kai ---------------------------------------------------------
+  # Endless Crank-a-kai: the Crank-a-kai machine never closes. In the original game it has a limited number of cranks per day
+  # (3 to 30) and is closed at night (11 pm to 6 am, console clock). With this option it stays open; each crank still
+  # costs a coin (or 10 Play Coins) and prizes are drawn as usual. No location depends on it; nothing extra is written to
+  # the save.
+  #   'true' (default): on.   'false': original behaviour.
+  # Everything on: 'true'.
+  bingo_kai_infini:
+    'false': 0
+    'true': 50
+
+  # -- death_link -------------------------------------------------------------------------------------
+  # Archipelago's standard DeathLink: when you lose a battle in the game, the other DeathLink players "die"; and their death
+  # triggers a REAL defeat in your game: in battle, the battle is lost through the game's normal path; on the field, a game
+  # window announces that you fell, then you return to the respawn point with your team healed. Battles without a defeat
+  # penalty (event Yo-kai, Oni, baths...) count too. It only triggers at a safe moment (free field, no scene or dialogue).
+  #   'false' (default): off.   'true': on.
+  # Everything on: 'true'.
+  death_link:
+    'false': 50
+    'true': 0
+
+  # -- langue_notifications / notification language ---------------------------------------------------
+  # Language of the texts the mod writes in the game (chest contents "item (for player)", "Received: ..." banners).
+  # automatique (automatic, default): the world's language (French for "Yo-kai Watch 2", English for "Yo-kai Watch 2
+  # (English)"). francais / anglais (french / english): forces a language.
+  # Everything on: automatique.
+  langue_notifications:
+    automatique: 50
+    francais: 0
+    anglais: 0
+
+  # -- politique_reessai / retry policy ---------------------------------------------------------------
+  # What to do with a gift the game refuses (full inventory...)?
+  #   reessayer (retry, default) : the gift queue waits and retries every 5 seconds; nothing is lost.
+  #   ignorer (skip)             : moves on to the next gift; the refused item is LOST.
+  # Everything on: reessayer.
+  politique_reessai:
+    reessayer: 50
+    ignorer: 0
+
+  # -- part_argent / money share ----------------------------------------------------------------------
+  # Percentage (0 to 100) of filler items replaced by money (100.00 or 500.00). Default: 15.
+  # Everything on: 15 (same).
+  part_argent:
+    random: 0
+    random-low: 0
+    random-high: 0
+    0: 0
+    15: 50
+    50: 0
+    100: 0
