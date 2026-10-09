@@ -19,6 +19,19 @@ sauvegarde du jeu.
 **Guides d'installation** : [français](docs/INSTALLATION_FR.md) · [English](docs/INSTALLATION_EN.md)
 **Notes de version** : [français](PATCHNOTES_FR.md) · [English](PATCHNOTES_EN.md)
 
+### Téléchargements
+
+Un clic sur un lien lance le téléchargement :
+
+| Fichier | Lien |
+|---|---|
+| Lanceur du mod (recommandé, aucun Python à installer) | [ykw2ap-exe-2.0.0.zip](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/lanceur/ykw2ap-exe-2.0.0.zip) |
+| Lanceur du mod, variante Python 3.11+ | [ykw2ap-2.0.0.zip](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/lanceur/ykw2ap-2.0.0.zip) |
+| APWorld français | [yokaiwatch2.apworld](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/yokaiwatch2.apworld) |
+| APWorld anglais | [yokaiwatch2en.apworld](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/yokaiwatch2en.apworld) |
+| YAML modèle français | [Yo-kai Watch 2 - FR.yaml](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/Yo-kai%20Watch%202%20-%20FR.yaml) (clic droit, « Enregistrer le lien sous... ») |
+| YAML modèle anglais | [Yo-kai Watch 2 (English) - EN.yaml](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/Yo-kai%20Watch%202%20%28English%29%20-%20EN.yaml) (clic droit, « Enregistrer le lien sous... ») |
+
 ### Ce qu'il faut
 
 - Windows 10 ou 11 (64 bits) pour le lanceur.
@@ -130,6 +143,19 @@ differences guessed from outside: the state lives in the game's save.
 
 *The game is not provided*: you need your own copy and your own decrypted ROM. The mod contains no game data: it is built on
 your machine from your ROM.
+
+### Downloads
+
+Click a link to download the file:
+
+| File | Link |
+|---|---|
+| Mod launcher (recommended, no Python to install) | [ykw2ap-exe-2.0.0.zip](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/lanceur/ykw2ap-exe-2.0.0.zip) |
+| Mod launcher, Python 3.11+ variant | [ykw2ap-2.0.0.zip](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/lanceur/ykw2ap-2.0.0.zip) |
+| French APWorld | [yokaiwatch2.apworld](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/yokaiwatch2.apworld) |
+| English APWorld | [yokaiwatch2en.apworld](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/yokaiwatch2en.apworld) |
+| French template YAML | [Yo-kai Watch 2 - FR.yaml](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/Yo-kai%20Watch%202%20-%20FR.yaml) (right-click, "Save link as...") |
+| English template YAML | [Yo-kai Watch 2 (English) - EN.yaml](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/Yo-kai%20Watch%202%20%28English%29%20-%20EN.yaml) (right-click, "Save link as...") |
 
 ### What you need
 
