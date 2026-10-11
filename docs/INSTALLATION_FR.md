@@ -20,7 +20,7 @@ English version: [INSTALLATION_EN.md](INSTALLATION_EN.md)
 | **Votre ROM** déchiffrée de Yo-kai Watch 2 européen (`.3ds`, `.cci` ou `.cxi`) | à faire avec GodMode9 depuis votre propre cartouche. Version d'origine, sans mise à jour intégrée ni modification. Une ROM « chiffrée » est refusée |
 | **L'APWorld** | [yokaiwatch2.apworld](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/yokaiwatch2.apworld) (noms français) ou [yokaiwatch2en.apworld](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/yokaiwatch2en.apworld) (noms anglais) : un clic télécharge le fichier |
 | **Un YAML** | [Yo-kai Watch 2 - FR.yaml](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/Yo-kai%20Watch%202%20-%20FR.yaml) ou [Yo-kai Watch 2 (English) - EN.yaml](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/Yo-kai%20Watch%202%20%28English%29%20-%20EN.yaml) : clic droit sur le lien, « Enregistrer le lien sous... » |
-| **Le lanceur du mod** | [ykw2ap-exe-2.0.0.zip](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/lanceur/ykw2ap-exe-2.0.0.zip) (recommandé, aucun Python à installer : un clic télécharge le fichier). Variante : [ykw2ap-2.0.0.zip](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/lanceur/ykw2ap-2.0.0.zip), qui demande Python 3.11 ou plus |
+| **Le lanceur du mod** | [ykw2ap-exe-2.0.1.zip](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/lanceur/ykw2ap-exe-2.0.1.zip) (recommandé, aucun Python à installer : un clic télécharge le fichier). Variante : [ykw2ap-2.0.1.zip](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/lanceur/ykw2ap-2.0.1.zip), qui demande Python 3.11 ou plus |
 
 Les deux versions de l'APWorld (français et anglais) peuvent jouer dans la **même** partie multiworld. Le lanceur et le patch du jeu sont les
 mêmes dans les deux cas.
@@ -41,11 +41,13 @@ mêmes dans les deux cas.
 
 ## 3. Préparer le YAML et générer la partie
 
-1. Ouvrez le YAML de votre choix avec un éditeur de texte (le Bloc-notes suffit). Chaque option y est expliquée en français **et** en
-   anglais : ce que fait chaque valeur, ce qu'elle ajoute comme checks ou objets, et ses dépendances.
+1. Ouvrez le YAML de votre choix avec un éditeur de texte (le Bloc-notes suffit). Chaque option y est expliquée (en français dans
+   le YAML français, en anglais dans le YAML anglais) : ce que fait chaque valeur, ce qu'elle ajoute comme checks ou objets, et ses dépendances.
 2. Les réglages fournis sont les **réglages par défaut**. Pour le profil « tout activé » (environ 1 060 locations), suivez la ligne « Tout
    activé » de chaque option. Changez la ligne `name:` si vous voulez un nom de joueur précis.
-3. Ne traduisez pas les noms d'options ni de valeurs : ils restent en français dans les deux versions.
+3. Ne traduisez pas les noms d'options ni de valeurs : chaque monde a les siens. Le YAML français (« Yo-kai Watch 2 ») est en français ;
+   depuis la 2.0.1, le YAML anglais (« Yo-kai Watch 2 (English) ») est entièrement en anglais (`goal`, `bosses`, `active_locks`...). Un YAML
+   anglais fait pour la 2.0.0, avec les noms français, marche toujours avec l'APWorld 2.0.1.
 4. Placez le YAML dans le dossier `Players` d'Archipelago (avec ceux des autres joueurs, s'il y en a).
 5. Lancez la génération (Archipelago Launcher > « Generate », ou `ArchipelagoGenerate.exe`). Une archive `.zip` apparaît dans le dossier
    `output`.
@@ -62,7 +64,7 @@ mêmes dans les deux cas.
 
 ## 4. Installer et lancer le lanceur
 
-1. Téléchargez le `.zip` du lanceur ([ykw2ap-exe-2.0.0.zip](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/lanceur/ykw2ap-exe-2.0.0.zip)) et **décompressez-le** où vous voulez (par exemple dans
+1. Téléchargez le `.zip` du lanceur ([ykw2ap-exe-2.0.1.zip](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/lanceur/ykw2ap-exe-2.0.1.zip)) et **décompressez-le** où vous voulez (par exemple dans
    Documents).
 2. Double-cliquez sur **`Lanceur Yo-kai Watch 2 Archipelago.exe`**. Gardez le dossier `_internal` **à côté** de l'exe (ne déplacez pas
    l'exe seul ; pour un raccourci : clic droit sur l'exe, « Créer un raccourci »).
@@ -70,7 +72,7 @@ mêmes dans les deux cas.
    normal : le lanceur n'est pas signé (une signature de code est payante). Cliquez sur **« Informations complémentaires »**, puis sur
    **« Exécuter quand même »**. Si votre antivirus bloque le lanceur, utilisez la variante `.pyw` ci-dessous.
 
-**Variante Python (`.pyw`)** : installez Python 3.11 ou plus (avec Tcl/Tk, inclus par défaut), décompressez `ykw2ap-2.0.0.zip`, puis
+**Variante Python (`.pyw`)** : installez Python 3.11 ou plus (avec Tcl/Tk, inclus par défaut), décompressez `ykw2ap-2.0.1.zip`, puis
 double-cliquez sur `Lanceur Yo-kai Watch 2 Archipelago.pyw`. Le fonctionnement est identique.
 
 ---
@@ -153,7 +155,7 @@ Aucun spoiler par défaut : le contenu d'un check n'apparaît qu'une fois fait o
 | ROM refusée | voir §5, étape 1. |
 
 Message du serveur : « serveur injoignable » (adresse ou port faux, serveur arrêté), « slot inconnu » (nom de slot), « mot de passe refusé »,
-« mauvais jeu » (le YAML n'est pas pour ce jeu).
+« mauvais jeu » (le YAML n'est pas pour ce jeu ; avec un lanceur 2.0.0 et le monde anglais, ce message apparaissait à tort : mettez le lanceur à jour en 2.0.1).
 
 ---
 

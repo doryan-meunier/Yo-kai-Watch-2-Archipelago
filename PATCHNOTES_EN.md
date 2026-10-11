@@ -2,6 +2,48 @@
 
 V2 is a **complete rebuild**. This document lists what was done, by theme.
 
+## Version 2.0.1: fix
+
+**Could not connect with the English world ("Wrong game" / `InvalidGame`).** With 2.0.0, a game generated with the
+English APWorld (`yokaiwatch2en.apworld`, game "Yo-kai Watch 2 (English)") was refused by the server on connection:
+the launcher always introduced itself under the French world's name. This is fixed: the 2.0.1 launcher connects to
+both worlds. **You need to update the launcher** (new `.zip`, then "Install / Repair"); the game you already
+generated does not need to be generated again.
+
+**What is fixed.** In the game, **San Fantastico** and **Excellent Tower** only open in chapter 6. Version 2.0.0
+believed they could be reached from chapter 4, by train. An item needed to finish chapter 4 could therefore be placed
+in a chest or a shop of these two places while they were still closed: the game stayed stuck in chapter 4. Nothing
+located there is now expected before the end of chapter 5.
+
+**Who is affected.** Only games generated with 2.0.0 that have the **Fishing Rod** lock (`canne_a_peche`) or the
+**watch rank** lock (`rangs`) in `verrous_actifs` (the 2.0.0 names). With the default settings (no lock), nothing can get stuck. Even
+with these locks, most games finish normally (about one in ten is affected in our simulations).
+
+**What to do.**
+
+- **For a new game**: replace the `.apworld` file with the 2.0.1 one (in Archipelago's `custom_worlds` folder), then
+  generate. Update the launcher too: its tracker then shows the right moment of access (and it is required for the
+  English world, see above).
+- **For a game in progress**: nothing changes, it stays playable as it is. If it is stuck in chapter 4 because the
+  Fishing Rod (or a Watch Rank) is in San Fantastico or in Excellent Tower, type `!hint Fishing Rod` (or
+  `!hint Watch Rank`) to find out where the item is, then ask the host to give it to you with
+  `/send <your name> Fishing Rod`.
+- With the 2.0.1 launcher, the tracker of a game generated with 2.0.0 also shows these two places as reachable only
+  after chapter 5: that is what the game really does.
+
+**The English world's YAML is now entirely in English.** In the "Yo-kai Watch 2 (English)" world, option names, their
+values and the lock keys are now in English (`goal`, `bosses`, `quests`, `shops`, `yokai_randomizer`, `active_locks`
+with `bug_net`, `fishing_rod`, `watch_ranks`...), and so are Archipelago's option pages and the English template YAML.
+
+- **An older English YAML (2.0.0, French names) still works** with the 2.0.1 APWorld: your settings are kept as they
+  are, and the generation only prints a warning that gives the new name of each option. French values are still
+  accepted too.
+- If the same YAML gives both the old name and the new one with two different values, the generation stops with a
+  clear message: keep the English name only.
+- The French world ("Yo-kai Watch 2") does not change: same names, same YAML files.
+
+The patched game program and the game format are unchanged: a game in progress carries on with the 2.0.1 launcher.
+
 ## 1. A new technical base
 
 - **The game itself is patched**, instead of a client writing into its memory. A patch of the game's executable
@@ -31,7 +73,7 @@ V2 is a **complete rebuild**. This document lists what was done, by theme.
   sent, and the launcher says so.
 - Safeguards on both sides (the client and the game both re-check).
 
-## 4. Real locks (option `verrous_actifs`)
+## 4. Real locks (option `active_locks`; `verrous_actifs` in the French world)
 
 With a lock enabled, the game **really refuses** the action until the item arrives:
 
@@ -60,7 +102,7 @@ Locks respect scenes already played (late activation is safe).
 - Original spots of key items (about 22): checks. The game's "item obtained" window for checks that have no display of their own.
 
 **Bosses**
-- Option `boss`: `histoire` (12), `histoire_et_quetes` (23), and the new **`tous`** mode (29: also Badsmella, Draaagin, Faux Kappa,
+- Option `bosses`: `story` (12), `story_and_quests` (23), and the new **`all`** mode (29: also Badsmella, Draaagin, Faux Kappa,
   Ray O'Light, Loiter, and Mallice at the end of the Infinite Tunnel).
 - The check is sent on victory; with the boss randomizer it stays attached to the place of the fight.
 
@@ -71,7 +113,7 @@ the result screen.
 
 **Chapters**: chapters 1 to 9 completed and "Rank Up: D".
 
-**Friends** (option `amis`, about 290 checks): wild Yo-kai, evolutions and Yo-kai + Yo-kai fusions; Yo-kai given by the story or
+**Friends** (option `friends`, about 290 checks): wild Yo-kai, evolutions and Yo-kai + Yo-kai fusions; Yo-kai given by the story or
 a request; event Yo-kai (each requires its item); evolutions of the Manor guests; 5 fusions with a guaranteed item; 16 army
 Yo-kai (with the per-encounter Yo-kai randomizer).
 
@@ -87,7 +129,7 @@ progression.
 ## 6. Yo-kai and boss randomizers
 
 **Yo-kai randomizer** (computed on your machine from your ROM, identical for every player of the seed):
-- Modes `par_rang` and `total` (species swap) and **`par_rencontre_rang`** (default) / `par_rencontre_total` (every Yo-kai of every
+- Modes `by_rank` and `full` (species swap) and **`per_encounter_by_rank`** (default) / `per_encounter_full` (every Yo-kai of every
   encounter gets its own species).
 - **Guarantees**: a Yo-kai required by the game stays findable at each of its original places; every shuffled Yo-kai has a
   "normal place" (not a mystery portal) before the end; no more empty lens points; 16 species that are normally unobtainable are
@@ -95,7 +137,7 @@ progression.
 - The shuffle is **versioned** by the seed: a game in progress is never altered by a later improvement.
 - Event Yo-kai, bosses, Yo-criminals and the Crank-a-kai do not change.
 
-**Boss randomizer** (option `rando_boss`, off by default): a story or quest boss is replaced by another one, with its script,
+**Boss randomizer** (option `boss_randomizer`, off by default): a story or quest boss is replaced by another one, with its script,
 music and stats; the place, scenes and check stay those of the original boss.
 
 ## 7. Wayfarer Manor, event Yo-kai, Ultramax
@@ -126,7 +168,7 @@ window then a return to the respawn point), at a safe moment. Event battles with
 - "Received: ... / From: ..." banner without interrupting the game.
 - The game's "item obtained" windows for checks without a display (Yo-criminals included).
 - A chest or a shop shows "item (for player)".
-- Text language can be set (`langue_notifications`).
+- Text language can be set (`notification_language`).
 
 ## 11. Built-in tracker (replaces the PopTracker pack)
 

@@ -2,6 +2,50 @@
 
 La V2 est une **refonte complète**. Ce document liste ce qui a été fait, par thème.
 
+## Version 2.0.1 : correctif
+
+**Connexion impossible avec le monde anglais (« Mauvais jeu » / `InvalidGame`).** Avec la 2.0.0, une partie générée
+avec l'APWorld anglais (`yokaiwatch2en.apworld`, jeu « Yo-kai Watch 2 (English) ») était refusée par le serveur à la
+connexion : le lanceur se présentait toujours sous le nom du monde français. C'est corrigé : le lanceur 2.0.1 se
+connecte aux deux mondes. **Il faut mettre à jour le lanceur** (nouveau `.zip`, puis « Installer / Réparer ») ;
+la partie déjà générée n'a pas besoin d'être refaite.
+
+**Ce qui est corrigé.** Dans le jeu, **San Fantastico** et la **Tour Excellence** ne s'ouvrent qu'au chapitre 6. La
+2.0.0 les croyait accessibles dès le chapitre 4, avec le train. Un objet indispensable pour finir le chapitre 4
+pouvait donc être placé dans un coffre ou une boutique de ces deux endroits, encore fermés : la partie restait bloquée
+au chapitre 4. Désormais, rien de ce qui s'y trouve n'est attendu avant la fin du chapitre 5.
+
+**Qui est concerné.** Seulement les parties générées en 2.0.0 avec, dans `verrous_actifs`, le verrou de la **Canne à
+pêche** (`canne_a_peche`) ou celui des **rangs de montre** (`rangs`). Avec les réglages par défaut (aucun verrou),
+rien ne peut bloquer. Même avec ces verrous, la plupart des parties se finissent normalement (environ une sur dix est
+touchée dans nos simulations).
+
+**Quoi faire.**
+
+- **Pour une nouvelle partie** : remplacez le fichier `.apworld` par celui de la 2.0.1 (dans le dossier
+  `custom_worlds` d'Archipelago), puis générez. Mettez aussi le lanceur à jour : son suivi annonce alors le bon moment d'accès
+  (et c'est indispensable pour le monde anglais, voir plus haut).
+- **Pour une partie en cours** : rien ne change, elle reste jouable telle quelle. Si elle est bloquée au chapitre 4
+  parce que la Canne à pêche (ou un Rang de montre) se trouve à San Fantastico ou à la Tour Excellence, tapez
+  `!hint Canne à pêche` (ou `!hint Rang de montre`) pour savoir où est l'objet, puis demandez à l'hôte de vous le
+  donner avec `/send <votre nom> Canne à pêche`.
+- Avec le lanceur 2.0.1, le suivi d'une partie générée en 2.0.0 montre lui aussi ces deux endroits comme accessibles
+  après le chapitre 5 seulement : c'est le vrai comportement du jeu.
+
+**YAML du monde anglais entièrement en anglais.** Dans le monde « Yo-kai Watch 2 (English) », les noms d'options, leurs
+valeurs et les clés des verrous sont maintenant en anglais (`goal`, `bosses`, `quests`, `shops`, `yokai_randomizer`,
+`active_locks` avec `bug_net`, `fishing_rod`, `watch_ranks`...), comme les pages d'options d'Archipelago et le YAML
+modèle anglais.
+
+- **Un ancien YAML anglais (2.0.0, noms français) marche toujours** avec l'APWorld 2.0.1 : vos réglages sont repris tels
+  quels, et la génération affiche seulement un avertissement qui donne le nouveau nom de chaque option. Les valeurs
+  françaises restent acceptées elles aussi.
+- Si un même YAML donne l'ancien nom et le nouveau avec deux valeurs différentes, la génération s'arrête avec un message
+  clair : gardez le nom anglais seul.
+- Le monde français (« Yo-kai Watch 2 ») ne change pas : mêmes noms, mêmes YAML.
+
+Le programme du jeu modifié et le format des parties sont inchangés : une partie en cours continue avec le lanceur 2.0.1.
+
 ## 1. Une nouvelle base technique
 
 - **Le jeu lui-même est modifié**, au lieu d'un client qui écrivait dans sa mémoire. Un patch du programme du jeu

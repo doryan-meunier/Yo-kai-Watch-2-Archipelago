@@ -5,9 +5,9 @@
 # choisie porte le poids 50, les autres 0. Les réglages ci-dessous sont les réglages PAR DÉFAUT de la V2.
 # Pour le profil « tout activé » (environ 1 060 locations), remplacez les valeurs comme indiqué à la ligne
 # « Tout activé » de chaque option. Changez au besoin la ligne `name:` (« Joueur{number} » donne Joueur1,
-# Joueur2... si plusieurs joueurs partagent le fichier). Les noms d'options et de valeurs restent en français
-# dans les DEUX mondes (français et anglais) ; ne les traduisez pas. Des alias anglais existent
-# (none, all, story...), mais les noms français sont toujours acceptés.
+# Joueur2... si plusieurs joueurs partagent le fichier). Ce fichier est celui du monde FRANÇAIS
+# (« Yo-kai Watch 2 ») : ses noms d'options et de valeurs sont en français ; ne les traduisez pas. Le monde
+# anglais (« Yo-kai Watch 2 (English) ») a son propre fichier, entièrement en anglais depuis la 2.0.1.
 #
 # Ce fichier ne contient aucune donnée du jeu. Il faut l'APWorld correspondant dans custom_worlds
 # (yokaiwatch2.apworld pour « Yo-kai Watch 2 », yokaiwatch2en.apworld pour « Yo-kai Watch 2 (English) »),
