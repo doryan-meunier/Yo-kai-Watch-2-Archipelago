@@ -2,6 +2,15 @@
 
 V2 is a **complete rebuild**. This document lists what was done, by theme.
 
+## Version 2.0.2: fix
+
+**"Server unreachable" although the address, port and slot name are right.** On some computers the launcher
+could not verify the server's security certificate (for example `archipelago.gg`): it then gave up the secure
+connection, and the server refused the plain one. This is fixed: the 2.0.2 launcher keeps the secure
+(encrypted) connection in that case. The `client.log` file now lists every cause of a failed connection.
+**Only the launcher changes** (new `.zip`, then "Install / Repair"): the APWorlds, the YAML files and the
+games you already generated stay valid.
+
 ## Version 2.0.1: fix
 
 **Could not connect with the English world ("Wrong game" / `InvalidGame`).** With 2.0.0, a game generated with the

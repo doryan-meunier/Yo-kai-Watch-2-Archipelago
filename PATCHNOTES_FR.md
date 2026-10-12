@@ -2,6 +2,15 @@
 
 La V2 est une **refonte complète**. Ce document liste ce qui a été fait, par thème.
 
+## Version 2.0.2 : correctif
+
+**« Serveur injoignable » alors que l'adresse, le port et le nom sont justes.** Sur certains ordinateurs, le
+lanceur n'arrivait pas à vérifier le certificat de sécurité du serveur (par exemple `archipelago.gg`) : il
+abandonnait alors la connexion sécurisée, et le serveur refusait la connexion ordinaire. C'est corrigé : le
+lanceur 2.0.2 garde la connexion sécurisée (chiffrée) dans ce cas. Le fichier `client.log` indique maintenant
+toutes les causes d'un échec de connexion. **Seul le lanceur change** (nouveau `.zip`, puis « Installer /
+Réparer ») : les APWorld, les YAML et les parties déjà générées restent valables.
+
 ## Version 2.0.1 : correctif
 
 **Connexion impossible avec le monde anglais (« Mauvais jeu » / `InvalidGame`).** Avec la 2.0.0, une partie générée
