@@ -93,24 +93,22 @@ Yo-kai Watch 2:
   #                        Vélo »). Aucune location n'exige le vélo. Indépendant de objets_cles_melanges. Exige le
   #                        paquet à jour.
   # Un verrou absent du paquet installé fait REFUSER la partie par le client (message clair) : gardez le paquet du
-  # lanceur à jour. Défaut : liste vide (aucun verrou réel ; les objets-clés restent à leur place sauf ceux qui sont
-  # dans des coffres).
-  # Tout activé : all twelve keys below.
-  verrous_actifs: []
-  # Tout activé : remplacez la ligne ci-dessus par cette liste:
-  # verrous_actifs:
-  #  - filet_a_insectes
-  #  - canne_a_peche
-  #  - modele_zero
-  #  - cles_de_l_ecole
-  #  - herbe_ancestrale
-  #  - super_tournevis
-  #  - indications_de_maman
-  #  - cle_salle_du_tresor
-  #  - poignee_etrange
-  #  - pile_ou_passe
-  #  - rangs
-  #  - velo
+  # lanceur à jour. Valeur par défaut de l'APWorld si la ligne manque : liste vide (aucun verrou réel ; les
+  # objets-clés restent à leur place sauf ceux qui sont dans des coffres). Ce modèle les active TOUS ; pour n'en
+  # garder aucun, remplacez la liste par : verrous_actifs: []
+  verrous_actifs:
+    - filet_a_insectes
+    - canne_a_peche
+    - modele_zero
+    - cles_de_l_ecole
+    - herbe_ancestrale
+    - super_tournevis
+    - indications_de_maman
+    - cle_salle_du_tresor
+    - poignee_etrange
+    - pile_ou_passe
+    - rangs
+    - velo
 
   # -- boss / bosses ----------------------------------------------------------------------------------
   # Boss vaincus comme locations (le check part à la VICTOIRE ; une défaite n'envoie rien).

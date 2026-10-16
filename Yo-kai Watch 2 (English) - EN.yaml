@@ -89,23 +89,22 @@ Yo-kai Watch 2 (English):
   #                      No location requires the bicycle. Independent of key_item_shuffle. Needs the up-to-date
   #                      package.
   # A lock missing from the installed package makes the client REFUSE the game (clear message): keep the launcher
-  # package up to date. Default: empty list (no real lock; key items stay put except those found in chests).
-  # Everything on: all twelve keys below.
-  active_locks: []
-  # Everything on: replace the line above with this list:
-  # active_locks:
-  #  - bug_net
-  #  - fishing_rod
-  #  - model_zero
-  #  - school_keys
-  #  - ancient_herb
-  #  - pro_screwdriver
-  #  - moms_directions
-  #  - treasure_room_key
-  #  - strange_handle
-  #  - select_a_coin
-  #  - watch_ranks
-  #  - bicycle
+  # package up to date. APWorld default when the line is missing: empty list (no real lock; key items stay put
+  # except those found in chests). This template turns ALL of them on; to keep none, replace the list with:
+  # active_locks: []
+  active_locks:
+    - bug_net
+    - fishing_rod
+    - model_zero
+    - school_keys
+    - ancient_herb
+    - pro_screwdriver
+    - moms_directions
+    - treasure_room_key
+    - strange_handle
+    - select_a_coin
+    - watch_ranks
+    - bicycle
 
   # -- bosses -----------------------------------------------------------------------------------------
   # Defeated bosses as locations (the check is sent on VICTORY; a defeat sends nothing).
