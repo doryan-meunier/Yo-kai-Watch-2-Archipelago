@@ -2,6 +2,17 @@
 
 La V2 est une **refonte complète**. Ce document liste ce qui a été fait, par thème.
 
+## Version 2.0.3 : correctif
+
+**« Objet Archipelago » au lieu du nom d'un objet donné par une scène.** Dans les grosses parties à plusieurs
+joueurs, la fenêtre d'un objet donné par une scène de l'histoire (comme le Filet à insectes au début du jeu)
+affichait « Objet Archipelago » au lieu du nom de l'objet placé là. Le jeu garde au plus 256 noms d'objets, et les
+noms des coffres prenaient toutes les places. C'est corrigé : le lanceur 2.0.3 donne d'abord leur place aux objets
+donnés par une scène, puis aux coffres pas encore ouverts. Dans les très grosses parties à plusieurs, au-delà de
+256 noms, certains coffres peuvent encore afficher « Objet Archipelago » : c'est une limite de la V2 (le fichier
+`client.log` indique combien de noms n'ont pas trouvé de place). **Seul le lanceur change** (nouveau `.zip`, puis
+« Installer / Réparer ») : les APWorld, les YAML et les parties déjà générées restent valables.
+
 ## Version 2.0.2 : correctif
 
 **« Serveur injoignable » alors que l'adresse, le port et le nom sont justes.** Sur certains ordinateurs, le

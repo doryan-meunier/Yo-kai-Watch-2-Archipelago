@@ -2,6 +2,16 @@
 
 V2 is a **complete rebuild**. This document lists what was done, by theme.
 
+## Version 2.0.3: fix
+
+**"Archipelago item" instead of the name of an item given by a scene.** In big multiplayer games, the window of an
+item given by a story scene (such as the Bug Net at the start of the game) showed "Archipelago item" instead of the
+name of the item placed there. The game keeps at most 256 item names, and the chest names took every slot. This is
+fixed: the 2.0.3 launcher gives a slot to the items given by a scene first, then to the chests not opened yet. In
+very big multiplayer games, beyond 256 names, some chests can still show "Archipelago item": this is a limit of V2
+(the `client.log` file says how many names did not get a slot). **Only the launcher changes** (new `.zip`, then
+"Install / Repair"): the APWorlds, the YAML files and the games you already generated stay valid.
+
 ## Version 2.0.2: fix
 
 **"Server unreachable" although the address, port and slot name are right.** On some computers the launcher

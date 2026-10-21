@@ -20,7 +20,7 @@ Version française : [INSTALLATION_FR.md](INSTALLATION_FR.md)
 | **Your decrypted ROM** of the European Yo-kai Watch 2 (`.3ds`, `.cci` or `.cxi`) | made with GodMode9 from your own cartridge. Original version, no merged update, no modification. An "encrypted" ROM is refused |
 | **The APWorld** | [yokaiwatch2.apworld](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/yokaiwatch2.apworld) (French names) or [yokaiwatch2en.apworld](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/yokaiwatch2en.apworld) (English names): one click downloads the file |
 | **A YAML** | [Yo-kai Watch 2 - FR.yaml](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/Yo-kai%20Watch%202%20-%20FR.yaml) or [Yo-kai Watch 2 (English) - EN.yaml](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/Yo-kai%20Watch%202%20%28English%29%20-%20EN.yaml): right-click the link, "Save link as..." |
-| **The mod launcher** | [ykw2ap-exe-2.0.2.zip](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/lanceur/ykw2ap-exe-2.0.2.zip) (recommended, no Python to install: one click downloads the file). Alternative: [ykw2ap-2.0.2.zip](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/lanceur/ykw2ap-2.0.2.zip), which needs Python 3.11 or later |
+| **The mod launcher** | [ykw2ap-exe-2.0.3.zip](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/lanceur/ykw2ap-exe-2.0.3.zip) (recommended, no Python to install: one click downloads the file). Alternative: [ykw2ap-2.0.3.zip](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/lanceur/ykw2ap-2.0.3.zip), which needs Python 3.11 or later |
 
 The French and English APWorlds can play in the **same** multiworld. The launcher and the game patch are the same in both cases.
 
@@ -60,14 +60,14 @@ The French and English APWorlds can play in the **same** multiworld. The launche
 
 ## 4. Install and start the launcher
 
-1. Download the launcher `.zip` ([ykw2ap-exe-2.0.2.zip](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/lanceur/ykw2ap-exe-2.0.2.zip)) and **extract it** anywhere (for example in Documents).
+1. Download the launcher `.zip` ([ykw2ap-exe-2.0.3.zip](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/lanceur/ykw2ap-exe-2.0.3.zip)) and **extract it** anywhere (for example in Documents).
 2. Double-click **`Lanceur Yo-kai Watch 2 Archipelago.exe`** (the window can be switched to English). Keep the `_internal` folder **next to**
    the exe (do not move the exe alone; for a shortcut: right-click the exe, "Create shortcut").
 3. **Windows warning**: the first time, Windows may show "Windows protected your PC" (unknown publisher). This is expected: the launcher
    is not signed (a code-signing certificate costs money). Click **"More info"**, then **"Run anyway"**. If your antivirus blocks the launcher,
    use the `.pyw` variant below.
 
-**Python variant (`.pyw`)**: install Python 3.11 or later (with Tcl/Tk, included by default), extract `ykw2ap-2.0.2.zip`, then double-click
+**Python variant (`.pyw`)**: install Python 3.11 or later (with Tcl/Tk, included by default), extract `ykw2ap-2.0.3.zip`, then double-click
 `Lanceur Yo-kai Watch 2 Archipelago.pyw`. It works the same way.
 
 ---

@@ -20,7 +20,7 @@ English version: [INSTALLATION_EN.md](INSTALLATION_EN.md)
 | **Votre ROM** déchiffrée de Yo-kai Watch 2 européen (`.3ds`, `.cci` ou `.cxi`) | à faire avec GodMode9 depuis votre propre cartouche. Version d'origine, sans mise à jour intégrée ni modification. Une ROM « chiffrée » est refusée |
 | **L'APWorld** | [yokaiwatch2.apworld](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/yokaiwatch2.apworld) (noms français) ou [yokaiwatch2en.apworld](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/yokaiwatch2en.apworld) (noms anglais) : un clic télécharge le fichier |
 | **Un YAML** | [Yo-kai Watch 2 - FR.yaml](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/Yo-kai%20Watch%202%20-%20FR.yaml) ou [Yo-kai Watch 2 (English) - EN.yaml](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/Yo-kai%20Watch%202%20%28English%29%20-%20EN.yaml) : clic droit sur le lien, « Enregistrer le lien sous... » |
-| **Le lanceur du mod** | [ykw2ap-exe-2.0.2.zip](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/lanceur/ykw2ap-exe-2.0.2.zip) (recommandé, aucun Python à installer : un clic télécharge le fichier). Variante : [ykw2ap-2.0.2.zip](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/lanceur/ykw2ap-2.0.2.zip), qui demande Python 3.11 ou plus |
+| **Le lanceur du mod** | [ykw2ap-exe-2.0.3.zip](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/lanceur/ykw2ap-exe-2.0.3.zip) (recommandé, aucun Python à installer : un clic télécharge le fichier). Variante : [ykw2ap-2.0.3.zip](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/lanceur/ykw2ap-2.0.3.zip), qui demande Python 3.11 ou plus |
 
 Les deux versions de l'APWorld (français et anglais) peuvent jouer dans la **même** partie multiworld. Le lanceur et le patch du jeu sont les
 mêmes dans les deux cas.
@@ -64,7 +64,7 @@ mêmes dans les deux cas.
 
 ## 4. Installer et lancer le lanceur
 
-1. Téléchargez le `.zip` du lanceur ([ykw2ap-exe-2.0.2.zip](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/lanceur/ykw2ap-exe-2.0.2.zip)) et **décompressez-le** où vous voulez (par exemple dans
+1. Téléchargez le `.zip` du lanceur ([ykw2ap-exe-2.0.3.zip](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/lanceur/ykw2ap-exe-2.0.3.zip)) et **décompressez-le** où vous voulez (par exemple dans
    Documents).
 2. Double-cliquez sur **`Lanceur Yo-kai Watch 2 Archipelago.exe`**. Gardez le dossier `_internal` **à côté** de l'exe (ne déplacez pas
    l'exe seul ; pour un raccourci : clic droit sur l'exe, « Créer un raccourci »).
@@ -72,7 +72,7 @@ mêmes dans les deux cas.
    normal : le lanceur n'est pas signé (une signature de code est payante). Cliquez sur **« Informations complémentaires »**, puis sur
    **« Exécuter quand même »**. Si votre antivirus bloque le lanceur, utilisez la variante `.pyw` ci-dessous.
 
-**Variante Python (`.pyw`)** : installez Python 3.11 ou plus (avec Tcl/Tk, inclus par défaut), décompressez `ykw2ap-2.0.2.zip`, puis
+**Variante Python (`.pyw`)** : installez Python 3.11 ou plus (avec Tcl/Tk, inclus par défaut), décompressez `ykw2ap-2.0.3.zip`, puis
 double-cliquez sur `Lanceur Yo-kai Watch 2 Archipelago.pyw`. Le fonctionnement est identique.
 
 ---
