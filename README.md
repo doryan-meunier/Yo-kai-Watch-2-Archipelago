@@ -1,8 +1,8 @@
-# Yo-kai Watch 2 : Archipelago, version 2
+# Yo-kai Watch 2 : Archipelago, version 3
 
-Version 3DS européenne (EUR), sur l'émulateur **Azahar**, dans un multiworld [Archipelago](https://archipelago.gg).
-**Le jeu n'est pas fourni** : il faut posséder sa propre copie et en tirer sa propre ROM déchiffrée. Le mod ne contient
-aucune donnée du jeu : il se construit chez vous, à partir de votre ROM.
+Version 3DS européenne (EUR), dans un multiworld [Archipelago](https://archipelago.gg), sur l'émulateur **Zakuro**
+(fourni) ou **Azahar**. **Le jeu n'est pas fourni** : il faut posséder sa propre copie et en tirer sa propre ROM
+déchiffrée. Le mod ne contient aucune donnée du jeu : il se construit chez vous, à partir de votre ROM.
 
 [Français](#français) | [English](#english)
 
@@ -10,11 +10,8 @@ aucune donnée du jeu : il se construit chez vous, à partir de votre ROM.
 
 ## Français
 
-La V2 **remplace** la V1. Ce n'est pas une mise à jour de l'ancien client : le mod a été entièrement refait. Le jeu
-lui-même est maintenant modifié (un patch de son programme, appliqué chez vous par le lanceur), et ce
-sont les fonctions du jeu qui donnent les objets, remplacent le contenu des coffres et signalent les checks. Le client ne fait que
-relayer. Plus de fichier « déjà livré », plus de différences d'inventaire devinées de l'extérieur : l'état est dans la
-sauvegarde du jeu.
+Version actuelle : **3.0.0**. La V3 remplace la V2 ; la V2 (2.0.3) reste disponible dans le dossier
+[`v2/`](v2/README.md) (voir « Ancienne version » plus bas).
 
 **Guides d'installation** : [français](docs/INSTALLATION_FR.md) · [English](docs/INSTALLATION_EN.md)
 **Notes de version** : [français](PATCHNOTES_FR.md) · [English](PATCHNOTES_EN.md)
@@ -25,227 +22,236 @@ Un clic sur un lien lance le téléchargement :
 
 | Fichier | Lien |
 |---|---|
-| Lanceur du mod (recommandé, aucun Python à installer) | [ykw2ap-exe-2.0.3.zip](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/lanceur/ykw2ap-exe-2.0.3.zip) |
-| Lanceur du mod, variante Python 3.11+ | [ykw2ap-2.0.3.zip](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/lanceur/ykw2ap-2.0.3.zip) |
+| Lanceur du mod (recommandé, aucun Python à installer, Zakuro compris) | [ykw2ap-exe-3.0.0.zip](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/lanceur/ykw2ap-exe-3.0.0.zip) |
+| Lanceur du mod, variante Python 3.11+ | [ykw2ap-3.0.0.zip](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/lanceur/ykw2ap-3.0.0.zip) |
 | APWorld français | [yokaiwatch2.apworld](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/yokaiwatch2.apworld) |
 | APWorld anglais | [yokaiwatch2en.apworld](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/yokaiwatch2en.apworld) |
-| YAML modèle français | [Yo-kai Watch 2 - FR.yaml](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/Yo-kai%20Watch%202%20-%20FR.yaml) (clic droit, « Enregistrer le lien sous... ») |
-| YAML modèle anglais | [Yo-kai Watch 2 (English) - EN.yaml](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/Yo-kai%20Watch%202%20%28English%29%20-%20EN.yaml) (clic droit, « Enregistrer le lien sous... ») |
+| YAML modèle français, réglages par défaut | [Yo-kai Watch 2 - FR.yaml](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/Yo-kai%20Watch%202%20-%20FR.yaml) |
+| YAML modèle français, tout activé | [Yo-kai Watch 2 - FR (tout activé).yaml](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/Yo-kai%20Watch%202%20-%20FR%20%28tout%20activ%C3%A9%29.yaml) |
+| YAML modèle anglais, réglages par défaut | [Yo-kai Watch 2 (English) - EN.yaml](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/Yo-kai%20Watch%202%20%28English%29%20-%20EN.yaml) |
+| YAML modèle anglais, tout activé | [Yo-kai Watch 2 (English) - EN (everything on).yaml](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/Yo-kai%20Watch%202%20%28English%29%20-%20EN%20%28everything%20on%29.yaml) |
+
+Pour un YAML, si le navigateur l'affiche au lieu de le télécharger : clic droit sur le lien, « Enregistrer le lien
+sous... ».
+
+### Ce qu'est la V3
+
+Vous jouez l'histoire normalement, mais ce que vous trouvez peut appartenir à un autre joueur, et vos objets sont
+éparpillés dans les autres mondes. Le jeu lui-même est modifié chez vous par le lanceur : les verrous sont **réels**
+(le jeu refuse vraiment l'action tant que l'objet n'est pas reçu). Par rapport à la V2, la V3 ajoute :
+
+- l'**après-jeu** et de nouveaux **objectifs** : battre Potofeu, Filomène ou Extrabuki, ou compléter le Médaillium ;
+- le mode **Blasters** (terrains de Ψ Blasters en checks, et un objet par terrain au choix) ;
+- de **nouveaux objets-clés et verrous** (Yo-kai Watch, Abonnement de train, Voyage dans le temps, Miroirs et Mirapo
+  de poche, objets des requêtes du chapitre 5...), un 5e Rang de montre pour le rang S, les **requêtes à transfert**
+  sans transfert ;
+- les **pièces spéciales** du Crank-a-kai, les **légendaires mélangés**, le **Bingo-kai aléatoire**, les **zones des
+  Yo-kai demandés** ;
+- un **mélange des Yo-kai** bien plus large, les **boss d'après-jeu** mélangés (Voie du mystère comprise) et une
+  **force des boss adaptée** ;
+- les **distributeurs** de soda et de nouvelles **boutiques** en checks ;
+- des **pièges** (au choix), un **multiplicateur d'XP**, des **objets de départ** choisis dans le YAML ;
+- des options de **confort** (Tunnel sans fin et revanches sans limite de jour, chance d'amitié, train doré,
+  remplissage et argent réglables) ;
+- une **version PC** : Zakuro, fourni avec le lanceur, fait tourner le jeu en code PC ;
+- un lanceur plus complet : carte du suivi, onglet Yo-kai, fenêtres d'amitié et de la loupe, apparence du héros,
+  musique aléatoire, **mise à jour automatique**.
+
+Le détail est dans les [notes de version](PATCHNOTES_FR.md) et dans les commentaires des YAML.
 
 ### Ce qu'il faut
 
-- Windows 10 ou 11 (64 bits) pour le lanceur.
-- **Azahar** (émulateur 3DS), version **2124.3** (seule version validée).
+- Windows 10 ou 11 (64 bits).
 - **Archipelago 0.6.7 ou plus**, pour générer la partie.
-- **Votre propre ROM** déchiffrée de Yo-kai Watch 2 européen (`.3ds`, `.cci` ou `.cxi`), faite avec GodMode9 depuis votre
-  cartouche. Version européenne d'origine, sans mise à jour intégrée ni modification.
-- Les fichiers de ce dépôt : un APWorld (`yokaiwatch2.apworld` en français, `yokaiwatch2en.apworld` en anglais), un
-  YAML modèle, et le lanceur du mod (dossier `lanceur/`).
+- **Votre propre ROM** déchiffrée de Yo-kai Watch 2 européen (`.3ds`, `.cci` ou `.cxi`), faite avec GodMode9 depuis
+  votre cartouche (version d'origine, sans mise à jour intégrée ni modification).
+- Un émulateur : **Zakuro** est fourni avec le lanceur (il dessine par Vulkan, ou OpenGL si Vulkan ne démarre pas) ;
+  **Azahar 2124.3** reste possible.
 
-### Ce qu'on peut faire
+### Installer (résumé)
 
-Vous jouez l'histoire normalement, mais ce que vous trouvez peut appartenir à un autre joueur, et vos objets sont
-éparpillés dans les autres mondes. Avec **tous les types de checks activés**, une partie compte **environ 1 060
-locations** (chiffres approximatifs, tirés d'une génération « tout activé » ; les défauts en donnent bien moins, voir
-le YAML) :
+1. Copiez l'APWorld (`yokaiwatch2.apworld` en français, `yokaiwatch2en.apworld` en anglais) dans le dossier
+   `custom_worlds` d'Archipelago, à la place de celui de la V2.
+2. Prenez un YAML modèle (réglages par défaut, ou « tout activé »), choisissez l'objectif, générez la partie.
+3. Décompressez le lanceur (`ykw2ap-exe-3.0.0.zip`), lancez `Lanceur Yo-kai Watch 2 Archipelago.exe`, choisissez votre
+   ROM, saisissez la connexion Archipelago, puis « Jouer ». Avec Zakuro, la première partie commence par une
+   préparation du jeu pour le PC (quelques minutes, environ 4 sur un PC récent) ; le jeu préparé est gardé, les
+   lancements suivants démarrent directement.
+4. Commencez une **nouvelle** partie du jeu : elle se lie toute seule.
 
-| Catégorie | Environ | Détail |
-|---|---:|---|
-| Coffres dorés | 253 | présent et passé ; dont 36 ajoutés par le verrou des rangs de montre (dont la Clinique du Crépuscule) |
-| Amis | 290 | un check par Yo-kai devenu ami : sauvages, évolutions, fusions, Yo-kai d'histoire, d'évènement, des armées, invités de l'Auberge |
-| Boutiques | 285 | le premier achat de chaque article retenu (boutiques payées en euros) |
-| Requêtes | 73 | les requêtes de l'histoire et facultatives (hors rang de montre : 3 de plus) |
-| Services | 16 | les services tirés au hasard par le jeu |
-| Yo-criminels | 52 | un check par criminel arrêté |
-| Tablo-blabla | 25 | le check part quand le Yo-kai du panneau est appelé |
-| Boss | 29 | en mode « tous » (12 d'histoire, 11 de quête, 6 de plus) |
-| Objets-clés | 22 | leur emplacement d'origine devient un check |
-| Chapitres | 9 | chaque chapitre 1 à 9 terminé (le chapitre 10 est la victoire) |
+Tout est expliqué pas à pas dans le [guide d'installation](docs/INSTALLATION_FR.md).
 
-### Ce qu'on reçoit
+### Mettre à jour
 
-Les objets-clés de l'aventure (Filet à insectes, Canne à pêche, Clés de l'école, Modèle zéro, Indications de Maman,
-Herbe ancestrale, Super tournevis, Pile ou passe...), les **rangs de montre** (D, C, B, A, en objets progressifs), le
-**Vélo**, les objets des Yo-kai d'évènement (Rouages, Graines, Grelots, Marque d'Ultramax, Capsule favorite), des
-**invitations** (voir plus bas), et des objets de remplissage (nourriture, argent...).
+- Le lanceur (exe) regarde au démarrage si une version plus récente est publiée ici et propose de se mettre à jour
+  (onglet « Jeu », carte « Mod », bouton « Mettre à jour »). Sauvegardez en jeu et fermez le jeu avant.
+- **Depuis la V2** : le lanceur de la V2 ne se met pas à jour tout seul. Téléchargez le lanceur de la V3 ci-dessus et
+  remplacez l'APWorld dans `custom_worlds`.
+- Une partie générée avec la V2 reste jouable avec le lanceur de la V3 (rien n'y change). Une partie générée avec
+  l'APWorld de la V3 demande le lanceur de la V3 pour tous les joueurs Yo-kai Watch 2 de la partie.
+- Sauvegardez **en jeu** ; n'utilisez pas les sauvegardes rapides (« save states ») : elles sont liées à la version
+  exacte du mod installé.
 
-### Les verrous sont réels
+### Signaler un bug
 
-Ce n'est pas qu'une affaire de logique : avec le verrou activé, **le jeu refuse vraiment l'action** tant que l'objet n'est pas
-arrivé. Sans le Filet, les points de recherche à la loupe sont inutilisables. Sans les Clés de l'école, l'école reste fermée.
-Sans le Vélo, pas de vélo. Sans la Canne, pas de pêche. Sans le rang de montre, les portes de montre restent closes et
-l'histoire attend. Les verrous sont posés avec prudence (ils respectent les scènes déjà jouées) et la génération est
-vérifiée par un audit qui joue la logique du jeu sur 200 graines pour éviter les parties bloquées. Liste complète des verrous
-et de leurs effets : commentaires du YAML (`verrous_actifs` ; `active_locks` dans le YAML anglais).
+**[Ouvrir un ticket](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/issues/new/choose)** (« Issues ») sur ce dépôt : un formulaire vous guide. Préparez :
 
-### Le lanceur
-
-Une fenêtre, un bouton « Jouer ». Le lanceur (fourni en `.exe` : **aucun Python à installer**) :
-
-- vérifie votre ROM, installe le mod dans le dossier de mods d'Azahar (un patch produit chez vous, jamais le jeu), active
-  avec votre accord la « liaison avec le jeu » d'Azahar, lance le client puis le jeu ;
-- se connecte au serveur Archipelago (adresse, nom du slot, mot de passe saisis dans le lanceur) ;
-- contient le **suivi intégré** (qui remplace l'ancien pack PopTracker) : onglet **Checks** (liste par zone, **carte** avec
-  votre position dans le jeu, objets reçus, rubrique Invitations), onglet **Yo-kai** (où trouver chaque Yo-kai, épinglage sur
-  la carte, jour / nuit / météo, nourriture préférée, facilité d'amitié, boutiques), onglet **Discussion** (client texte
-  d'Archipelago : discussion, commandes `!hint`, indices) ;
-- est disponible en français et en anglais.
-
-### Et aussi
-
-- **Liaison des sauvegardes** : une partie Archipelago se joue sur une **nouvelle** partie, liée automatiquement. Une
-  sauvegarde déjà commencée, ou liée à une autre graine, est refusée (rien n'y est reçu ni envoyé).
-- **Mélange des Yo-kai** : les Yo-kai sauvages de chaque rencontre changent, avec des garanties pour ne jamais vous
-  bloquer ; le lanceur dit où trouver chacun. **Mélange des boss** (en option).
-- **Invités de l'Auberge** : 30 Yo-kai d'avant la fin que le jeu ne garantit pas arrivent à l'Auberge des voyageurs quand
-  vous recevez leur « Invitation » ; Jibanyan S, Komasan S et Komajiro S, Hovernyan, Ultramax N et K apparaissent à leur place d'origine.
-- **Bingo-kai infini**, Yo-criminels trouvables à volonté, combats « du jour » rejouables.
-- **DeathLink** (option), fenêtres « objet obtenu » et bandeaux « Reçu : ... » sans interrompre le jeu.
-
-### À savoir
-
-- Les **boutiques** et le **mélange des boss** sont désactivés dans les réglages par défaut : activez-les dans le YAML.
-- Le lanceur n'est **pas signé** : Windows (SmartScreen) peut afficher un avertissement au premier lancement.
-- N'utilisez pas de sauvegardes rapides (« save states ») d'Azahar avec ce mod : elles sont liées à la version exacte du mod installé.
-- Windows seulement pour le lanceur. Seul Azahar 2124.3 est validé.
-
-Si vous trouvez un problème, joignez le fichier `client.log` du dossier des journaux (bouton « Journaux » du lanceur).
+1. **Ce qui s'est passé** : ce que vous faisiez, ce que vous attendiez, ce qui est arrivé ; le chapitre et l'endroit
+   du jeu ; si cela se reproduit.
+2. **Le fichier `client.log`** : bouton **« Journaux »** du lanceur (il ouvre le dossier des journaux,
+   `%APPDATA%\ykw2-ap`) ; joignez aussi **`plantage.json`** s'il existe (il est écrit quand le jeu plante).
+3. **Une capture de l'onglet concerné** du lanceur (onglet « Jeu » pour l'état et la connexion, « Checks » pour un
+   check ou un objet, « Yo-kai » pour le mélange, « Discussion » pour un message du serveur) et, si possible, de
+   l'écran du jeu.
+4. **Les versions** affichées en bas du lanceur (« Lanceur ... - mod ... »), l'émulateur utilisé (Zakuro ou Azahar),
+   et le **YAML** de la partie.
+5. Si c'est un blocage, une **sauvegarde en jeu** juste avant le problème aide beaucoup.
 
 ### Contenu du dépôt
 
 | Chemin | Quoi |
 |---|---|
-| `yokaiwatch2.apworld` | l'APWorld **français** (jeu « Yo-kai Watch 2 ») |
-| `yokaiwatch2en.apworld` | l'APWorld **anglais** (jeu « Yo-kai Watch 2 (English) ») |
-| `Yo-kai Watch 2 - FR.yaml` | YAML modèle du monde français : options, valeurs et commentaires en français |
-| `Yo-kai Watch 2 (English) - EN.yaml` | YAML modèle du monde anglais : options, valeurs et commentaires en anglais |
+| `yokaiwatch2.apworld` | l'APWorld **français** de la V3 (jeu « Yo-kai Watch 2 ») |
+| `yokaiwatch2en.apworld` | l'APWorld **anglais** de la V3 (jeu « Yo-kai Watch 2 (English) ») |
+| `Yo-kai Watch 2 - FR.yaml` | YAML modèle du monde français : réglages par défaut, tous les verrous |
+| `Yo-kai Watch 2 - FR (tout activé).yaml` | YAML modèle du monde français : tout activé (après-jeu jusqu'à Extrabuki) |
+| `Yo-kai Watch 2 (English) - EN.yaml` | YAML modèle du monde anglais (entièrement en anglais) : réglages par défaut |
+| `Yo-kai Watch 2 (English) - EN (everything on).yaml` | YAML modèle du monde anglais : tout activé |
 | `docs/` | guides d'installation FR et EN |
-| `PATCHNOTES_FR.md`, `PATCHNOTES_EN.md` | tout ce qui change par rapport à la V1 |
-| `lanceur/` | le lanceur : `ykw2ap-exe-2.0.3.zip` (sans Python, recommandé) et `ykw2ap-2.0.3.zip` (nécessite Python 3.11+) |
+| `PATCHNOTES_FR.md`, `PATCHNOTES_EN.md` | tout ce qui change par rapport à la V2 |
+| `lanceur/` | le lanceur : `ykw2ap-exe-3.0.0.zip` (sans Python, recommandé, avec Zakuro), `ykw2ap-3.0.0.zip` (nécessite Python 3.11+) et `maj.json` (lu par la mise à jour automatique) |
+| `v2/` | l'ancienne version 2.0.3 (voir ci-dessous) |
 
-Les deux mondes (français et anglais) peuvent jouer dans la **même** multiworld.
+### Ancienne version (V2 2.0.3)
+
+La V2 reste disponible dans le dossier [`v2/`](v2/README.md) : son README, ses notes de version, ses guides, ses
+deux YAML modèles, ses deux APWorlds et son lanceur (`v2/lanceur/`), tels qu'ils étaient publiés. Elle ne reçoit plus
+de nouveautés. Vous n'en avez besoin que pour **générer** une nouvelle partie de la V2 : une partie de la V2 déjà
+générée se joue aussi avec le lanceur de la V3.
 
 ### Remerciements
 
-Logo du mod (six cercles d'Archipelago) : MDarkmooN. Projet développé par **Doteos**.
+Logo du mod (six cercles d'Archipelago) : MDarkmooN. Zakuro (émulateur 3DS, licence MIT) :
+<https://github.com/fearkov/zakuro>, fourni ici dans une version adaptée au mod.
+Projet développé par **Doteos**.
 
 ---
 
 ## English
 
-V2 **replaces** V1. It is not an update of the old client: the mod was rebuilt from scratch. The game itself is now patched
-(a patch of its executable, applied on your machine by the launcher), and the game's own functions give the items, replace
-chest contents and report the checks. The client only relays. No more "already delivered" file, no more inventory
-differences guessed from outside: the state lives in the game's save.
+Current version: **3.0.0**. V3 replaces V2; V2 (2.0.3) is still available in the [`v2/`](v2/README.md) folder (see
+"Previous version" below).
 
 **Setup guides**: [English](docs/INSTALLATION_EN.md) · [Français](docs/INSTALLATION_FR.md)
 **Patch notes**: [English](PATCHNOTES_EN.md) · [Français](PATCHNOTES_FR.md)
 
-*The game is not provided*: you need your own copy and your own decrypted ROM. The mod contains no game data: it is built on
-your machine from your ROM.
-
 ### Downloads
 
-Click a link to download the file:
+One click on a link starts the download:
 
 | File | Link |
 |---|---|
-| Mod launcher (recommended, no Python to install) | [ykw2ap-exe-2.0.3.zip](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/lanceur/ykw2ap-exe-2.0.3.zip) |
-| Mod launcher, Python 3.11+ variant | [ykw2ap-2.0.3.zip](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/lanceur/ykw2ap-2.0.3.zip) |
-| French APWorld | [yokaiwatch2.apworld](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/yokaiwatch2.apworld) |
+| Mod launcher (recommended, no Python to install, Zakuro included) | [ykw2ap-exe-3.0.0.zip](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/lanceur/ykw2ap-exe-3.0.0.zip) |
+| Mod launcher, Python 3.11+ variant | [ykw2ap-3.0.0.zip](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/lanceur/ykw2ap-3.0.0.zip) |
 | English APWorld | [yokaiwatch2en.apworld](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/yokaiwatch2en.apworld) |
-| French template YAML | [Yo-kai Watch 2 - FR.yaml](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/Yo-kai%20Watch%202%20-%20FR.yaml) (right-click, "Save link as...") |
-| English template YAML | [Yo-kai Watch 2 (English) - EN.yaml](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/Yo-kai%20Watch%202%20%28English%29%20-%20EN.yaml) (right-click, "Save link as...") |
+| French APWorld | [yokaiwatch2.apworld](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/yokaiwatch2.apworld) |
+| English template YAML, default settings | [Yo-kai Watch 2 (English) - EN.yaml](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/Yo-kai%20Watch%202%20%28English%29%20-%20EN.yaml) |
+| English template YAML, everything on | [Yo-kai Watch 2 (English) - EN (everything on).yaml](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/Yo-kai%20Watch%202%20%28English%29%20-%20EN%20%28everything%20on%29.yaml) |
+| French template YAML, default settings | [Yo-kai Watch 2 - FR.yaml](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/Yo-kai%20Watch%202%20-%20FR.yaml) |
+| French template YAML, everything on | [Yo-kai Watch 2 - FR (tout activé).yaml](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/raw/main/Yo-kai%20Watch%202%20-%20FR%20%28tout%20activ%C3%A9%29.yaml) |
+
+For a YAML, if the browser shows it instead of downloading it: right-click the link, "Save link as...".
+
+### What V3 is
+
+You play the story normally, but what you find may belong to another player, and your own items are scattered across
+the other worlds. The game itself is modified on your machine by the launcher: locks are **real** (the game truly
+refuses the action until the item is received). Compared with V2, V3 adds:
+
+- the **postgame** and new **goals**: defeat Wobblewok, Kat Kraydel or Kabuking, or complete the Medallium;
+- the **Blasters** mode (Psychic Blasters stages as checks, and one item per stage if you want);
+- **new key items and locks** (Yo-kai Watch, Train Pass, Time Travel, Mirapo and the Pocket Mirapo, the chapter 5
+  request items...), a 5th Watch Rank for rank S, the **save-transfer requests** without any transfer;
+- the **special Crank-a-kai coins**, **shuffled legendaries**, **shuffled Crank-a-kai**, **requested Yo-kai zones**;
+- a much wider **Yo-kai shuffle**, shuffled **postgame bosses** (Mystery Way included) and **adapted boss strength**;
+- **vending machines** and new **shops** as checks;
+- **traps** (optional), an **EXP multiplier**, **starting items** chosen in the YAML;
+- **comfort** options (Infinite Tunnel and rematches without the daily limit, befriending chance, golden train,
+  adjustable filler and money);
+- a **PC version**: Zakuro, shipped with the launcher, runs the game as PC code;
+- a richer launcher: tracker map, Yo-kai tab, friendship and magnifier windows, hero appearance, random music,
+  **automatic updates**.
+
+Details are in the [patch notes](PATCHNOTES_EN.md) and in the YAML comments.
 
 ### What you need
 
-- Windows 10 or 11 (64-bit) for the launcher.
-- **Azahar** (3DS emulator), version **2124.3** (the only validated version).
+- Windows 10 or 11 (64-bit).
 - **Archipelago 0.6.7 or later**, to generate the game.
 - **Your own** decrypted ROM of the European Yo-kai Watch 2 (`.3ds`, `.cci` or `.cxi`), dumped with GodMode9 from your
-  cartridge. Original European version, no merged update, no modification.
-- The files of this repository: an APWorld (`yokaiwatch2.apworld` for French names, `yokaiwatch2en.apworld` for English
-  names), a template YAML, and the mod launcher (`lanceur/` folder).
+  cartridge (original version, no merged update, no modification).
+- An emulator: **Zakuro** is shipped with the launcher (it draws through Vulkan, or OpenGL where Vulkan does not
+  start); **Azahar 2124.3** is still possible.
 
-### What you can do
+### Install (summary)
 
-You play the story normally, but what you find may belong to another player, and your own items are scattered across the other
-worlds. With **every check type enabled**, a game has **about 1,060 locations** (approximate figures from an "everything
-on" generation; the defaults give far fewer, see the YAML):
+1. Copy the APWorld (`yokaiwatch2en.apworld` for English names, `yokaiwatch2.apworld` for French names) into
+   Archipelago's `custom_worlds` folder, replacing the V2 one.
+2. Take a template YAML (default settings, or "everything on"), pick the goal, generate the game.
+3. Unzip the launcher (`ykw2ap-exe-3.0.0.zip`), run `Lanceur Yo-kai Watch 2 Archipelago.exe`, pick your ROM, enter the
+   Archipelago connection, then "Play". With Zakuro, the first game starts with preparing the game for PC (a few
+   minutes, about 4 on a recent PC); the prepared game is kept, later launches start directly.
+4. Start a **new** game: it links by itself.
 
-| Category | About | Details |
-|---|---:|---|
-| Golden chests | 253 | present and past; including 36 added by the watch-rank lock (Nocturne Hospital among them) |
-| Friends | 290 | one check per Yo-kai befriended: wild, evolutions, fusions, story, event and army Yo-kai, Wayfarer Manor guests |
-| Shops | 285 | the first purchase of each selected item (shops paid in money) |
-| Requests | 73 | story and optional requests (3 more for the watch-rank ones) |
-| Services | 16 | the services the game draws at random |
-| Yo-criminals | 52 | one check per criminal arrested |
-| Baffle Boards | 25 | sent when the board's Yo-kai is called |
-| Bosses | 29 | in "all" mode (12 story, 11 quest, 6 more) |
-| Key items | 22 | their original spot becomes a check |
-| Chapters | 9 | each of chapters 1 to 9 completed (chapter 10 is the goal) |
+Everything is explained step by step in the [setup guide](docs/INSTALLATION_EN.md).
 
-### What you receive
+### Updating
 
-The adventure's key items (Bug Net, Fishing Rod, School Keys, Model Zero, Mom's Directions, Ancient Herb, Pro Screwdriver,
-Select-A-Coin...), **watch ranks** (D, C, B, A, as progressive items), the **Bicycle**, the event Yo-kai items (Cogs, Seeds, Bells,
-Moxie Mark, Favorite Capsule), **invitations** (see below), and filler (food, money...).
+- At startup, the launcher (exe) checks whether a newer version is published here and offers to update itself
+  ("Game" tab, "Mod" card, "Update" button). Save in the game and close it first.
+- **Coming from V2**: the V2 launcher does not update itself. Download the V3 launcher above and replace the APWorld in
+  `custom_worlds`.
+- A game generated with V2 can still be played with the V3 launcher (nothing changes in it). A game generated with the
+  V3 APWorld needs the V3 launcher for every Yo-kai Watch 2 player of the multiworld.
+- Save **in the game**; do not use save states: they are tied to the exact installed mod version.
 
-### Locks are real
+### Reporting a bug
 
-It is not only a logic matter: with a lock enabled, **the game really refuses the action** until the item arrives. Without the Bug
-Net, lens search points are unusable. Without the School Keys, the school stays closed. Without the Bicycle, no bicycle. Without
-the Rod, no fishing. Without the watch rank, watch doors stay shut and the story waits. Locks are laid with care (they respect
-scenes already played) and generation is checked by an audit that plays the game's logic over 200 seeds to avoid unwinnable
-games. Full list of locks and effects: the YAML comments (`active_locks`; `verrous_actifs` in the French YAML).
+**[Open an issue](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/issues/new/choose)** in this repository: a form guides you. Have ready:
 
-### The launcher
-
-One window, one "Play" button. The launcher (shipped as an `.exe`: **no Python to install**):
-
-- checks your ROM, installs the mod into Azahar's mods folder (a patch produced on your machine, never the game), enables
-  Azahar's "link with the game" with your consent, starts the client, then the game;
-- connects to the Archipelago server (address, slot name and password typed in the launcher);
-- includes the **built-in tracker** (replacing the old PopTracker pack): **Checks** tab (list by area, **map** with your position
-  in the game, received items, Invitations section), **Yo-kai** tab (where to find each Yo-kai, pin on the map, day / night /
-  weather, favorite food, befriending odds, shops), **Chat** tab (Archipelago's text client: chat, `!hint` commands, hints);
-- is available in French and English.
-
-### And also
-
-- **Save linking**: an Archipelago game is played on a **new** game, linked automatically. A save that was already started, or
-  linked to another seed, is refused (nothing is received or sent).
-- **Yo-kai randomizer**: wild Yo-kai of every encounter change, with guarantees that never block you; the launcher tells where
-  to find each one. **Boss randomizer** (optional).
-- **Wayfarer Manor guests**: 30 pre-ending Yo-kai the game does not guarantee arrive at the Manor when you receive their
-  "Invitation"; Jibanyan S, Komasan S and Komajiro S, Hovernyan, Ultramax N and K appear at their original places.
-- **Endless Crank-a-kai**, Yo-criminals findable at will, "of the day" battles replayable.
-- **DeathLink** (option), "item obtained" windows and "Received: ..." banners without interrupting the game.
-
-### Good to know
-
-- **Shops** and the **boss randomizer** are off in the default settings: turn them on in the YAML.
-- The launcher is **not signed**: Windows (SmartScreen) may show a warning on first launch.
-- Do not use Azahar save states with this mod: they are tied to the exact installed mod version.
-- Windows only for the launcher. Only Azahar 2124.3 is validated.
-
-If you find a problem, attach the `client.log` file from the logs folder (the launcher's "Logs" button).
+1. **What happened**: what you were doing, what you expected, what happened; the chapter and the place in the game;
+   whether it happens again.
+2. **The `client.log` file**: the launcher's **"Logs"** button (it opens the logs folder, `%APPDATA%\ykw2-ap`); also
+   attach **`plantage.json`** if it exists (it is written when the game crashes).
+3. **A screenshot of the relevant tab** of the launcher ("Game" for the status and connection, "Checks" for a check or
+   an item, "Yo-kai" for the shuffle, "Chat" for a server message) and, if possible, of the game screen.
+4. **The versions** shown at the bottom of the launcher ("Launcher ... - mod ..."), the emulator used (Zakuro or
+   Azahar), and the game's **YAML**.
+5. For a softlock, an **in-game save** made just before the problem helps a lot.
 
 ### Repository contents
 
 | Path | What |
 |---|---|
-| `yokaiwatch2.apworld` | the **French** APWorld (game "Yo-kai Watch 2") |
-| `yokaiwatch2en.apworld` | the **English** APWorld (game "Yo-kai Watch 2 (English)") |
-| `Yo-kai Watch 2 - FR.yaml` | template YAML of the French world: options, values and comments in French |
-| `Yo-kai Watch 2 (English) - EN.yaml` | template YAML of the English world: options, values and comments in English |
-| `docs/` | setup guides, FR and EN |
-| `PATCHNOTES_FR.md`, `PATCHNOTES_EN.md` | everything that changes from V1 |
-| `lanceur/` | the launcher: `ykw2ap-exe-2.0.3.zip` (no Python, recommended) and `ykw2ap-2.0.3.zip` (needs Python 3.11+) |
+| `yokaiwatch2.apworld` | the V3 **French** APWorld (game "Yo-kai Watch 2") |
+| `yokaiwatch2en.apworld` | the V3 **English** APWorld (game "Yo-kai Watch 2 (English)") |
+| `Yo-kai Watch 2 - FR.yaml` | template YAML of the French world: default settings, every lock |
+| `Yo-kai Watch 2 - FR (tout activé).yaml` | template YAML of the French world: everything on (postgame up to Kabuking) |
+| `Yo-kai Watch 2 (English) - EN.yaml` | template YAML of the English world (entirely in English): default settings |
+| `Yo-kai Watch 2 (English) - EN (everything on).yaml` | template YAML of the English world: everything on |
+| `docs/` | setup guides, EN and FR |
+| `PATCHNOTES_EN.md`, `PATCHNOTES_FR.md` | everything that changes from V2 |
+| `lanceur/` | the launcher: `ykw2ap-exe-3.0.0.zip` (no Python, recommended, with Zakuro), `ykw2ap-3.0.0.zip` (needs Python 3.11+) and `maj.json` (read by the automatic update) |
+| `v2/` | the previous version 2.0.3 (see below) |
 
-Both worlds (French and English) can play in the **same** multiworld.
+### Previous version (V2 2.0.3)
+
+V2 is still available in the [`v2/`](v2/README.md) folder: its README, patch notes, guides, two template YAMLs, two
+APWorlds and launcher (`v2/lanceur/`), as they were published. It no longer gets new features. You only need it to
+**generate** a new V2 game: an already generated V2 game can also be played with the V3 launcher.
 
 ### Credits
 
-Mod logo (six-circle Archipelago logo): MDarkmooN. Project developed by **Doteos**.
+Mod logo (six-circle Archipelago logo): MDarkmooN. Zakuro (3DS emulator, MIT licence):
+<https://github.com/fearkov/zakuro>, shipped here in a version adapted to the mod.
+Project developed by **Doteos**.

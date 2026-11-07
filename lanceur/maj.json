@@ -1,0 +1,16 @@
+{
+ "format": 1,
+ "version": "3.0.0",
+ "build": 202611071643,
+ "zip": {
+  "url": "https://raw.githubusercontent.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/main/lanceur/ykw2ap-exe-3.0.0.zip",
+  "taille": 24679918,
+  "sha256": "2550ad212c2288cfe6bd4594f7f7e3ef4cec10f1f0e59e5b4e8f6a3974be5251"
+ },
+ "page": "https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago",
+ "notes": {
+  "fr": "Version 3.0.0 : la V3 est disponible pour tous. Objectifs d'après-jeu, Blasters, Médaillium, pièges, objets de départ, multiplicateur d'XP, Mirapo de poche et bien plus : voir PATCHNOTES_FR.md sur le dépôt.",
+  "en": "Version 3.0.0: V3 is available to everyone. Post-game goals, Blasters, Medallium, traps, starting items, XP multiplier, pocket Mirapo and much more: see PATCHNOTES_EN.md in the repository."
+ },
+ "build_minimal": 0
+}

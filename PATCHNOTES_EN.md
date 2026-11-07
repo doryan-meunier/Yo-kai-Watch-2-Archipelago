@@ -1,218 +1,333 @@
-# Patch notes: V2 (compared with V1)
+# Patch notes: V3 (version 3.0.0, compared with V2)
 
-V2 is a **complete rebuild**. This document lists what was done, by theme.
+V3 adds the **postgame**, new goals, many new key items and locks, new kinds of checks and new shuffles. Everything new
+is **set in the YAML**; the default settings stay close to V2. This document lists what is new, by theme.
 
-## Version 2.0.3: fix
+Two YAML templates are provided per language: the **default settings** (with every real lock) and an **"everything
+on"** template (over 1,400 locations). Lists are written as arrays (`[a, b]`), and every option is explained in the
+file.
 
-**"Archipelago item" instead of the name of an item given by a scene.** In big multiplayer games, the window of an
-item given by a story scene (such as the Bug Net at the start of the game) showed "Archipelago item" instead of the
-name of the item placed there. The game keeps at most 256 item names, and the chest names took every slot. This is
-fixed: the 2.0.3 launcher gives a slot to the items given by a scene first, then to the chests not opened yet. In
-very big multiplayer games, beyond 256 names, some chests can still show "Archipelago item": this is a limit of V2
-(the `client.log` file says how many names did not get a slot). **Only the launcher changes** (new `.zip`, then
-"Install / Repair"): the APWorlds, the YAML files and the games you already generated stay valid.
+## Compatibility
 
-## Version 2.0.2: fix
+- **A game generated with V2 can still be played with the V3 launcher**: the launcher recognises it and adds nothing
+  to it (same checks, same Yo-kai and boss shuffle, same guests; no V3 feature turns on). Save **in the game** before
+  updating the launcher (no Azahar save state from another build). If you were playing on Azahar, keep Azahar for that
+  game (see "PC version" below: Zakuro's save files are kept separately).
+- **A game generated with the V3 APWorld needs the V3 launcher.** An older launcher cleanly refuses a game that needs
+  a feature it lacks ("the installed game lacks some locks of this seed"): nothing is linked or sent. Every Yo-kai Watch 2 player of the
+  multiworld therefore needs to move to V3.
+- The French and English worlds still play in the same multiworld.
+- The English world's YAML is entirely in English (option names, values, lock keys); a YAML using the French names
+  still works (a simple warning gives the English name of each option).
 
-**"Server unreachable" although the address, port and slot name are right.** On some computers the launcher
-could not verify the server's security certificate (for example `archipelago.gg`): it then gave up the secure
-connection, and the server refused the plain one. This is fixed: the 2.0.2 launcher keeps the secure
-(encrypted) connection in that case. The `client.log` file now lists every cause of a failed connection.
-**Only the launcher changes** (new `.zip`, then "Install / Repair"): the APWorlds, the YAML files and the
-games you already generated stay valid.
+## 1. New goals (option `goal`)
 
-## Version 2.0.1: fix
+- **`defeat_wobblewok`**: finish the story, then defeat Wobblewok at the bottom of the Infinite Inferno (needs the
+  Shack Key, shuffled into the game).
+- **`defeat_kat_kraydel`**: finish the story, then defeat Kat Kraydel at the end of the Divine Paradise.
+- **`defeat_kabuking`**: finish the story, then defeat Kabuking at the Kaibuki Theater (Hexpress Pass for the Gera
+  Gera train, Rank S, then the three resort requests).
+- **`complete_medallium`**: finish the story, then fill the Medallium up to the chosen number (`medallium_target`,
+  448 = all). All 448 entries have a way the logic accounts for; it is a very long game (around a hundred hours). This
+  goal turns on by itself everything it needs (full postgame, friends, bosses, guests, special coins...).
+- Victory is sent once the boss is **defeated, wherever it is** (with the boss randomizer it may have moved) and the
+  story is finished. `finish_chapter_10` (default) stays the V2 game, without the postgame.
 
-**Could not connect with the English world ("Wrong game" / `InvalidGame`).** With 2.0.0, a game generated with the
-English APWorld (`yokaiwatch2en.apworld`, game "Yo-kai Watch 2 (English)") was refused by the server on connection:
-the launcher always introduced itself under the French world's name. This is fixed: the 2.0.1 launcher connects to
-both worlds. **You need to update the launcher** (new `.zip`, then "Install / Repair"); the game you already
-generated does not need to be generated again.
+## 2. Postgame (option `postgame`)
 
-**What is fixed.** In the game, **San Fantastico** and **Excellent Tower** only open in chapter 6. Version 2.0.0
-believed they could be reached from chapter 4, by train. An item needed to finish chapter 4 could therefore be placed
-in a chest or a shop of these two places while they were still closed: the game stayed stuck in chapter 4. Nothing
-located there is now expected before the end of chapter 5.
+- `required`: the checks **on the way to the goal** (golden chests of the Infinite Inferno and the Divine Paradise,
+  bosses on the way; for Kabuking, the Rank S request, the Gera Gera train's chests and requests).
+- `full`: plus **the whole postgame** of the enabled types: 99 golden chests (Yo-kai World, Hexpress resorts, Sawayama
+  Castle, Mystery Way, Rank S corners...), 31 requests and 4 services, 8 bosses, Baffle Board #24, 18 friends (the
+  legendaries among them). Anything off the way to the goal only holds filler.
+- Shuffled **access items**: Shack Key, Yo-kai World Key, **Hexpress Pass** (the Gera Gera train opens as soon as it
+  is received, and the request "Getting to Gera Gera" is offered right away), Happy-Go-Lucky Pass, Boo Bundle, Key to
+  Apt. A-203 / B-102, and the **four Mystery Way keys** (the door in San Fantastico and its three branches).
+- Sawayama Castle and its requests join the game.
 
-**Who is affected.** Only games generated with 2.0.0 that have the **Fishing Rod** lock (`canne_a_peche`) or the
-**watch rank** lock (`rangs`) in `verrous_actifs` (the 2.0.0 names). With the default settings (no lock), nothing can get stuck. Even
-with these locks, most games finish normally (about one in ten is affected in our simulations).
+## 3. YO-KAI WATCH Blasters mode (option `blasters_mode`)
 
-**What to do.**
+- One check per cleared **Psychic Blasters stage** (you play alone by hosting a group).
+- `early`: Gargaros and Sproink; `all`: also the long stages (filler), those of Rubeus J and Hardy Hound (with their
+  "Friend" checks) and the postgame ones.
+- Slimamander's stage asks for 30 Yo-kai photos taken with the console camera (impossible on an emulator): the modded
+  game counts them as taken, without writing anything to the save. Hinozall's stage and its "Friend" check become
+  possible.
+- Rubeus J's and Hardy Hound's stages come from the other editions of the game: alone, this edition never shows them.
+  The modded game makes them playable alone when the game has their checks.
+- **One item per stage** (option `blasters_stage_unlocks`, off by default): twelve "Stage: <boss>" items; a stage opens
+  as soon as its item is received, and only then (no more Oni Orbs, photos or other conditions). Gargaros and the
+  Triple Boss Rush stay open. All 13 stages (and the "Friend" checks of Hinozall, Rubeus J and Hardy Hound) become
+  regular checks from chapter 4, which may hold required items.
 
-- **For a new game**: replace the `.apworld` file with the 2.0.1 one (in Archipelago's `custom_worlds` folder), then
-  generate. Update the launcher too: its tracker then shows the right moment of access (and it is required for the
-  English world, see above).
-- **For a game in progress**: nothing changes, it stays playable as it is. If it is stuck in chapter 4 because the
-  Fishing Rod (or a Watch Rank) is in San Fantastico or in Excellent Tower, type `!hint Fishing Rod` (or
-  `!hint Watch Rank`) to find out where the item is, then ask the host to give it to you with
-  `/send <your name> Fishing Rod`.
-- With the 2.0.1 launcher, the tracker of a game generated with 2.0.0 also shows these two places as reachable only
-  after chapter 5: that is what the game really does.
+## 4. New key items and locks (option `active_locks`)
 
-**The English world's YAML is now entirely in English.** In the "Yo-kai Watch 2 (English)" world, option names, their
-values and the lock keys are now in English (`goal`, `bosses`, `quests`, `shops`, `yokai_randomizer`, `active_locks`
-with `bug_net`, `fishing_rod`, `watch_ranks`...), and so are Archipelago's option pages and the English template YAML.
+As in V2, a lock is **real**: the game truly refuses the action until the item is received, and an item received
+"late" never blocks the game. The YAML templates turn them all on (31).
 
-- **An older English YAML (2.0.0, French names) still works** with the 2.0.1 APWorld: your settings are kept as they
-  are, and the generation only prints a warning that gives the new name of each option. French values are still
-  accepted too.
-- If the same YAML gives both the old name and the new one with two different values, the generation stops with a
-  clear message: keep the English name only.
-- The French world ("Yo-kai Watch 2") does not change: same names, same YAML files.
-
-The patched game program and the game format are unchanged: a game in progress carries on with the 2.0.1 launcher.
-
-## 1. A new technical base
-
-- **The game itself is patched**, instead of a client writing into its memory. A patch of the game's executable
-  makes the game give received items, replace chest contents and report checks. The client talks to the game
-  through an exchange area in memory.
-- **Nothing from the game is distributed.** The patch is applied on your machine, from your ROM, by the launcher. The release
-  contains no game byte (an automatic check verifies this when the package is built).
-- The game state is **in the save file** (no more "already delivered" file kept on the side).
-- No more gap between what the game shows and what happens: what a chest or a shop displays is what is really sent.
-
-## 2. The launcher
-
-- One window, one **Play** button. ROM selection (verified), Azahar detection, one-click install / repair / uninstall of the mod
-  (uninstalling puts Azahar's folder back as it was).
-- Shipped as an **`.exe`** (no Python to install); a `.pyw` variant exists for people who have Python 3.11+.
-- Enables Azahar's "link with the game" (GDB stub) **with your consent**, after a backup copy of its configuration.
-- **Archipelago connection** typed in the launcher (server, slot, password; the password can be remembered, encrypted for your
-  Windows account), editable mid-game: the client reconnects by itself.
-- Live status: client, game, server, save (linked / not linked / other game / mod needs updating).
-- French and English interface. Logs reachable (the "Logs" button).
-- A **crash recorder**: if the game panics, the client keeps the faulting address and the stack in `plantage.json` for diagnosis.
-
-## 3. Save linking
-
-- An Archipelago game is played on a **new game**: the save is linked automatically.
-- A save that was already started is **never adopted**, and a save linked to another seed is **refused**: nothing is received or
-  sent, and the launcher says so.
-- Safeguards on both sides (the client and the game both re-check).
-
-## 4. Real locks (option `active_locks`; `verrous_actifs` in the French world)
-
-With a lock enabled, the game **really refuses** the action until the item arrives:
-
-| Lock | Effect |
+| Item | Without the item |
 |---|---|
-| Bug Net | lens search points unusable, chapter 1 tutorial included |
-| Fishing Rod | fishing closed; usable on receipt; required in chapter 4 (the three-fish request) |
-| Model Zero | Model Zero battle interface available on receipt (start of chapter 2) |
-| School Keys | school closed, chapter 3 blocked |
-| Ancient Herb, Pro Screwdriver | chapter 3 scenes not triggered |
-| Mom's Directions | Downtown closed until Mom's hand-over (chapter 4) |
-| Treasure Room Key | Duwheel fight not triggered |
-| Strange Handle | night use at the Nocturne Hospital has no effect |
-| Select-A-Coin | the chapter 2 tutorial Crank-a-kai only accepts this coin (the game itself blocks) |
-| **Real watch ranks** | 4 progressive items D, C, B, A: each copy really upgrades the watch; watch doors, requests and story passages require the rank; adds 36 chests |
-| **Real Bicycle** | receiving the Bicycle really gives the bicycle (you ride at once); its request becomes a check |
-| Anticipated abilities | Rod and Model Zero usable on receipt, without waiting for the game step that normally gives them |
+| **Yo-kai Watch** | in battle, the Pin, Soultimate and Purify buttons are closed (required from chapter 3 and by every boss) |
+| Critical Lost Item | Dad does not take it back (chapter 7 request) |
+| Moximous Game | Gnomey does not come (chapter 6 request) |
+| Komasan's Letter, Mysterious Marble | the two mandatory chapter 5 requests cannot be completed |
+| Swirly Bell, Top-Notch Watch | the scene that ends chapter 5 waits for both |
+| Milk Bottle Tops | required from the end of chapter 9 (chapter 10 is played in a sealed-off town) |
+| **Mirapo** | no warp mirror appears |
+| Muscle Belt, New Retro Robot, Old Retro Robot, Fluffy Towel, Dance Revolution | the optional request that asks for it cannot be completed |
+| Stamp Card | no station stamps |
+| **Train Pass** | station ticket gates shut: no Harrisville, no San Fantastico, the story stops in chapter 4 |
+| **Time Travel** | every way into the past is shut (the ways back, never); required from the end of chapter 5 |
+| Key to Apt. C-302 | (fixes a V2 oversight: the key exists in the game again) |
+| Blue Card Key | (with the watch ranks: its chest becomes a check, the key joins the pool) |
 
-Locks respect scenes already played (late activation is safe).
+Each V3 key item also has its "Key Item: ..." check at its vanilla spot ("Time Passage" for time travel). A separate
+option, **`scrolls`**, adds the game's three Scrolls (normally given through QR codes) to the pool. The "Key Item:
+Yo-kai Watch" check is sent in the chapter 1 shop, when the item window shows the location's item instead of the
+Strange Watch.
 
-## 5. Checks
+**Watch rank S** (`watch_ranks` lock, with a postgame goal that has rank S checks): a **5th "Watch Rank"** joins the
+pool and gives **rank S** once the story is over (received earlier: the watch reaches rank S at the end of the story).
+The "Go for Rank S!" request is then only a check. The launcher tracker shows "S" at the 5th copy.
 
-**Chests and key items**
-- Golden chests (about 253 with ranks): the content is replaced by the Archipelago item, with a dedicated icon, and the check is
-  sent on opening.
-- Original spots of key items (about 22): checks. The game's "item obtained" window for checks that have no display of their own.
+**Pocket Mirapo** (value `pocket_mirapo`, **off by default**, not in the default template: add it to the list; on in
+the "everything on" template): the Mirapo item becomes two "Progressive Mirapo" items. The 1st opens the mirrors
+(like the Mirapo item); the 2nd gives the **Pocket Mirapo**: **hold SELECT ~0.5 s** in the field to open the mirror
+menu anywhere, with every mirror you have registered. It is refused in dungeons, stations, the past and the Yo-kai
+World, during a scene or a dialogue, when the story itself shuts the mirrors, and in the area where the story keeps
+you (Harrisville, for example): the game then says "The Pocket Mirapo doesn't respond here" and gives the reason. A
+banner reminds you of the button when you receive it. With the Pocket Mirapo, SELECT no longer pauses the game in
+the field (the console usually treats it as START): START still pauses. Nothing requires it.
 
-**Bosses**
-- Option `bosses`: `story` (12), `story_and_quests` (23), and the new **`all`** mode (29: also Badsmella, Draaagin, Faux Kappa,
-  Ray O'Light, Loiter, and Mallice at the end of the Infinite Tunnel).
-- The check is sent on victory; with the boss randomizer it stays attached to the place of the fight.
+**Items in the bag** (with the game-item install, on by default): the Train Pass, Time Travel and Mirapo show up in the
+Key Items tab when you receive them. With the 2nd Progressive Mirapo, the "Mirapo" item is replaced by "Pocket
+Mirapo" (compact-mirror icon, also in the launcher tracker). With the Gate Dungeon Keys, a single "Gate Dungeon
+Keyring (n/5)" item follows the keys you received: it is swapped at each key, and its description lists the open
+doors. These items are for display only (the locks work from the Archipelago items received). They have hand-drawn
+icons.
 
-**Baffle Boards**: 25 boards; the check is sent when the board's Yo-kai is called.
+## 5. Save-transfer requests (option `save_transfer_requests`)
 
-**Requests and services**: about 76 requests and 16 services; the quest's item reward is replaced by the Archipelago item in
-the result screen.
+The **ten requests** that normally only exist after importing a Bony Spirits or Fleshy Souls save are offered **all
+ten in the same game**, without any transfer (six before the ending, four after), with the "Friend" checks of the
+Yo-kai they give.
 
-**Chapters**: chapters 1 to 9 completed and "Rank Up: D".
+## 6. Guests, special coins and the Medallium
 
-**Friends** (option `friends`, about 290 checks): wild Yo-kai, evolutions and Yo-kai + Yo-kai fusions; Yo-kai given by the story or
-a request; event Yo-kai (each requires its item); evolutions of the Manor guests; 5 fusions with a guaranteed item; 16 army
-Yo-kai (with the per-encounter Yo-kai randomizer).
+- **Wayfarer Manor guests** now arrive in the **order you receive their invitations**. With the Medallium goal, the
+  16 army Yo-kai become guests too.
+- **Special Crank-a-kai coins** (option `special_coins`): the coins the game only gives through QR codes, passwords or
+  online play join the game (16 Five-Star Coins, Flower Excitement Coins, the 9 Traveler's Coins, Select-A-Coin,
+  Select-A-Coin +, fusion items of the regional Yo-kai). Each coin **always gives a Yo-kai you are missing** (never an
+  item, never a duplicate); the Five-Star Coin order is drawn for the seed and shown by the launcher. A wasted coin
+  (full team) is given back. One more Light-Blue Coin gives Bananose, and it can no longer be sold.
+- **Shuffled legendaries** (option `shuffled_legendaries`): each Medallium seal gives **another** legendary Yo-kai;
+  the eight Yo-kai each seal asks for do not change, and nothing obtainable becomes impossible.
 
-**Yo-criminals**: one check per criminal arrested (52). The one-per-real-week limit is lifted: the next criminal not yet
-arrested is offered at will, visible on the 5 town maps, from chapter 3.
+## 7. Yo-kai shuffle
 
-**Shops** (option, off by default): the first purchase of each selected item is a check (up to about 285); a maximum price setting
-for progression.
+- The shuffle now also covers **trapped chests**, **trains**, **gym missions**, **story places** and Yo-kai
+  **spots**; with a postgame goal, the postgame wild Yo-kai too. Far more different Yo-kai from the start of the game.
+- The **lens** shows the shuffled Yo-kai as soon as the shuffle is applied, without changing maps.
+- **Requested Yo-kai zones** (option `requested_yokai_zones`): every Yo-kai a request, a Baffle Board or a service
+  asks for is placed in a **zone drawn for the seed** (at least two spots of that zone); the logic accounts for it and
+  the launcher shows "guaranteed at <zone>".
+- The launcher explains the state of the shuffle ("Archipelago connection" card) and why a place kept its original Yo-kai
+  ("Yo-kai" tab). When the game's logic depends on a shuffle (requested Yo-kai zones, postgame bosses) and it is not
+  ready yet (ROM to pick in the launcher, for instance), the game waits: nothing is linked or sent, then it resumes by
+  itself.
+- **Shuffled Crank-a-kai** (option `shuffled_crank_a_kai`): the Yo-kai given by the ordinary Crank-a-kai coins are
+  shuffled among themselves; each one stays obtainable at the same machine with the same kind of coin. The launcher
+  says what each coin can give.
 
-**"Long" mystery portals**: checks that need many portals or the Crank-a-kai are flagged in the launcher and never hold
-progression.
+## 8. Bosses
 
-## 6. Yo-kai and boss randomizers
+- With a postgame goal, the **postgame bosses are shuffled among themselves** (never with the story ones); the shuffle
+  is drawn at generation, and the goal boss may move.
+- **Mystery Way bosses** (Goldy Bones, Retinado, Hans Galore, Glitzy Bones): when the Mystery Way is part of the game
+  (`postgame: full`, or the "complete the Medallium" goal), they are shuffled like the other postgame bosses: among
+  themselves with `boss_randomizer: same_class`, with the Infinite Inferno and postgame request bosses with
+  `boss_randomizer: full` (among themselves with the Medallium goal, so that the coin of each Mystery Way machine,
+  dropped by the boss of its line, can be earned again on every run). A "defeat X" goal boss is never put on the
+  Mystery Way. Their four places have a check "Boss: Goldy Bones", "Boss: Retinado", "Boss: Hans Galore", "Boss:
+  Glitzy Bones", sent when you defeat the boss found there.
+- **Adapted strength** (option `shuffled_boss_strength: adapted`): a moved boss takes the strength of the original boss
+  of its place (a late boss placed early is no longer unbeatable, a weak boss placed late is made stronger). The goal
+  boss always keeps its own strength.
+- Checks for the postgame bosses, including the places with no marker in the save (the check is sent with the
+  occupant's Medallium entry).
 
-**Yo-kai randomizer** (computed on your machine from your ROM, identical for every player of the seed):
-- Modes `by_rank` and `full` (species swap) and **`per_encounter_by_rank`** (default) / `per_encounter_full` (every Yo-kai of every
-  encounter gets its own species).
-- **Guarantees**: a Yo-kai required by the game stays findable at each of its original places; every shuffled Yo-kai has a
-  "normal place" (not a mystery portal) before the end; no more empty lens points; 16 species that are normally unobtainable are
-  added to the pool.
-- The shuffle is **versioned** by the seed: a game in progress is never altered by a later improvement.
-- Event Yo-kai, bosses, Yo-criminals and the Crank-a-kai do not change.
+## 9. New checks
 
-**Boss randomizer** (option `boss_randomizer`, off by default): a story or quest boss is replaced by another one, with its script,
-music and stats; the place, scenes and check stay those of the original boss.
+- **Vending machines** (option `vending_machines`): 108 checks, the first drink of each button of each of the 54
+  machines.
+- **Postgame shops** (with `shops` and the full postgame): the Sawayama Castle village shop and the fixed items of the
+  Happy-Go-Lucky Express shop (the golden train).
+- **Key requests only** (option `quests: key_requests`): only the 23 requests the story requires (chapters 2 to 7
+  and 9) are checks; the other requests are not.
 
-## 7. Wayfarer Manor, event Yo-kai, Ultramax
+- **Gate Dungeon Keys** (option `gate_dungeon_keys`, off by default): five items, one per orb door of the Gates of
+  Whimsy dungeon in Breezy Hills; the dungeon's chests 01 to 03 become regular checks (chests 04 to 10, Eyephoon and "The
+  Final Gate" stay out of progression: the way there requires calling Baffle Board Yo-kai, or the logic cannot
+  guarantee access).
 
-- **30 guests**: each has an "Invitation: <name>" item; once received, the Yo-kai arrives at Wayfarer Manor (Blossom Heights), a
-  window announces it, and you battle it as often as needed to befriend it (the game's befriend odds).
-- **Pandanoko** takes the **reserved Suite** once all request checks are done; the other guests are housed in rooms 101 to 109
-  and **keep their room** until they are friends.
-- **Invitations are real bag items** (installed by the launcher, icon with the mod logo).
-- **Jibanyan S, Komasan S, Komajiro S** (invitations) and **Hovernyan** (Favorite Capsule) appear at their original place before
-  the end of the game. Jibanyan S waits until Jibanyan is your friend and the crossroads scene is over (a story-blocking bug
-  seen in game was fixed).
-- **Ultramax N and K** in the same game, with two checks.
-- Event Yo-kai items (Cogs, Seeds, Bells, Moxie Mark) in the pool.
+## 10. Comfort
 
-## 8. Crank-a-kai and "of the day" battles
+- **More varied filler** (option `filler`): besides the 12 consumables of V2 (default), all the game's food (74
+  items), the 74 equipment items and the 16 books, as you choose (list of families).
+- **Adjustable money**: amounts of money items (option `money_amounts`, from 10 to 5,000 euros; default 100 and 500)
+  and form (option `money_form`): euros (default), dolls to sell in a shop (iron, bronze, silver, gold, platinum: 3 to
+  600 euros), or both.
 
-- **Endless Crank-a-kai** (option): the machine never closes (no daily quota, no night closing).
-- Battles limited to one per day are **replayable** (19 more than before).
+- **Infinite Tunnel without the daily limit** (on by default).
+- **Rematches without the daily limit**, and Mystery Way bosses on every run (option `rematches_no_daily_limit`).
+- **Mystery Way directed draws**: its machines always give the Yo-kai you are missing (option
+  `mystery_way_directed_draws`).
+- **More frequent golden train** (option `golden_train_frequency`: 2, 3 or 4 times in 10 instead of 1).
+- **Befriending chance** (option `befriending_chance`): normal, x2, x4 or guaranteed. It does not change who can be
+  befriended, and there is still one new friend per battle at most. With "guaranteed", if you fed one of the
+  defeated Yo-kai, that one becomes your friend; then a Yo-kai that is not your friend yet (Medallium) is preferred;
+  then the rarest, as in the original game. The Mystery Way Oni (Gargaros, Ogralus, Orcanos) are not recruited through
+  end-of-battle befriending but through a random gift after the win (5% or 3%): with "guaranteed", that gift is
+  guaranteed at the first win (Oni not yet a friend, room in the team). Terror Time Oni and the trap's Oni never
+  become friends, as in the original game.
+- **DeathLink**: a lost game of Terror Time or Blasters also counts as a death (one per game), only for games
+  generated with V3.
 
-## 9. DeathLink (option `death_link`)
+- **Random Gate Rewards** (option `random_gate_rewards`, off by default): the chest at the end of a Gate of
+  Whimsy gives a game item picked for the seed (food, healing, Exporbs, books, equipment), besides the usual orbs.
 
-A defeat in the game sends a DeathLink; a received death triggers a real defeat (in battle, through the normal path; on the field, a
-window then a return to the respawn point), at a safe moment. Event battles without a defeat penalty are handled.
+- **Traps** (option `traps`, off by default, on in the "everything on" template; share set by `trap_share`, 10% by
+  default): part of the filler items become traps, sent to your world like any other item: surprise battle, loss of 10% of your money, watch static
+  (radar off for 5 minutes), rain (5 minutes), half HP at the next battle, wheel shuffle (the wheel spins by itself,
+  then stays locked for 30 seconds), battle against an Oni matched to the team's strength (no escape; winning gives
+  the experience and money of an ordinary Yo-kai). Each trap has its own weight (`..._trap_weight` options, relative: a sum
+  of 100 gives percentages). A trap only acts at a safe moment (free field, or the next wild battle), is announced by
+  the banner, and never costs a check. A game with traps needs the launcher that can receive them. A trap received
+  but not yet triggered when you close the game comes back at the next launch. Once the seed's goal is reached, traps
+  have no effect any more: those that arrive afterwards (when the other players release or collect) are announced
+  "Trap skipped", and those still waiting for their moment are removed (rain and watch static in progress stop, back
+  on the field). Other items are given as before. The goal is remembered from one launch to the next.
 
-## 10. Notifications
+- **EXP Multiplier** (option `exp_multiplier`, off by default, on in the "everything on" template): three
+  "Progressive EXP Multiplier" items (useful) replace three filler items. All the EXP your Yo-kai earn (won
+  battles, request rewards, EXP items) is multiplied by 2 with the first one received, by 3 with the second, by 4
+  with the third; the screens show the multiplied value. Money and items do not change. No logic rule depends on
+  them. The current tier shows in the bag ("Key Items"): "EXP Multiplier x2", then x3 and x4, which replaces the
+  previous one with each copy received.
 
-- "Received: ... / From: ..." banner without interrupting the game.
-- The game's "item obtained" windows for checks without a display (Yo-criminals included).
-- A chest or a shop shows "item (for player)".
-- Text language can be set (`notification_language`).
+- **Starting items** (option `starting_items`, empty list by default): the game starts with the chosen items, for
+  example `starting_items: ["Bicycle", "Train Pass", "Watch Rank"]` (APWorld names, in English or in French, in
+  double quotes). Each name removes one copy of the item from the world (a filler item takes its place) and gives it
+  from the start, like a received item; logic counts it as already owned. One mention = one copy ("Watch Rank"
+  twice: ranks D and C). An extra mention, an item the game does not put in the world (a key item without its lock,
+  an option that is off) and traps are ignored, with a warning at generation; an unknown name stops the generation.
 
-## 11. Built-in tracker (replaces the PopTracker pack)
+## 11. Spoiler file
 
-- **Checks**: list by area (done, available, later, blocked by a given item), filters, received items (and who sent them), optional
-  "Spoiler log", no spoilers by default.
-- **Map** PopTracker-style: regions, markers, counters, "Chapters N/10" goal, **your position in the game** ("Follow the game"
-  checkbox), shops (vendor, building door, items one by one, appearance conditions), **Invitations** section.
-- **Yo-kai**: where to find each wild Yo-kai under the shuffle actually applied, **pinning** on the map, moments (day / night, dry /
-  rain), mystery portals flagged, favorite food, befriending odds, spoiler hiding.
-- **Chat**: Archipelago's text client (coloured messages, chat, `!hint`, `!remaining`... commands, hints).
-- The tracker works even **without the game** (server connection only).
+Archipelago's spoiler file has a Yo-kai Watch 2 section: boss shuffle (and where the goal boss is), legendaries (seal
+→ legendary), Five-Star Coin order, requested Yo-kai zones, traps (effective percentage of each trap). The wild Yo-kai shuffle, the Crank-a-kai shuffle and the
+adapted boss strength are computed on the player's side from their ROM: the launcher shows them ("Yo-kai" tab).
 
-## 12. Robustness and game safety
+## 12. PC version (built-in Zakuro)
 
-- **Anti-softlock**: an audit replays the game's logic over **200 seeds** (in both rank modes) so that no seed is unwinnable;
-  locks are laid so that a player is never trapped in a game state.
-- **Memory budget**: the added code is sized not to starve the game of memory (a "memory" crash seen early on was fixed); the build
-  refuses a configuration over budget.
-- **Low load** on the emulator: the client only reads what it needs, no emulation freezes.
-- Connections: the client never closes the link on a protocol error and reconnects by itself.
-- V1 seeds are not compatible: generate a new game.
+- The launcher can ship **Zakuro**, a 3DS emulator that runs the game as **PC code**: the game is prepared once on
+  your computer, from your ROM. The first preparation takes a few minutes (about 4 minutes on a recent PC, longer on a
+  more modest computer) and may download a compiler of about 100 MB. After that, the prepared game is kept: later
+  launches have nothing to redo, and after a mod update only what changed is redone (usually under a minute).
+  Nothing from the game is distributed.
+- When Zakuro is shipped, it is the default emulator ("2. Emulator" card of the launcher). **Azahar is still
+  available**: "Browse..." `azahar.exe` in that card (and `zakuro\zakuro.exe` from the launcher folder to go back to
+  Zakuro).
+- Zakuro's save files are **separate** from Azahar's (in `%APPDATA%\ykw2-ap\zakuro`, kept when you update the
+  launcher): a game started on Azahar continues on Azahar.
+- **"Settings"** tab in the launcher, **"Zakuro"** sub-tab: game language, resolution, frame interpolation, window
+  size, screens, filter, sound of Zakuro. Applied the next time Zakuro starts.
+- **Screens' place**: in Zakuro's window, full screen included, the game's screens can sit against the left or right
+  edge instead of in the middle, to put the launcher in the free room (Settings → Zakuro, or Esc → Settings →
+  "Screens' place"). Clicking the bottom screen with the mouse follows the screens.
+- **Blasters**: Blasters can be played alone on the PC version, with no room and no connection (Yo-kai Pad →
+  Blasters → create a group, then start with no guest). Before, the app said that wireless communication was off, or
+  disconnected the game at the start.
+- **Controllers**: Zakuro reads PlayStation, Xbox and Switch controllers, over USB or Bluetooth, even when its window
+  is not in front. `zakuro\tester_manette.cmd` (in the launcher folder) shows what Zakuro sees of a controller.
 
-## 13. What disappears from V1
+## 13. Launcher and tracker
 
-- The old client that wrote into the game's memory.
-- The **PopTracker** pack (replaced by the launcher's tracker).
-- The options `quest_shuffle`, `chest_shuffle`, `tablo_shuffle`, `criminel_shuffle`, `encounter_shuffle`...: replaced by the V2
-  options (see the YAML, everything is commented there).
+- **Autocomplete in the console** ("Chat" tab): typing `!` lists the commands; after `!hint ` or
+  `!hint_location `, it lists item or location names from your game, as the Archipelago client does. Arrows to
+  choose, Tab or Enter to complete, Esc to close.
+- **Friendship window in battle** (checkbox in the **"Settings" → "Game settings"** tab, off by default, with Azahar
+  as well as with Zakuro): a small transparent window, on
+  top of the game, tells for each enemy Yo-kai whether it is already your friend; hidden outside battles, movable.
+- Item column: a single **"Gate Dungeon Keyring (n/5)"** box for the 5 Gate Dungeon Keys (the tooltip tells which
+  doors are open), and a single box for the **Progressive Mirapo**: "Mirapo", then "Pocket Mirapo" with the
+  second copy.
+- **Magnifier window** ("Settings" → "Game settings", off by default): when the watch radar targets a spot, a
+  small transparent window names the Yo-kai you will fight there and tells whether it is already your friend.
+- **Recent items window** (same place): the last items received and sent, cleared after an adjustable delay.
+- **Keep the launcher on top** (same place), without taking the input away from the game.
+- **Random music** (same place, unchecked by default): the game's music tracks are shuffled among themselves
+  (field, battles, scenes), with no outside music; applied on the next "Play", a new shuffle every time the box is
+  checked again. Jingles, rhythm games and language-specific songs keep their music. Purely cosmetic: no effect on
+  the Archipelago game.
+- **Hero appearance** ("Settings" → "Appearance"): official outfits, sepia tones or a free colour for Nate and Katie,
+  with a preview; a few hidden outfits of the game (marked "experimental"); import of an appearance mod you already
+  have (zip or folder). Applied on the next "Play", purely cosmetic.
+- Map: **"What to do now?"** button: accessible checks, starting with the map you are on.
+- Map: the "Map:" list filters as you type (case and accents ignored).
+- Map: the door of a building whose shopkeeper is not there yet is no longer "accessible"; night-only shopkeepers
+  are shown absent while the story does not let you go out at night yet.
+- **Special coins** (icons, count, next Yo-kai) and **Legendaries** sections on the tracker map; "Crank-a-kai" places
+  and "guaranteed at <zone>" in the "Yo-kai" tab; "Bosses" view with the applied strength. Yo-kai that the game gives
+  without an encounter (guests, special coin Yo-kai, regional fusions) have their row there too, with their location.
+- Clear messages when a game is waiting or blocked (shuffle being prepared, ROM to pick, mod to update); exact names
+  of what is missing when a launcher or an installed game is too old.
+
+- **Launcher updates**: at startup, the launcher checks whether a newer version exists (a plain request to the public
+  repository, no data sent; checkbox in "Settings" → "Game settings"). With the exe, the "Update" button downloads
+  and checks the package, replaces the files and restarts the launcher; if that fails, the old version stays in
+  place. Refused while the game, Azahar or Zakuro are open. `.pyw` package: an alert with a link. The V2 launcher does
+  not have this system: moving from V2 to V3 is done by hand.
+
+## 14. Fixes compared with V2
+
+- **Key to Apt. C-302**: in V2 this key had vanished from the game (its chest had become a check); with the
+  `key_to_apt_c_302` lock it is back in the pool.
+- **Underground Waterway**: chests 10 and 11 require the Ancient Herb and the School Keys (only reachable from
+  Shopper's Row), chests 12 and 13 the School Keys (entered from Blossom Heights), and the "Red Card Key" key item
+  (behind the ten gates) 3 chapters, Select-A-Coin, Mom's Directions, the Herb and the Keys.
+- **Springdale Business Tower floors** (3rd, 12th and 13th): the elevator only opens them once the Yo-kai of Baffle
+  Board #11 has been summoned, which the logic cannot guarantee; their chests and the "Unkeen: Origins" request now
+  only hold filler (new games; a V2 game keeps its placement).
+- **Harrisville village bus** (chapter 4): while the Fishing Rod or the first Watch Rank ("real rank" mode) is
+  missing, the village bus to the station is no longer refused from 4-110 to 4-135: you can fetch the item elsewhere
+  and come back with the station bus (original fare). Without the lock, or once the item is received, nothing changes.
+  The bus is also given back while request 99 (defeat 3 Pachycoul) is accepted and not finished: with the Yo-kai zone
+  shuffle, Pachycoul may only be found in Springdale.
+- **Downtown construction site**: the requests "The Bear Boy Returns" and "The Phantom Giant" (and so "Ultimate Bear
+  Boy", "Collection Correction", the Massiface boss and the phantom giant chests) no longer wait two or three real
+  days after calling the Yo-kai of Baffle Board #9: the site is finished as soon as it is called.
+- Logic: the **Catwalk** chest requires chapter 1 completed and the Select-A-Coin; the **Old Uptown "Ch.10 return"**
+  chest is only expected after chapter 10 (filler only when the goal is finishing chapter 10).
+- **Baffle Boards**: the check is sent when the board's Yo-kai is SUMMONED, which requires owning it. The logic now
+  waits for both the board and that Yo-kai (where it is found, the items to get there, the watch rank the lens
+  needs): for example board #2 is no longer announced before the Excellent Tower (chapter 6). New games: board #4
+  only exists with the `save_transfer_requests` option (its Yo-kai only comes from a save-transfer request), board #25
+  only with its event item and the "Friend" checks (the item is required by its rule), and board #23 only in the
+  complete postgame (its Yo-kai, a legendary, needs a rank S member).
+- Logic: the last three items of the **Shopper's Row** convenience store (N004, `all` mode) are only sold after the
+  **Baffle Board #12** Yo-kai; their rule now waits for that board.
+- Logic: the 13 chests of **Springdale Elementary School (night)** open as soon as the story night of chapter 3 (step
+  3-190); their rule no longer waits for the end of chapter 3, but for chapter 2 finished plus the **School Keys**, the
+  **Ancient Herb** and the **Pro Screwdriver** (with the Yo-kai shuffle by zones: also the zone of the Yo-kai of the
+  chapter 3 request).
+- Logic: a key item that stops the story (Critical Lost Item, Komasan's Letter, Mysterious Marble, Milk Bottle Tops,
+  Moximous Game, Fishing Rod…) is no longer required by the checks you can do BEFORE the point where the story stops
+  without it (about 280 checks, mostly requests and chests). The end of the chapter and the request that asks for the
+  item still require it. The Yo-kai Watch Model Zero does not stop the story: the logic no longer requires it.
+- For a game generated with V2, the launcher tracker also shows these corrected logic rules (except the Business
+  Tower one).
+- "Item obtained" windows: items of your own world that have a picture (invitations, Train Pass, Time Travel, Mirapo,
+  Gate Dungeon keys, Hexpress Pass, Mystery Way keys) now show it instead of the Archipelago logo, with the same name.
+  Without the mod's items installed: the logo, as before.

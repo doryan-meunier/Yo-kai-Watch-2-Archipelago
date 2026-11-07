@@ -1,0 +1,88 @@
+name: "Signaler un bug / Report a bug"
+description: "Un problème dans le jeu, le lanceur ou le suivi / A problem in the game, the launcher or the tracker"
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci de prendre le temps de signaler un problème ! Vous pouvez écrire en français ou en anglais.
+        Thanks for taking the time to report a problem! You can write in French or English.
+
+  - type: textarea
+    id: probleme
+    attributes:
+      label: "Ce qui s'est passé / What happened"
+      description: |
+        Ce que vous faisiez, ce que vous attendiez, ce qui est arrivé.
+        What you were doing, what you expected, what happened instead.
+    validations:
+      required: true
+
+  - type: input
+    id: lieu
+    attributes:
+      label: "Chapitre et endroit du jeu / Chapter and place in the game"
+      placeholder: "ex. chapitre 4, Hauts de Granval / e.g. chapter 4, Uptown Springdale"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: reproduit
+    attributes:
+      label: "Est-ce que cela se reproduit ? / Does it happen again?"
+      options:
+        - "Oui, à chaque fois / Yes, every time"
+        - "Parfois / Sometimes"
+        - "Une seule fois / Only once"
+        - "Pas essayé / Not tried"
+    validations:
+      required: true
+
+  - type: input
+    id: versions
+    attributes:
+      label: "Versions affichées en bas du lanceur / Versions shown at the bottom of the launcher"
+      placeholder: "Lanceur ... - mod ... / Launcher ... - mod ..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: emulateur
+    attributes:
+      label: "Émulateur / Emulator"
+      options:
+        - "Zakuro"
+        - "Azahar"
+        - "Autre / Other"
+    validations:
+      required: true
+
+  - type: textarea
+    id: journal
+    attributes:
+      label: "Fichier client.log / client.log file"
+      description: |
+        Bouton « Journaux » du lanceur (dossier `%APPDATA%\ykw2-ap`). Glissez le fichier ici. Joignez aussi `plantage.json` s'il existe (écrit quand le jeu plante).
+        Launcher "Logs" button (folder `%APPDATA%\ykw2-ap`). Drag the file here. Also attach `plantage.json` if it exists (written when the game crashes).
+    validations:
+      required: true
+
+  - type: textarea
+    id: captures
+    attributes:
+      label: "Captures d'écran / Screenshots"
+      description: |
+        L'onglet concerné du lanceur (Jeu, Checks, Yo-kai, Discussion) et, si possible, l'écran du jeu.
+        The relevant launcher tab (Game, Checks, Yo-kai, Chat) and, if possible, the game screen.
+    validations:
+      required: false
+
+  - type: textarea
+    id: yaml
+    attributes:
+      label: "YAML de la partie / YAML of the game"
+      description: |
+        Glissez le fichier YAML ici. Si c'est un blocage, une sauvegarde en jeu juste avant le problème aide beaucoup.
+        Drag the YAML file here. If you are stuck, an in-game save made just before the problem helps a lot.
+    validations:
+      required: false
