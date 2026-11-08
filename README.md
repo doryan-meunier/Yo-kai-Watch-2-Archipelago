@@ -10,8 +10,7 @@ déchiffrée. Le mod ne contient aucune donnée du jeu : il se construit chez vo
 
 ## Français
 
-Version actuelle : **3.0.0**. La V3 remplace la V2 ; la V2 (2.0.3) reste disponible dans le dossier
-[`v2/`](v2/README.md) (voir « Ancienne version » plus bas).
+Version actuelle : **3.0.0**. La V3 remplace la V2.
 
 **Guides d'installation** : [français](docs/INSTALLATION_FR.md) · [English](docs/INSTALLATION_EN.md)
 **Notes de version** : [français](PATCHNOTES_FR.md) · [English](PATCHNOTES_EN.md)
@@ -120,14 +119,11 @@ Tout est expliqué pas à pas dans le [guide d'installation](docs/INSTALLATION_F
 | `docs/` | guides d'installation FR et EN |
 | `PATCHNOTES_FR.md`, `PATCHNOTES_EN.md` | tout ce qui change par rapport à la V2 |
 | `lanceur/` | le lanceur : `ykw2ap-exe-3.0.0.zip` (sans Python, recommandé, avec Zakuro), `ykw2ap-3.0.0.zip` (nécessite Python 3.11+) et `maj.json` (lu par la mise à jour automatique) |
-| `v2/` | l'ancienne version 2.0.3 (voir ci-dessous) |
 
 ### Ancienne version (V2 2.0.3)
 
-La V2 reste disponible dans le dossier [`v2/`](v2/README.md) : son README, ses notes de version, ses guides, ses
-deux YAML modèles, ses deux APWorlds et son lanceur (`v2/lanceur/`), tels qu'ils étaient publiés. Elle ne reçoit plus
-de nouveautés. Vous n'en avez besoin que pour **générer** une nouvelle partie de la V2 : une partie de la V2 déjà
-générée se joue aussi avec le lanceur de la V3.
+Une partie de la V2 déjà générée se joue aussi avec le lanceur de la V3. Les fichiers de la V2 ne sont plus
+proposés ici ; ils restent seulement dans l'étiquette [`v2.0.3`](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/tree/v2.0.3).
 
 ### Remerciements
 
@@ -139,8 +135,7 @@ Projet développé par **Doteos**.
 
 ## English
 
-Current version: **3.0.0**. V3 replaces V2; V2 (2.0.3) is still available in the [`v2/`](v2/README.md) folder (see
-"Previous version" below).
+Current version: **3.0.0**. V3 replaces V2.
 
 **Setup guides**: [English](docs/INSTALLATION_EN.md) · [Français](docs/INSTALLATION_FR.md)
 **Patch notes**: [English](PATCHNOTES_EN.md) · [Français](PATCHNOTES_FR.md)
@@ -242,13 +237,11 @@ Everything is explained step by step in the [setup guide](docs/INSTALLATION_EN.m
 | `docs/` | setup guides, EN and FR |
 | `PATCHNOTES_EN.md`, `PATCHNOTES_FR.md` | everything that changes from V2 |
 | `lanceur/` | the launcher: `ykw2ap-exe-3.0.0.zip` (no Python, recommended, with Zakuro), `ykw2ap-3.0.0.zip` (needs Python 3.11+) and `maj.json` (read by the automatic update) |
-| `v2/` | the previous version 2.0.3 (see below) |
 
 ### Previous version (V2 2.0.3)
 
-V2 is still available in the [`v2/`](v2/README.md) folder: its README, patch notes, guides, two template YAMLs, two
-APWorlds and launcher (`v2/lanceur/`), as they were published. It no longer gets new features. You only need it to
-**generate** a new V2 game: an already generated V2 game can also be played with the V3 launcher.
+An already generated V2 game can also be played with the V3 launcher. The V2 files are no longer offered here; they
+only remain in the [`v2.0.3`](https://github.com/doryan-meunier/Yo-kai-Watch-2-Archipelago/tree/v2.0.3) tag.
 
 ### Credits
 
