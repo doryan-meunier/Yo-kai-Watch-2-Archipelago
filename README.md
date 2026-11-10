@@ -129,7 +129,7 @@ Tout est expliqué pas à pas dans le [guide d'installation](docs/INSTALLATION_F
 - **IA** : presque tout le code et la documentation de ce mod (lanceur, client, APWorlds et patch du jeu) ont été
   écrits avec une IA (**Claude**, d'Anthropic), sous ma direction. Je décide de ce que fait le mod, j'essaie chaque
   fonction en jeu, et une bêta avec des testeurs a précédé la sortie. Avant chaque publication, je lance la suite
-  de tests complète (plus de 2 500 tests automatiques) et je relis le code. Je ne suis pas développeur professionnel ;
+  de tests complète (plus de 2 500 tests automatiques) et je relis le code. Je suis développeur, mais pas dans le jeu vidéo ;
   le support et les corrections se font avec les mêmes outils.
 - **Contenu** : un lanceur et un client Archipelago (Python), deux APWorlds (français et anglais), un patch du code du
   jeu **fabriqué chez le joueur** à partir de sa propre ROM, et une version adaptée de l'émulateur Zakuro (licence MIT).
@@ -270,7 +270,7 @@ Everything is explained step by step in the [setup guide](docs/INSTALLATION_EN.m
 - **AI**: almost all of the code and documentation of this mod (launcher, client, APWorlds and game patch) was written
   with an AI (**Claude**, by Anthropic), under my direction. I decide what the mod does, I test every feature in game,
   and a beta with testers came before the release. Before each release, I run the full test suite (more than 2,500
-  automated tests) and I review the code. I am not a professional developer; support and fixes are done
+  automated tests) and I review the code. I am a developer, but not in video games; support and fixes are done
   with the same tools.
 - **Contents**: a launcher and an Archipelago client (Python), two APWorlds (French and English), a patch for the
   game's code that is **built on the player's machine** from their own ROM, and an adapted build of the Zakuro
