@@ -1,0 +1,425 @@
+{
+ "format": 1,
+ "regions": [
+  {
+   "cle": "menu",
+   "nom_fr": "Menu",
+   "nom_en": "Menu"
+  },
+  {
+   "cle": "les_hauts_de_granval",
+   "nom_fr": "Les Hauts de Granval",
+   "nom_en": "Uptown Springdale"
+  },
+  {
+   "cle": "quartier_des_boutiques",
+   "nom_fr": "Quartier des boutiques",
+   "nom_en": "Shopper's Row"
+  },
+  {
+   "cle": "centre_ville_de_granval",
+   "nom_fr": "Centre-ville de Granval",
+   "nom_en": "Downtown Springdale"
+  },
+  {
+   "cle": "coteau_fleuri",
+   "nom_fr": "Coteau fleuri",
+   "nom_en": "Blossom Heights"
+  },
+  {
+   "cle": "la_corniche",
+   "nom_fr": "La Corniche",
+   "nom_en": "Breezy Hills"
+  },
+  {
+   "cle": "tour_excellence",
+   "nom_fr": "Tour Excellence",
+   "nom_en": "Excellent Tower"
+  },
+  {
+   "cle": "mont_sylvestre",
+   "nom_fr": "Mont Sylvestre",
+   "nom_en": "Mt. Wildwood"
+  },
+  {
+   "cle": "tunnel_abandonne",
+   "nom_fr": "Tunnel abandonné",
+   "nom_en": "Abandoned Tunnel"
+  },
+  {
+   "cle": "clinique_du_crepuscule",
+   "nom_fr": "Clinique du Crépuscule",
+   "nom_en": "Nocturne Hospital",
+   "exclusion": "rang_B"
+  },
+  {
+   "cle": "ourcival",
+   "nom_fr": "Ourcival",
+   "nom_en": "Harrisville"
+  },
+  {
+   "cle": "mont_de_l_ours",
+   "nom_fr": "Mont de l'Ours",
+   "nom_en": "Mt. Middleton"
+  },
+  {
+   "cle": "san_fantastico",
+   "nom_fr": "San Fantastico",
+   "nom_en": "San Fantastico"
+  },
+  {
+   "cle": "vieux_granval",
+   "nom_fr": "Vieux Granval",
+   "nom_en": "Old Springdale"
+  },
+  {
+   "cle": "vieil_ourcival",
+   "nom_fr": "Vieil Ourcival",
+   "nom_en": "Old Harrisville"
+  },
+  {
+   "cle": "gera_gera_land",
+   "nom_fr": "Gera Gera Land",
+   "nom_en": "Gera Gera Land",
+   "exclusion": "rang_C"
+  },
+  {
+   "cle": "plaines_plinpot",
+   "nom_fr": "Plaines Plinpot",
+   "nom_en": "Flatpot Plains"
+  },
+  {
+   "cle": "heure_funeste",
+   "nom_fr": "Heure funeste",
+   "nom_en": "Terror Time"
+  },
+  {
+   "cle": "tunnel_sans_fin",
+   "nom_fr": "Tunnel sans fin",
+   "nom_en": "Infinite Tunnel",
+   "exclusion": "post_game"
+  },
+  {
+   "cle": "limbes_eternelles",
+   "nom_fr": "Limbes éternelles",
+   "nom_en": "Infinite Inferno",
+   "exclusion": "post_game"
+  },
+  {
+   "cle": "paradis_divin",
+   "nom_fr": "Paradis divin",
+   "nom_en": "Divine Paradise",
+   "exclusion": "post_game"
+  },
+  {
+   "cle": "repaire_de_lady_demona",
+   "nom_fr": "Repaire de Lady Démona",
+   "nom_en": "Dame Demona's Lair"
+  },
+  {
+   "cle": "apres_jeu",
+   "nom_fr": "Après-jeu (Granval)",
+   "nom_en": "Postgame (Springdale)",
+   "exclusion": "apres_jeu"
+  },
+  {
+   "cle": "rang_s",
+   "nom_fr": "Après-jeu (rang S)",
+   "nom_en": "Postgame (Rank S)",
+   "exclusion": "apres_jeu"
+  },
+  {
+   "cle": "sanctuaire_divin",
+   "nom_fr": "Sanctuaire divin",
+   "nom_en": "Divine Paradise",
+   "exclusion": "apres_jeu"
+  },
+  {
+   "cle": "origines",
+   "nom_fr": "Après-jeu (origines des Fidèles)",
+   "nom_en": "Postgame (Origins)",
+   "exclusion": "apres_jeu"
+  },
+  {
+   "cle": "yokai_world",
+   "nom_fr": "Yo-kai World",
+   "nom_en": "Yo-kai World",
+   "exclusion": "apres_jeu"
+  },
+  {
+   "cle": "chateau_de_sawayama",
+   "nom_fr": "Château de Sawayama",
+   "nom_en": "Sawayama Castle",
+   "exclusion": "apres_jeu"
+  },
+  {
+   "cle": "entrain_express",
+   "nom_fr": "Entrain Express",
+   "nom_en": "Happy-Go-Lucky Express",
+   "exclusion": "apres_jeu"
+  },
+  {
+   "cle": "sortilege_express",
+   "nom_fr": "Sortilège Express et stations",
+   "nom_en": "Hexpress and its stations",
+   "exclusion": "apres_jeu"
+  },
+  {
+   "cle": "voie_du_mystere",
+   "nom_fr": "Voie du mystère",
+   "nom_en": "Mystery Way",
+   "exclusion": "apres_jeu"
+  },
+  {
+   "cle": "route_des_farceurs",
+   "nom_fr": "Route des farceurs",
+   "nom_en": "Bony Spirits Way",
+   "exclusion": "apres_jeu"
+  },
+  {
+   "cle": "route_des_bouffis",
+   "nom_fr": "Route des bouffis",
+   "nom_en": "Fleshy Souls Way",
+   "exclusion": "apres_jeu"
+  },
+  {
+   "cle": "grand_route_doree",
+   "nom_fr": "Grand-route dorée",
+   "nom_en": "Gold-Gleaming Hwy.",
+   "exclusion": "apres_jeu"
+  }
+ ],
+ "connexions": [
+  {
+   "source": "menu",
+   "cible": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "source": "menu",
+   "cible": "quartier_des_boutiques",
+   "regle": {
+    "chapitres_termines": 2,
+    "objets": []
+   }
+  },
+  {
+   "source": "menu",
+   "cible": "centre_ville_de_granval",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": [
+     "indications_de_maman"
+    ]
+   }
+  },
+  {
+   "source": "menu",
+   "cible": "coteau_fleuri",
+   "regle": {
+    "chapitres_termines": 2,
+    "objets": []
+   }
+  },
+  {
+   "source": "menu",
+   "cible": "la_corniche",
+   "regle": {
+    "chapitres_termines": 1,
+    "objets": [
+     "pile_ou_passe"
+    ]
+   }
+  },
+  {
+   "source": "les_hauts_de_granval",
+   "cible": "mont_sylvestre",
+   "regle": {
+    "chapitres_termines": 1,
+    "objets": []
+   }
+  },
+  {
+   "source": "mont_sylvestre",
+   "cible": "tunnel_abandonne",
+   "regle": {
+    "chapitres_termines": 5,
+    "objets": []
+   }
+  },
+  {
+   "source": "centre_ville_de_granval",
+   "cible": "tour_excellence",
+   "regle": {
+    "chapitres_termines": 5,
+    "objets": []
+   }
+  },
+  {
+   "source": "les_hauts_de_granval",
+   "cible": "heure_funeste",
+   "regle": {
+    "chapitres_termines": 2,
+    "objets": []
+   }
+  },
+  {
+   "source": "centre_ville_de_granval",
+   "cible": "ourcival",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": []
+   }
+  },
+  {
+   "source": "centre_ville_de_granval",
+   "cible": "san_fantastico",
+   "regle": {
+    "chapitres_termines": 5,
+    "objets": []
+   }
+  },
+  {
+   "source": "ourcival",
+   "cible": "mont_de_l_ours",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": []
+   }
+  },
+  {
+   "source": "les_hauts_de_granval",
+   "cible": "vieux_granval",
+   "regle": {
+    "chapitres_termines": 4,
+    "objets": []
+   }
+  },
+  {
+   "source": "ourcival",
+   "cible": "vieil_ourcival",
+   "regle": {
+    "chapitres_termines": 4,
+    "objets": []
+   }
+  },
+  {
+   "source": "vieux_granval",
+   "cible": "plaines_plinpot",
+   "regle": {
+    "chapitres_termines": 7,
+    "objets": []
+   }
+  },
+  {
+   "source": "vieux_granval",
+   "cible": "repaire_de_lady_demona",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": [
+     "modele_zero"
+    ]
+   }
+  },
+  {
+   "source": "quartier_des_boutiques",
+   "cible": "clinique_du_crepuscule",
+   "regle": {
+    "chapitres_termines": 8,
+    "objets": []
+   }
+  }
+ ],
+ "chapitres": [
+  {
+   "numero": 1,
+   "region": "les_hauts_de_granval",
+   "chapitres_termines": 0,
+   "objets_critiques": [
+    "filet_a_insectes",
+    "pile_ou_passe"
+   ]
+  },
+  {
+   "numero": 2,
+   "region": "mont_sylvestre",
+   "chapitres_termines": 1,
+   "objets_critiques": [
+    "cles_de_l_ecole"
+   ]
+  },
+  {
+   "numero": 3,
+   "region": "les_hauts_de_granval",
+   "chapitres_termines": 2,
+   "objets_critiques": [
+    "herbe_ancestrale",
+    "super_tournevis"
+   ]
+  },
+  {
+   "numero": 4,
+   "region": "mont_de_l_ours",
+   "chapitres_termines": 3,
+   "objets_critiques": [
+    "canne_a_peche"
+   ]
+  },
+  {
+   "numero": 5,
+   "region": "vieux_granval",
+   "chapitres_termines": 4,
+   "objets_critiques": []
+  },
+  {
+   "numero": 6,
+   "region": "vieux_granval",
+   "chapitres_termines": 5,
+   "objets_critiques": []
+  },
+  {
+   "numero": 7,
+   "region": "les_hauts_de_granval",
+   "chapitres_termines": 6,
+   "objets_critiques": []
+  },
+  {
+   "numero": 8,
+   "region": "plaines_plinpot",
+   "chapitres_termines": 7,
+   "objets_critiques": []
+  },
+  {
+   "numero": 9,
+   "region": "vieil_ourcival",
+   "chapitres_termines": 8,
+   "objets_critiques": []
+  },
+  {
+   "numero": 10,
+   "region": "centre_ville_de_granval",
+   "chapitres_termines": 9,
+   "objets_critiques": []
+  },
+  {
+   "numero": 11,
+   "region": "repaire_de_lady_demona",
+   "chapitres_termines": 10,
+   "objets_critiques": []
+  }
+ ],
+ "objectif": {
+  "cle": "finir_chapitre_10",
+  "nom_fr": "Objectif : finir le chapitre 10",
+  "nom_en": "Goal: finish chapter 10",
+  "region": "repaire_de_lady_demona",
+  "regle": {
+   "chapitres_termines": 10,
+   "objets": []
+  }
+ },
+ "objet_prologue": "filet_a_insectes"
+}

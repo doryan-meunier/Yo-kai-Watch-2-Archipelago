@@ -1,0 +1,39 @@
+{
+ "version": "3.0.0",
+ "build": 202611071643,
+ "commit": "ed1be690",
+ "date": "2026-11-07T17:46:09",
+ "verification": {
+  "fichiers": 145,
+  "octets_analyses": 6066017,
+  "fenetre": 32,
+  "patchs": [
+   {
+    "fichier": "code.bps",
+    "octets_litteraux": 117482,
+    "dans_la_plage_d_origine": 9589,
+    "au_dela_de_la_fin": 107893,
+    "dont_zeros": 21321,
+    "egaux_a_l_origine_meme_position": 0,
+    "fenetres_32_octets_retrouvees_dans_l_origine": 0,
+    "chaines_identifiants": []
+   },
+   {
+    "fichier": "exheader.bps",
+    "octets_litteraux": 34,
+    "dans_la_plage_d_origine": 34,
+    "au_dela_de_la_fin": 0,
+    "dont_zeros": 10,
+    "egaux_a_l_origine_meme_position": 0,
+    "fenetres_8_octets_retrouvees_dans_l_origine": 0,
+    "chaines_identifiants": []
+   }
+  ],
+  "resultat": "aucun octet du jeu",
+  "zakuro_exclu_par_emplacement": {
+   "chemin": "zakuro/zakuro.exe",
+   "taille": 24080896,
+   "sha256": "3ed8813fdab956787f0e25146d28ddd6c08db43d11514d13ca0402922115f9b3"
+  }
+ }
+}

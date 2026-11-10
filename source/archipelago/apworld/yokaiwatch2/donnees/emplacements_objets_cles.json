@@ -1,0 +1,152 @@
+{
+ "format": 1,
+ "emplacements": [
+  {
+   "id_ap": 59422700,
+   "nom_fr": "Objet-clé : Canne à pêche",
+   "nom_en": "Key Item: Fishing Rod",
+   "objet": "canne_a_peche",
+   "progression_permise": false
+  },
+  {
+   "id_ap": 59422702,
+   "nom_fr": "Objet-clé : Pile ou passe",
+   "nom_en": "Key Item: Select-A-Coin",
+   "objet": "pile_ou_passe",
+   "progression_permise": false
+  },
+  {
+   "id_ap": 59422703,
+   "nom_fr": "Objet-clé : Clés de l'école",
+   "nom_en": "Key Item: School Keys",
+   "objet": "cles_de_l_ecole",
+   "progression_permise": false
+  },
+  {
+   "id_ap": 59422704,
+   "nom_fr": "Objet-clé : Herbe ancestrale",
+   "nom_en": "Key Item: Ancient Herb",
+   "objet": "herbe_ancestrale",
+   "progression_permise": false
+  },
+  {
+   "id_ap": 59422705,
+   "nom_fr": "Objet-clé : Super tournevis",
+   "nom_en": "Key Item: Pro Screwdriver",
+   "objet": "super_tournevis",
+   "progression_permise": false
+  },
+  {
+   "id_ap": 59422707,
+   "nom_fr": "Objet-clé : Modèle zéro",
+   "nom_en": "Key Item: Model Zero",
+   "objet": "modele_zero",
+   "progression_permise": false
+  },
+  {
+   "id_ap": 59422713,
+   "nom_fr": "Objet-clé : Clé de derrière",
+   "nom_en": "Key Item: Back Door Key",
+   "objet": "cle_de_derriere",
+   "progression_permise": false
+  },
+  {
+   "id_ap": 59422714,
+   "nom_fr": "Objet-clé : Filet à insectes",
+   "nom_en": "Key Item: Bug Net",
+   "objet": "filet_a_insectes",
+   "progression_permise": true
+  },
+  {
+   "id_ap": 59422715,
+   "nom_fr": "Objet-clé : Indications de Maman",
+   "nom_en": "Key Item: Mom's Directions",
+   "objet": "indications_de_maman",
+   "progression_permise": false
+  },
+  {
+   "id_ap": 59422716,
+   "nom_fr": "Objet-clé : Clé magnétique or",
+   "nom_en": "Key Item: Gold Card Key",
+   "objet": "cle_magnetique_or",
+   "progression_permise": false
+  },
+  {
+   "id_ap": 59422717,
+   "nom_fr": "Objet-clé : Clé salle du trésor",
+   "nom_en": "Key Item: Treasure Room Key",
+   "objet": "cle_salle_du_tresor",
+   "progression_permise": false
+  },
+  {
+   "id_ap": 59422720,
+   "nom_fr": "Objet-clé : Poignée étrange",
+   "nom_en": "Key Item: Strange Handle",
+   "objet": "poignee_etrange",
+   "progression_permise": false
+  },
+  {
+   "id_ap": 59422721,
+   "nom_fr": "Objet-clé : Clé magnétique rouge",
+   "nom_en": "Key Item: Red Card Key",
+   "objet": "cle_magnetique_rouge",
+   "progression_permise": false
+  },
+  {
+   "id_ap": 59422722,
+   "nom_fr": "Objet-clé : Poster de film",
+   "nom_en": "Key Item: Movie Poster",
+   "objet": "poster_de_film",
+   "progression_permise": false
+  },
+  {
+   "id_ap": 59422723,
+   "nom_fr": "Objet-clé : Bobine de film",
+   "nom_en": "Key Item: Film Reel",
+   "objet": "bobine_de_film",
+   "progression_permise": false
+  },
+  {
+   "id_ap": 59422724,
+   "nom_fr": "Objet-clé : Bouteille de Y-Cola",
+   "nom_en": "Key Item: Y-Cola Bottle",
+   "objet": "bouteille_de_y_cola",
+   "progression_permise": false
+  },
+  {
+   "id_ap": 59422725,
+   "nom_fr": "Objet-clé : Affiche de restaurant",
+   "nom_en": "Key Item: Curry-Shop Sign",
+   "objet": "affiche_de_restaurant",
+   "progression_permise": false
+  },
+  {
+   "id_ap": 59422726,
+   "nom_fr": "Objet-clé : Louloutre",
+   "nom_en": "Key Item: Otterina",
+   "objet": "louloutre",
+   "progression_permise": false
+  },
+  {
+   "id_ap": 59422727,
+   "nom_fr": "Objet-clé : Pot canard",
+   "nom_en": "Key Item: Waddle Potty",
+   "objet": "pot_canard",
+   "progression_permise": false
+  },
+  {
+   "id_ap": 59422728,
+   "nom_fr": "Objet-clé : Figurine de Photortue",
+   "nom_en": "Key Item: Snap-Turtle Doll",
+   "objet": "figurine_de_photortue",
+   "progression_permise": false
+  },
+  {
+   "id_ap": 59422729,
+   "nom_fr": "Objet-clé : Robe de star",
+   "nom_en": "Key Item: Famous Frock",
+   "objet": "robe_de_star",
+   "progression_permise": false
+  }
+ ]
+}

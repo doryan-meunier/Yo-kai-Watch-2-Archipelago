@@ -1,0 +1,4076 @@
+{
+ "format": 1,
+ "coffres": [
+  {
+   "id_ap": 59421000,
+   "index_tbox": 1,
+   "nom_fr": "Les Hauts de Granval - Coffre 01",
+   "nom_en": "Uptown Springdale - Chest 01",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421001,
+   "index_tbox": 2,
+   "nom_fr": "Les Hauts de Granval - Coffre 02",
+   "nom_en": "Uptown Springdale - Chest 02",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421002,
+   "index_tbox": 3,
+   "nom_fr": "Les Hauts de Granval - Coffre 03",
+   "nom_en": "Uptown Springdale - Chest 03",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421003,
+   "index_tbox": 4,
+   "nom_fr": "Les Hauts de Granval - Coffre 04",
+   "nom_en": "Uptown Springdale - Chest 04",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421004,
+   "index_tbox": 5,
+   "nom_fr": "Les Hauts de Granval - Coffre 05",
+   "nom_en": "Uptown Springdale - Chest 05",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421005,
+   "index_tbox": 6,
+   "nom_fr": "Les Hauts de Granval - Coffre 06",
+   "nom_en": "Uptown Springdale - Chest 06",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421006,
+   "index_tbox": 7,
+   "nom_fr": "Les Hauts de Granval - Coffre 07",
+   "nom_en": "Uptown Springdale - Chest 07",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421007,
+   "index_tbox": 8,
+   "nom_fr": "Les Hauts de Granval - Coffre 08",
+   "nom_en": "Uptown Springdale - Chest 08",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421008,
+   "index_tbox": 10,
+   "nom_fr": "Les Hauts de Granval - Coffre 09",
+   "nom_en": "Uptown Springdale - Chest 09",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421009,
+   "index_tbox": 11,
+   "nom_fr": "Les Hauts de Granval - Coffre 10",
+   "nom_en": "Uptown Springdale - Chest 10",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421010,
+   "index_tbox": 26,
+   "nom_fr": "Les Hauts de Granval (Passage des matous) - Coffre 01",
+   "nom_en": "Uptown Springdale (The Catwalk) - Chest 01",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421011,
+   "index_tbox": 316,
+   "nom_fr": "Ourcival (Rochers de face) - Coffre 01",
+   "nom_en": "Harrisville (Facing Rocks) - Chest 01",
+   "region": "mont_de_l_ours",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421012,
+   "index_tbox": 317,
+   "nom_fr": "Ourcival (Rochers de face) - Coffre 02",
+   "nom_en": "Harrisville (Facing Rocks) - Chest 02",
+   "region": "mont_de_l_ours",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421013,
+   "index_tbox": 318,
+   "nom_fr": "Ourcival (Rochers de face) - Coffre 03",
+   "nom_en": "Harrisville (Facing Rocks) - Chest 03",
+   "region": "mont_de_l_ours",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421014,
+   "index_tbox": 319,
+   "nom_fr": "Ourcival (Canyon de la cigale) - Coffre 01",
+   "nom_en": "Harrisville (Cicada Canyon) - Chest 01",
+   "region": "mont_de_l_ours",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421015,
+   "index_tbox": 320,
+   "nom_fr": "Ourcival (Canyon de la cigale) - Coffre 02",
+   "nom_en": "Harrisville (Cicada Canyon) - Chest 02",
+   "region": "mont_de_l_ours",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421016,
+   "index_tbox": 321,
+   "nom_fr": "Ourcival (Canyon de la cigale) - Coffre 03",
+   "nom_en": "Harrisville (Cicada Canyon) - Chest 03",
+   "region": "mont_de_l_ours",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421017,
+   "index_tbox": 290,
+   "nom_fr": "Ourcival - Coffre 01",
+   "nom_en": "Harrisville - Chest 01",
+   "region": "ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421018,
+   "index_tbox": 291,
+   "nom_fr": "Ourcival - Coffre 02",
+   "nom_en": "Harrisville - Chest 02",
+   "region": "ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421019,
+   "index_tbox": 292,
+   "nom_fr": "Ourcival - Coffre 03",
+   "nom_en": "Harrisville - Chest 03",
+   "region": "ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421020,
+   "index_tbox": 293,
+   "nom_fr": "Ourcival - Coffre 04",
+   "nom_en": "Harrisville - Chest 04",
+   "region": "ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421021,
+   "index_tbox": 294,
+   "nom_fr": "Ourcival - Coffre 05",
+   "nom_en": "Harrisville - Chest 05",
+   "region": "ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421022,
+   "index_tbox": 295,
+   "nom_fr": "Ourcival - Coffre 06",
+   "nom_en": "Harrisville - Chest 06",
+   "region": "ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421023,
+   "index_tbox": 296,
+   "nom_fr": "Ourcival - Coffre 07",
+   "nom_en": "Harrisville - Chest 07",
+   "region": "ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421024,
+   "index_tbox": 297,
+   "nom_fr": "Ourcival - Coffre 08",
+   "nom_en": "Harrisville - Chest 08",
+   "region": "ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421025,
+   "index_tbox": 298,
+   "nom_fr": "Ourcival - Coffre 09",
+   "nom_en": "Harrisville - Chest 09",
+   "region": "ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421026,
+   "index_tbox": 299,
+   "nom_fr": "Ourcival - Coffre 10",
+   "nom_en": "Harrisville - Chest 10",
+   "region": "ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421027,
+   "index_tbox": 313,
+   "nom_fr": "Ourcival - Coffre 11",
+   "nom_en": "Harrisville - Chest 11",
+   "region": "ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421028,
+   "index_tbox": 314,
+   "nom_fr": "Ourcival - Coffre 12",
+   "nom_en": "Harrisville - Chest 12",
+   "region": "ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421029,
+   "index_tbox": 154,
+   "nom_fr": "Centre-ville de Granval - Coffre 01",
+   "nom_en": "Downtown Springdale - Chest 01",
+   "region": "centre_ville_de_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421030,
+   "index_tbox": 155,
+   "nom_fr": "Centre-ville de Granval - Coffre 02",
+   "nom_en": "Downtown Springdale - Chest 02",
+   "region": "centre_ville_de_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421031,
+   "index_tbox": 156,
+   "nom_fr": "Centre-ville de Granval - Coffre 03",
+   "nom_en": "Downtown Springdale - Chest 03",
+   "region": "centre_ville_de_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421032,
+   "index_tbox": 157,
+   "nom_fr": "Centre-ville de Granval - Coffre 04",
+   "nom_en": "Downtown Springdale - Chest 04",
+   "region": "centre_ville_de_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421033,
+   "index_tbox": 158,
+   "nom_fr": "Centre-ville de Granval - Coffre 05",
+   "nom_en": "Downtown Springdale - Chest 05",
+   "region": "centre_ville_de_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421034,
+   "index_tbox": 159,
+   "nom_fr": "Centre-ville de Granval - Coffre 06",
+   "nom_en": "Downtown Springdale - Chest 06",
+   "region": "centre_ville_de_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421035,
+   "index_tbox": 160,
+   "nom_fr": "Centre-ville de Granval - Coffre 07",
+   "nom_en": "Downtown Springdale - Chest 07",
+   "region": "centre_ville_de_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421036,
+   "index_tbox": 177,
+   "nom_fr": "Centre-ville de Granval - Coffre 08",
+   "nom_en": "Downtown Springdale - Chest 08",
+   "region": "centre_ville_de_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421037,
+   "index_tbox": 222,
+   "nom_fr": "Corniche - Coffre 01",
+   "nom_en": "Breezy Hills - Chest 01",
+   "region": "la_corniche",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421038,
+   "index_tbox": 223,
+   "nom_fr": "Corniche - Coffre 02",
+   "nom_en": "Breezy Hills - Chest 02",
+   "region": "la_corniche",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421039,
+   "index_tbox": 225,
+   "nom_fr": "Corniche - Coffre 03",
+   "nom_en": "Breezy Hills - Chest 03",
+   "region": "la_corniche",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421040,
+   "index_tbox": 226,
+   "nom_fr": "Corniche - Coffre 04",
+   "nom_en": "Breezy Hills - Chest 04",
+   "region": "la_corniche",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421041,
+   "index_tbox": 227,
+   "nom_fr": "Corniche - Coffre 05",
+   "nom_en": "Breezy Hills - Chest 05",
+   "region": "la_corniche",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421042,
+   "index_tbox": 224,
+   "nom_fr": "Corniche - Coffre 06",
+   "nom_en": "Breezy Hills - Chest 06",
+   "region": "la_corniche",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421043,
+   "index_tbox": 269,
+   "nom_fr": "Égouts - Coffre 01",
+   "nom_en": "Underground Waterway - Chest 01",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 2,
+    "objets": [
+     "pile_ou_passe"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421044,
+   "index_tbox": 270,
+   "nom_fr": "Égouts - Coffre 02",
+   "nom_en": "Underground Waterway - Chest 02",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 2,
+    "objets": [
+     "pile_ou_passe"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421045,
+   "index_tbox": 266,
+   "nom_fr": "Égouts - Coffre 03",
+   "nom_en": "Underground Waterway - Chest 03",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 2,
+    "objets": [
+     "pile_ou_passe"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421046,
+   "index_tbox": 268,
+   "nom_fr": "Égouts - Coffre 04",
+   "nom_en": "Underground Waterway - Chest 04",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 2,
+    "objets": [
+     "pile_ou_passe"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421047,
+   "index_tbox": 267,
+   "nom_fr": "Égouts - Coffre 05",
+   "nom_en": "Underground Waterway - Chest 05",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 2,
+    "objets": [
+     "pile_ou_passe"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421048,
+   "index_tbox": 271,
+   "nom_fr": "Égouts - Coffre 06",
+   "nom_en": "Underground Waterway - Chest 06",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 2,
+    "objets": [
+     "pile_ou_passe"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421049,
+   "index_tbox": 272,
+   "nom_fr": "Égouts - Coffre 07",
+   "nom_en": "Underground Waterway - Chest 07",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 2,
+    "objets": [
+     "pile_ou_passe"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421050,
+   "index_tbox": 278,
+   "nom_fr": "Égouts - Coffre 08",
+   "nom_en": "Underground Waterway - Chest 08",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": [
+     "pile_ou_passe",
+     "indications_de_maman"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421051,
+   "index_tbox": 277,
+   "nom_fr": "Égouts - Coffre 09",
+   "nom_en": "Underground Waterway - Chest 09",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": [
+     "pile_ou_passe",
+     "indications_de_maman"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421052,
+   "index_tbox": 276,
+   "nom_fr": "Égouts - Coffre 10",
+   "nom_en": "Underground Waterway - Chest 10",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 2,
+    "objets": [
+     "pile_ou_passe"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421053,
+   "index_tbox": 275,
+   "nom_fr": "Égouts - Coffre 11",
+   "nom_en": "Underground Waterway - Chest 11",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 2,
+    "objets": [
+     "pile_ou_passe"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421054,
+   "index_tbox": 274,
+   "nom_fr": "Égouts - Coffre 12",
+   "nom_en": "Underground Waterway - Chest 12",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 2,
+    "objets": [
+     "pile_ou_passe"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421055,
+   "index_tbox": 273,
+   "nom_fr": "Égouts - Coffre 13",
+   "nom_en": "Underground Waterway - Chest 13",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 2,
+    "objets": [
+     "pile_ou_passe"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421056,
+   "index_tbox": 28,
+   "nom_fr": "Allée sinistre - Coffre 01",
+   "nom_en": "Desolate Lane - Chest 01",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 2,
+    "objets": [
+     "pile_ou_passe"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421057,
+   "index_tbox": 22,
+   "nom_fr": "Ruelle obscure - Coffre 01",
+   "nom_en": "Hidden Side Street - Chest 01",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 2,
+    "objets": [
+     "pile_ou_passe"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421058,
+   "index_tbox": 24,
+   "nom_fr": "Canal isolé - Coffre 01",
+   "nom_en": "Lonely Waterway - Chest 01",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 2,
+    "objets": [
+     "pile_ou_passe"
+    ]
+   },
+   "exclusion": "rang_C"
+  },
+  {
+   "id_ap": 59421059,
+   "index_tbox": 25,
+   "nom_fr": "Canal isolé - Coffre 02",
+   "nom_en": "Lonely Waterway - Chest 02",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 2,
+    "objets": [
+     "pile_ou_passe"
+    ]
+   },
+   "exclusion": "rang_C"
+  },
+  {
+   "id_ap": 59421060,
+   "index_tbox": 493,
+   "nom_fr": "Corniche (Maison des Roch) - Coffre 01",
+   "nom_en": "Breezy Hills (Stone House) - Chest 01",
+   "region": "la_corniche",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421061,
+   "index_tbox": 65,
+   "nom_fr": "Corniche (Méga toboggan) - Coffre 01",
+   "nom_en": "Breezy Hills (Jumbo Slider) - Chest 01",
+   "region": "la_corniche",
+   "regle": {
+    "chapitres_termines": 1,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421062,
+   "index_tbox": 66,
+   "nom_fr": "Corniche (Méga toboggan) - Coffre 02",
+   "nom_en": "Breezy Hills (Jumbo Slider) - Chest 02",
+   "region": "la_corniche",
+   "regle": {
+    "chapitres_termines": 1,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421063,
+   "index_tbox": 152,
+   "nom_fr": "Corniche (Méga toboggan) - Coffre 03",
+   "nom_en": "Breezy Hills (Jumbo Slider) - Chest 03",
+   "region": "la_corniche",
+   "regle": {
+    "chapitres_termines": 1,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421064,
+   "index_tbox": 240,
+   "nom_fr": "Corniche (Musée) - Coffre 01",
+   "nom_en": "Breezy Hills (Gourd Pond Museum) - Chest 01",
+   "region": "la_corniche",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": [
+     "indications_de_maman"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421065,
+   "index_tbox": 242,
+   "nom_fr": "Corniche (Musée) - Coffre 02",
+   "nom_en": "Breezy Hills (Gourd Pond Museum) - Chest 02",
+   "region": "la_corniche",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": [
+     "indications_de_maman"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421066,
+   "index_tbox": 243,
+   "nom_fr": "Corniche (Musée) - Coffre 03",
+   "nom_en": "Breezy Hills (Gourd Pond Museum) - Chest 03",
+   "region": "la_corniche",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": [
+     "indications_de_maman"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421067,
+   "index_tbox": 241,
+   "nom_fr": "Corniche (Musée) - Coffre 04",
+   "nom_en": "Breezy Hills (Gourd Pond Museum) - Chest 04",
+   "region": "la_corniche",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": [
+     "indications_de_maman"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421068,
+   "index_tbox": 245,
+   "nom_fr": "Corniche (Musée) - Coffre 05",
+   "nom_en": "Breezy Hills (Gourd Pond Museum) - Chest 05",
+   "region": "la_corniche",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": [
+     "indications_de_maman"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421069,
+   "index_tbox": 244,
+   "nom_fr": "Corniche (Musée) - Coffre 06",
+   "nom_en": "Breezy Hills (Gourd Pond Museum) - Chest 06",
+   "region": "la_corniche",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": [
+     "indications_de_maman"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421070,
+   "index_tbox": 247,
+   "nom_fr": "Corniche (Musée) - Coffre 07",
+   "nom_en": "Breezy Hills (Gourd Pond Museum) - Chest 07",
+   "region": "la_corniche",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": [
+     "indications_de_maman"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421071,
+   "index_tbox": 246,
+   "nom_fr": "Corniche (Musée) - Coffre 08",
+   "nom_en": "Breezy Hills (Gourd Pond Museum) - Chest 08",
+   "region": "la_corniche",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": [
+     "indications_de_maman"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421072,
+   "index_tbox": 70,
+   "nom_fr": "Tunnel abandonné (salle du trésor) - Coffre 01",
+   "nom_en": "Abandoned Tunnel (Treasure Room) - Chest 01",
+   "region": "mont_sylvestre",
+   "regle": {
+    "chapitres_termines": 5,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421073,
+   "index_tbox": 75,
+   "nom_fr": "Tunnel abandonné (salle du trésor) - Coffre 02",
+   "nom_en": "Abandoned Tunnel (Treasure Room) - Chest 02",
+   "region": "mont_sylvestre",
+   "regle": {
+    "chapitres_termines": 5,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421074,
+   "index_tbox": 77,
+   "nom_fr": "Tunnel abandonné (salle du trésor) - Coffre 03",
+   "nom_en": "Abandoned Tunnel (Treasure Room) - Chest 03",
+   "region": "mont_sylvestre",
+   "regle": {
+    "chapitres_termines": 5,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421075,
+   "index_tbox": 74,
+   "nom_fr": "Tunnel abandonné (salle du trésor) - Coffre 04",
+   "nom_en": "Abandoned Tunnel (Treasure Room) - Chest 04",
+   "region": "mont_sylvestre",
+   "regle": {
+    "chapitres_termines": 5,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421076,
+   "index_tbox": 73,
+   "nom_fr": "Tunnel abandonné (salle du trésor) - Coffre 05",
+   "nom_en": "Abandoned Tunnel (Treasure Room) - Chest 05",
+   "region": "mont_sylvestre",
+   "regle": {
+    "chapitres_termines": 5,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421077,
+   "index_tbox": 71,
+   "nom_fr": "Tunnel abandonné (salle du trésor) - Coffre 06",
+   "nom_en": "Abandoned Tunnel (Treasure Room) - Chest 06",
+   "region": "mont_sylvestre",
+   "regle": {
+    "chapitres_termines": 5,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421078,
+   "index_tbox": 72,
+   "nom_fr": "Tunnel abandonné (salle du trésor) - Coffre 07",
+   "nom_en": "Abandoned Tunnel (Treasure Room) - Chest 07",
+   "region": "mont_sylvestre",
+   "regle": {
+    "chapitres_termines": 5,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421079,
+   "index_tbox": 76,
+   "nom_fr": "Tunnel abandonné (salle du trésor) - Coffre 08",
+   "nom_en": "Abandoned Tunnel (Treasure Room) - Chest 08",
+   "region": "mont_sylvestre",
+   "regle": {
+    "chapitres_termines": 5,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421080,
+   "index_tbox": 80,
+   "nom_fr": "Tunnel abandonné est - Coffre 01",
+   "nom_en": "Abandoned Tunnel East - Chest 01",
+   "region": "mont_sylvestre",
+   "regle": {
+    "chapitres_termines": 7,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421081,
+   "index_tbox": 82,
+   "nom_fr": "Tunnel abandonné est - Coffre 02",
+   "nom_en": "Abandoned Tunnel East - Chest 02",
+   "region": "mont_sylvestre",
+   "regle": {
+    "chapitres_termines": 7,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421082,
+   "index_tbox": 81,
+   "nom_fr": "Tunnel abandonné est - Coffre 03",
+   "nom_en": "Abandoned Tunnel East - Chest 03",
+   "region": "mont_sylvestre",
+   "regle": {
+    "chapitres_termines": 7,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421083,
+   "index_tbox": 83,
+   "nom_fr": "Tunnel abandonné est - Coffre 04",
+   "nom_en": "Abandoned Tunnel East - Chest 04",
+   "region": "mont_sylvestre",
+   "regle": {
+    "chapitres_termines": 7,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421084,
+   "index_tbox": 84,
+   "nom_fr": "Tunnel abandonné est - Coffre 05",
+   "nom_en": "Abandoned Tunnel East - Chest 05",
+   "region": "mont_sylvestre",
+   "regle": {
+    "chapitres_termines": 7,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421085,
+   "index_tbox": 78,
+   "nom_fr": "Tunnel abandonné est - Coffre 06",
+   "nom_en": "Abandoned Tunnel East - Chest 06",
+   "region": "mont_sylvestre",
+   "regle": {
+    "chapitres_termines": 7,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421086,
+   "index_tbox": 63,
+   "nom_fr": "Sommet du Mont Sylvestre - Coffre 01",
+   "nom_en": "Mt. Wildwood - Summit - Chest 01",
+   "region": "mont_sylvestre",
+   "regle": {
+    "chapitres_termines": 1,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421087,
+   "index_tbox": 59,
+   "nom_fr": "Sentier de randonnée - Coffre 01",
+   "nom_en": "Mountain Path - Chest 01",
+   "region": "mont_sylvestre",
+   "regle": {
+    "chapitres_termines": 1,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421088,
+   "index_tbox": 47,
+   "nom_fr": "Mont Sylvestre - Coffre 01",
+   "nom_en": "Mt. Wildwood - Chest 01",
+   "region": "mont_sylvestre",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421089,
+   "index_tbox": 44,
+   "nom_fr": "Mont Sylvestre (accès égouts) - Coffre 01",
+   "nom_en": "Mt. Wildwood (Waterway Access) - Chest 01",
+   "region": "mont_sylvestre",
+   "regle": {
+    "chapitres_termines": 2,
+    "objets": [
+     "pile_ou_passe"
+    ]
+   },
+   "exclusion": "rang_C"
+  },
+  {
+   "id_ap": 59421090,
+   "index_tbox": 45,
+   "nom_fr": "Mont Sylvestre (accès égouts) - Coffre 02",
+   "nom_en": "Mt. Wildwood (Waterway Access) - Chest 02",
+   "region": "mont_sylvestre",
+   "regle": {
+    "chapitres_termines": 2,
+    "objets": [
+     "pile_ou_passe"
+    ]
+   },
+   "exclusion": "rang_C"
+  },
+  {
+   "id_ap": 59421091,
+   "index_tbox": 31,
+   "nom_fr": "École élémentaire de Granval (nuit) - Coffre 01",
+   "nom_en": "Springdale Elementary School (night) - Chest 01",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421092,
+   "index_tbox": 32,
+   "nom_fr": "École élémentaire de Granval (nuit) - Coffre 02",
+   "nom_en": "Springdale Elementary School (night) - Chest 02",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421093,
+   "index_tbox": 33,
+   "nom_fr": "École élémentaire de Granval (nuit) - Coffre 03",
+   "nom_en": "Springdale Elementary School (night) - Chest 03",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421094,
+   "index_tbox": 34,
+   "nom_fr": "École élémentaire de Granval (nuit) - Coffre 04",
+   "nom_en": "Springdale Elementary School (night) - Chest 04",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421095,
+   "index_tbox": 35,
+   "nom_fr": "École élémentaire de Granval (nuit) - Coffre 05",
+   "nom_en": "Springdale Elementary School (night) - Chest 05",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421096,
+   "index_tbox": 36,
+   "nom_fr": "École élémentaire de Granval (nuit) - Coffre 06",
+   "nom_en": "Springdale Elementary School (night) - Chest 06",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421097,
+   "index_tbox": 37,
+   "nom_fr": "École élémentaire de Granval (nuit) - Coffre 07",
+   "nom_en": "Springdale Elementary School (night) - Chest 07",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421098,
+   "index_tbox": 38,
+   "nom_fr": "École élémentaire de Granval (nuit) - Coffre 08",
+   "nom_en": "Springdale Elementary School (night) - Chest 08",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421099,
+   "index_tbox": 39,
+   "nom_fr": "École élémentaire de Granval (nuit) - Coffre 09",
+   "nom_en": "Springdale Elementary School (night) - Chest 09",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421100,
+   "index_tbox": 40,
+   "nom_fr": "École élémentaire de Granval (nuit) - Coffre 10",
+   "nom_en": "Springdale Elementary School (night) - Chest 10",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421101,
+   "index_tbox": 41,
+   "nom_fr": "École élémentaire de Granval (nuit) - Coffre 11",
+   "nom_en": "Springdale Elementary School (night) - Chest 11",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421102,
+   "index_tbox": 42,
+   "nom_fr": "École élémentaire de Granval (nuit) - Coffre 12",
+   "nom_en": "Springdale Elementary School (night) - Chest 12",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421103,
+   "index_tbox": 43,
+   "nom_fr": "École élémentaire de Granval (nuit) - Coffre 13",
+   "nom_en": "Springdale Elementary School (night) - Chest 13",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421104,
+   "index_tbox": 85,
+   "nom_fr": "Coteau fleuri - Coffre 01",
+   "nom_en": "Blossom Heights - Chest 01",
+   "region": "coteau_fleuri",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421105,
+   "index_tbox": 86,
+   "nom_fr": "Coteau fleuri - Coffre 02",
+   "nom_en": "Blossom Heights - Chest 02",
+   "region": "coteau_fleuri",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421106,
+   "index_tbox": 87,
+   "nom_fr": "Coteau fleuri - Coffre 03",
+   "nom_en": "Blossom Heights - Chest 03",
+   "region": "coteau_fleuri",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421107,
+   "index_tbox": 88,
+   "nom_fr": "Coteau fleuri - Coffre 04",
+   "nom_en": "Blossom Heights - Chest 04",
+   "region": "coteau_fleuri",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421108,
+   "index_tbox": 89,
+   "nom_fr": "Coteau fleuri - Coffre 05",
+   "nom_en": "Blossom Heights - Chest 05",
+   "region": "coteau_fleuri",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421109,
+   "index_tbox": 91,
+   "nom_fr": "Coteau fleuri - Coffre 06",
+   "nom_en": "Blossom Heights - Chest 06",
+   "region": "coteau_fleuri",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421110,
+   "index_tbox": 105,
+   "nom_fr": "Coteau fleuri - Coffre 07",
+   "nom_en": "Blossom Heights - Chest 07",
+   "region": "coteau_fleuri",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421111,
+   "index_tbox": 187,
+   "nom_fr": "Granval (Quartier des boutiques) - Coffre 01",
+   "nom_en": "Springdale (Shopper's Row) - Chest 01",
+   "region": "quartier_des_boutiques",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421112,
+   "index_tbox": 188,
+   "nom_fr": "Granval (Quartier des boutiques) - Coffre 02",
+   "nom_en": "Springdale (Shopper's Row) - Chest 02",
+   "region": "quartier_des_boutiques",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421113,
+   "index_tbox": 189,
+   "nom_fr": "Granval (Quartier des boutiques) - Coffre 03",
+   "nom_en": "Springdale (Shopper's Row) - Chest 03",
+   "region": "quartier_des_boutiques",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421114,
+   "index_tbox": 190,
+   "nom_fr": "Granval (Quartier des boutiques) - Coffre 04",
+   "nom_en": "Springdale (Shopper's Row) - Chest 04",
+   "region": "quartier_des_boutiques",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421115,
+   "index_tbox": 191,
+   "nom_fr": "Granval (Quartier des boutiques) - Coffre 05",
+   "nom_en": "Springdale (Shopper's Row) - Chest 05",
+   "region": "quartier_des_boutiques",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421116,
+   "index_tbox": 205,
+   "nom_fr": "Granval (Quartier des boutiques) - Coffre 06",
+   "nom_en": "Springdale (Shopper's Row) - Chest 06",
+   "region": "quartier_des_boutiques",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421117,
+   "index_tbox": 175,
+   "nom_fr": "Centre-ville de Granval (sous-zone) - Coffre 01",
+   "nom_en": "Downtown Springdale (sub-area) - Chest 01",
+   "region": "centre_ville_de_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421118,
+   "index_tbox": 114,
+   "nom_fr": "Manoir (Coteau fleuri) - Coffre 01",
+   "nom_en": "Old Mansion (Blossom Heights) - Chest 01",
+   "region": "coteau_fleuri",
+   "regle": {
+    "chapitres_termines": 2,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421119,
+   "index_tbox": 117,
+   "nom_fr": "Manoir (Coteau fleuri) - Coffre 02",
+   "nom_en": "Old Mansion (Blossom Heights) - Chest 02",
+   "region": "coteau_fleuri",
+   "regle": {
+    "chapitres_termines": 2,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421120,
+   "index_tbox": 118,
+   "nom_fr": "Manoir (Coteau fleuri) - Coffre 03",
+   "nom_en": "Old Mansion (Blossom Heights) - Chest 03",
+   "region": "coteau_fleuri",
+   "regle": {
+    "chapitres_termines": 2,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421121,
+   "index_tbox": 121,
+   "nom_fr": "Manoir (Coteau fleuri) - Coffre 04",
+   "nom_en": "Old Mansion (Blossom Heights) - Chest 04",
+   "region": "coteau_fleuri",
+   "regle": {
+    "chapitres_termines": 2,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421122,
+   "index_tbox": 122,
+   "nom_fr": "Manoir (Coteau fleuri) - Coffre 05",
+   "nom_en": "Old Mansion (Blossom Heights) - Chest 05",
+   "region": "coteau_fleuri",
+   "regle": {
+    "chapitres_termines": 2,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421123,
+   "index_tbox": 123,
+   "nom_fr": "Manoir (Coteau fleuri) - Coffre 06",
+   "nom_en": "Old Mansion (Blossom Heights) - Chest 06",
+   "region": "coteau_fleuri",
+   "regle": {
+    "chapitres_termines": 2,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421124,
+   "index_tbox": 113,
+   "nom_fr": "Manoir arrière (Coteau fleuri) - Coffre 01",
+   "nom_en": "Old Mansion (Back) (Blossom Heights) - Chest 01",
+   "region": "coteau_fleuri",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": [
+     "cle_de_derriere"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421125,
+   "index_tbox": 119,
+   "nom_fr": "Manoir arrière (Coteau fleuri) - Coffre 02",
+   "nom_en": "Old Mansion (Back) (Blossom Heights) - Chest 02",
+   "region": "coteau_fleuri",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": [
+     "cle_de_derriere"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421126,
+   "index_tbox": 120,
+   "nom_fr": "Manoir arrière (Coteau fleuri) - Coffre 03",
+   "nom_en": "Old Mansion (Back) (Blossom Heights) - Chest 03",
+   "region": "coteau_fleuri",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": [
+     "cle_de_derriere"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421127,
+   "index_tbox": 115,
+   "nom_fr": "Manoir arrière (Coteau fleuri) - Coffre 04",
+   "nom_en": "Old Mansion (Back) (Blossom Heights) - Chest 04",
+   "region": "coteau_fleuri",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": [
+     "cle_de_derriere"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421128,
+   "index_tbox": 116,
+   "nom_fr": "Manoir arrière (Coteau fleuri) - Coffre 05",
+   "nom_en": "Old Mansion (Back) (Blossom Heights) - Chest 05",
+   "region": "coteau_fleuri",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": [
+     "cle_de_derriere"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421129,
+   "index_tbox": 279,
+   "nom_fr": "Tour Excellence - Coffre 01",
+   "nom_en": "Excellent Tower - Chest 01",
+   "region": "tour_excellence",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421130,
+   "index_tbox": 280,
+   "nom_fr": "Tour Excellence - Coffre 02",
+   "nom_en": "Excellent Tower - Chest 02",
+   "region": "tour_excellence",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421131,
+   "index_tbox": 281,
+   "nom_fr": "Tour Excellence - Coffre 03",
+   "nom_en": "Excellent Tower - Chest 03",
+   "region": "tour_excellence",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421132,
+   "index_tbox": 282,
+   "nom_fr": "Tour Excellence - Coffre 04",
+   "nom_en": "Excellent Tower - Chest 04",
+   "region": "tour_excellence",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421133,
+   "index_tbox": 283,
+   "nom_fr": "Tour Excellence - Coffre 05",
+   "nom_en": "Excellent Tower - Chest 05",
+   "region": "tour_excellence",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421134,
+   "index_tbox": 491,
+   "nom_fr": "Tour Excellence - Coffre 06",
+   "nom_en": "Excellent Tower - Chest 06",
+   "region": "tour_excellence",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421135,
+   "index_tbox": 330,
+   "nom_fr": "Parvis de la gare d'Ourcival - Coffre 01",
+   "nom_en": "Harrisville Station Plaza - Chest 01",
+   "region": "ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421136,
+   "index_tbox": 329,
+   "nom_fr": "Parvis de la gare d'Ourcival - Coffre 02",
+   "nom_en": "Harrisville Station Plaza - Chest 02",
+   "region": "ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421137,
+   "index_tbox": 328,
+   "nom_fr": "Parvis de la gare d'Ourcival - Coffre 03",
+   "nom_en": "Harrisville Station Plaza - Chest 03",
+   "region": "ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421138,
+   "index_tbox": 323,
+   "nom_fr": "Parvis de la gare d'Ourcival - Coffre 04",
+   "nom_en": "Harrisville Station Plaza - Chest 04",
+   "region": "ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421139,
+   "index_tbox": 324,
+   "nom_fr": "Parvis de la gare d'Ourcival - Coffre 05",
+   "nom_en": "Harrisville Station Plaza - Chest 05",
+   "region": "ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421140,
+   "index_tbox": 322,
+   "nom_fr": "Mont de l'Ours (présent) - Coffre 01",
+   "nom_en": "Mt. Middleton (present) - Chest 01",
+   "region": "mont_de_l_ours",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421141,
+   "index_tbox": 331,
+   "nom_fr": "San Fantastico - Coffre 01",
+   "nom_en": "San Fantastico - Chest 01",
+   "region": "san_fantastico",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421142,
+   "index_tbox": 332,
+   "nom_fr": "San Fantastico - Coffre 02",
+   "nom_en": "San Fantastico - Chest 02",
+   "region": "san_fantastico",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421143,
+   "index_tbox": 333,
+   "nom_fr": "San Fantastico - Coffre 03",
+   "nom_en": "San Fantastico - Chest 03",
+   "region": "san_fantastico",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421144,
+   "index_tbox": 334,
+   "nom_fr": "San Fantastico - Coffre 04",
+   "nom_en": "San Fantastico - Chest 04",
+   "region": "san_fantastico",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421145,
+   "index_tbox": 335,
+   "nom_fr": "San Fantastico - Coffre 05",
+   "nom_en": "San Fantastico - Chest 05",
+   "region": "san_fantastico",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421146,
+   "index_tbox": 336,
+   "nom_fr": "San Fantastico - Coffre 06",
+   "nom_en": "San Fantastico - Chest 06",
+   "region": "san_fantastico",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421147,
+   "index_tbox": 337,
+   "nom_fr": "San Fantastico - Coffre 07",
+   "nom_en": "San Fantastico - Chest 07",
+   "region": "san_fantastico",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421148,
+   "index_tbox": 338,
+   "nom_fr": "San Fantastico - Coffre 08",
+   "nom_en": "San Fantastico - Chest 08",
+   "region": "san_fantastico",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421149,
+   "index_tbox": 339,
+   "nom_fr": "San Fantastico - Coffre 09",
+   "nom_en": "San Fantastico - Chest 09",
+   "region": "san_fantastico",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421150,
+   "index_tbox": 340,
+   "nom_fr": "San Fantastico - Coffre 10",
+   "nom_en": "San Fantastico - Chest 10",
+   "region": "san_fantastico",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421151,
+   "index_tbox": 341,
+   "nom_fr": "San Fantastico - Coffre 11",
+   "nom_en": "San Fantastico - Chest 11",
+   "region": "san_fantastico",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421152,
+   "index_tbox": 343,
+   "nom_fr": "San Fantastico - Coffre 12",
+   "nom_en": "San Fantastico - Chest 12",
+   "region": "san_fantastico",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421153,
+   "index_tbox": 357,
+   "nom_fr": "San Fantastico - Coffre 13",
+   "nom_en": "San Fantastico - Chest 13",
+   "region": "san_fantastico",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421154,
+   "index_tbox": 342,
+   "nom_fr": "San Fantastico - Coffre 14",
+   "nom_en": "San Fantastico - Chest 14",
+   "region": "san_fantastico",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421155,
+   "index_tbox": 344,
+   "nom_fr": "San Fantastico - Coffre 15",
+   "nom_en": "San Fantastico - Chest 15",
+   "region": "san_fantastico",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421156,
+   "index_tbox": 492,
+   "nom_fr": "San Fantastico - Coffre 16",
+   "nom_en": "San Fantastico - Chest 16",
+   "region": "san_fantastico",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421157,
+   "index_tbox": 359,
+   "nom_fr": "San Fantastico (rang C) - Coffre 01",
+   "nom_en": "San Fantastico (Rank C) - Chest 01",
+   "region": "san_fantastico",
+   "regle": {
+    "chapitres_termines": 5,
+    "objets": []
+   },
+   "exclusion": "rang_C"
+  },
+  {
+   "id_ap": 59421158,
+   "index_tbox": 180,
+   "nom_fr": "Tour du commerce (3e étage) - Coffre 01",
+   "nom_en": "Springdale Business Tower (3rd Floor) - Chest 01",
+   "region": "centre_ville_de_granval",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": []
+   },
+   "exclusion": "rang_C"
+  },
+  {
+   "id_ap": 59421159,
+   "index_tbox": 181,
+   "nom_fr": "Tour du commerce (3e étage) - Coffre 02",
+   "nom_en": "Springdale Business Tower (3rd Floor) - Chest 02",
+   "region": "centre_ville_de_granval",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": []
+   },
+   "exclusion": "rang_C"
+  },
+  {
+   "id_ap": 59421160,
+   "index_tbox": 182,
+   "nom_fr": "Tour du commerce (3e étage) - Coffre 03",
+   "nom_en": "Springdale Business Tower (3rd Floor) - Chest 03",
+   "region": "centre_ville_de_granval",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": []
+   },
+   "exclusion": "rang_C"
+  },
+  {
+   "id_ap": 59421161,
+   "index_tbox": 179,
+   "nom_fr": "Tour du commerce (3e étage, rang A) - Coffre 01",
+   "nom_en": "Springdale Business Tower (3rd Floor, Rank A) - Chest 01",
+   "region": "centre_ville_de_granval",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": []
+   },
+   "exclusion": "rang_A"
+  },
+  {
+   "id_ap": 59421162,
+   "index_tbox": 183,
+   "nom_fr": "Tour du commerce (12e étage) - Coffre 01",
+   "nom_en": "Springdale Business Tower (12th Floor) - Chest 01",
+   "region": "centre_ville_de_granval",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": []
+   },
+   "exclusion": "rang_C"
+  },
+  {
+   "id_ap": 59421163,
+   "index_tbox": 184,
+   "nom_fr": "Tour du commerce (12e étage) - Coffre 02",
+   "nom_en": "Springdale Business Tower (12th Floor) - Chest 02",
+   "region": "centre_ville_de_granval",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": []
+   },
+   "exclusion": "rang_C"
+  },
+  {
+   "id_ap": 59421164,
+   "index_tbox": 185,
+   "nom_fr": "Tour du commerce (12e étage) - Coffre 03",
+   "nom_en": "Springdale Business Tower (12th Floor) - Chest 03",
+   "region": "centre_ville_de_granval",
+   "regle": {
+    "chapitres_termines": 3,
+    "objets": []
+   },
+   "exclusion": "rang_C"
+  },
+  {
+   "id_ap": 59421165,
+   "index_tbox": 210,
+   "nom_fr": "Quartier des boutiques (appartement C-303) - Coffre 01",
+   "nom_en": "Shopper's Row (Apt. C-303) - Chest 01",
+   "region": "quartier_des_boutiques",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": [
+     "cle_appartement_c_303"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421166,
+   "index_tbox": 362,
+   "nom_fr": "Grotte du littoral - Coffre 01",
+   "nom_en": "Seaside Cave - Chest 01",
+   "region": "san_fantastico",
+   "regle": {
+    "chapitres_termines": 5,
+    "objets": []
+   },
+   "exclusion": "rang_C"
+  },
+  {
+   "id_ap": 59421167,
+   "index_tbox": 363,
+   "nom_fr": "Grotte du littoral - Coffre 02",
+   "nom_en": "Seaside Cave - Chest 02",
+   "region": "san_fantastico",
+   "regle": {
+    "chapitres_termines": 5,
+    "objets": []
+   },
+   "exclusion": "rang_C"
+  },
+  {
+   "id_ap": 59421168,
+   "index_tbox": 364,
+   "nom_fr": "Grotte du littoral - Coffre 03",
+   "nom_en": "Seaside Cave - Chest 03",
+   "region": "san_fantastico",
+   "regle": {
+    "chapitres_termines": 5,
+    "objets": []
+   },
+   "exclusion": "rang_C"
+  },
+  {
+   "id_ap": 59421169,
+   "index_tbox": 365,
+   "nom_fr": "Grotte du littoral - Coffre 04",
+   "nom_en": "Seaside Cave - Chest 04",
+   "region": "san_fantastico",
+   "regle": {
+    "chapitres_termines": 5,
+    "objets": []
+   },
+   "exclusion": "rang_C"
+  },
+  {
+   "id_ap": 59421170,
+   "index_tbox": 366,
+   "nom_fr": "Grotte du littoral - Coffre 05",
+   "nom_en": "Seaside Cave - Chest 05",
+   "region": "san_fantastico",
+   "regle": {
+    "chapitres_termines": 5,
+    "objets": []
+   },
+   "exclusion": "rang_C"
+  },
+  {
+   "id_ap": 59421171,
+   "index_tbox": 367,
+   "nom_fr": "Grotte du littoral - Coffre 06",
+   "nom_en": "Seaside Cave - Chest 06",
+   "region": "san_fantastico",
+   "regle": {
+    "chapitres_termines": 5,
+    "objets": []
+   },
+   "exclusion": "rang_C"
+  },
+  {
+   "id_ap": 59421172,
+   "index_tbox": 368,
+   "nom_fr": "Grotte du littoral - Coffre 07",
+   "nom_en": "Seaside Cave - Chest 07",
+   "region": "san_fantastico",
+   "regle": {
+    "chapitres_termines": 5,
+    "objets": []
+   },
+   "exclusion": "rang_C"
+  },
+  {
+   "id_ap": 59421173,
+   "index_tbox": 369,
+   "nom_fr": "Grotte du littoral - Coffre 08",
+   "nom_en": "Seaside Cave - Chest 08",
+   "region": "san_fantastico",
+   "regle": {
+    "chapitres_termines": 5,
+    "objets": []
+   },
+   "exclusion": "rang_C"
+  },
+  {
+   "id_ap": 59421174,
+   "index_tbox": 370,
+   "nom_fr": "Grotte du littoral - Coffre 09",
+   "nom_en": "Seaside Cave - Chest 09",
+   "region": "san_fantastico",
+   "regle": {
+    "chapitres_termines": 5,
+    "objets": []
+   },
+   "exclusion": "rang_C"
+  },
+  {
+   "id_ap": 59421175,
+   "index_tbox": 109,
+   "nom_fr": "Coteau fleuri (présent) - Coffre 01",
+   "nom_en": "Blossom Heights (present) - Chest 01",
+   "region": "coteau_fleuri",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421176,
+   "index_tbox": 90,
+   "nom_fr": "Coteau fleuri (rang C) - Coffre 01",
+   "nom_en": "Blossom Heights (Rank C) - Chest 01",
+   "region": "coteau_fleuri",
+   "regle": {
+    "chapitres_termines": 5,
+    "objets": []
+   },
+   "exclusion": "rang_C"
+  },
+  {
+   "id_ap": 59421177,
+   "index_tbox": 110,
+   "nom_fr": "Coteau fleuri (rang C) - Coffre 02",
+   "nom_en": "Blossom Heights (Rank C) - Chest 02",
+   "region": "coteau_fleuri",
+   "regle": {
+    "chapitres_termines": 5,
+    "objets": []
+   },
+   "exclusion": "rang_C"
+  },
+  {
+   "id_ap": 59421178,
+   "index_tbox": 211,
+   "nom_fr": "Clinique du Crépuscule - Coffre 01",
+   "nom_en": "Nocturne Hospital - Chest 01",
+   "region": "clinique_du_crepuscule",
+   "regle": {
+    "chapitres_termines": 8,
+    "objets": []
+   },
+   "exclusion": "rang_B"
+  },
+  {
+   "id_ap": 59421179,
+   "index_tbox": 212,
+   "nom_fr": "Clinique du Crépuscule - Coffre 02",
+   "nom_en": "Nocturne Hospital - Chest 02",
+   "region": "clinique_du_crepuscule",
+   "regle": {
+    "chapitres_termines": 8,
+    "objets": []
+   },
+   "exclusion": "rang_B"
+  },
+  {
+   "id_ap": 59421180,
+   "index_tbox": 213,
+   "nom_fr": "Clinique du Crépuscule - Coffre 03",
+   "nom_en": "Nocturne Hospital - Chest 03",
+   "region": "clinique_du_crepuscule",
+   "regle": {
+    "chapitres_termines": 8,
+    "objets": []
+   },
+   "exclusion": "rang_B"
+  },
+  {
+   "id_ap": 59421181,
+   "index_tbox": 214,
+   "nom_fr": "Clinique du Crépuscule - Coffre 04",
+   "nom_en": "Nocturne Hospital - Chest 04",
+   "region": "clinique_du_crepuscule",
+   "regle": {
+    "chapitres_termines": 8,
+    "objets": []
+   },
+   "exclusion": "rang_B"
+  },
+  {
+   "id_ap": 59421182,
+   "index_tbox": 215,
+   "nom_fr": "Clinique du Crépuscule - Coffre 05",
+   "nom_en": "Nocturne Hospital - Chest 05",
+   "region": "clinique_du_crepuscule",
+   "regle": {
+    "chapitres_termines": 8,
+    "objets": []
+   },
+   "exclusion": "rang_B"
+  },
+  {
+   "id_ap": 59421183,
+   "index_tbox": 217,
+   "nom_fr": "Clinique du Crépuscule - Coffre 06",
+   "nom_en": "Nocturne Hospital - Chest 06",
+   "region": "clinique_du_crepuscule",
+   "regle": {
+    "chapitres_termines": 8,
+    "objets": []
+   },
+   "exclusion": "rang_B"
+  },
+  {
+   "id_ap": 59421184,
+   "index_tbox": 218,
+   "nom_fr": "Clinique du Crépuscule - Coffre 07",
+   "nom_en": "Nocturne Hospital - Chest 07",
+   "region": "clinique_du_crepuscule",
+   "regle": {
+    "chapitres_termines": 8,
+    "objets": []
+   },
+   "exclusion": "rang_B"
+  },
+  {
+   "id_ap": 59421185,
+   "index_tbox": 219,
+   "nom_fr": "Clinique du Crépuscule - Coffre 08",
+   "nom_en": "Nocturne Hospital - Chest 08",
+   "region": "clinique_du_crepuscule",
+   "regle": {
+    "chapitres_termines": 8,
+    "objets": []
+   },
+   "exclusion": "rang_B"
+  },
+  {
+   "id_ap": 59421186,
+   "index_tbox": 221,
+   "nom_fr": "Clinique du Crépuscule - Coffre 09",
+   "nom_en": "Nocturne Hospital - Chest 09",
+   "region": "clinique_du_crepuscule",
+   "regle": {
+    "chapitres_termines": 8,
+    "objets": []
+   },
+   "exclusion": "rang_B"
+  },
+  {
+   "id_ap": 59421187,
+   "index_tbox": 371,
+   "nom_fr": "Vieux Hauts de Granval - Coffre 01",
+   "nom_en": "Old Uptown Springdale - Chest 01",
+   "region": "vieux_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421188,
+   "index_tbox": 374,
+   "nom_fr": "Vieux Hauts de Granval - Coffre 02",
+   "nom_en": "Old Uptown Springdale - Chest 02",
+   "region": "vieux_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421189,
+   "index_tbox": 375,
+   "nom_fr": "Vieux Hauts de Granval - Coffre 03",
+   "nom_en": "Old Uptown Springdale - Chest 03",
+   "region": "vieux_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421190,
+   "index_tbox": 376,
+   "nom_fr": "Vieux Hauts de Granval - Coffre 04",
+   "nom_en": "Old Uptown Springdale - Chest 04",
+   "region": "vieux_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421191,
+   "index_tbox": 372,
+   "nom_fr": "Vieux Hauts de Granval - Coffre 05",
+   "nom_en": "Old Uptown Springdale - Chest 05",
+   "region": "vieux_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421192,
+   "index_tbox": 373,
+   "nom_fr": "Vieux Hauts de Granval (retour Ch10) - Coffre 01",
+   "nom_en": "Old Uptown Springdale (Ch.10 return) - Chest 01",
+   "region": "vieux_granval",
+   "regle": {
+    "chapitres_termines": 9,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421193,
+   "index_tbox": 377,
+   "nom_fr": "Vieux Coteau Fleuri - Coffre 01",
+   "nom_en": "Old Blossom Heights - Chest 01",
+   "region": "vieux_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421194,
+   "index_tbox": 378,
+   "nom_fr": "Vieux Coteau Fleuri - Coffre 02",
+   "nom_en": "Old Blossom Heights - Chest 02",
+   "region": "vieux_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421195,
+   "index_tbox": 379,
+   "nom_fr": "Vieux Coteau Fleuri - Coffre 03",
+   "nom_en": "Old Blossom Heights - Chest 03",
+   "region": "vieux_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421196,
+   "index_tbox": 380,
+   "nom_fr": "Vieux Coteau Fleuri - Coffre 04",
+   "nom_en": "Old Blossom Heights - Chest 04",
+   "region": "vieux_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421197,
+   "index_tbox": 391,
+   "nom_fr": "Chemin du Sanctuaire du Renard - Coffre 01",
+   "nom_en": "Fox Shrine Road - Chest 01",
+   "region": "vieux_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421198,
+   "index_tbox": 393,
+   "nom_fr": "Chemin du Puits - Coffre 01",
+   "nom_en": "Well Road - Chest 01",
+   "region": "vieux_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421199,
+   "index_tbox": 396,
+   "nom_fr": "Vieille Ferronnerie de Granval - Coffre 01",
+   "nom_en": "Springdale Ironworks - Chest 01",
+   "region": "vieux_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421200,
+   "index_tbox": 397,
+   "nom_fr": "Vieille Ferronnerie de Granval - Coffre 02",
+   "nom_en": "Springdale Ironworks - Chest 02",
+   "region": "vieux_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421201,
+   "index_tbox": 398,
+   "nom_fr": "Vieux Mont Sylvestre - Coffre 01",
+   "nom_en": "Old Mt. Wildwood - Chest 01",
+   "region": "vieux_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421202,
+   "index_tbox": 401,
+   "nom_fr": "Lac des Coloquintes (passé) - Coffre 01",
+   "nom_en": "Gourd Pond (past) - Chest 01",
+   "region": "vieux_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421203,
+   "index_tbox": 405,
+   "nom_fr": "Vieil Ourcival - Coffre 01",
+   "nom_en": "Old Harrisville - Chest 01",
+   "region": "vieil_ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421204,
+   "index_tbox": 406,
+   "nom_fr": "Vieil Ourcival - Coffre 02",
+   "nom_en": "Old Harrisville - Chest 02",
+   "region": "vieil_ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421205,
+   "index_tbox": 404,
+   "nom_fr": "Vieil Ourcival - Coffre 03",
+   "nom_en": "Old Harrisville - Chest 03",
+   "region": "vieil_ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421206,
+   "index_tbox": 408,
+   "nom_fr": "Vieil Ourcival - Coffre 04",
+   "nom_en": "Old Harrisville - Chest 04",
+   "region": "vieil_ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421207,
+   "index_tbox": 409,
+   "nom_fr": "Vieil Ourcival - Coffre 05",
+   "nom_en": "Old Harrisville - Chest 05",
+   "region": "vieil_ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421208,
+   "index_tbox": 410,
+   "nom_fr": "Vieil Ourcival - Coffre 06",
+   "nom_en": "Old Harrisville - Chest 06",
+   "region": "vieil_ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421209,
+   "index_tbox": 411,
+   "nom_fr": "Vieil Ourcival - Coffre 07",
+   "nom_en": "Old Harrisville - Chest 07",
+   "region": "vieil_ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421210,
+   "index_tbox": 407,
+   "nom_fr": "Vieil Ourcival - Coffre 08",
+   "nom_en": "Old Harrisville - Chest 08",
+   "region": "vieil_ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421211,
+   "index_tbox": 412,
+   "nom_fr": "Vieil Ourcival - Coffre 09",
+   "nom_en": "Old Harrisville - Chest 09",
+   "region": "vieil_ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421212,
+   "index_tbox": 423,
+   "nom_fr": "Vieil Ourcival - Coffre 10",
+   "nom_en": "Old Harrisville - Chest 10",
+   "region": "vieil_ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421213,
+   "index_tbox": 426,
+   "nom_fr": "Vieux Mont de l'Ours - Coffre 01",
+   "nom_en": "Old Mt. Middleton - Chest 01",
+   "region": "vieil_ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421214,
+   "index_tbox": 427,
+   "nom_fr": "Vieux Mont de l'Ours - Coffre 02",
+   "nom_en": "Old Mt. Middleton - Chest 02",
+   "region": "vieil_ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421215,
+   "index_tbox": 429,
+   "nom_fr": "Vieux Mont de l'Ours - Coffre 03",
+   "nom_en": "Old Mt. Middleton - Chest 03",
+   "region": "vieil_ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421216,
+   "index_tbox": 425,
+   "nom_fr": "Vieux Mont de l'Ours - Coffre 04",
+   "nom_en": "Old Mt. Middleton - Chest 04",
+   "region": "vieil_ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421217,
+   "index_tbox": 428,
+   "nom_fr": "Vieux Mont de l'Ours - Coffre 05",
+   "nom_en": "Old Mt. Middleton - Chest 05",
+   "region": "vieil_ourcival",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421218,
+   "index_tbox": 107,
+   "nom_fr": "Coteau fleuri (rang B) - Coffre 01",
+   "nom_en": "Blossom Heights (Rank B) - Chest 01",
+   "region": "coteau_fleuri",
+   "regle": {
+    "chapitres_termines": 2,
+    "objets": []
+   },
+   "exclusion": "rang_B"
+  },
+  {
+   "id_ap": 59421219,
+   "index_tbox": 433,
+   "nom_fr": "Plaines Plinpot - Coffre 01",
+   "nom_en": "Flatpot Plains - Chest 01",
+   "region": "plaines_plinpot",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421220,
+   "index_tbox": 434,
+   "nom_fr": "Plaines Plinpot - Coffre 02",
+   "nom_en": "Flatpot Plains - Chest 02",
+   "region": "plaines_plinpot",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421221,
+   "index_tbox": 435,
+   "nom_fr": "Plaines Plinpot - Coffre 03",
+   "nom_en": "Flatpot Plains - Chest 03",
+   "region": "plaines_plinpot",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421222,
+   "index_tbox": 436,
+   "nom_fr": "Plaines Plinpot - Coffre 04",
+   "nom_en": "Flatpot Plains - Chest 04",
+   "region": "plaines_plinpot",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421223,
+   "index_tbox": 437,
+   "nom_fr": "Plaines Plinpot - Coffre 05",
+   "nom_en": "Flatpot Plains - Chest 05",
+   "region": "plaines_plinpot",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421224,
+   "index_tbox": 438,
+   "nom_fr": "Plaines Plinpot - Coffre 06",
+   "nom_en": "Flatpot Plains - Chest 06",
+   "region": "plaines_plinpot",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421225,
+   "index_tbox": 439,
+   "nom_fr": "Plaines Plinpot - Coffre 07",
+   "nom_en": "Flatpot Plains - Chest 07",
+   "region": "plaines_plinpot",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421226,
+   "index_tbox": 440,
+   "nom_fr": "Plaines Plinpot - Coffre 08",
+   "nom_en": "Flatpot Plains - Chest 08",
+   "region": "plaines_plinpot",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421227,
+   "index_tbox": 441,
+   "nom_fr": "Plaines Plinpot - Coffre 09",
+   "nom_en": "Flatpot Plains - Chest 09",
+   "region": "plaines_plinpot",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421228,
+   "index_tbox": 442,
+   "nom_fr": "Plaines Plinpot - Coffre 10",
+   "nom_en": "Flatpot Plains - Chest 10",
+   "region": "plaines_plinpot",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421229,
+   "index_tbox": 443,
+   "nom_fr": "Plaines Plinpot - Coffre 11",
+   "nom_en": "Flatpot Plains - Chest 11",
+   "region": "plaines_plinpot",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421230,
+   "index_tbox": 444,
+   "nom_fr": "Zone des portails - Coffre 01",
+   "nom_en": "Gate Room - Chest 01",
+   "region": "la_corniche",
+   "exclusion": "zone_portails"
+  },
+  {
+   "id_ap": 59421231,
+   "index_tbox": 445,
+   "nom_fr": "Zone des portails - Coffre 02",
+   "nom_en": "Gate Room - Chest 02",
+   "region": "la_corniche",
+   "exclusion": "zone_portails"
+  },
+  {
+   "id_ap": 59421232,
+   "index_tbox": 446,
+   "nom_fr": "Zone des portails - Coffre 03",
+   "nom_en": "Gate Room - Chest 03",
+   "region": "la_corniche",
+   "exclusion": "zone_portails"
+  },
+  {
+   "id_ap": 59421233,
+   "index_tbox": 447,
+   "nom_fr": "Zone des portails - Coffre 04",
+   "nom_en": "Gate Room - Chest 04",
+   "region": "la_corniche",
+   "exclusion": "zone_portails"
+  },
+  {
+   "id_ap": 59421234,
+   "index_tbox": 448,
+   "nom_fr": "Zone des portails - Coffre 05",
+   "nom_en": "Gate Room - Chest 05",
+   "region": "la_corniche",
+   "exclusion": "zone_portails"
+  },
+  {
+   "id_ap": 59421235,
+   "index_tbox": 449,
+   "nom_fr": "Zone des portails - Coffre 06",
+   "nom_en": "Gate Room - Chest 06",
+   "region": "la_corniche",
+   "exclusion": "zone_portails"
+  },
+  {
+   "id_ap": 59421236,
+   "index_tbox": 450,
+   "nom_fr": "Zone des portails - Coffre 07",
+   "nom_en": "Gate Room - Chest 07",
+   "region": "la_corniche",
+   "exclusion": "zone_portails"
+  },
+  {
+   "id_ap": 59421237,
+   "index_tbox": 451,
+   "nom_fr": "Zone des portails - Coffre 08",
+   "nom_en": "Gate Room - Chest 08",
+   "region": "la_corniche",
+   "exclusion": "zone_portails"
+  },
+  {
+   "id_ap": 59421238,
+   "index_tbox": 452,
+   "nom_fr": "Zone des portails - Coffre 09",
+   "nom_en": "Gate Room - Chest 09",
+   "region": "la_corniche",
+   "exclusion": "zone_portails"
+  },
+  {
+   "id_ap": 59421239,
+   "index_tbox": 453,
+   "nom_fr": "Zone des portails - Coffre 10",
+   "nom_en": "Gate Room - Chest 10",
+   "region": "la_corniche",
+   "exclusion": "zone_portails"
+  },
+  {
+   "id_ap": 59421240,
+   "index_tbox": 9,
+   "nom_fr": "Les Hauts de Granval - Coffre 11",
+   "nom_en": "Uptown Springdale - Chest 11",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421241,
+   "index_tbox": 29,
+   "nom_fr": "Allée sinistre - Coffre 02",
+   "nom_en": "Desolate Lane - Chest 02",
+   "region": "les_hauts_de_granval",
+   "regle": {
+    "chapitres_termines": 2,
+    "objets": [
+     "pile_ou_passe"
+    ]
+   },
+   "exclusion": "rang_A"
+  },
+  {
+   "id_ap": 59421242,
+   "index_tbox": 79,
+   "nom_fr": "Tunnel abandonné est - Coffre 07",
+   "nom_en": "Abandoned Tunnel East - Chest 07",
+   "region": "mont_sylvestre",
+   "regle": {
+    "chapitres_termines": 7,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421243,
+   "index_tbox": 192,
+   "nom_fr": "Granval (Quartier des boutiques) - Coffre 07",
+   "nom_en": "Springdale (Shopper's Row) - Chest 07",
+   "region": "quartier_des_boutiques",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421244,
+   "index_tbox": 207,
+   "nom_fr": "Résidence Sérénité (A-201) - Coffre 01",
+   "nom_en": "Tranquility Apts. (A-201) - Chest 01",
+   "region": "quartier_des_boutiques",
+   "regle": {
+    "chapitres_termines": 8,
+    "objets": []
+   },
+   "exclusion": "rang_B"
+  },
+  {
+   "id_ap": 59421245,
+   "index_tbox": 220,
+   "nom_fr": "Clinique du Crépuscule - Coffre 10",
+   "nom_en": "Nocturne Hospital - Chest 10",
+   "region": "clinique_du_crepuscule",
+   "regle": {
+    "chapitres_termines": 8,
+    "objets": []
+   },
+   "exclusion": "rang_B"
+  },
+  {
+   "id_ap": 59421246,
+   "index_tbox": 454,
+   "nom_fr": "Centre-ville de Granval (géant fantôme) - Coffre 01",
+   "nom_en": "Downtown Springdale (Phantom Giant) - Chest 01",
+   "region": "centre_ville_de_granval",
+   "regle": {
+    "chapitres_termines": 8,
+    "objets": [
+     "poignee_etrange"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421247,
+   "index_tbox": 455,
+   "nom_fr": "Centre-ville de Granval (géant fantôme) - Coffre 02",
+   "nom_en": "Downtown Springdale (Phantom Giant) - Chest 02",
+   "region": "centre_ville_de_granval",
+   "regle": {
+    "chapitres_termines": 8,
+    "objets": [
+     "poignee_etrange"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421248,
+   "index_tbox": 456,
+   "nom_fr": "Centre-ville de Granval (géant fantôme) - Coffre 03",
+   "nom_en": "Downtown Springdale (Phantom Giant) - Chest 03",
+   "region": "centre_ville_de_granval",
+   "regle": {
+    "chapitres_termines": 8,
+    "objets": [
+     "poignee_etrange"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421249,
+   "index_tbox": 457,
+   "nom_fr": "Centre-ville de Granval (géant fantôme) - Coffre 04",
+   "nom_en": "Downtown Springdale (Phantom Giant) - Chest 04",
+   "region": "centre_ville_de_granval",
+   "regle": {
+    "chapitres_termines": 8,
+    "objets": [
+     "poignee_etrange"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421250,
+   "index_tbox": 458,
+   "nom_fr": "Centre-ville de Granval (géant fantôme) - Coffre 05",
+   "nom_en": "Downtown Springdale (Phantom Giant) - Chest 05",
+   "region": "centre_ville_de_granval",
+   "regle": {
+    "chapitres_termines": 8,
+    "objets": [
+     "poignee_etrange"
+    ]
+   }
+  },
+  {
+   "id_ap": 59421251,
+   "index_tbox": 209,
+   "nom_fr": "Résidence Sérénité (bâtiment B) - Coffre 01",
+   "nom_en": "Tranquility Apts. (Building B) - Chest 01",
+   "region": "quartier_des_boutiques",
+   "regle": {
+    "chapitres_termines": 0,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421252,
+   "index_tbox": 430,
+   "nom_fr": "Vieil Ourcival - Coffre 11",
+   "nom_en": "Old Harrisville - Chest 11",
+   "region": "vieil_ourcival",
+   "regle": {
+    "chapitres_termines": 5,
+    "objets": []
+   }
+  },
+  {
+   "id_ap": 59421253,
+   "index_tbox": 216,
+   "nom_fr": "Clinique du Crépuscule - Coffre 11",
+   "nom_en": "Nocturne Hospital - Chest 11",
+   "region": "clinique_du_crepuscule",
+   "regle": {
+    "chapitres_termines": 8,
+    "objets": []
+   },
+   "exclusion": "rang_B"
+  },
+  {
+   "id_ap": 59421254,
+   "index_tbox": 124,
+   "nom_fr": "Limbes éternelles - Coffre 01",
+   "nom_en": "Infinite Inferno - Chest 01",
+   "region": "limbes_eternelles",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421255,
+   "index_tbox": 125,
+   "nom_fr": "Limbes éternelles - Coffre 02",
+   "nom_en": "Infinite Inferno - Chest 02",
+   "region": "limbes_eternelles",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421256,
+   "index_tbox": 126,
+   "nom_fr": "Limbes éternelles - Coffre 03",
+   "nom_en": "Infinite Inferno - Chest 03",
+   "region": "limbes_eternelles",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421257,
+   "index_tbox": 127,
+   "nom_fr": "Limbes éternelles - Coffre 04",
+   "nom_en": "Infinite Inferno - Chest 04",
+   "region": "limbes_eternelles",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421258,
+   "index_tbox": 128,
+   "nom_fr": "Limbes éternelles - Coffre 05",
+   "nom_en": "Infinite Inferno - Chest 05",
+   "region": "limbes_eternelles",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421259,
+   "index_tbox": 129,
+   "nom_fr": "Limbes éternelles - Coffre 06",
+   "nom_en": "Infinite Inferno - Chest 06",
+   "region": "limbes_eternelles",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421260,
+   "index_tbox": 130,
+   "nom_fr": "Limbes éternelles - Coffre 07",
+   "nom_en": "Infinite Inferno - Chest 07",
+   "region": "limbes_eternelles",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421261,
+   "index_tbox": 131,
+   "nom_fr": "Limbes éternelles - Coffre 08",
+   "nom_en": "Infinite Inferno - Chest 08",
+   "region": "limbes_eternelles",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421262,
+   "index_tbox": 132,
+   "nom_fr": "Limbes éternelles - Coffre 09",
+   "nom_en": "Infinite Inferno - Chest 09",
+   "region": "limbes_eternelles",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421263,
+   "index_tbox": 133,
+   "nom_fr": "Limbes éternelles - Coffre 10",
+   "nom_en": "Infinite Inferno - Chest 10",
+   "region": "limbes_eternelles",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421264,
+   "index_tbox": 134,
+   "nom_fr": "Limbes éternelles - Coffre 11",
+   "nom_en": "Infinite Inferno - Chest 11",
+   "region": "limbes_eternelles",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421265,
+   "index_tbox": 135,
+   "nom_fr": "Limbes éternelles - Coffre 12",
+   "nom_en": "Infinite Inferno - Chest 12",
+   "region": "limbes_eternelles",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421266,
+   "index_tbox": 136,
+   "nom_fr": "Limbes éternelles - Coffre 13",
+   "nom_en": "Infinite Inferno - Chest 13",
+   "region": "limbes_eternelles",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421267,
+   "index_tbox": 137,
+   "nom_fr": "Limbes éternelles - Coffre 14",
+   "nom_en": "Infinite Inferno - Chest 14",
+   "region": "limbes_eternelles",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421268,
+   "index_tbox": 138,
+   "nom_fr": "Limbes éternelles - Coffre 15",
+   "nom_en": "Infinite Inferno - Chest 15",
+   "region": "limbes_eternelles",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421269,
+   "index_tbox": 139,
+   "nom_fr": "Limbes éternelles - Coffre 16",
+   "nom_en": "Infinite Inferno - Chest 16",
+   "region": "limbes_eternelles",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421270,
+   "index_tbox": 140,
+   "nom_fr": "Limbes éternelles - Coffre 17",
+   "nom_en": "Infinite Inferno - Chest 17",
+   "region": "limbes_eternelles",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421271,
+   "index_tbox": 141,
+   "nom_fr": "Limbes éternelles - Coffre 18",
+   "nom_en": "Infinite Inferno - Chest 18",
+   "region": "limbes_eternelles",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421272,
+   "index_tbox": 142,
+   "nom_fr": "Limbes éternelles - Coffre 19",
+   "nom_en": "Infinite Inferno - Chest 19",
+   "region": "limbes_eternelles",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421273,
+   "index_tbox": 143,
+   "nom_fr": "Limbes éternelles - Coffre 20",
+   "nom_en": "Infinite Inferno - Chest 20",
+   "region": "limbes_eternelles",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421274,
+   "index_tbox": 144,
+   "nom_fr": "Sanctuaire divin - Coffre 01",
+   "nom_en": "Divine Paradise - Chest 01",
+   "region": "sanctuaire_divin",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421275,
+   "index_tbox": 145,
+   "nom_fr": "Sanctuaire divin - Coffre 02",
+   "nom_en": "Divine Paradise - Chest 02",
+   "region": "sanctuaire_divin",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421276,
+   "index_tbox": 146,
+   "nom_fr": "Sanctuaire divin - Coffre 03",
+   "nom_en": "Divine Paradise - Chest 03",
+   "region": "sanctuaire_divin",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421277,
+   "index_tbox": 147,
+   "nom_fr": "Sanctuaire divin - Coffre 04",
+   "nom_en": "Divine Paradise - Chest 04",
+   "region": "sanctuaire_divin",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421278,
+   "index_tbox": 148,
+   "nom_fr": "Sanctuaire divin - Coffre 05",
+   "nom_en": "Divine Paradise - Chest 05",
+   "region": "sanctuaire_divin",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421279,
+   "index_tbox": 149,
+   "nom_fr": "Sanctuaire divin - Coffre 06",
+   "nom_en": "Divine Paradise - Chest 06",
+   "region": "sanctuaire_divin",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421280,
+   "index_tbox": 150,
+   "nom_fr": "Sanctuaire divin - Coffre 07",
+   "nom_en": "Divine Paradise - Chest 07",
+   "region": "sanctuaire_divin",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421281,
+   "index_tbox": 151,
+   "nom_fr": "Sanctuaire divin - Coffre 08",
+   "nom_en": "Divine Paradise - Chest 08",
+   "region": "sanctuaire_divin",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421282,
+   "index_tbox": 248,
+   "nom_fr": "Yo-kai World - Coffre 01",
+   "nom_en": "Yo-kai World - Chest 01",
+   "region": "yokai_world",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421283,
+   "index_tbox": 249,
+   "nom_fr": "Yo-kai World - Coffre 02",
+   "nom_en": "Yo-kai World - Chest 02",
+   "region": "yokai_world",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421284,
+   "index_tbox": 250,
+   "nom_fr": "Yo-kai World - Coffre 03",
+   "nom_en": "Yo-kai World - Chest 03",
+   "region": "yokai_world",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421285,
+   "index_tbox": 251,
+   "nom_fr": "Yo-kai World - Coffre 04",
+   "nom_en": "Yo-kai World - Chest 04",
+   "region": "yokai_world",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421286,
+   "index_tbox": 252,
+   "nom_fr": "Yo-kai World - Coffre 05",
+   "nom_en": "Yo-kai World - Chest 05",
+   "region": "yokai_world",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421287,
+   "index_tbox": 253,
+   "nom_fr": "Yo-kai World - Coffre 06",
+   "nom_en": "Yo-kai World - Chest 06",
+   "region": "yokai_world",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421288,
+   "index_tbox": 254,
+   "nom_fr": "Yo-kai World - Coffre 07",
+   "nom_en": "Yo-kai World - Chest 07",
+   "region": "yokai_world",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421289,
+   "index_tbox": 255,
+   "nom_fr": "Yo-kai World - Coffre 08",
+   "nom_en": "Yo-kai World - Chest 08",
+   "region": "yokai_world",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421290,
+   "index_tbox": 256,
+   "nom_fr": "Yo-kai World - Coffre 09",
+   "nom_en": "Yo-kai World - Chest 09",
+   "region": "yokai_world",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421291,
+   "index_tbox": 257,
+   "nom_fr": "Yo-kai World - Coffre 10",
+   "nom_en": "Yo-kai World - Chest 10",
+   "region": "yokai_world",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421292,
+   "index_tbox": 258,
+   "nom_fr": "Yo-kai World - Coffre 11",
+   "nom_en": "Yo-kai World - Chest 11",
+   "region": "yokai_world",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421293,
+   "index_tbox": 259,
+   "nom_fr": "Yo-kai World - Coffre 12",
+   "nom_en": "Yo-kai World - Chest 12",
+   "region": "yokai_world",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421294,
+   "index_tbox": 260,
+   "nom_fr": "Yo-kai World - Coffre 13",
+   "nom_en": "Yo-kai World - Chest 13",
+   "region": "yokai_world",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421295,
+   "index_tbox": 261,
+   "nom_fr": "Yo-kai World - Coffre 14",
+   "nom_en": "Yo-kai World - Chest 14",
+   "region": "yokai_world",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421296,
+   "index_tbox": 262,
+   "nom_fr": "Yo-kai World - Coffre 15",
+   "nom_en": "Yo-kai World - Chest 15",
+   "region": "yokai_world",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421297,
+   "index_tbox": 263,
+   "nom_fr": "Yo-kai World - Coffre 16",
+   "nom_en": "Yo-kai World - Chest 16",
+   "region": "yokai_world",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421298,
+   "index_tbox": 264,
+   "nom_fr": "Yo-kai World - Coffre 17",
+   "nom_en": "Yo-kai World - Chest 17",
+   "region": "yokai_world",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421299,
+   "index_tbox": 265,
+   "nom_fr": "Yo-kai World - Coffre 18",
+   "nom_en": "Yo-kai World - Chest 18",
+   "region": "yokai_world",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421300,
+   "index_tbox": 489,
+   "nom_fr": "Yo-kai World - Coffre 19",
+   "nom_en": "Yo-kai World - Chest 19",
+   "region": "yokai_world",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421301,
+   "index_tbox": 512,
+   "nom_fr": "Château de Sawayama - Coffre 01",
+   "nom_en": "Sawayama Castle - Chest 01",
+   "region": "chateau_de_sawayama",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421302,
+   "index_tbox": 513,
+   "nom_fr": "Château de Sawayama - Coffre 02",
+   "nom_en": "Sawayama Castle - Chest 02",
+   "region": "chateau_de_sawayama",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421303,
+   "index_tbox": 514,
+   "nom_fr": "Château de Sawayama - Coffre 03",
+   "nom_en": "Sawayama Castle - Chest 03",
+   "region": "chateau_de_sawayama",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421304,
+   "index_tbox": 519,
+   "nom_fr": "Château de Sawayama - Coffre 04",
+   "nom_en": "Sawayama Castle - Chest 04",
+   "region": "chateau_de_sawayama",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421305,
+   "index_tbox": 520,
+   "nom_fr": "Château de Sawayama - Coffre 05",
+   "nom_en": "Sawayama Castle - Chest 05",
+   "region": "chateau_de_sawayama",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421306,
+   "index_tbox": 521,
+   "nom_fr": "Château de Sawayama - Coffre 06",
+   "nom_en": "Sawayama Castle - Chest 06",
+   "region": "chateau_de_sawayama",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421307,
+   "index_tbox": 538,
+   "nom_fr": "Bellesource - Coffre 01",
+   "nom_en": "Paradise Springs - Chest 01",
+   "region": "sortilege_express",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421308,
+   "index_tbox": 539,
+   "nom_fr": "Bellesource - Coffre 02",
+   "nom_en": "Paradise Springs - Chest 02",
+   "region": "sortilege_express",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421309,
+   "index_tbox": 540,
+   "nom_fr": "Gera Gera Land - Coffre 01",
+   "nom_en": "Gera Gera Land - Chest 01",
+   "region": "sortilege_express",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421310,
+   "index_tbox": 541,
+   "nom_fr": "Gera Gera Land - Coffre 02",
+   "nom_en": "Gera Gera Land - Chest 02",
+   "region": "sortilege_express",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421311,
+   "index_tbox": 542,
+   "nom_fr": "Gera Gera Land - Coffre 03",
+   "nom_en": "Gera Gera Land - Chest 03",
+   "region": "sortilege_express",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421312,
+   "index_tbox": 543,
+   "nom_fr": "Gera Gera Land - Coffre 04",
+   "nom_en": "Gera Gera Land - Chest 04",
+   "region": "sortilege_express",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421313,
+   "index_tbox": 544,
+   "nom_fr": "Gera Gera Land - Coffre 05",
+   "nom_en": "Gera Gera Land - Chest 05",
+   "region": "sortilege_express",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421314,
+   "index_tbox": 545,
+   "nom_fr": "Gera Gera Land - Coffre 06",
+   "nom_en": "Gera Gera Land - Chest 06",
+   "region": "sortilege_express",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421315,
+   "index_tbox": 546,
+   "nom_fr": "Gera Gera Land - Coffre 07",
+   "nom_en": "Gera Gera Land - Chest 07",
+   "region": "sortilege_express",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421316,
+   "index_tbox": 547,
+   "nom_fr": "Gera Gera Land - Coffre 08",
+   "nom_en": "Gera Gera Land - Chest 08",
+   "region": "sortilege_express",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421317,
+   "index_tbox": 556,
+   "nom_fr": "Gera Gera Land - Coffre 09",
+   "nom_en": "Gera Gera Land - Chest 09",
+   "region": "sortilege_express",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421318,
+   "index_tbox": 557,
+   "nom_fr": "Gera Gera Land - Coffre 10",
+   "nom_en": "Gera Gera Land - Chest 10",
+   "region": "sortilege_express",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421319,
+   "index_tbox": 548,
+   "nom_fr": "Val Vorace - Coffre 01",
+   "nom_en": "Wolfit Down - Chest 01",
+   "region": "sortilege_express",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421320,
+   "index_tbox": 549,
+   "nom_fr": "Val Vorace - Coffre 02",
+   "nom_en": "Wolfit Down - Chest 02",
+   "region": "sortilege_express",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421321,
+   "index_tbox": 550,
+   "nom_fr": "Val Vorace - Coffre 03",
+   "nom_en": "Wolfit Down - Chest 03",
+   "region": "sortilege_express",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421322,
+   "index_tbox": 551,
+   "nom_fr": "Val Vorace - Coffre 04",
+   "nom_en": "Wolfit Down - Chest 04",
+   "region": "sortilege_express",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421323,
+   "index_tbox": 552,
+   "nom_fr": "Val Vorace - Coffre 05",
+   "nom_en": "Wolfit Down - Chest 05",
+   "region": "sortilege_express",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421324,
+   "index_tbox": 553,
+   "nom_fr": "Théâtre Kaibuki - Coffre 01",
+   "nom_en": "Kaibuki Theater - Chest 01",
+   "region": "sortilege_express",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421325,
+   "index_tbox": 554,
+   "nom_fr": "Théâtre Kaibuki - Coffre 02",
+   "nom_en": "Kaibuki Theater - Chest 02",
+   "region": "sortilege_express",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421326,
+   "index_tbox": 474,
+   "nom_fr": "Voie du mystère - Coffre 01",
+   "nom_en": "Mystery Way - Chest 01",
+   "region": "voie_du_mystere",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421327,
+   "index_tbox": 460,
+   "nom_fr": "Voie du mystère - Coffre 02",
+   "nom_en": "Mystery Way - Chest 02",
+   "region": "voie_du_mystere",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421328,
+   "index_tbox": 472,
+   "nom_fr": "Voie du mystère - Coffre 03",
+   "nom_en": "Mystery Way - Chest 03",
+   "region": "voie_du_mystere",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421329,
+   "index_tbox": 476,
+   "nom_fr": "Voie du mystère - Coffre 04",
+   "nom_en": "Mystery Way - Chest 04",
+   "region": "voie_du_mystere",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421330,
+   "index_tbox": 467,
+   "nom_fr": "Voie du mystère - Coffre 05",
+   "nom_en": "Mystery Way - Chest 05",
+   "region": "voie_du_mystere",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421331,
+   "index_tbox": 465,
+   "nom_fr": "Voie du mystère - Coffre 06",
+   "nom_en": "Mystery Way - Chest 06",
+   "region": "voie_du_mystere",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421332,
+   "index_tbox": 469,
+   "nom_fr": "Voie du mystère - Coffre 07",
+   "nom_en": "Mystery Way - Chest 07",
+   "region": "voie_du_mystere",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421333,
+   "index_tbox": 468,
+   "nom_fr": "Voie du mystère - Coffre 08",
+   "nom_en": "Mystery Way - Chest 08",
+   "region": "voie_du_mystere",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421334,
+   "index_tbox": 478,
+   "nom_fr": "Voie du mystère - Coffre 09",
+   "nom_en": "Mystery Way - Chest 09",
+   "region": "voie_du_mystere",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421335,
+   "index_tbox": 464,
+   "nom_fr": "Voie du mystère - Coffre 10",
+   "nom_en": "Mystery Way - Chest 10",
+   "region": "voie_du_mystere",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421336,
+   "index_tbox": 471,
+   "nom_fr": "Route des farceurs - Coffre 01",
+   "nom_en": "Bony Spirits Way - Chest 01",
+   "region": "route_des_farceurs",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421337,
+   "index_tbox": 462,
+   "nom_fr": "Route des farceurs - Coffre 02",
+   "nom_en": "Bony Spirits Way - Chest 02",
+   "region": "route_des_farceurs",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421338,
+   "index_tbox": 473,
+   "nom_fr": "Route des bouffis - Coffre 01",
+   "nom_en": "Fleshy Souls Way - Chest 01",
+   "region": "route_des_bouffis",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421339,
+   "index_tbox": 463,
+   "nom_fr": "Route des bouffis - Coffre 02",
+   "nom_en": "Fleshy Souls Way - Chest 02",
+   "region": "route_des_bouffis",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421340,
+   "index_tbox": 480,
+   "nom_fr": "Grand-route dorée - Coffre 01",
+   "nom_en": "Gold-Gleaming Hwy. - Chest 01",
+   "region": "grand_route_doree",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421341,
+   "index_tbox": 481,
+   "nom_fr": "Grand-route dorée - Coffre 02",
+   "nom_en": "Gold-Gleaming Hwy. - Chest 02",
+   "region": "grand_route_doree",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421342,
+   "index_tbox": 470,
+   "nom_fr": "Grand-route dorée - Coffre 03",
+   "nom_en": "Gold-Gleaming Hwy. - Chest 03",
+   "region": "grand_route_doree",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421343,
+   "index_tbox": 459,
+   "nom_fr": "Grand-route dorée - Coffre 04",
+   "nom_en": "Gold-Gleaming Hwy. - Chest 04",
+   "region": "grand_route_doree",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421344,
+   "index_tbox": 483,
+   "nom_fr": "Grand-route dorée - Coffre 05",
+   "nom_en": "Gold-Gleaming Hwy. - Chest 05",
+   "region": "grand_route_doree",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421345,
+   "index_tbox": 484,
+   "nom_fr": "Grand-route dorée - Coffre 06",
+   "nom_en": "Gold-Gleaming Hwy. - Chest 06",
+   "region": "grand_route_doree",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421346,
+   "index_tbox": 485,
+   "nom_fr": "Grand-route dorée - Coffre 07",
+   "nom_en": "Gold-Gleaming Hwy. - Chest 07",
+   "region": "grand_route_doree",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421347,
+   "index_tbox": 466,
+   "nom_fr": "Grand-route dorée - Coffre 08",
+   "nom_en": "Gold-Gleaming Hwy. - Chest 08",
+   "region": "grand_route_doree",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421348,
+   "index_tbox": 461,
+   "nom_fr": "Grand-route dorée - Coffre 09",
+   "nom_en": "Gold-Gleaming Hwy. - Chest 09",
+   "region": "grand_route_doree",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421349,
+   "index_tbox": 499,
+   "nom_fr": "Grand-route dorée - Coffre 10",
+   "nom_en": "Gold-Gleaming Hwy. - Chest 10",
+   "region": "grand_route_doree",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421350,
+   "index_tbox": 186,
+   "nom_fr": "Tour de commerce Granval (13e) - Coffre 01",
+   "nom_en": "Springdale Business Tower (13F) - Chest 01",
+   "region": "rang_s",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421351,
+   "index_tbox": 490,
+   "nom_fr": "Tour de commerce Granval (13e) - Coffre 02",
+   "nom_en": "Springdale Business Tower (13F) - Chest 02",
+   "region": "rang_s",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": []
+   },
+   "exclusion": "apres_jeu"
+  },
+  {
+   "id_ap": 59421352,
+   "index_tbox": 208,
+   "nom_fr": "Résidence Sérénité (B-102) - Coffre 01",
+   "nom_en": "Tranquility Apts. (B-102) - Chest 01",
+   "region": "apres_jeu",
+   "regle": {
+    "chapitres_termines": 10,
+    "objets": [
+     "cle_appartement_b_102"
+    ]
+   },
+   "exclusion": "apres_jeu"
+  }
+ ]
+}

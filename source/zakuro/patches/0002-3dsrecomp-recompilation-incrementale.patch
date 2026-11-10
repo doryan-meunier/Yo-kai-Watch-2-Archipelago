@@ -1,0 +1,650 @@
+diff --git a/docs/interface.md b/docs/interface.md
+index 16215b8..2c481bd 100644
+--- a/docs/interface.md
++++ b/docs/interface.md
+@@ -14,7 +14,11 @@ This page describes version 4 of the interface.
+ - `recomp.h`, a copy of the interface;
+ - `entries.c`, which holds the tables described below;
+ - one header per program, with the prototypes of its functions;
+-- `code000.c`, `code001.c` and so on, which hold the functions;
++- `code_<window>_<part>.c` (`code_m<module>_<window>_<part>.c` for a
++  module), which hold the functions, each file those of a window of 16 KB
++  of addresses, cut further where it holds a lot of code. a file left the
++  same keeps its object (`.o`, with what made it in `.stamp`), which the
++  next build does not compile again;
+ - `<program id>.so`, all of the above compiled. The name is 16 uppercase hex
+   digits, for example `000400000011C500.so`. On Windows it is a `.dll`, and
+   on macOS a `.dylib`.
+diff --git a/src/build.rs b/src/build.rs
+index 19e7cff..8e1eaec 100644
+--- a/src/build.rs
++++ b/src/build.rs
+@@ -110,8 +110,31 @@ pub fn generate(
+     };
+     let folder = if files.is_empty() { dir.clone() } else { dir.join("hand") };
+     std::fs::create_dir_all(&folder).map_err(|error| format!("could not create {}, {error}", folder.display()))?;
++    // a file left as it was keeps its object, which compiling then reuses.
++    // one that changes loses it first, so that an object never outlives the
++    // source it came from, should this stop half way
+     for (name, contents) in &generated {
+-        write(&dir.join(name), contents.as_bytes())?;
++        let path = dir.join(name);
++        if std::fs::read(&path).is_ok_and(|old| old == contents.as_bytes()) {
++            continue;
++        }
++        if name.ends_with(".c") {
++            compile::forget(&path);
++        }
++        write(&path, contents.as_bytes())?;
++    }
++    // the code files of an earlier build that this one no longer has
++    if let Ok(listing) = std::fs::read_dir(&dir) {
++        let current: std::collections::HashSet<&str> = generated.iter().map(|(name, _)| name.as_str()).collect();
++        for item in listing.flatten() {
++            let file = item.file_name().to_string_lossy().into_owned();
++            let Some(stem) = file.strip_suffix(".c").or_else(|| file.strip_suffix(".o")).or_else(|| file.strip_suffix(".stamp")) else {
++                continue;
++            };
++            if stem.starts_with("code") && !current.contains(format!("{stem}.c").as_str()) {
++                let _ = std::fs::remove_file(item.path());
++            }
++        }
+     }
+     let mut sources: Vec<String> = generated.iter().map(|(name, _)| name.clone()).filter(|name| name.ends_with(".c")).collect();
+     for file in &files {
+diff --git a/src/codegen/mod.rs b/src/codegen/mod.rs
+index 0f07ff5..e311f47 100644
+--- a/src/codegen/mod.rs
++++ b/src/codegen/mod.rs
+@@ -33,6 +33,9 @@ pub(crate) struct Scope<'a> {
+     /// the instructions left to the interpreter, which can end the code's
+     /// run, so that it gets entered again right after them.
+     pub interpreted: &'a std::cell::RefCell<Vec<u32>>,
++    /// the C functions the code calls, whose prototypes the file it goes in
++    /// declares.
++    pub called: &'a std::cell::RefCell<BTreeSet<String>>,
+ }
+ 
+ impl Scope<'_> {
+@@ -43,7 +46,11 @@ impl Scope<'_> {
+ 
+     /// the C function that runs the function at target, if there is one.
+     fn function(&self, target: u32, thumb: bool) -> Option<String> {
+-        self.functions.get(&(target | thumb as u32)).cloned()
++        let name = self.functions.get(&(target | thumb as u32)).cloned();
++        if let Some(name) = &name {
++            self.called.borrow_mut().insert(name.clone());
++        }
++        name
+     }
+ }
+ 
+@@ -127,6 +134,90 @@ fn jump(out: &mut String, scope: &Scope, target: u32, thumb: bool) -> bool {
+     false
+ }
+ 
++/// the addresses a source file holds the functions of, as the start of
++/// their window, so that the files of code a change does not reach stay
++/// the same, byte for byte.
++const WINDOW: u32 = 0x4000;
++
++/// where a function's stale flag and start are, from the file it is in.
++struct Slot {
++    starts: String,
++    stale: String,
++    index: usize,
++}
++
++/// a source file being written.
++struct File {
++    name: String,
++    window: u32,
++    part: usize,
++    /// the number of its first function in its unit.
++    first: usize,
++    starts: String,
++    stale: String,
++    body: String,
++    size: usize,
++    called: std::cell::RefCell<BTreeSet<String>>,
++}
++
++/// a file's names for its place in its unit's arrays, and that place.
++struct Alias {
++    starts: String,
++    stale: String,
++    first: usize,
++}
++
++/// what entries.c defines a file's names with: symbols at an offset into
++/// the arrays, which the assembler and linker resolve, so that the files
++/// themselves hold no number that depends on the functions before them.
++const ALIAS_MACROS: &str = r#"
++#ifndef RECOMP_ALIAS
++#define RECOMP_STRING_(x) #x
++#define RECOMP_STRING(x) RECOMP_STRING_(x)
++#define RECOMP_SYMBOL(name) RECOMP_STRING(__USER_LABEL_PREFIX__) #name
++#ifdef __ELF__
++#define RECOMP_ALIAS_HIDDEN(name) ".hidden " RECOMP_SYMBOL(name) "\n"
++#else
++#define RECOMP_ALIAS_HIDDEN(name) ""
++#endif
++#define RECOMP_ALIAS(name, array, offset) __asm__(".globl " RECOMP_SYMBOL(name) "\n" RECOMP_ALIAS_HIDDEN(name) ".set " RECOMP_SYMBOL(name) ", " RECOMP_SYMBOL(array) " + " #offset "\n");
++#endif
++"#;
++
++impl File {
++    fn new(prefix: &str, window: u32, part: usize, first: usize) -> File {
++        let stem = format!("{prefix}{window:08X}_{part}");
++        File {
++            name: format!("code_{stem}.c"),
++            window,
++            part,
++            first,
++            starts: format!("{prefix}recomp_starts_{stem}"),
++            stale: format!("{prefix}recomp_stale_{stem}"),
++            body: String::new(),
++            size: 0,
++            called: Default::default(),
++        }
++    }
++
++    /// the file, its declarations first, added to sources.
++    fn finish(self, prefix: &str, relative: bool, sources: &mut Vec<(String, String)>) -> Alias {
++        let mut text = String::from("#include \"recomp.h\"\n");
++        if relative {
++            emit!(text, "extern uint32_t {prefix}base;");
++        }
++        emit!(text, "extern RECOMP_HIDDEN uint8_t {}[];", self.stale);
++        emit!(text, "extern RECOMP_HIDDEN uint32_t {}[];", self.starts);
++        for called in self.called.borrow().iter() {
++            emit!(text, "void {called}(Context *ctx);");
++        }
++        text.push('\n');
++        text.push_str(&self.body);
++        sources.push((self.name, text));
++        Alias { starts: self.starts, stale: self.stale, first: self.first }
++    }
++}
++
+ /// instructions per source file, so the files compile in parallel. gcc
+ /// keeps a whole file in memory, and files of 20,000 took it up to 7.8 GB.
+ const FILE_SIZE: usize = 5_000;
+@@ -200,11 +291,9 @@ pub struct Unit<'a> {
+ /// which overrides.h lets them still call.
+ pub fn generate(units: &[Unit], overrides: &[Override]) -> Vec<(String, String)> {
+     let mut files = vec![("recomp.h".to_owned(), HEADER.to_owned())];
+-    let mut sources: Vec<String> = Vec::new();
+-    let mut source = String::new();
+-    // the headers the file being written includes
+-    let mut included = BTreeSet::new();
+-    let mut size = 0;
++    let mut sources: Vec<(String, String)> = Vec::new();
++    // each file's names for its place in the stale flags and starts
++    let mut aliases: Vec<Alias> = Vec::new();
+     let mut tables = String::from("#include \"recomp.h\"\n");
+     let mut modules = String::new();
+     // each unit's Origins, the executable's first
+@@ -264,22 +353,39 @@ pub fn generate(units: &[Unit], overrides: &[Override]) -> Vec<(String, String)>
+         files.push((header.clone(), prototypes));
+ 
+         let include = format!("#include \"{header}\"\n\n");
++        // the unit's code goes into files that each hold a window of its
++        // addresses, cut further where a window holds a lot of code, so that
++        // a change to some functions leaves the files of the others as they
++        // were, which an incremental build then does not compile again. a
++        // file reaches its functions' stale flags and starts through names
++        // of its own, which entries.c sets at their place in the unit's
++        // arrays, and declares only what its functions call
++        let relative = unit.module.is_some();
++        let mut file: Option<File> = None;
+         // each function's labels with those after what it interprets
+         let mut resumed: BTreeMap<u32, BTreeSet<u32>> = BTreeMap::new();
+         for (number, (&entry, function)) in functions.iter().enumerate() {
+-            if source.is_empty() {
+-                source.push_str("#include \"recomp.h\"\n");
+-            }
+-            if included.insert(index) {
+-                source.push_str(&include);
++            let window = entry / WINDOW * WINDOW;
++            let next = match &file {
++                Some(open) if open.window == window && open.size < FILE_SIZE => None,
++                Some(open) if open.window == window => Some(open.part + 1),
++                _ => Some(0),
++            };
++            if let Some(part) = next {
++                if let Some(done) = file.take() {
++                    aliases.push(done.finish(&prefix, relative, &mut sources));
++                }
++                file = Some(File::new(&prefix, window, part, number));
+             }
++            let open = file.as_mut().unwrap();
++            let slot = Slot { starts: open.starts.clone(), stale: open.stale.clone(), index: number - open.first };
+             // written once to see what goes to the interpreter, the code
+             // can stop after any of those, and then again with a label
+             // after each, where the host comes back in
+             let interpreted = std::cell::RefCell::new(Vec::new());
+-            let relative = unit.module.is_some();
+-            let scope = Scope { labels: &function.labels, functions: &names, prefix: &prefix, relative, interpreted: &interpreted };
+-            write_function(&mut String::new(), unit.program, &scope, entry, function, number);
++            let called = &open.called;
++            let scope = Scope { labels: &function.labels, functions: &names, prefix: &prefix, relative, interpreted: &interpreted, called };
++            write_function(&mut String::new(), unit.program, &scope, entry, function, &slot);
+             let mut resumable = (*function).clone();
+             for address in interpreted.take() {
+                 let at = function.instructions.iter().position(|&a| a == address);
+@@ -287,15 +393,15 @@ pub fn generate(units: &[Unit], overrides: &[Override]) -> Vec<(String, String)>
+                     resumable.labels.insert(next);
+                 }
+             }
+-            let scope = Scope { labels: &resumable.labels, functions: &names, prefix: &prefix, relative, interpreted: &interpreted };
+-            write_function(&mut source, unit.program, &scope, entry, &resumable, number);
++            let scope = Scope { labels: &resumable.labels, functions: &names, prefix: &prefix, relative, interpreted: &interpreted, called };
++            let mut body = String::new();
++            write_function(&mut body, unit.program, &scope, entry, &resumable, &slot);
++            open.body.push_str(&body);
+             resumed.insert(entry, resumable.labels);
+-            size += function.instructions.len();
+-            if size >= FILE_SIZE {
+-                sources.push(std::mem::take(&mut source));
+-                included.clear();
+-                size = 0;
+-            }
++            open.size += function.instructions.len();
++        }
++        if let Some(done) = file.take() {
++            aliases.push(done.finish(&prefix, relative, &mut sources));
+         }
+ 
+         // every label the host can resume at, preferring the function that
+@@ -336,9 +442,13 @@ pub fn generate(units: &[Unit], overrides: &[Override]) -> Vec<(String, String)>
+         }
+         emit!(tables, "}};\n");
+         write_origins(&mut tables, &mut origins, &prefix, unit.program, &functions, &entries);
+-    }
+-    if !source.is_empty() {
+-        sources.push(source);
++        if !aliases.is_empty() {
++            tables.push_str(ALIAS_MACROS);
++            for alias in aliases.drain(..) {
++                emit!(tables, "RECOMP_ALIAS({}, {prefix}recomp_stale, {})", alias.stale, alias.first);
++                emit!(tables, "RECOMP_ALIAS({}, {prefix}recomp_starts, {})", alias.starts, alias.first * 4);
++            }
++        }
+     }
+ 
+     emit!(tables, "RECOMP_EXPORT const uint32_t recomp_abi = RECOMP_ABI;");
+@@ -355,7 +465,7 @@ pub fn generate(units: &[Unit], overrides: &[Override]) -> Vec<(String, String)>
+         emit!(header, "\n/* the generated functions the overrides replace. */\n\n{originals}");
+         files.push(("overrides.h".to_owned(), header));
+     }
+-    files.extend(sources.into_iter().enumerate().map(|(i, source)| (format!("code{i:03}.c"), source)));
++    files.extend(sources);
+     files
+ }
+ 
+@@ -391,7 +501,7 @@ fn write_origins(
+     entries: &BTreeMap<u32, (String, u32)>,
+ ) {
+     let count = functions.len();
+-    emit!(tables, "RECOMP_HIDDEN uint8_t {prefix}recomp_stale[{}];", count.max(1));
++    emit!(tables, "RECOMP_HIDDEN uint8_t {prefix}recomp_stale[{}] = {{0}};", count.max(1));
+     let starts: Vec<String> = functions.keys().map(|entry| format!("0x{entry:08X}u")).collect();
+     emit!(tables, "RECOMP_HIDDEN uint32_t {prefix}recomp_starts[{}] = {{{}}};", count.max(1), starts.join(", "));
+     let spans: Vec<Vec<(u32, u32)>> = functions.values().map(|function| spans(program, function)).collect();
+@@ -471,11 +581,11 @@ fn pieces(spans: impl Iterator<Item = (u32, u32)>) -> Vec<(u32, u32)> {
+ }
+ 
+ /// a function, the number-th of its unit.
+-fn write_function(out: &mut String, program: &Program, scope: &Scope, entry: u32, function: &Function, number: usize) {
++fn write_function(out: &mut String, program: &Program, scope: &Scope, entry: u32, function: &Function, slot: &Slot) {
+     let thumb = function.mode == Mode::Thumb;
+     emit!(out, "void {}(Context *ctx) {{", name(scope.prefix, entry, thumb));
+     let mut body = String::new();
+-    write_body(&mut body, program, scope, entry, function, number);
++    write_body(&mut body, program, scope, entry, function, slot);
+     out.push_str(&locals::keep(&body));
+     emit!(out, "}}");
+     out.push_str(locals::RESET);
+@@ -483,7 +593,7 @@ fn write_function(out: &mut String, program: &Program, scope: &Scope, entry: u32
+ }
+ 
+ /// what a function does, between its braces.
+-fn write_body(out: &mut String, program: &Program, scope: &Scope, entry: u32, function: &Function, number: usize) {
++fn write_body(out: &mut String, program: &Program, scope: &Scope, entry: u32, function: &Function, slot: &Slot) {
+     let thumb = function.mode == Mode::Thumb;
+     let state = if thumb { "ctx->thumb" } else { "!ctx->thumb" };
+     if scope.relative {
+@@ -496,10 +606,10 @@ fn write_body(out: &mut String, program: &Program, scope: &Scope, entry: u32, fu
+     // starts at once the function is stale, so that calls pay for the check
+     // with nothing more than the compare they make anyway, and whatever
+     // misses goes past the flag
+-    let prefix = scope.prefix;
+-    let start = if scope.relative { format!("(module_base + {prefix}recomp_starts[{number}])") } else { format!("{prefix}recomp_starts[{number}]") };
++    let (starts, stale, number) = (&slot.starts, &slot.stale, slot.index);
++    let start = if scope.relative { format!("(module_base + {starts}[{number}])") } else { format!("{starts}[{number}]") };
+     emit!(out, "    if (LIKELY(target == {start})) goto L_{entry:08X};");
+-    emit!(out, "    STALE_CHECK({prefix}recomp_stale[{number}])");
++    emit!(out, "    STALE_CHECK({stale}[{number}])");
+     emit!(out, "dispatch:");
+     let offset = if scope.relative { "target - module_base" } else { "target" };
+     emit!(out, "    if ({state}) switch ({offset}) {{");
+@@ -559,6 +669,9 @@ mod tests {
+     }
+ 
+     /// the files for a function that calls another, the callee replaced.
++    /// the file of the code at BASE.
++    const C0: &str = "code_00100000_0.c";
++
+     fn generated(overrides: &[Override]) -> BTreeMap<String, String> {
+         // bl BASE + 8, bx lr, bx lr
+         files(&[0xEB00_0000, 0xE12F_FF1E, 0xE12F_FF1E], overrides)
+@@ -568,7 +681,7 @@ mod tests {
+     fn multiple_transfers_check_one_page_for_all_their_words() {
+         // push {r4, r5, lr}, vpush {d8}, vpop {d8}, pop {r4, r5, pc}
+         let files = files(&[0xE92D_4030, 0xED2D_8B02, 0xECBD_8B02, 0xE8BD_8030], &[]);
+-        let code = &files["code000.c"];
++        let code = &files["code_00100000_0.c"];
+         assert!(code.contains("mem_write_span(ctx, p, 12u)"));
+         assert!(code.contains("store32(span + 8, reg14_);"));
+         assert!(code.contains("mem_write_span(ctx, p, 8u)"));
+@@ -576,7 +689,7 @@ mod tests {
+         assert!(code.contains("next = load32(span + 8);"));
+         assert!(code.contains("RETURN_TO_A(next);"));
+ 
+-        compiles("transfers", &files, &["code000.c"]);
++        compiles("transfers", &files, &["code_00100000_0.c"]);
+     }
+ 
+     /// compiles sources among files, in a folder of their own named after
+@@ -601,10 +714,11 @@ mod tests {
+     fn functions_say_what_they_were_made_from() {
+         // bl BASE + 8, bx lr, then the callee, bx lr
+         let files = generated(&[]);
+-        let code = &files["code000.c"];
+-        assert!(code.contains("if (LIKELY(target == recomp_starts[0])) goto L_00100000;\n    STALE_CHECK(recomp_stale[0])"));
+-        assert!(code.contains("STALE_CHECK(recomp_stale[1])"));
++        let code = &files["code_00100000_0.c"];
++        assert!(code.contains("if (LIKELY(target == recomp_starts_00100000_0[0])) goto L_00100000;\n    STALE_CHECK(recomp_stale_00100000_0[0])"));
++        assert!(code.contains("STALE_CHECK(recomp_stale_00100000_0[1])"));
+         assert!(files["entries.c"].contains("uint32_t recomp_starts[2] = {0x00100000u, 0x00100008u};"));
++        assert!(files["entries.c"].contains("RECOMP_ALIAS(recomp_starts_00100000_0, recomp_starts, 0)"));
+         let tables = &files["entries.c"];
+         let mut caller = recomp_abi::CodeHash::default();
+         caller.add(&[0x00, 0x00, 0x00, 0xEB, 0x1E, 0xFF, 0x2F, 0xE1]);
+@@ -614,7 +728,7 @@ mod tests {
+         assert!(tables.contains("static const Run origin_runs[] = {\n    {0, 1},\n    {1, 2},\n};"), "{tables}");
+         assert!(tables.contains("RECOMP_EXPORT const Origins recomp_origins[] = {\n    {2, 2, origin_pieces, origin_functions, origin_runs, origin_owners, recomp_stale, recomp_starts},"));
+ 
+-        compiles("origins", &files, &["code000.c", "entries.c"]);
++        compiles("origins", &files, &["code_00100000_0.c", "entries.c"]);
+     }
+ 
+     /// code several functions hold is cut where any of them starts or ends,
+@@ -625,10 +739,10 @@ mod tests {
+         assert_eq!(pieces, [(0x100, 0x110), (0x110, 0x118), (0x118, 0x120), (0x120, 0x130), (0x200, 0x204)]);
+     }
+ 
+-    /// a file holding functions of the executable and of a module declares
+-    /// what both use.
++    /// the executable and its modules get files of their own, which declare
++    /// what they use.
+     #[test]
+-    fn units_that_share_a_file_compile() {
++    fn units_compile_each_in_files_of_their_own() {
+         let program = Program {
+             text: Segment { base: BASE, bytes: [0xEB00_0000u32, 0xE12F_FF1E, 0xE12F_FF1E].iter().flat_map(|w| w.to_le_bytes()).collect() },
+             seeds: vec![(BASE, Source::Entry)],
+@@ -641,13 +755,14 @@ mod tests {
+             Unit { module: Some("Second"), program: &program, analysis: &analysis },
+         ];
+         let files: BTreeMap<String, String> = generate(&units, &[]).into_iter().collect();
+-        let code = &files["code000.c"];
+-        assert!(code.contains("#include \"m001_functions.h\"") && code.contains("#include \"m002_functions.h\""));
+-        assert!(code.contains("STALE_CHECK(m002_recomp_stale[1])"));
+-        assert!(code.contains("if (LIKELY(target == (module_base + m002_recomp_starts[1])))"));
++        let code = &files["code_m002_00100000_0.c"];
++        assert!(code.contains("extern uint32_t m002_base;"));
++        assert!(code.contains("STALE_CHECK(m002_recomp_stale_m002_00100000_0[1])"));
++        assert!(code.contains("if (LIKELY(target == (module_base + m002_recomp_starts_m002_00100000_0[1])))"));
++        assert!(files["entries.c"].contains("RECOMP_ALIAS(m002_recomp_starts_m002_00100000_0, m002_recomp_starts, 0)"));
+         assert!(files["entries.c"].contains("{2, 2, m002_origin_pieces, m002_origin_functions, m002_origin_runs, m002_origin_owners, m002_recomp_stale, m002_recomp_starts},"));
+ 
+-        compiles("units", &files, &["code000.c", "entries.c"]);
++        compiles("units", &files, &["code_00100000_0.c", "code_m001_00100000_0.c", "code_m002_00100000_0.c", "entries.c"]);
+     }
+ 
+     #[test]
+@@ -682,7 +797,7 @@ RECOMP_OVERRIDE(0x00100008) {
+ "#
+             .to_owned(),
+         );
+-        compiles("overrides", &files, &["code000.c", "override.c"]);
++        compiles("overrides", &files, &["code_00100000_0.c", "override.c"]);
+     }
+ 
+     #[test]
+@@ -694,8 +809,9 @@ RECOMP_OVERRIDE(0x00100008) {
+             original: "original_0x00100008".to_owned(),
+         };
+         let files = generated(std::slice::from_ref(&replaced));
+-        let code = &files["code000.c"];
++        let code = &files["code_00100000_0.c"];
+         assert!(code.contains("CALL(override_0x00100008);"));
++        assert!(code.contains("void override_0x00100008(Context *ctx);"));
+         assert!(files["functions.h"].contains("void override_0x00100008(Context *ctx);"));
+         assert!(files["entries.c"].contains("{0x00100008u, override_0x00100008},"));
+         assert!(files["entries.c"].contains(&format!("recomp_generation = {}u;", recomp_abi::GENERATION)));
+@@ -705,7 +821,62 @@ RECOMP_OVERRIDE(0x00100008) {
+ 
+         // without overrides nothing changes
+         let plain = generated(&[]);
+-        assert!(plain["code000.c"].contains("CALL(f_00100008);"));
++        assert!(plain["code_00100000_0.c"].contains("CALL(f_00100008);"));
+         assert!(!plain.contains_key("overrides.h"));
+     }
++
++    /// a change to one function leaves the files of the functions in other
++    /// windows as they were, byte for byte, and the tables say where each
++    /// file's functions are in the arrays.
++    #[test]
++    fn a_change_leaves_the_other_windows_alone() {
++        // a function at BASE and one a window further: bx lr; ... bx lr
++        let mut words = vec![0xE12F_FF1Eu32; (WINDOW as usize / 4) + 1];
++        for word in words.iter_mut().skip(1).take(WINDOW as usize / 4 - 1) {
++            *word = 0;
++        }
++        let program = |words: &[u32], seeds: Vec<(u32, Source)>| Program {
++            text: Segment { base: BASE, bytes: words.iter().flat_map(|w| w.to_le_bytes()).collect() },
++            seeds,
++            slots: None,
++        };
++        let generate_for = |words: &[u32], seeds: Vec<(u32, Source)>| -> BTreeMap<String, String> {
++            let program = program(words, seeds);
++            let analysis = discover::analyze(&program);
++            let units = [Unit { module: None, program: &program, analysis: &analysis }];
++            generate(&units, &[]).into_iter().collect()
++        };
++        let seeds = vec![(BASE, Source::Entry), (BASE + WINDOW, Source::Entry)];
++        let before = generate_for(&words, seeds.clone());
++        let second = format!("code_{:08X}_0.c", BASE + WINDOW);
++        assert!(before.contains_key(&second), "{:?}", before.keys());
++        // the first function now does mov r0, #1 first, and a third one
++        // turns up in the first window, which moves the second's number
++        words[0] = 0xE3A0_0001;
++        words[1] = 0xE12F_FF1E;
++        words[2] = 0xE12F_FF1E;
++        let after = generate_for(&words, vec![(BASE, Source::Entry), (BASE + 8, Source::Entry), (BASE + WINDOW, Source::Entry)]);
++        assert_ne!(before[C0], after[C0]);
++        assert_eq!(before[&second], after[&second]);
++        assert!(before["entries.c"].contains(&format!("RECOMP_ALIAS(recomp_starts_{:08X}_0, recomp_starts, 4)", BASE + WINDOW)));
++        assert!(after["entries.c"].contains(&format!("RECOMP_ALIAS(recomp_starts_{:08X}_0, recomp_starts, 8)", BASE + WINDOW)));
++    }
++
++    /// the files link into a library whose functions reach their stale
++    /// flags and starts through the names entries.c sets.
++    #[test]
++    fn the_names_of_the_files_link() {
++        let files = generated(&[]);
++        let dir = std::env::temp_dir().join(format!("3dsrecomp-aliases-{}", std::process::id()));
++        std::fs::create_dir_all(&dir).unwrap();
++        for (name, text) in &files {
++            std::fs::write(dir.join(name), text).unwrap();
++        }
++        let Ok(compiler) = crate::compile::check(None) else { return };
++        let sources = vec![C0.to_owned(), "entries.c".to_owned()];
++        let library = dir.join(if cfg!(windows) { "aliases.dll" } else { "libaliases.so" });
++        crate::compile::compile(&compiler, &dir, &sources, &library, &|_, _| true, false).unwrap();
++        assert!(library.exists());
++        std::fs::remove_dir_all(&dir).ok();
++    }
+ }
+diff --git a/src/compile.rs b/src/compile.rs
+index ad3c118..e498d76 100644
+--- a/src/compile.rs
++++ b/src/compile.rs
+@@ -196,6 +196,13 @@ pub fn objects(
+     background: bool,
+ ) -> Result<Vec<PathBuf>, String> {
+     let gcc = compiler.is_gcc();
++    // the objects an earlier build left of sources that have not changed
++    // since, made by the same compiler from the same header, need no
++    // compiling again
++    let stamp = stamp(compiler, dir, gcc);
++    let reused: Vec<bool> = sources.iter().map(|source| up_to_date(&dir.join(source), &stamp)).collect();
++    let done = AtomicUsize::new(reused.iter().filter(|&&reused| reused).count());
++    let sources_to_build: Vec<usize> = (0..sources.len()).filter(|&i| !reused[i]).collect();
+     let cores = std::thread::available_parallelism().map_or(4, |n| n.get());
+     let jobs = if background { cores.saturating_sub(1).max(1) } else { cores };
+     let budget = spare_memory().map(|spare| spare.saturating_sub(RESERVE));
+@@ -203,13 +210,15 @@ pub fn objects(
+         sources.iter().map(|source| std::fs::metadata(dir.join(source)).map_or(0, |m| m.len()) * MEMORY_PER_BYTE).collect();
+     // the biggest first, so that none of them starts last and holds the
+     // others up
+-    let mut order: Vec<usize> = (0..sources.len()).collect();
++    let mut order: Vec<usize> = sources_to_build;
+     order.sort_by_key(|&i| std::cmp::Reverse(needs[i]));
++    if done.load(Ordering::Relaxed) > 0 && !progress(done.load(Ordering::Relaxed), sources.len()) {
++        return Err("stopped".to_owned());
++    }
+ 
+     // the next of order to start, and the memory and compilers in use
+     let state = Mutex::new((0usize, 0u64, 0usize));
+     let freed = Condvar::new();
+-    let done = AtomicUsize::new(0);
+     let stopped = AtomicBool::new(false);
+     let failures = Mutex::new(Vec::new());
+     std::thread::scope(|scope| {
+@@ -233,6 +242,7 @@ pub fn objects(
+                 let Some(index) = index else { break };
+                 let source = &sources[index];
+                 let path = dir.join(source);
++                forget(&path);
+                 let mut command = compiler.command();
+                 if background {
+                     lower(&mut command);
+@@ -248,7 +258,9 @@ pub fn objects(
+                     .arg("-o")
+                     .arg(path.with_extension("o"))
+                     .status();
+-                if !status.is_ok_and(|s| s.success()) {
++                if status.is_ok_and(|s| s.success()) {
++                    remember(&path, &stamp);
++                } else {
+                     failures.lock().unwrap().push(source.clone());
+                 }
+                 if !progress(done.fetch_add(1, Ordering::Relaxed) + 1, sources.len()) {
+@@ -271,6 +283,51 @@ pub fn objects(
+     Ok(sources.iter().map(|source| dir.join(source).with_extension("o")).collect())
+ }
+ 
++/// what an object depends on besides its source: the compiler, how it is
++/// called, and the header every source includes.
++fn stamp(compiler: &Compiler, dir: &Path, gcc: bool) -> String {
++    let version = compiler.command().arg("--version").output().map(|o| String::from_utf8_lossy(&o.stdout).into_owned());
++    let header = std::fs::read(dir.join("recomp.h")).unwrap_or_default();
++    let mut hash = recomp_abi::CodeHash::default();
++    hash.add(&header);
++    format!(
++        "{}\n{}\n{:?} {:?} {:?}\nrecomp.h {} {:016X}\n",
++        compiler.describe(),
++        version.unwrap_or_default().trim(),
++        FLAGS,
++        if gcc { GCC_FLAGS } else { &[] },
++        if cfg!(windows) { &[][..] } else { UNIX_FLAGS },
++        header.len(),
++        hash.value()
++    )
++}
++
++/// where it is noted what a source's object was made with.
++fn stamp_path(source: &Path) -> PathBuf {
++    source.with_extension("stamp")
++}
++
++/// whether source has an object made from it as it is, with stamp.
++fn up_to_date(source: &Path, stamp: &str) -> bool {
++    let object = source.with_extension("o");
++    let newer = |a: &Path, b: &Path| {
++        let time = |p: &Path| std::fs::metadata(p).and_then(|m| m.modified()).ok();
++        matches!((time(a), time(b)), (Some(a), Some(b)) if a >= b)
++    };
++    std::fs::read_to_string(stamp_path(source)).is_ok_and(|noted| noted == stamp) && newer(&object, source)
++}
++
++/// notes that source's object was just made with stamp.
++fn remember(source: &Path, stamp: &str) {
++    let _ = std::fs::write(stamp_path(source), stamp);
++}
++
++/// forgets source's object, which no longer goes with it.
++pub fn forget(source: &Path) {
++    let _ = std::fs::remove_file(stamp_path(source));
++    let _ = std::fs::remove_file(source.with_extension("o"));
++}
++
+ /// links objects into a shared library. on Windows gcc's runtime goes in
+ /// with it, so the DLL needs no other DLL beside it.
+ pub fn shared(compiler: &Compiler, objects: &[PathBuf], library: &Path) -> Result<(), String> {
+@@ -361,6 +418,41 @@ mod tests {
+         std::fs::remove_dir_all(dir).unwrap();
+     }
+ 
++    /// a source that has not changed keeps the object made from it, one that
++    /// changed is compiled again.
++    #[test]
++    fn objects_of_unchanged_sources_are_kept() {
++        let Some(compiler) = Compiler::find() else { return };
++        let dir = std::env::temp_dir().join(format!("3dsrecomp-kept-{}", std::process::id()));
++        std::fs::create_dir_all(&dir).unwrap();
++        std::fs::write(dir.join("recomp.h"), "").unwrap();
++        let sources = vec!["a.c".to_owned(), "b.c".to_owned()];
++        std::fs::write(dir.join("a.c"), "int a(void) { return 1; }\n").unwrap();
++        std::fs::write(dir.join("b.c"), "int b(void) { return 2; }\n").unwrap();
++        let compiled = || {
++            let count = AtomicUsize::new(0);
++            let before: Vec<_> = sources.iter().map(|s| std::fs::metadata(dir.join(s).with_extension("o")).and_then(|m| m.modified()).ok()).collect();
++            objects(&compiler, &dir, &sources, &|_, _| true, false).unwrap();
++            for (source, before) in sources.iter().zip(before) {
++                let after = std::fs::metadata(dir.join(source).with_extension("o")).and_then(|m| m.modified()).ok();
++                if after != before {
++                    count.fetch_add(1, Ordering::Relaxed);
++                }
++            }
++            count.into_inner()
++        };
++        assert_eq!(compiled(), 2);
++        assert_eq!(compiled(), 0);
++        // what build::generate does to a source it changes
++        forget(&dir.join("b.c"));
++        std::fs::write(dir.join("b.c"), "int b(void) { return 3; }\n").unwrap();
++        assert_eq!(compiled(), 1);
++        // another header, another compiler: everything again
++        std::fs::write(dir.join("recomp.h"), "/* other */").unwrap();
++        assert_eq!(compiled(), 2);
++        std::fs::remove_dir_all(dir).unwrap();
++    }
++
+     #[test]
+     fn a_compiler_that_does_not_run_is_turned_down() {
+         let error = check(Some(&Compiler::new("/nowhere/cc", &[]))).unwrap_err();

@@ -1,0 +1,218 @@
+YO-KAI WATCH 2 - ARCHIPELAGO
+============================
+
+(English below.)
+
+Ce mod relie Yo-kai Watch 2 (version européenne, 3DS, émulateur Azahar) à une partie Archipelago : les
+coffres dorés et les objets-clés sont mélangés avec les autres jeux de la partie.
+
+Ce qu'il faut
+-------------
+- Windows, et Python 3.11 ou plus récent (https://www.python.org, cocher « Add python.exe to PATH » ;
+  rien d'autre à installer).
+- Azahar 2124.3 (https://azahar-emu.org). Une autre version peut marcher, mais seule celle-ci est validée.
+- VOTRE ROM déchiffrée de Yo-kai Watch 2 européen (.3ds, .cci ou .cxi), faite avec GodMode9 depuis votre
+  propre cartouche. Le mod ne contient aucune donnée du jeu : il se construit à partir de votre ROM.
+
+Installation en 3 étapes
+------------------------
+1. Décompressez ce dossier où vous voulez (par exemple dans Documents).
+2. Double-cliquez sur « Lanceur Yo-kai Watch 2 Archipelago.pyw ».
+3. Dans la fenêtre :
+   a. « ROM du jeu » : Choisir... votre ROM. Le lanceur vérifie que c'est la bonne version.
+   b. « Azahar » : il est trouvé tout seul ; sinon, Choisir... azahar.exe. Si la ligne « Liaison avec le jeu
+      (stub GDB) » dit « désactivée », cliquez sur « Activer... » : le lanceur vous demande votre accord avant
+      de modifier la configuration d'Azahar (il en fait une copie de sauvegarde ; Azahar doit être fermé).
+   c. Cliquez sur « Jouer ». La première fois, le mod s'installe dans le dossier des mods d'Azahar (jusqu'à
+      une minute), puis le jeu démarre.
+
+Émulateur : Zakuro (version PC) ou Azahar
+-----------------------------------------
+Depuis la V3, le lanceur peut fournir Zakuro (dossier « zakuro »), un émulateur 3DS qui fait tourner le jeu en
+code PC. Quand il est fourni, c'est l'émulateur par défaut (carte « 2. Émulateur ») : rien à régler. La première
+partie, et chaque mise à jour du mod, commence par « Préparation du jeu pour le PC » (environ 5 minutes la première
+fois, et un compilateur d'environ 100 Mo peut être téléchargé ; une mise à jour du mod ne refait ensuite que ce qui a
+changé, souvent moins d'une minute). Pour utiliser Azahar à la place : dans
+cette carte, Choisir... azahar.exe (et Choisir... zakuro\zakuro.exe pour revenir à Zakuro). Zakuro et Azahar ont
+chacun leurs sauvegardes (celles de Zakuro sont dans %APPDATA%\ykw2-ap\zakuro) : une partie commencée avec l'un
+se continue avec le même.
+
+La V3 ajoute aussi l'après-jeu, de nouveaux objectifs, verrous et mélanges : tout se règle dans le YAML (voir ses
+commentaires). Une partie générée avec l'APWorld de la V3 demande ce lanceur ; une partie de la V2 se joue aussi
+avec lui, sans changement.
+
+Se connecter à la partie Archipelago
+------------------------------------
+Dans le lanceur, carte « Connexion Archipelago » : saisissez l'adresse du serveur (par exemple
+archipelago.gg:38281), votre nom de slot et le mot de passe éventuel, puis « Enregistrer » (ou directement
+« Jouer »). Vous pouvez les changer en pleine partie : le client se reconnecte tout seul. L'état de la
+connexion s'affiche dans le lanceur et dans le jeu (à l'écran titre, bouton « Archipelago » : information
+seulement, rien ne s'y saisit). Ces réglages sont mémorisés (le mot de passe seulement si « Mémoriser le mot de
+passe » est coché, chiffré pour votre compte Windows).
+
+Une partie Archipelago se joue sur une NOUVELLE partie du jeu : elle est liée toute seule. Une sauvegarde déjà
+commencée n'est jamais utilisée : le lanceur (cadre « État ») affiche alors « Cette sauvegarde n'est pas liée à la
+partie Archipelago : commencez une nouvelle partie. » ; rien n'y est reçu ni envoyé. Une sauvegarde d'une autre
+partie Archipelago est refusée de même.
+
+Le fichier .apworld (dossier « apworld ») sert à la personne qui génère la partie : yokaiwatch2.apworld
+(noms français) ou yokaiwatch2en.apworld (noms anglais), à placer dans le dossier custom_worlds
+d'Archipelago.
+
+Onglet « Yo-kai » : où trouver les Yo-kai
+-----------------------------------------
+L'onglet « Yo-kai » du lanceur dit où trouver chaque Yo-kai sauvage (loupe ou errant, lieu, niveau, et « à la place
+de » quand le randomizer de Yo-kai l'a déplacé), avec recherche, filtres et une vue « Par lieu ». Il affiche le
+mélange que le jeu utilise vraiment (sinon les lieux d'origine) et se met à jour tout seul pendant la partie. Les
+noms viennent de VOTRE ROM (« Réparer » les régénère). « Anti-divulgâchage » cache les Yo-kai jamais rencontrés :
+cliquez sur une ligne pour la dévoiler. Raccourcis : Ctrl+Tab (onglet suivant), Ctrl+F (recherche).
+
+Onglet « Checks » : ce qu'il reste à faire
+------------------------------------------
+L'onglet « Checks » liste toutes les locations de votre partie par zone : faites, accessibles maintenant (d'après
+les objets reçus et votre avancée dans l'histoire), à faire plus tard, ou bloquées (il manque tel objet), avec des
+filtres par type et les objets reçus (qui vous les a envoyés). Aucun spoiler : le contenu d'un check n'apparaît
+qu'une fois fait, ou s'il a fait l'objet d'un indice (hint). Le bouton « Spoiler log (.txt) » écrit, après
+confirmation, un fichier qui révèle le contenu de TOUS vos checks (client lancé et connecté).
+
+Onglet « Discussion » : le client texte d'Archipelago
+----------------------------------------------------
+Comme le TextClient d'Archipelago : messages du serveur en couleurs (vous en magenta, les autres joueurs en
+jaune, objets selon leur importance, lieux en vert), discussion avec les autres joueurs et commandes du serveur :
+tapez un message ou « !hint objet », « !hint_location location », « !remaining », « !missing », « !status »…
+puis Entrée. « /help » liste les commandes ; flèches haut / bas : messages déjà tapés ; Ctrl+F : chercher.
+Il faut que la partie soit lancée (« Jouer ») et le client connecté ; sinon le champ l'indique et rien n'est
+envoyé. « !release » demande une confirmation.
+Sous-onglet « Indices » : tous vos indices, ceux où l'un de vos objets est chez un autre joueur et ceux où l'objet
+d'un autre est dans votre monde (dont les articles des boutiques visitées), avec leur état. Pour vos objets pas
+encore trouvés, cliquez sur l'état pour changer la priorité (prioritaire, à éviter…), comme dans le TextClient.
+
+En cas de problème
+------------------
+- « Journaux » ouvre le dossier des journaux du client (client.log) : joignez-le à toute demande d'aide.
+- « Réparer » réinstalle le mod.
+- « Désinstaller » remet le dossier des mods d'Azahar exactement comme avant (un autre mod qui s'y trouvait
+  est remis en place). Une traduction ou un autre mod dans « romfs » n'est jamais modifié.
+- ROM « chiffrée » : refaites-la déchiffrée avec GodMode9. « Version non prise en charge » : il faut la
+  version européenne, sans mise à jour intégrée ni modification.
+- Si le jeu reste sur un écran noir : le client Archipelago n'a pas démarré. Fermez Azahar et relancez
+  depuis le lanceur (toujours utiliser « Jouer », pas Azahar directement).
+
+Mises à jour
+------------
+Au lancement, le lanceur demande au dépôt public du mod s'il existe une version plus récente (aucune donnée
+envoyée ; se désactive dans « Réglages » -> « Paramètres du jeu »). Si oui, la carte « Mod » l'annonce avec ses
+notes de version. Version exe : le bouton « Mettre à jour » télécharge et contrôle le paquet, ferme le lanceur,
+remplace ses fichiers et le rouvre ; si cela échoue, l'ancienne version reste en place. Il est grisé tant que le
+jeu, Azahar ou Zakuro sont ouverts. Avec la version « .pyw » : le bouton ouvre la page de téléchargement.
+Vos réglages et sauvegardes ne sont pas dans ce dossier et ne sont pas touchés. Sauvegardez en jeu avant : une
+save state d'une autre version ne se recharge pas. Si le mod a changé, « Jouer » refait son installation.
+Mise à jour interrompue (coupure de courant, arrêt de Windows) : relancez le lanceur, il finit seul. S'il ne démarre
+plus : ouvrez le dossier caché « .maj\outil » à côté de lui et double-cliquez sur l'exécutable qu'il contient (sinon
+tapez « .maj\outil » dans la barre d'adresse de l'Explorateur). Ne supprimez pas « .maj » à la main tant que le lanceur
+ne démarre pas normalement : il peut contenir l'ancienne version. En dernier recours, décompressez de nouveau le zip.
+
+Crédits
+-------
+Icône du mod (logo Archipelago aux six cercles) : MDarkmooN.
+
+
+YO-KAI WATCH 2 - ARCHIPELAGO (ENGLISH)
+======================================
+
+This mod connects Yo-kai Watch 2 (European version, 3DS, Azahar emulator) to an Archipelago multiworld:
+golden chests and key items are shuffled with the other games of the session.
+
+Requirements
+------------
+- Windows, and Python 3.11 or newer (https://www.python.org, tick "Add python.exe to PATH"; nothing else).
+- Azahar 2124.3 (https://azahar-emu.org). Other versions may work, only this one is validated.
+- YOUR decrypted European Yo-kai Watch 2 ROM (.3ds, .cci or .cxi), dumped with GodMode9 from your own
+  cartridge. The mod contains no game data: it is built from your ROM.
+
+Setup in 3 steps
+----------------
+1. Extract this folder anywhere (for example in Documents).
+2. Double-click "Lanceur Yo-kai Watch 2 Archipelago.pyw" (the window can be switched to English).
+3. In the window:
+   a. "Game ROM": Browse... to your ROM. The launcher checks the version.
+   b. "Azahar": found automatically; otherwise Browse... to azahar.exe. If "Link with the game (GDB stub)"
+      says "disabled", click "Enable...": the launcher asks for your agreement before changing Azahar's
+      configuration (a backup copy is made; Azahar must be closed).
+   c. Click "Play". The first time, the mod is installed in Azahar's mods folder (up to one minute), then the
+      game starts.
+
+Emulator: Zakuro (PC version) or Azahar
+---------------------------------------
+Since V3, the launcher can ship Zakuro ("zakuro" folder), a 3DS emulator that runs the game as PC code. When it is
+shipped, it is the default emulator ("2. Emulator" card): nothing to set up. The first game, and each mod update,
+starts with "Preparing the game for PC" (6 to 10 minutes; the very first time, a compiler of about 100 MB may be
+downloaded). To use Azahar instead: in that card, Browse... to azahar.exe (and Browse... to zakuro\zakuro.exe to
+go back to Zakuro). Zakuro and Azahar each have their own save files (Zakuro's are in %APPDATA%\ykw2-ap\zakuro):
+a game started with one continues with the same one.
+
+V3 also adds the postgame, new goals, locks and shuffles: everything is set in the YAML (see its comments). A game
+generated with the V3 APWorld needs this launcher; a V2 game can also be played with it, unchanged.
+
+Connecting to the Archipelago session
+-------------------------------------
+In the launcher, "Archipelago connection" card: enter the server address (for example archipelago.gg:38281),
+your slot name and the password if any, then "Save" (or just "Play"). You can change them in the middle of
+a game: the client reconnects by itself. The connection status is shown in the launcher and in the game (on
+the title screen, "Archipelago" button: information only, nothing is typed there). These settings are remembered (the password only if "Remember password" is checked, encrypted for
+your Windows account).
+
+The .apworld files ("apworld" folder) are for the person generating the session: yokaiwatch2.apworld
+(French names) or yokaiwatch2en.apworld (English names), to put in Archipelago's custom_worlds folder.
+
+The "Yo-kai" tab: where to find Yo-kai
+--------------------------------------
+The launcher's "Yo-kai" tab tells where to find each wild Yo-kai (lens search or roaming, place, level, and
+"instead of" when the Yo-kai randomizer moved it), with search, filters and a "By place" view. It shows the shuffle
+the game really uses (otherwise the original places) and updates itself during the game. Names come from YOUR ROM
+("Repair" rebuilds them). "Hide spoilers" hides Yo-kai you have never met: click a row to reveal it. Shortcuts:
+Ctrl+Tab (next tab), Ctrl+F (search).
+
+The "Checks" tab: what is left to do
+------------------------------------
+The "Checks" tab lists every location of your game by area: done, available now (from received items and your
+story progress), later, or blocked (missing item), with filters by type and the received items (who sent them). No
+spoilers: the contents of a check only show once it is done, or hinted. The "Spoiler log (.txt)" button writes,
+after confirmation, a file revealing the contents of ALL your checks (client running and connected).
+
+The "Chat" tab: Archipelago's text client
+------------------------------------------
+Like Archipelago's TextClient: server messages in colour (you in magenta, other players in yellow, items by
+importance, locations in green), chat with the other players and server commands: type a message or
+"!hint item", "!hint_location location", "!remaining", "!missing", "!status"... then Enter. "/help" lists
+the commands; Up / Down arrows: previous messages; Ctrl+F: search. The game must be started ("Play") and
+the client connected; otherwise the field says so and nothing is sent. "!release" asks for confirmation.
+
+Troubleshooting
+---------------
+- "Logs" opens the client's log folder (client.log): attach it to any help request.
+- "Repair" reinstalls the mod.
+- "Uninstall" puts Azahar's mods folder back exactly as it was (another mod that was there is restored).
+  A translation or another mod in "romfs" is never modified.
+- "Encrypted" ROM: dump it again, decrypted, with GodMode9. "Unsupported version": the European version is
+  required, without a merged update or modification.
+- If the game stays on a black screen: the Archipelago client did not start. Close Azahar and start again
+  from the launcher (always use "Play", not Azahar directly).
+
+Updates
+-------
+At startup, the launcher asks the mod's public repository whether a newer version exists (no data is sent; turn
+it off in "Settings" -> "Game settings"). If so, the "Mod" card shows it with its patch notes. Exe version: the
+"Update" button downloads and checks the package, closes the launcher, replaces its files and reopens it; if
+that fails, the old version stays in place. It is greyed out while the game, Azahar or Zakuro are open. ".pyw"
+version: the button opens the download page.
+Your settings and saves are not in this folder and are not touched. Save in game first: a save state from
+another version cannot be reloaded. If the mod changed, "Play" redoes its installation.
+Interrupted update (power cut, Windows shutdown): start the launcher again, it finishes by itself. If it no longer
+starts: open the ".maj\outil" folder next to it (type ".maj\outil" in the Explorer address bar if it is hidden) and
+double-click the executable inside. Do not delete ".maj" by hand until the launcher starts normally: it may hold the
+old version. As a last resort, unzip the mod again.
+
+Credits
+-------
+Mod icon (six-circle Archipelago logo): MDarkmooN.

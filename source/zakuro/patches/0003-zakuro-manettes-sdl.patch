@@ -1,0 +1,981 @@
+diff --git a/Cargo.lock b/Cargo.lock
+index 25747f4..5a74483 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -527,6 +527,15 @@ dependencies = [
+  "error-code",
+ ]
+ 
++[[package]]
++name = "cmake"
++version = "0.1.58"
++source = "registry+https://github.com/rust-lang/crates.io-index"
++checksum = "c0f78a02292a74a88ac736019ab962ece0bc380e3f977bf72e376c5d78ff0678"
++dependencies = [
++ "cc",
++]
++
+ [[package]]
+ name = "cobs"
+ version = "0.3.0"
+@@ -1513,42 +1522,6 @@ dependencies = [
+  "r-efi 6.0.0",
+ ]
+ 
+-[[package]]
+-name = "gilrs"
+-version = "0.11.2"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "902fb00d3f6398e635be22e5c837b303c501835cca7ac11a47bba138f7aafdd8"
+-dependencies = [
+- "fnv",
+- "gilrs-core",
+- "log",
+- "serde",
+- "uuid",
+- "vec_map",
+-]
+-
+-[[package]]
+-name = "gilrs-core"
+-version = "0.6.8"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "dc7f0ce6237abcc0523f2a5502b1e3fe5802daaae47ac14e166fe49551301ea9"
+-dependencies = [
+- "inotify",
+- "js-sys",
+- "libc",
+- "libudev-sys",
+- "log",
+- "nix",
+- "objc2-core-foundation",
+- "objc2-io-kit",
+- "serde",
+- "uuid",
+- "vec_map",
+- "wasm-bindgen",
+- "web-sys",
+- "windows 0.62.2",
+-]
+-
+ [[package]]
+ name = "gimli"
+ version = "0.33.0"
+@@ -1811,26 +1784,6 @@ dependencies = [
+  "hashbrown 0.17.1",
+ ]
+ 
+-[[package]]
+-name = "inotify"
+-version = "0.11.5"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "4cc00ea907cab49550b7da656f80ebb97be1b997d931fbcd28d39734e17ce592"
+-dependencies = [
+- "bitflags 2.13.2",
+- "inotify-sys",
+- "libc",
+-]
+-
+-[[package]]
+-name = "inotify-sys"
+-version = "0.1.8"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "c033f80b2c113cdf91ab7a33faa9cbc014726dcad99880c8609af2a370edf37d"
+-dependencies = [
+- "libc",
+-]
+-
+ [[package]]
+ name = "is_terminal_polyfill"
+ version = "1.70.2"
+@@ -2048,16 +2001,6 @@ dependencies = [
+  "redox_syscall 0.9.4",
+ ]
+ 
+-[[package]]
+-name = "libudev-sys"
+-version = "0.1.4"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "3c8469b4a23b962c1396b9b451dda50ef5b283e8dd309d69033475fa9b334324"
+-dependencies = [
+- "libc",
+- "pkg-config",
+-]
+-
+ [[package]]
+ name = "linebender_resource_handle"
+ version = "0.1.1"
+@@ -2262,18 +2205,6 @@ dependencies = [
+  "jni-sys 0.3.1",
+ ]
+ 
+-[[package]]
+-name = "nix"
+-version = "0.31.3"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "cf20d2fde8ff38632c426f1165ed7436270b44f199fc55284c38276f9db47c3d"
+-dependencies = [
+- "bitflags 2.13.2",
+- "cfg-if 1.0.5",
+- "cfg_aliases",
+- "libc",
+-]
+-
+ [[package]]
+ name = "nohash-hasher"
+ version = "0.2.0"
+@@ -2624,17 +2555,6 @@ dependencies = [
+  "objc2-core-foundation",
+ ]
+ 
+-[[package]]
+-name = "objc2-io-kit"
+-version = "0.3.2"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "33fafba39597d6dc1fb709123dfa8289d39406734be322956a69f0931c73bb15"
+-dependencies = [
+- "bitflags 2.13.2",
+- "libc",
+- "objc2-core-foundation",
+-]
+-
+ [[package]]
+ name = "objc2-io-surface"
+ version = "0.3.2"
+@@ -3212,6 +3132,12 @@ dependencies = [
+  "windows-sys 0.61.2",
+ ]
+ 
++[[package]]
++name = "rpkg-config"
++version = "0.1.2"
++source = "registry+https://github.com/rust-lang/crates.io-index"
++checksum = "5a2d2f3481209a6b42eec2fbb49063fb4e8d35b57023401495d4fe0f85c817f0"
++
+ [[package]]
+ name = "rustc-hash"
+ version = "1.1.0"
+@@ -3308,6 +3234,24 @@ dependencies = [
+  "tiny-skia",
+ ]
+ 
++[[package]]
++name = "sdl3-src"
++version = "3.4.18"
++source = "registry+https://github.com/rust-lang/crates.io-index"
++checksum = "400d0fb006a4485fde477cfc56a250c99d7bfb183fefd145c15fe7607db7fc49"
++
++[[package]]
++name = "sdl3-sys"
++version = "0.7.2+SDL-3.4.18"
++source = "registry+https://github.com/rust-lang/crates.io-index"
++checksum = "82b6a7f3cad40c5b318b3539bb4624389f4a03504cd5f4c65030787b962505ac"
++dependencies = [
++ "cc",
++ "cmake",
++ "rpkg-config",
++ "sdl3-src",
++]
++
+ [[package]]
+ name = "self_cell"
+ version = "1.3.0"
+@@ -3845,10 +3789,6 @@ name = "uuid"
+ version = "1.26.1"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+ checksum = "2ef6dac1e96601b4fb3acccccff2139741fcb757cb9a36089bf5be91cfb285ce"
+-dependencies = [
+- "js-sys",
+- "wasm-bindgen",
+-]
+ 
+ [[package]]
+ name = "v4l"
+@@ -3870,12 +3810,6 @@ dependencies = [
+  "bindgen",
+ ]
+ 
+-[[package]]
+-name = "vec_map"
+-version = "0.8.2"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "f1bddf1187be692e79c5ffeab891132dfb0f236ed36a43c7ed39f1165ee20191"
+-
+ [[package]]
+ name = "vello_common"
+ version = "0.1.0"
+@@ -4638,7 +4572,6 @@ dependencies = [
+  "egui",
+  "egui-winit",
+  "env_logger",
+- "gilrs",
+  "glutin",
+  "glutin-winit",
+  "image",
+@@ -4647,6 +4580,7 @@ dependencies = [
+  "raw-window-handle",
+  "recomp3ds",
+  "rfd",
++ "sdl3-sys",
+  "serde",
+  "sha2",
+  "toml",
+diff --git a/crates/zakuro/Cargo.toml b/crates/zakuro/Cargo.toml
+index 797b370..d15536c 100644
+--- a/crates/zakuro/Cargo.toml
++++ b/crates/zakuro/Cargo.toml
+@@ -33,7 +33,21 @@ rfd = { version = "0.17.2", default-features = false, features = ["xdg-portal"]
+ image = { version = "0.25.10", default-features = false, features = ["png", "jpeg", "webp", "bmp"] }
+ recomp3ds = { git = "https://github.com/fearkov/3dsrecomp" }
+ sha2 = "0.10"
+-gilrs = { version = "0.11.2", features = ["serde-serialize"] }
++# the controllers, through SDL 3 built from the crate's copy of its source
++# (sdl3-src, the official SDL3-3.4.18 release) and linked in statically: no
++# SDL3.dll beside the program. Only its joystick, gamepad and HIDAPI parts.
++sdl3-sys = { version = "=0.7.2", default-features = false, features = [
++    "build-from-source-static",
++    "no-sdl-audio",
++    "no-sdl-video",
++    "no-sdl-gpu",
++    "no-sdl-render",
++    "no-sdl-camera",
++    "no-sdl-haptic",
++    "no-sdl-power",
++    "no-sdl-dialog",
++    "no-sdl-tray",
++] }
+ 
+ [dev-dependencies]
+ zakuro-fs = { workspace = true, features = ["testing"] }
+diff --git a/crates/zakuro/src/cli.rs b/crates/zakuro/src/cli.rs
+index 044ed93..11424b0 100644
+--- a/crates/zakuro/src/cli.rs
++++ b/crates/zakuro/src/cli.rs
+@@ -33,6 +33,9 @@ pub struct Options {
+     pub gdb: Option<u16>,
+     /// recompile the game with its mods, then exit, without a window.
+     pub recompile: bool,
++    /// show what SDL sees of the controllers for this many seconds, then
++    /// exit, without a window.
++    pub controllers: Option<u64>,
+ }
+ 
+ const USAGE: &str = "\
+@@ -69,6 +72,9 @@ options:
+                                    the computer's C compiler or the Zig
+                                    Zakuro keeps (downloaded first if need
+                                    be), then exit
++  --controllers [seconds]          show the controllers SDL sees, their
++                                   buttons, sticks and triggers, for a while
++                                   (default: 60 s), then exit
+   --data <dir>                     where saves live (default: the system's
+                                    place for data, ~/.local/share/zakuro or
+                                    %APPDATA%\\zakuro)
+@@ -95,9 +101,10 @@ pub fn parse() -> Result<Options, String> {
+         mute: false,
+         gdb: None,
+         recompile: false,
++        controllers: None,
+     };
+ 
+-    let mut args = std::env::args().skip(1);
++    let mut args = std::env::args().skip(1).peekable();
+     while let Some(arg) = args.next() {
+         match arg.as_str() {
+             "-h" | "--help" => {
+@@ -144,6 +151,10 @@ pub fn parse() -> Result<Options, String> {
+                 options.gdb = Some(value.parse().map_err(|_| format!("'{value}' is not a port"))?);
+             }
+             "--recompile" => options.recompile = true,
++            "--controllers" => {
++                let seconds = args.next_if(|value| value.parse::<u64>().is_ok());
++                options.controllers = Some(seconds.map_or(60, |value| value.parse().unwrap_or(60)));
++            }
+             "--profile" => options.profile = true,
+             "--test-pattern" => options.test_pattern = true,
+             other if other.starts_with('-') => {
+diff --git a/crates/zakuro/src/gamepad.rs b/crates/zakuro/src/gamepad.rs
+index 908b5c9..b1b3a15 100644
+--- a/crates/zakuro/src/gamepad.rs
++++ b/crates/zakuro/src/gamepad.rs
+@@ -1,7 +1,39 @@
+-//! game controllers, any the system knows, read through gilrs.
++//! game controllers, read through SDL's gamepad API (SDL 3, built from
++//! source and linked into the program, no library beside it).
++//!
++//! SDL's HIDAPI drivers read PlayStation 4 and 5 and Switch Pro controllers
++//! themselves, over USB and Bluetooth, and SDL reads Xbox ones too, with
++//! the window in the background allowed (a hint below); the system's
++//! controller API (Windows.Gaming.Input, through gilrs before) only gave a
++//! DualSense's buttons to the window in the foreground, and none while
++//! Steam held it (what Steam does with SDL's reading is to be tried).
+ 
+-use gilrs::{Axis, Button, EventType, Gilrs};
+-use zakuro_core::services::hid::{InputState, PadState};
++use std::ffi::{CStr, c_char, c_int};
++
++use sdl3_sys::events::{
++    SDL_EVENT_GAMEPAD_ADDED, SDL_EVENT_GAMEPAD_BUTTON_DOWN, SDL_EVENT_GAMEPAD_REMOVED, SDL_Event, SDL_EventType,
++    SDL_PollEvent,
++};
++use sdl3_sys::gamepad::{
++    SDL_CloseGamepad, SDL_GAMEPAD_AXIS_LEFT_TRIGGER, SDL_GAMEPAD_AXIS_LEFTX, SDL_GAMEPAD_AXIS_LEFTY,
++    SDL_GAMEPAD_AXIS_RIGHT_TRIGGER, SDL_GAMEPAD_AXIS_RIGHTX, SDL_GAMEPAD_AXIS_RIGHTY, SDL_GAMEPAD_BUTTON_BACK,
++    SDL_GAMEPAD_BUTTON_DPAD_DOWN, SDL_GAMEPAD_BUTTON_DPAD_LEFT, SDL_GAMEPAD_BUTTON_DPAD_RIGHT,
++    SDL_GAMEPAD_BUTTON_DPAD_UP, SDL_GAMEPAD_BUTTON_EAST, SDL_GAMEPAD_BUTTON_GUIDE, SDL_GAMEPAD_BUTTON_LEFT_SHOULDER,
++    SDL_GAMEPAD_BUTTON_LEFT_STICK, SDL_GAMEPAD_BUTTON_NORTH, SDL_GAMEPAD_BUTTON_RIGHT_SHOULDER,
++    SDL_GAMEPAD_BUTTON_RIGHT_STICK, SDL_GAMEPAD_BUTTON_SOUTH, SDL_GAMEPAD_BUTTON_START, SDL_GAMEPAD_BUTTON_TOUCHPAD,
++    SDL_GAMEPAD_BUTTON_WEST, SDL_Gamepad, SDL_GamepadAxis, SDL_GamepadButton, SDL_GetGamepadAxis,
++    SDL_GetGamepadButton, SDL_GetGamepadConnectionState, SDL_GetGamepadName, SDL_GetGamepadStringForType,
++    SDL_GetGamepadType, SDL_OpenGamepad,
++};
++use sdl3_sys::hints::{
++    SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS, SDL_HINT_JOYSTICK_ENHANCED_REPORTS, SDL_HINT_JOYSTICK_HIDAPI,
++    SDL_HINT_JOYSTICK_HIDAPI_PS4, SDL_HINT_JOYSTICK_HIDAPI_PS5, SDL_HINT_JOYSTICK_HIDAPI_SWITCH,
++    SDL_HINT_JOYSTICK_THREAD, SDL_HINT_NO_SIGNAL_HANDLERS, SDL_HINT_TIMER_RESOLUTION, SDL_SetHint,
++};
++use sdl3_sys::init::{SDL_INIT_GAMEPAD, SDL_Init, SDL_Quit};
++use sdl3_sys::joystick::{SDL_JOYSTICK_CONNECTION_WIRED, SDL_JOYSTICK_CONNECTION_WIRELESS, SDL_JoystickID};
++use serde::{Deserialize, Serialize};
++use zakuro_core::services::hid::InputState;
+ 
+ use crate::settings::PadButtons;
+ 
+@@ -9,18 +41,311 @@ use crate::settings::PadButtons;
+ /// center.
+ const DEADZONE: f32 = 0.15;
+ 
++/// how far L2 / R2 go down before they count as pressed, and how far back
++/// up before they count as let go: SDL gives them as axes.
++const TRIGGER_DOWN: f32 = 0.5;
++const TRIGGER_UP: f32 = 0.3;
++
++/// a controller button, by where it sits on a standard controller, with
++/// the names gilrs gave them, which the settings file keeps
++/// (`[pad] a = "East"`). C and Z are never pressed (no standard controller
++/// has them); Touchpad is the DualSense's and DualShock 4's touchpad click.
++#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Default, Serialize, Deserialize)]
++pub enum Button {
++    South,
++    East,
++    North,
++    West,
++    C,
++    Z,
++    LeftTrigger,
++    LeftTrigger2,
++    RightTrigger,
++    RightTrigger2,
++    Select,
++    Start,
++    Mode,
++    LeftThumb,
++    RightThumb,
++    DPadUp,
++    DPadDown,
++    DPadLeft,
++    DPadRight,
++    Touchpad,
++    #[default]
++    Unknown,
++}
++
++/// SDL's button for one of ours, none for L2 / R2 (axes) and the buttons no
++/// standard controller has.
++fn sdl_button(button: Button) -> Option<SDL_GamepadButton> {
++    Some(match button {
++        Button::South => SDL_GAMEPAD_BUTTON_SOUTH,
++        Button::East => SDL_GAMEPAD_BUTTON_EAST,
++        Button::North => SDL_GAMEPAD_BUTTON_NORTH,
++        Button::West => SDL_GAMEPAD_BUTTON_WEST,
++        Button::LeftTrigger => SDL_GAMEPAD_BUTTON_LEFT_SHOULDER,
++        Button::RightTrigger => SDL_GAMEPAD_BUTTON_RIGHT_SHOULDER,
++        Button::Select => SDL_GAMEPAD_BUTTON_BACK,
++        Button::Start => SDL_GAMEPAD_BUTTON_START,
++        Button::Mode => SDL_GAMEPAD_BUTTON_GUIDE,
++        Button::LeftThumb => SDL_GAMEPAD_BUTTON_LEFT_STICK,
++        Button::RightThumb => SDL_GAMEPAD_BUTTON_RIGHT_STICK,
++        Button::DPadUp => SDL_GAMEPAD_BUTTON_DPAD_UP,
++        Button::DPadDown => SDL_GAMEPAD_BUTTON_DPAD_DOWN,
++        Button::DPadLeft => SDL_GAMEPAD_BUTTON_DPAD_LEFT,
++        Button::DPadRight => SDL_GAMEPAD_BUTTON_DPAD_RIGHT,
++        Button::Touchpad => SDL_GAMEPAD_BUTTON_TOUCHPAD,
++        Button::LeftTrigger2 | Button::RightTrigger2 | Button::C | Button::Z | Button::Unknown => return None,
++    })
++}
++
++/// our button for one of SDL's, none for those we do not bind (paddles,
++/// share / capture / microphone buttons).
++fn from_sdl(button: SDL_GamepadButton) -> Option<Button> {
++    const BOUND: [Button; 16] = [
++        Button::South,
++        Button::East,
++        Button::North,
++        Button::West,
++        Button::LeftTrigger,
++        Button::RightTrigger,
++        Button::Select,
++        Button::Start,
++        Button::Mode,
++        Button::LeftThumb,
++        Button::RightThumb,
++        Button::DPadUp,
++        Button::DPadDown,
++        Button::DPadLeft,
++        Button::DPadRight,
++        Button::Touchpad,
++    ];
++    BOUND.into_iter().find(|&ours| sdl_button(ours) == Some(button))
++}
++
++/// the hints SDL is started with.
++const HINTS: [(*const c_char, *const c_char); 9] = [
++    // the window in the background still gets the controllers, as when a
++    // person looks at another window while the game runs
++    (SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS, c"1".as_ptr()),
++    // SDL's own drivers, which read the controllers' reports directly, for
++    // PlayStation 4 and 5 and Switch Pro controllers, USB and Bluetooth
++    (SDL_HINT_JOYSTICK_HIDAPI, c"1".as_ptr()),
++    (SDL_HINT_JOYSTICK_HIDAPI_PS4, c"1".as_ptr()),
++    (SDL_HINT_JOYSTICK_HIDAPI_PS5, c"1".as_ptr()),
++    (SDL_HINT_JOYSTICK_HIDAPI_SWITCH, c"1".as_ptr()),
++    // SDL 3 turns a Bluetooth PlayStation controller's enhanced reports on
++    // by default, which breaks DirectInput for the other programs until the
++    // controller is turned off: "auto" leaves its mode alone, as no rumble,
++    // motion or touchpad is asked for
++    (SDL_HINT_JOYSTICK_ENHANCED_REPORTS, c"auto".as_ptr()),
++    // devices come and go on SDL's own thread, not on the window's
++    (SDL_HINT_JOYSTICK_THREAD, c"1".as_ptr()),
++    // no Ctrl+C handler of SDL's, no change to the system's timer
++    (SDL_HINT_NO_SIGNAL_HANDLERS, c"1".as_ptr()),
++    (SDL_HINT_TIMER_RESOLUTION, c"0".as_ptr()),
++];
++
++/// a string SDL gives, or "?".
++fn sdl_string(text: *const c_char) -> String {
++    if text.is_null() {
++        return "?".to_owned();
++    }
++    // SAFETY: a non-null string SDL gives is nul-terminated and lives as
++    // long as what it describes
++    unsafe { CStr::from_ptr(text) }.to_string_lossy().into_owned()
++}
++
++/// SDL's last error.
++fn sdl_error() -> String {
++    sdl_string(sdl3_sys::error::SDL_GetError())
++}
++
++/// SDL's version, as "3.4.18".
++pub fn sdl_version() -> String {
++    let version = sdl3_sys::version::SDL_GetVersion();
++    format!("{}.{}.{}", version / 1_000_000, version / 1000 % 1000, version % 1000)
++}
++
++/// an open controller.
++struct Pad {
++    gamepad: *mut SDL_Gamepad,
++    id: SDL_JoystickID,
++    /// L2 and R2 held, after the thresholds above.
++    triggers: [bool; 2],
++}
++
++impl Pad {
++    /// opens the controller SDL numbers id, none when it can't.
++    fn open(id: SDL_JoystickID) -> Option<Pad> {
++        // SAFETY: SDL is started; an unknown id gives null
++        let gamepad = unsafe { SDL_OpenGamepad(id) };
++        if gamepad.is_null() {
++            log::warn!("a controller can't be opened, {}", sdl_error());
++            return None;
++        }
++        Some(Pad { gamepad, id, triggers: [false; 2] })
++    }
++
++    /// its name, as "DualSense Wireless Controller".
++    fn name(&self) -> String {
++        // SAFETY: an open gamepad
++        sdl_string(unsafe { SDL_GetGamepadName(self.gamepad) })
++    }
++
++    /// its kind as SDL tells it ("ps5", "xbox360", "switchpro"…) and how it
++    /// is connected.
++    fn kind(&self) -> String {
++        // SAFETY: an open gamepad
++        let (kind, connection) = unsafe {
++            (SDL_GetGamepadStringForType(SDL_GetGamepadType(self.gamepad)), SDL_GetGamepadConnectionState(self.gamepad))
++        };
++        let connection = if connection == SDL_JOYSTICK_CONNECTION_WIRED {
++            "wired"
++        } else if connection == SDL_JOYSTICK_CONNECTION_WIRELESS {
++            "wireless"
++        } else {
++            "connection unknown"
++        };
++        format!("{}, {connection}", sdl_string(kind))
++    }
++
++    /// an axis, -1 to 1 (0 to 1 for the triggers), down positive as SDL has
++    /// it.
++    fn axis(&self, axis: SDL_GamepadAxis) -> f32 {
++        // SAFETY: an open gamepad
++        let value = unsafe { SDL_GetGamepadAxis(self.gamepad, axis) };
++        (f32::from(value) / 32767.0).clamp(-1.0, 1.0)
++    }
++
++    /// whether it holds an SDL button down.
++    fn holds(&self, button: SDL_GamepadButton) -> bool {
++        // SAFETY: an open gamepad; SDL gives false for a button it doesn't have
++        unsafe { SDL_GetGamepadButton(self.gamepad, button) }
++    }
++
++    /// whether it holds button down.
++    fn is_pressed(&self, button: Button) -> bool {
++        match button {
++            Button::LeftTrigger2 => self.triggers[0],
++            Button::RightTrigger2 => self.triggers[1],
++            other => sdl_button(other).is_some_and(|sdl| self.holds(sdl)),
++        }
++    }
++
++    /// takes in L2 and R2's travel, and gives those that went down since
++    /// the last call.
++    fn update_triggers(&mut self) -> Vec<Button> {
++        let mut pressed = Vec::new();
++        let triggers =
++            [(SDL_GAMEPAD_AXIS_LEFT_TRIGGER, Button::LeftTrigger2), (SDL_GAMEPAD_AXIS_RIGHT_TRIGGER, Button::RightTrigger2)];
++        for (i, (axis, button)) in triggers.into_iter().enumerate() {
++            let value = self.axis(axis);
++            let held = value > if self.triggers[i] { TRIGGER_UP } else { TRIGGER_DOWN };
++            if held && !self.triggers[i] {
++                pressed.push(button);
++            }
++            self.triggers[i] = held;
++        }
++        pressed
++    }
++
++    /// the circle pad (left stick) and the C-stick (right stick), up
++    /// positive as the console has it, none inside the dead zone.
++    fn sticks(&self) -> [Option<(f32, f32)>; 2] {
++        [(SDL_GAMEPAD_AXIS_LEFTX, SDL_GAMEPAD_AXIS_LEFTY), (SDL_GAMEPAD_AXIS_RIGHTX, SDL_GAMEPAD_AXIS_RIGHTY)].map(
++            |(x, y)| {
++                let (x, y) = (self.axis(x), -self.axis(y));
++                (x.hypot(y) > DEADZONE).then_some((x.clamp(-1.0, 1.0), y.clamp(-1.0, 1.0)))
++            },
++        )
++    }
++}
++
++impl Drop for Pad {
++    fn drop(&mut self) {
++        // SAFETY: opened by SDL_OpenGamepad, closed once
++        unsafe { SDL_CloseGamepad(self.gamepad) };
++    }
++}
++
++/// what happened to the controllers since the last look.
++enum PadEvent {
++    /// index in `Sdl::pads`.
++    Connected(usize),
++    Disconnected(SDL_JoystickID),
++    Pressed(SDL_GamepadButton),
++}
++
++/// SDL started, and the controllers it sees, opened as they come.
++struct Sdl {
++    pads: Vec<Pad>,
++}
++
++impl Sdl {
++    /// starts SDL's gamepad subsystem with the hints above, once.
++    fn start() -> Result<Sdl, String> {
++        for (name, value) in HINTS {
++            // SAFETY: two nul-terminated strings, which SDL copies
++            unsafe { SDL_SetHint(name, value) };
++        }
++        // SAFETY: nothing of SDL's is in use yet
++        if unsafe { SDL_Init(SDL_INIT_GAMEPAD) } { Ok(Sdl { pads: Vec::new() }) } else { Err(sdl_error()) }
++    }
++
++    /// takes in SDL's events: controllers come (SDL says so of those there
++    /// at the start too) and go, buttons go down.
++    fn events(&mut self) -> Vec<PadEvent> {
++        let mut events = Vec::new();
++        // SAFETY: an all-zero event is a valid one for SDL to fill
++        let mut event: SDL_Event = unsafe { std::mem::zeroed() };
++        // SAFETY: SDL is started, the event is ours to fill
++        while unsafe { SDL_PollEvent(&mut event) } {
++            // SAFETY: every event starts with its type, and the fields read
++            // are those of the type
++            let kind = SDL_EventType(unsafe { event.r#type });
++            if kind == SDL_EVENT_GAMEPAD_ADDED {
++                let id = unsafe { event.gdevice.which };
++                if self.pads.iter().all(|pad| pad.id != id) {
++                    if let Some(pad) = Pad::open(id) {
++                        self.pads.push(pad);
++                        events.push(PadEvent::Connected(self.pads.len() - 1));
++                    }
++                }
++            } else if kind == SDL_EVENT_GAMEPAD_REMOVED {
++                let id = unsafe { event.gdevice.which };
++                self.pads.retain(|pad| pad.id != id);
++                events.push(PadEvent::Disconnected(id));
++            } else if kind == SDL_EVENT_GAMEPAD_BUTTON_DOWN {
++                events.push(PadEvent::Pressed(SDL_GamepadButton(c_int::from(unsafe { event.gbutton.button }))));
++            }
++        }
++        events
++    }
++}
++
++impl Drop for Sdl {
++    fn drop(&mut self) {
++        self.pads.clear();
++        // SAFETY: every gamepad is closed, and SDL is not used again
++        unsafe { SDL_Quit() };
++    }
++}
++
+ pub struct Gamepads {
+-    /// none when the system could not be asked for controllers.
+-    gilrs: Option<Gilrs>,
++    /// none when SDL could not be started.
++    sdl: Option<Sdl>,
+     buttons: PadButtons,
+ }
+ 
+ impl Gamepads {
+     pub fn new(buttons: PadButtons) -> Gamepads {
+-        let gilrs = Gilrs::new()
+-            .inspect_err(|error| log::warn!("controllers are not available, {error}"))
+-            .ok();
+-        Gamepads { gilrs, buttons }
++        let sdl = Sdl::start().inspect_err(|error| log::warn!("controllers are not available, {error}")).ok();
++        if sdl.is_some() {
++            log::info!("controllers read through SDL {}", sdl_version());
++        }
++        Gamepads { sdl, buttons }
+     }
+ 
+     pub fn set_buttons(&mut self, buttons: PadButtons) {
+@@ -31,57 +356,46 @@ impl Gamepads {
+     /// buttons pressed meanwhile.
+     pub fn poll(&mut self) -> Vec<Button> {
+         let mut pressed = Vec::new();
+-        let Some(gilrs) = &mut self.gilrs else { return pressed };
+-        while let Some(event) = gilrs.next_event() {
+-            match event.event {
+-                EventType::ButtonPressed(button, _) => pressed.push(button),
+-                EventType::Connected => {
+-                    log::info!("controller connected, {}", gilrs.gamepad(event.id).name());
++        let Some(sdl) = &mut self.sdl else { return pressed };
++        for event in sdl.events() {
++            match event {
++                PadEvent::Connected(index) => {
++                    let pad = &sdl.pads[index];
++                    log::info!("controller connected, {} ({})", pad.name(), pad.kind());
+                 }
+-                EventType::Disconnected => log::info!("controller disconnected"),
+-                _ => {}
++                PadEvent::Disconnected(_) => log::info!("controller disconnected"),
++                PadEvent::Pressed(button) => pressed.extend(from_sdl(button)),
+             }
+         }
++        for pad in &mut sdl.pads {
++            pressed.extend(pad.update_triggers());
++        }
+         pressed
+     }
+ 
+     /// whether a controller holds button down.
+     pub fn holding(&self, button: Button) -> bool {
+-        self.gilrs.as_ref().is_some_and(|gilrs| gilrs.gamepads().any(|(_, pad)| pad.is_pressed(button)))
++        self.sdl.as_ref().is_some_and(|sdl| sdl.pads.iter().any(|pad| pad.is_pressed(button)))
+     }
+ 
+     /// what the controllers hold down, over what the keyboard does.
+     pub fn apply(&self, mut state: InputState) -> InputState {
+-        let Some(gilrs) = &self.gilrs else { return state };
+-        for (_, pad) in gilrs.gamepads() {
++        let Some(sdl) = &self.sdl else { return state };
++        for pad in &sdl.pads {
+             for (button, bound) in self.buttons.map() {
+                 if pad.is_pressed(bound) {
+                     state.buttons.set(button, true);
+                 }
+             }
+-            // the d-pad of some controllers is a pair of axes
+-            let dpad = [
+-                (PadState::RIGHT, pad.value(Axis::DPadX) > 0.5),
+-                (PadState::LEFT, pad.value(Axis::DPadX) < -0.5),
+-                (PadState::UP, pad.value(Axis::DPadY) > 0.5),
+-                (PadState::DOWN, pad.value(Axis::DPadY) < -0.5),
+-            ];
+-            for (button, held) in dpad {
+-                if held {
+-                    state.buttons.set(button, true);
+-                }
+-            }
+-            // the left stick is the circle pad and the right one the
+-            // C-stick, up positive as the console has it
+-            let (x, y) = (pad.value(Axis::LeftStickX), pad.value(Axis::LeftStickY));
+-            if x.hypot(y) > DEADZONE {
+-                state.circle_x = x.clamp(-1.0, 1.0);
+-                state.circle_y = y.clamp(-1.0, 1.0);
++            // the left stick is the circle pad and the right one the C-stick
++            let [circle, c_stick] = pad.sticks();
++            if let Some((x, y)) = circle {
++                state.circle_x = x;
++                state.circle_y = y;
+             }
+-            let (x, y) = (pad.value(Axis::RightStickX), pad.value(Axis::RightStickY));
+-            if x.hypot(y) > DEADZONE {
+-                state.c_stick_x = x.clamp(-1.0, 1.0);
+-                state.c_stick_y = y.clamp(-1.0, 1.0);
++            if let Some((x, y)) = c_stick {
++                state.c_stick_x = x;
++                state.c_stick_y = y;
+             }
+         }
+         state
+@@ -108,22 +422,132 @@ pub fn button_name(button: Button) -> &'static str {
+         Button::DPadDown => "D-pad down",
+         Button::DPadLeft => "D-pad left",
+         Button::DPadRight => "D-pad right",
++        Button::Touchpad => "Touchpad click",
+         Button::C => "C",
+         Button::Z => "Z",
+         Button::Unknown => "unknown",
+     }
+ }
+ 
++/// `zakuro --controllers [seconds]`: what SDL sees of the controllers,
++/// without a window, for a person to check theirs: the controllers as they
++/// come and go, every button as it goes down and up, sticks and triggers as
++/// they move, whichever window is in the foreground. Nothing is read or
++/// written but the console.
++pub fn diagnose(seconds: u64) -> i32 {
++    println!("Zakuro, controller test through SDL {} ({seconds} s, Ctrl+C to stop).", sdl_version());
++    for (name, value) in HINTS {
++        println!("  hint {} = {}", sdl_string(name), sdl_string(value));
++    }
++    let mut sdl = match Sdl::start() {
++        Ok(sdl) => sdl,
++        Err(error) => {
++            println!("SDL can't start its controller support: {error}");
++            return 1;
++        }
++    };
++    println!("Waiting for controllers (plug one in, or turn a paired one on)...");
++    println!("Press buttons, move the sticks, then click another window: the test should keep seeing them.");
++    // SDL's buttons, in its order
++    const NAMES: [&str; 21] = [
++        "south (A / Cross)",
++        "east (B / Circle)",
++        "west (X / Square)",
++        "north (Y / Triangle)",
++        "back / select / share / create",
++        "guide / PS / home",
++        "start / options",
++        "left stick click",
++        "right stick click",
++        "LB / L1",
++        "RB / R1",
++        "d-pad up",
++        "d-pad down",
++        "d-pad left",
++        "d-pad right",
++        "misc (mic / capture)",
++        "right paddle 1",
++        "left paddle 1",
++        "right paddle 2",
++        "left paddle 2",
++        "touchpad click",
++    ];
++    const AXES: [(&str, SDL_GamepadAxis); 6] = [
++        ("left stick x", SDL_GAMEPAD_AXIS_LEFTX),
++        ("left stick y (down +)", SDL_GAMEPAD_AXIS_LEFTY),
++        ("right stick x", SDL_GAMEPAD_AXIS_RIGHTX),
++        ("right stick y (down +)", SDL_GAMEPAD_AXIS_RIGHTY),
++        ("L2 / LT", SDL_GAMEPAD_AXIS_LEFT_TRIGGER),
++        ("R2 / RT", SDL_GAMEPAD_AXIS_RIGHT_TRIGGER),
++    ];
++    let start = std::time::Instant::now();
++    // per controller: buttons held and axes last shown
++    let mut shown: Vec<(SDL_JoystickID, [bool; NAMES.len()], [f32; AXES.len()])> = Vec::new();
++    let mut seen = false;
++    while start.elapsed().as_secs() < seconds {
++        for event in sdl.events() {
++            let now = start.elapsed().as_secs_f32();
++            match event {
++                PadEvent::Connected(index) => {
++                    let pad = &sdl.pads[index];
++                    seen = true;
++                    println!("[{now:6.1} s] controller {} connected: {} ({})", pad.id.0, pad.name(), pad.kind());
++                }
++                PadEvent::Disconnected(id) => println!("[{now:6.1} s] controller {} disconnected", id.0),
++                PadEvent::Pressed(_) => {}
++            }
++        }
++        let now = start.elapsed().as_secs_f32();
++        for pad in &sdl.pads {
++            let entry = match shown.iter().position(|(id, ..)| *id == pad.id) {
++                Some(i) => &mut shown[i],
++                None => {
++                    shown.push((pad.id, [false; NAMES.len()], [0.0; AXES.len()]));
++                    shown.last_mut().expect("just pushed")
++                }
++            };
++            for (i, name) in NAMES.into_iter().enumerate() {
++                let button = SDL_GamepadButton(i as c_int);
++                let down = pad.holds(button);
++                if down != entry.1[i] {
++                    entry.1[i] = down;
++                    let ours = from_sdl(button)
++                        .map_or(String::new(), |ours| format!(" (Zakuro: \"{ours:?}\", {})", button_name(ours)));
++                    println!("[{now:6.1} s] controller {}: {name} {}{ours}", pad.id.0, if down { "down" } else { "up" });
++                }
++            }
++            for (i, (name, axis)) in AXES.into_iter().enumerate() {
++                let value = pad.axis(axis);
++                // a line every quarter of the travel, and one back at rest
++                let last = entry.2[i];
++                if (value - last).abs() >= 0.25 || (value.abs() < 0.05 && last.abs() >= 0.05) {
++                    entry.2[i] = value;
++                    println!("[{now:6.1} s] controller {}: {name} = {value:+.2}", pad.id.0);
++                }
++            }
++        }
++        std::thread::sleep(std::time::Duration::from_millis(5));
++    }
++    if !seen {
++        println!("No controller seen by SDL.");
++    }
++    println!("End of the test.");
++    0
++}
++
+ #[cfg(test)]
+ mod tests {
++    use zakuro_core::services::hid::PadState;
++
+     use super::*;
+ 
+     /// with no controller, or no way to ask for one, the keyboard's input
+     /// goes through as it was.
+     #[test]
+     fn no_controller_leaves_the_keyboard_alone() {
+-        let gamepads = Gamepads::new(PadButtons::default());
+-        if gamepads.gilrs.as_ref().is_some_and(|gilrs| gilrs.gamepads().next().is_some()) {
++        let mut gamepads = Gamepads::new(PadButtons::default());
++        gamepads.poll();
++        if gamepads.sdl.as_ref().is_some_and(|sdl| !sdl.pads.is_empty()) {
+             return;
+         }
+         let state = InputState { buttons: PadState::A, circle_x: 1.0, circle_y: 0.0, touch: Some((1, 2)), ..InputState::default() };
+@@ -131,4 +555,56 @@ mod tests {
+         assert_eq!(applied.buttons, PadState::A);
+         assert_eq!((applied.circle_x, applied.circle_y, applied.touch), (1.0, 0.0, Some((1, 2))));
+     }
++
++    /// the settings keep gilrs's names for the buttons.
++    #[test]
++    fn button_names_are_gilrs_ones() {
++        #[derive(Serialize, Deserialize)]
++        struct One {
++            b: Button,
++        }
++        for (button, name) in [
++            (Button::South, "South"),
++            (Button::East, "East"),
++            (Button::North, "North"),
++            (Button::West, "West"),
++            (Button::LeftTrigger, "LeftTrigger"),
++            (Button::LeftTrigger2, "LeftTrigger2"),
++            (Button::RightTrigger, "RightTrigger"),
++            (Button::RightTrigger2, "RightTrigger2"),
++            (Button::Select, "Select"),
++            (Button::Start, "Start"),
++            (Button::Mode, "Mode"),
++            (Button::LeftThumb, "LeftThumb"),
++            (Button::RightThumb, "RightThumb"),
++            (Button::DPadUp, "DPadUp"),
++            (Button::DPadDown, "DPadDown"),
++            (Button::DPadLeft, "DPadLeft"),
++            (Button::DPadRight, "DPadRight"),
++            (Button::C, "C"),
++            (Button::Z, "Z"),
++            (Button::Unknown, "Unknown"),
++        ] {
++            let text = toml::to_string(&One { b: button }).unwrap();
++            assert_eq!(text.trim(), format!("b = \"{name}\""));
++            assert_eq!(toml::from_str::<One>(&text).unwrap().b, button);
++        }
++    }
++
++    /// every button of ours SDL has comes back as itself.
++    #[test]
++    fn sdl_buttons_round_trip() {
++        for button in [Button::South, Button::East, Button::Mode, Button::DPadLeft, Button::Touchpad, Button::RightThumb] {
++            assert_eq!(from_sdl(sdl_button(button).unwrap()), Some(button));
++        }
++        assert!(sdl_button(Button::LeftTrigger2).is_none());
++        // SDL_GAMEPAD_BUTTON_MISC1 (microphone, capture) is not bound
++        assert_eq!(from_sdl(SDL_GamepadButton(15)), None);
++    }
++
++    /// SDL is the one built into the program.
++    #[test]
++    fn sdl_is_version_3() {
++        assert!(sdl_version().starts_with("3."), "{}", sdl_version());
++    }
+ }
+diff --git a/crates/zakuro/src/lib.rs b/crates/zakuro/src/lib.rs
+index e9373b6..b9c6133 100644
+--- a/crates/zakuro/src/lib.rs
++++ b/crates/zakuro/src/lib.rs
+@@ -52,6 +52,10 @@ pub fn run(linked: Option<Linked>) {
+             std::process::exit(2);
+         }
+     };
++    // the controller test touches neither the settings nor the saves
++    if let Some(seconds) = options.controllers {
++        std::process::exit(gamepad::diagnose(seconds));
++    }
+     let mut settings = Settings::load();
+     // the console's own number, made the first time and kept, which tells
+     // it apart from others over local wireless
+@@ -832,7 +836,7 @@ impl App {
+                     *bound = button;
+                 }
+                 self.apply_settings();
+-            } else if button == gilrs::Button::Mode && self.game.is_some() {
++            } else if button == gamepad::Button::Mode && self.game.is_some() {
+                 self.menus.menu_open = !self.menus.menu_open;
+                 self.keyboard.release();
+             }
+@@ -1240,8 +1244,8 @@ impl App {
+             self.game.is_some() && !self.paused && !halted && !self.menus.menu_open && !self.menus.settings_open && !typing;
+         // Tab or a controller's right trigger, or the right stick's click
+         // while ZR has the trigger, whichever no button of the console's is on
+-        let free = |button: gilrs::Button| self.settings.pad.map().iter().all(|&(_, bound)| bound != button);
+-        let trigger = [gilrs::Button::RightTrigger2, gilrs::Button::RightThumb].into_iter().find(|&button| free(button));
++        let free = |button: gamepad::Button| self.settings.pad.map().iter().all(|&(_, bound)| bound != button);
++        let trigger = [gamepad::Button::RightTrigger2, gamepad::Button::RightThumb].into_iter().find(|&button| free(button));
+         let fast = playing && (self.fast_forward_key || trigger.is_some_and(|trigger| self.gamepads.holding(trigger)));
+         if fast {
+             // the output waits out fast forward rather than run dry
+diff --git a/crates/zakuro/src/settings.rs b/crates/zakuro/src/settings.rs
+index 1e9b15b..d57bbcd 100644
+--- a/crates/zakuro/src/settings.rs
++++ b/crates/zakuro/src/settings.rs
+@@ -3,7 +3,7 @@
+ 
+ use std::path::{Path, PathBuf};
+ 
+-use gilrs::Button;
++use crate::gamepad::Button;
+ use serde::{Deserialize, Serialize};
+ use winit::keyboard::KeyCode;
+ use zakuro_core::services::hid::PadState;

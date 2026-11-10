@@ -1,0 +1,3710 @@
+{
+ "format": 1,
+ "objets": [
+  {
+   "cle": "pile_ou_passe",
+   "id_ap": 59420042,
+   "nom_fr": "Pile ou passe",
+   "nom_en": "Select-A-Coin",
+   "famille": "objet_cle",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x93538339"
+  },
+  {
+   "cle": "cles_de_l_ecole",
+   "id_ap": 59420043,
+   "nom_fr": "Clés de l'école",
+   "nom_en": "School Keys",
+   "famille": "objet_cle",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x58AB39E4"
+  },
+  {
+   "cle": "herbe_ancestrale",
+   "id_ap": 59420044,
+   "nom_fr": "Herbe ancestrale",
+   "nom_en": "Ancient Herb",
+   "famille": "objet_cle",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x261A4559"
+  },
+  {
+   "cle": "super_tournevis",
+   "id_ap": 59420045,
+   "nom_fr": "Super tournevis",
+   "nom_en": "Pro Screwdriver",
+   "famille": "objet_cle",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x511D75CF"
+  },
+  {
+   "cle": "canne_a_peche",
+   "id_ap": 59420046,
+   "nom_fr": "Canne à pêche",
+   "nom_en": "Fishing Rod",
+   "famille": "objet_cle",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0xD10F1534"
+  },
+  {
+   "cle": "tenue_de_rocker",
+   "id_ap": 59420047,
+   "nom_fr": "Tenue de rocker",
+   "nom_en": "Rockin' Jumpsuit",
+   "famille": "objet_cle",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0x80DFCE86"
+  },
+  {
+   "cle": "modele_zero",
+   "id_ap": 59420048,
+   "nom_fr": "Modèle zéro",
+   "nom_en": "Model Zero",
+   "famille": "objet_cle",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x1D9A6BF0"
+  },
+  {
+   "cle": "jolie_petite_cle",
+   "id_ap": 59420049,
+   "nom_fr": "Jolie petite clé",
+   "nom_en": "Small Fancy Key",
+   "famille": "objet_cle",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0xFD4F82EE"
+  },
+  {
+   "cle": "jolie_grande_cle",
+   "id_ap": 59420050,
+   "nom_fr": "Jolie grande clé",
+   "nom_en": "Large Fancy Key",
+   "famille": "objet_cle",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x6446D354"
+  },
+  {
+   "cle": "cle_appartement_c_101",
+   "id_ap": 59420051,
+   "nom_fr": "Clé appartement C-101",
+   "nom_en": "Key to Apt. C-101",
+   "famille": "objet_cle",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0x695BD39E"
+  },
+  {
+   "cle": "cle_appartement_c_303",
+   "id_ap": 59420052,
+   "nom_fr": "Clé appartement C-303",
+   "nom_en": "Key to Apt. C-303",
+   "famille": "objet_cle",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x1E5CE308"
+  },
+  {
+   "cle": "cle_appartement_b_301",
+   "id_ap": 59420053,
+   "nom_fr": "Clé appartement B-301",
+   "nom_en": "Key to Apt. B-301",
+   "famille": "objet_cle",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0xF73F463D"
+  },
+  {
+   "cle": "cle_de_derriere",
+   "id_ap": 59420054,
+   "nom_fr": "Clé de derrière",
+   "nom_en": "Back Door Key",
+   "famille": "objet_cle",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x0A5AD283"
+  },
+  {
+   "cle": "filet_a_insectes",
+   "id_ap": 59420055,
+   "nom_fr": "Filet à insectes",
+   "nom_en": "Bug Net",
+   "famille": "objet_cle",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x4806448E"
+  },
+  {
+   "cle": "indications_de_maman",
+   "id_ap": 59420056,
+   "nom_fr": "Indications de Maman",
+   "nom_en": "Mom's Directions",
+   "famille": "objet_cle",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x2FAC0972"
+  },
+  {
+   "cle": "cle_magnetique_or",
+   "id_ap": 59420057,
+   "nom_fr": "Clé magnétique or",
+   "nom_en": "Gold Card Key",
+   "famille": "objet_cle",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0x1EB442C7"
+  },
+  {
+   "cle": "cle_salle_du_tresor",
+   "id_ap": 59420058,
+   "nom_fr": "Clé salle du trésor",
+   "nom_en": "Treasure Room Key",
+   "famille": "objet_cle",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x07AF7386"
+  },
+  {
+   "cle": "cle_appartement_b_204",
+   "id_ap": 59420059,
+   "nom_fr": "Clé appartement B-204",
+   "nom_en": "Key to Apt. B-204",
+   "famille": "objet_cle",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0x803876AB"
+  },
+  {
+   "cle": "cle_appartement_a_201",
+   "id_ap": 59429100,
+   "nom_fr": "Clé appartement A-201",
+   "nom_en": "Key to Apt. A-201",
+   "famille": "objet_cle",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0x3CC7FCE0"
+  },
+  {
+   "cle": "cle_magnetique_rouge",
+   "id_ap": 59429101,
+   "nom_fr": "Clé magnétique rouge",
+   "nom_en": "Red Card Key",
+   "famille": "objet_cle",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0xF0BA23EB"
+  },
+  {
+   "cle": "poster_de_film",
+   "id_ap": 59429102,
+   "nom_fr": "Poster de film",
+   "nom_en": "Movie Poster",
+   "famille": "objet_cle",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0xF7D8FE10"
+  },
+  {
+   "cle": "bobine_de_film",
+   "id_ap": 59429103,
+   "nom_fr": "Bobine de film",
+   "nom_en": "Film Reel",
+   "famille": "objet_cle",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0x6ED1AFAA"
+  },
+  {
+   "cle": "bouteille_de_y_cola",
+   "id_ap": 59429104,
+   "nom_fr": "Bouteille de Y-Cola",
+   "nom_en": "Y-Cola Bottle",
+   "famille": "objet_cle",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0x9EA93BDE"
+  },
+  {
+   "cle": "affiche_de_restaurant",
+   "id_ap": 59429105,
+   "nom_fr": "Affiche de restaurant",
+   "nom_en": "Curry-Shop Sign",
+   "famille": "objet_cle",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0xFE6EB23B"
+  },
+  {
+   "cle": "louloutre",
+   "id_ap": 59429106,
+   "nom_fr": "Louloutre",
+   "nom_en": "Otterina",
+   "famille": "objet_cle",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0xE9AE0B48"
+  },
+  {
+   "cle": "pot_canard",
+   "id_ap": 59429107,
+   "nom_fr": "Pot canard",
+   "nom_en": "Waddle Potty",
+   "famille": "objet_cle",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0x07A06A64"
+  },
+  {
+   "cle": "figurine_de_photortue",
+   "id_ap": 59429108,
+   "nom_fr": "Figurine de Photortue",
+   "nom_en": "Snap-Turtle Doll",
+   "famille": "objet_cle",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0x70A75AF2"
+  },
+  {
+   "cle": "robe_de_star",
+   "id_ap": 59429109,
+   "nom_fr": "Robe de star",
+   "nom_en": "Famous Frock",
+   "famille": "objet_cle",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0x896982AD"
+  },
+  {
+   "cle": "huile_de_tendino",
+   "id_ap": 59420060,
+   "nom_fr": "Huile de Tendino",
+   "nom_en": "Payn Oil",
+   "famille": "objet_cle",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0x7D5DE215"
+  },
+  {
+   "cle": "poignee_etrange",
+   "id_ap": 59420061,
+   "nom_fr": "Poignée étrange",
+   "nom_en": "Strange Handle",
+   "famille": "objet_cle",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0xE0175E81"
+  },
+  {
+   "cle": "rang_de_montre",
+   "id_ap": 59420003,
+   "nom_fr": "Rang de montre",
+   "nom_en": "Watch Rank",
+   "famille": "rang",
+   "classification": "progression",
+   "don": "aucun"
+  },
+  {
+   "cle": "velo",
+   "id_ap": 59420000,
+   "nom_fr": "Vélo",
+   "nom_en": "Bicycle",
+   "famille": "capacite",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "riz_a_la_prune",
+   "id_ap": 59420030,
+   "nom_fr": "Riz à la prune",
+   "nom_en": "Plum Rice Ball",
+   "famille": "consommable",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x6B85C07A"
+  },
+  {
+   "cle": "barre_de_chocolat",
+   "id_ap": 59420112,
+   "nom_fr": "Barre de chocolat",
+   "nom_en": "Chocobar",
+   "famille": "consommable",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x8162B121"
+  },
+  {
+   "cle": "the_de_l_ame",
+   "id_ap": 59420031,
+   "nom_fr": "Thé de l'âme",
+   "nom_en": "Soul Tea",
+   "famille": "consommable",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xF585391C"
+  },
+  {
+   "cle": "hamburger",
+   "id_ap": 59420032,
+   "nom_fr": "Hamburger",
+   "nom_en": "Hamburger",
+   "famille": "consommable",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x6D4E0291"
+  },
+  {
+   "cle": "y_cola",
+   "id_ap": 59420033,
+   "nom_fr": "Y-Cola",
+   "nom_en": "Y-Cola",
+   "famille": "consommable",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x6C8C68A6"
+  },
+  {
+   "cle": "riz_a_la_crevette",
+   "id_ap": 59420034,
+   "nom_fr": "Riz à la crevette",
+   "nom_en": "Shrimp Rice Ball",
+   "famille": "consommable",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x1BEF34F5"
+  },
+  {
+   "cle": "remede_amer",
+   "id_ap": 59420035,
+   "nom_fr": "Remède amer",
+   "nom_en": "Bitter Medicine",
+   "famille": "consommable",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x8D2013A6"
+  },
+  {
+   "cle": "mini_exporbe",
+   "id_ap": 59420036,
+   "nom_fr": "Mini EXPorbe",
+   "nom_en": "Mini Exporb",
+   "famille": "consommable",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x8D447F63"
+  },
+  {
+   "cle": "petit_exporbe",
+   "id_ap": 59420037,
+   "nom_fr": "Petit EXPorbe",
+   "nom_en": "Small Exporb",
+   "famille": "consommable",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x1320EAC0"
+  },
+  {
+   "cle": "exporbe_moyen",
+   "id_ap": 59420026,
+   "nom_fr": "EXPorbe moyen",
+   "nom_en": "Medium Exporb",
+   "famille": "consommable",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0x8A29BB7A"
+  },
+  {
+   "cle": "grand_exporbe",
+   "id_ap": 59420027,
+   "nom_fr": "Grand EXPorbe",
+   "nom_en": "Large Exporb",
+   "famille": "consommable",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0xFD2E8BEC"
+  },
+  {
+   "cle": "staminum_alpha",
+   "id_ap": 59420028,
+   "nom_fr": "Staminum Alpha",
+   "nom_en": "Staminum Alpha",
+   "famille": "consommable",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0x8EA4C7C8"
+  },
+  {
+   "cle": "argent_10000",
+   "id_ap": 59429000,
+   "nom_fr": "100,00 €",
+   "nom_en": "€100.00",
+   "famille": "argent",
+   "classification": "remplissage",
+   "don": "argent",
+   "montant": 10000
+  },
+  {
+   "cle": "argent_50000",
+   "id_ap": 59429001,
+   "nom_fr": "500,00 €",
+   "nom_en": "€500.00",
+   "famille": "argent",
+   "classification": "remplissage",
+   "don": "argent",
+   "montant": 50000
+  },
+  {
+   "cle": "rouage_de_kappacap",
+   "id_ap": 59429200,
+   "nom_fr": "Rouage de Kappacap",
+   "nom_en": "Walkappa Cog",
+   "famille": "evenement",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0xCEBB8A5B"
+  },
+  {
+   "cle": "rouage_de_komasan",
+   "id_ap": 59429201,
+   "nom_fr": "Rouage de Komasan",
+   "nom_en": "Komasan Cog",
+   "famille": "evenement",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0xB9BCBACD"
+  },
+  {
+   "cle": "rouage_de_dracounet",
+   "id_ap": 59429202,
+   "nom_fr": "Rouage de Dracounet",
+   "nom_en": "Draggie Cog",
+   "famille": "evenement",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0xBED17ED4"
+  },
+  {
+   "cle": "rouage_de_corniot",
+   "id_ap": 59429203,
+   "nom_fr": "Rouage de Corniot",
+   "nom_en": "Manjimutt Cog",
+   "famille": "evenement",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0x50DF1FF8"
+  },
+  {
+   "cle": "rouage_de_granpapeti",
+   "id_ap": 59429204,
+   "nom_fr": "Rouage de Granpapéti",
+   "nom_en": "Hungramps Cog",
+   "famille": "evenement",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0x27D82F6E"
+  },
+  {
+   "cle": "rouage_de_noko",
+   "id_ap": 59429205,
+   "nom_fr": "Rouage de Noko",
+   "nom_en": "Noko Cog",
+   "famille": "evenement",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0xC9D64E42"
+  },
+  {
+   "cle": "graines_de_melon",
+   "id_ap": 59429206,
+   "nom_fr": "Graines de melon",
+   "nom_en": "Melon Seeds",
+   "famille": "evenement",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0xD0CD7F03"
+  },
+  {
+   "cle": "graines_d_orange",
+   "id_ap": 59429207,
+   "nom_fr": "Graines d'orange",
+   "nom_en": "Orange Seeds",
+   "famille": "evenement",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0xA7CA4F95"
+  },
+  {
+   "cle": "graines_de_kiwi",
+   "id_ap": 59429208,
+   "nom_fr": "Graines de kiwi",
+   "nom_en": "Kiwi Seeds",
+   "famille": "evenement",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0x37755204"
+  },
+  {
+   "cle": "graines_de_raisin",
+   "id_ap": 59429209,
+   "nom_fr": "Graines de raisin",
+   "nom_en": "Grape Seeds",
+   "famille": "evenement",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0x40726292"
+  },
+  {
+   "cle": "graines_de_fraise",
+   "id_ap": 59429210,
+   "nom_fr": "Graines de fraise",
+   "nom_en": "Berry Seeds",
+   "famille": "evenement",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0x20B5EB77"
+  },
+  {
+   "cle": "graines_de_pasteque",
+   "id_ap": 59429211,
+   "nom_fr": "Graines de pastèque",
+   "nom_en": "Watermelon Seeds",
+   "famille": "evenement",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0x57B2DBE1"
+  },
+  {
+   "cle": "grelot_aerien",
+   "id_ap": 59429212,
+   "nom_fr": "Grelot aérien",
+   "nom_en": "Jet Bell",
+   "famille": "evenement",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0xE596D998"
+  },
+  {
+   "cle": "grelot_voyageur",
+   "id_ap": 59429213,
+   "nom_fr": "Grelot voyageur",
+   "nom_en": "Wonderer's Bell",
+   "famille": "evenement",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0x7C9F8822"
+  },
+  {
+   "cle": "grelot_de_serie_f",
+   "id_ap": 59429214,
+   "nom_fr": "Grelot de série F",
+   "nom_en": "F-Series Bell",
+   "famille": "evenement",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0x2E6E6345"
+  },
+  {
+   "cle": "grelot_marin",
+   "id_ap": 59429215,
+   "nom_fr": "Grelot marin",
+   "nom_en": "Sailor Bell",
+   "famille": "evenement",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0x596953D3"
+  },
+  {
+   "cle": "grelot_masque",
+   "id_ap": 59429216,
+   "nom_fr": "Grelot masqué",
+   "nom_en": "Macho Bell",
+   "famille": "evenement",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0x0B98B8B4"
+  },
+  {
+   "cle": "marque_d_ultramax",
+   "id_ap": 59429217,
+   "nom_fr": "Marque d'Ultramax",
+   "nom_en": "Moxie Mark",
+   "famille": "evenement",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0xF2A2F16F"
+  },
+  {
+   "cle": "invitation_buchinyan",
+   "id_ap": 59429218,
+   "nom_fr": "Invitation : Buchinyan",
+   "nom_en": "Invitation: Buchinyan",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_komasan",
+   "id_ap": 59429219,
+   "nom_fr": "Invitation : Komasan",
+   "nom_en": "Invitation: Komasan",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_noko",
+   "id_ap": 59429220,
+   "nom_fr": "Invitation : Noko",
+   "nom_en": "Invitation: Noko",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_trodesole",
+   "id_ap": 59429221,
+   "nom_fr": "Invitation : Trodésolé",
+   "nom_en": "Invitation: So-Sorree",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_apelicain",
+   "id_ap": 59429222,
+   "nom_fr": "Invitation : Apélicain",
+   "nom_en": "Invitation: Apelican",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_dracunyan",
+   "id_ap": 59429223,
+   "nom_fr": "Invitation : Dracunyan",
+   "nom_en": "Invitation: Dracunyan",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_raltesse",
+   "id_ap": 59429224,
+   "nom_fr": "Invitation : Raltesse",
+   "nom_en": "Invitation: Tyrat",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_corniot",
+   "id_ap": 59429225,
+   "nom_fr": "Invitation : Corniot",
+   "nom_en": "Invitation: Manjimutt",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_loubarbare",
+   "id_ap": 59429226,
+   "nom_fr": "Invitation : Loubarbare",
+   "nom_en": "Invitation: Roughraff",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_toutouie",
+   "id_ap": 59429227,
+   "nom_fr": "Invitation : Toutouïe",
+   "nom_en": "Invitation: Tattletell",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_epinyan",
+   "id_ap": 59429228,
+   "nom_fr": "Invitation : Épinyan",
+   "nom_en": "Invitation: Thornyan",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_bandinyan",
+   "id_ap": 59429229,
+   "nom_fr": "Invitation : Bandinyan",
+   "nom_en": "Invitation: Baddinyan",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_melobe",
+   "id_ap": 59429230,
+   "nom_fr": "Invitation : Mélobê",
+   "nom_en": "Invitation: Grumpus Khan",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_bon_huiii",
+   "id_ap": 59429231,
+   "nom_fr": "Invitation : Bon-huiii",
+   "nom_en": "Invitation: Slumberhog",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_petit_panja",
+   "id_ap": 59429232,
+   "nom_fr": "Invitation : Petit panja",
+   "nom_en": "Invitation: Panja Pupil",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_samuren",
+   "id_ap": 59429233,
+   "nom_fr": "Invitation : Samuren",
+   "nom_en": "Invitation: Samureel",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_poulpatouch",
+   "id_ap": 59429234,
+   "nom_fr": "Invitation : Poulpatouch",
+   "nom_en": "Invitation: Takoyakid",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_avallee",
+   "id_ap": 59429235,
+   "nom_fr": "Invitation : Avallée",
+   "nom_en": "Invitation: Danke Sand",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_sumodon",
+   "id_ap": 59429236,
+   "nom_fr": "Invitation : Sumodon",
+   "nom_en": "Invitation: Sumodon",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_pfffuji",
+   "id_ap": 59429237,
+   "nom_fr": "Invitation : Pfffuji",
+   "nom_en": "Invitation: Whateverest",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_lacanne",
+   "id_ap": 59429238,
+   "nom_fr": "Invitation : Lacanne",
+   "nom_en": "Invitation: Happycane",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_geigneau",
+   "id_ap": 59429239,
+   "nom_fr": "Invitation : Geigneau",
+   "nom_en": "Invitation: Groupus Khan",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_verrascible",
+   "id_ap": 59429240,
+   "nom_fr": "Invitation : Verrascible",
+   "nom_en": "Invitation: Snortlehog",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_panja_san",
+   "id_ap": 59429241,
+   "nom_fr": "Invitation : Panja-san",
+   "nom_en": "Invitation: Panja Pro",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_barrakeda",
+   "id_ap": 59429242,
+   "nom_fr": "Invitation : Barrakéda",
+   "nom_en": "Invitation: Time Keeler",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_poulpater",
+   "id_ap": 59429243,
+   "nom_fr": "Invitation : Poulpater",
+   "nom_en": "Invitation: Takoyaking",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_mont_merci",
+   "id_ap": 59429244,
+   "nom_fr": "Invitation : Mont merci",
+   "nom_en": "Invitation: No Sandkyu",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_soupotori",
+   "id_ap": 59429245,
+   "nom_fr": "Invitation : Soupotori",
+   "nom_en": "Invitation: Yokozudon",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_krakatouaaah",
+   "id_ap": 59429246,
+   "nom_fr": "Invitation : Krakatouaaah",
+   "nom_en": "Invitation: Whatuption",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_canastelle",
+   "id_ap": 59429247,
+   "nom_fr": "Invitation : Canastelle",
+   "nom_en": "Invitation: Starrycane",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_jibanyan_s",
+   "id_ap": 59429264,
+   "nom_fr": "Invitation : Jibanyan S",
+   "nom_en": "Invitation: Jibanyan S",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_komasan_s",
+   "id_ap": 59429265,
+   "nom_fr": "Invitation : Komasan S",
+   "nom_en": "Invitation: Komasan S",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_komajiro_s",
+   "id_ap": 59429266,
+   "nom_fr": "Invitation : Komajiro S",
+   "nom_en": "Invitation: Komajiro S",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "capsule_favorite",
+   "id_ap": 59429267,
+   "nom_fr": "Capsule favorite",
+   "nom_en": "Keepsake Cap",
+   "famille": "evenement",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0x0CF57CAD"
+  },
+  {
+   "cle": "yokai_watch",
+   "id_ap": 59429110,
+   "nom_fr": "Yo-kai Watch",
+   "nom_en": "Yo-kai Watch",
+   "famille": "objet_cle_v3",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x4F6B8097"
+  },
+  {
+   "cle": "documents_perdus",
+   "id_ap": 59429111,
+   "nom_fr": "Documents perdus",
+   "nom_en": "Critical Lost Item",
+   "famille": "objet_cle_v3",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x6EDEB648"
+  },
+  {
+   "cle": "cartes_ultramax",
+   "id_ap": 59429112,
+   "nom_fr": "Cartes d'Ultramax",
+   "nom_en": "Moximous Game",
+   "famille": "objet_cle_v3",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x2B074593"
+  },
+  {
+   "cle": "cle_de_cabane",
+   "id_ap": 59429113,
+   "nom_fr": "Clé de cabane",
+   "nom_en": "Shack Key",
+   "famille": "objet_cle_aj",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0xE454B3AF"
+  },
+  {
+   "cle": "cle_du_yokai_world",
+   "id_ap": 59429114,
+   "nom_fr": "Clé du Yo-kai World",
+   "nom_en": "Yo-kai World Key",
+   "famille": "objet_cle_aj",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0xE33977B6"
+  },
+  {
+   "cle": "pass_entrain_exp",
+   "id_ap": 59429115,
+   "nom_fr": "Pass Entrain Exp.",
+   "nom_en": "Happy-Go-Lucky Pass",
+   "famille": "objet_cle_aj",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x151ADC68"
+  },
+  {
+   "cle": "paquet_spirituel",
+   "id_ap": 59429116,
+   "nom_fr": "Paquet spirituel",
+   "nom_en": "Boo Bundle",
+   "famille": "objet_cle_aj",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x9291E90E"
+  },
+  {
+   "cle": "cle_appartement_a_203",
+   "id_ap": 59429117,
+   "nom_fr": "Clé appartement A-203",
+   "nom_en": "Key to Apt. A-203",
+   "famille": "objet_cle_aj",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x6E361787"
+  },
+  {
+   "cle": "cle_appartement_b_102",
+   "id_ap": 59429118,
+   "nom_fr": "Clé appartement B-102",
+   "nom_en": "Key to Apt. B-102",
+   "famille": "objet_cle_aj",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x19312711"
+  },
+  {
+   "cle": "pass_sortilege",
+   "id_ap": 59429119,
+   "nom_fr": "Pass sortilège",
+   "nom_en": "Hexpress Pass",
+   "famille": "objet_cle_aj",
+   "classification": "progression",
+   "don": "aucun"
+  },
+  {
+   "cle": "cle_terrifiante",
+   "id_ap": 59429120,
+   "nom_fr": "Clé terrifiante",
+   "nom_en": "Spooky Key",
+   "famille": "objet_cle_aj",
+   "classification": "progression",
+   "don": "aucun"
+  },
+  {
+   "cle": "cle_sanglier",
+   "id_ap": 59429121,
+   "nom_fr": "Clé sanglier",
+   "nom_en": "Boar Key",
+   "famille": "objet_cle_aj",
+   "classification": "progression",
+   "don": "aucun"
+  },
+  {
+   "cle": "cle_cerf",
+   "id_ap": 59429122,
+   "nom_fr": "Clé cerf",
+   "nom_en": "Deer Key",
+   "famille": "objet_cle_aj",
+   "classification": "progression",
+   "don": "aucun"
+  },
+  {
+   "cle": "cle_papillon",
+   "id_ap": 59429123,
+   "nom_fr": "Clé papillon",
+   "nom_en": "Butterfly Key",
+   "famille": "objet_cle_aj",
+   "classification": "progression",
+   "don": "aucun"
+  },
+  {
+   "cle": "lettre_de_komasan",
+   "id_ap": 59429124,
+   "nom_fr": "Lettre de Komasan",
+   "nom_en": "Komasan's Letter",
+   "famille": "objet_cle_v3",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x8A48B278"
+  },
+  {
+   "cle": "bille_mysterieuse",
+   "id_ap": 59429125,
+   "nom_fr": "Bille mystérieuse",
+   "nom_en": "Mysterious Marble",
+   "famille": "objet_cle_v3",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x8D257661"
+  },
+  {
+   "cle": "capsules_de_lait",
+   "id_ap": 59429126,
+   "nom_fr": "Capsules de lait",
+   "nom_en": "Milk Bottle Tops",
+   "famille": "objet_cle_v3",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x5C007505"
+  },
+  {
+   "cle": "grelot_felin",
+   "id_ap": 59429127,
+   "nom_fr": "Grelot félin",
+   "nom_en": "Swirly Bell",
+   "famille": "objet_cle_v3",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x142C27DB"
+  },
+  {
+   "cle": "montre_de_luxe",
+   "id_ap": 59429128,
+   "nom_fr": "Montre de luxe",
+   "nom_en": "Top-Notch Watch",
+   "famille": "objet_cle_v3",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0xFA2246F7"
+  },
+  {
+   "cle": "miroirs",
+   "id_ap": 59429129,
+   "nom_fr": "Miroirs",
+   "nom_en": "Mirapo",
+   "famille": "objet_cle_v3",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "ceinture_de_force",
+   "id_ap": 59429130,
+   "nom_fr": "Ceinture de force",
+   "nom_en": "Muscle Belt",
+   "famille": "objet_cle_v3",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x8E0B5F56"
+  },
+  {
+   "cle": "robot_retro_neuf",
+   "id_ap": 59429131,
+   "nom_fr": "Robot rétro neuf",
+   "nom_en": "New Retro Robot",
+   "famille": "objet_cle_v3",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x99CBE625"
+  },
+  {
+   "cle": "robot_mecanique_use",
+   "id_ap": 59429132,
+   "nom_fr": "Robot mécanique usé",
+   "nom_en": "Old Retro Robot",
+   "famille": "objet_cle_v3",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0xEECCD6B3"
+  },
+  {
+   "cle": "serviette_douce",
+   "id_ap": 59429133,
+   "nom_fr": "Serviette douce",
+   "nom_en": "Fluffy Towel",
+   "famille": "objet_cle_v3",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0xC28C4169"
+  },
+  {
+   "cle": "dance_revolution",
+   "id_ap": 59429134,
+   "nom_fr": "Dance Revolution",
+   "nom_en": "Dance Revolution",
+   "famille": "objet_cle_v3",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x7C6B19A6"
+  },
+  {
+   "cle": "carte_a_tamponner",
+   "id_ap": 59429135,
+   "nom_fr": "Carte à tamponner",
+   "nom_en": "Stamp Card",
+   "famille": "objet_cle_v3",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x1341E3C2"
+  },
+  {
+   "cle": "cle_appartement_c_302",
+   "id_ap": 59429136,
+   "nom_fr": "Clé appartement C-302",
+   "nom_en": "Key to Apt. C-302",
+   "famille": "objet_cle_v3",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0x4BC0CC76"
+  },
+  {
+   "cle": "cle_magnetique_bleue",
+   "id_ap": 59429137,
+   "nom_fr": "Clé magnétique bleue",
+   "nom_en": "Blue Card Key",
+   "famille": "objet_cle_v3",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0x69B37251"
+  },
+  {
+   "cle": "parchemin_en_nyavant",
+   "id_ap": 59429138,
+   "nom_fr": "Parchemin En nyavant",
+   "nom_en": "Nyaight Scroll",
+   "famille": "objet_cle_v3",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0xEEC3CF51"
+  },
+  {
+   "cle": "parchemin_de_victoire",
+   "id_ap": 59429139,
+   "nom_fr": "Parchemin de victoire",
+   "nom_en": "Victory Scroll",
+   "famille": "objet_cle_v3",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0x99C4FFC7"
+  },
+  {
+   "cle": "parchemin_miahourra",
+   "id_ap": 59429140,
+   "nom_fr": "Parchemin Miahourra",
+   "nom_en": "Nyext Scroll",
+   "famille": "objet_cle_v3",
+   "classification": "utile",
+   "don": "objet",
+   "hachage": "0x00CDAE7D"
+  },
+  {
+   "cle": "train",
+   "id_ap": 59429141,
+   "nom_fr": "Abonnement de train",
+   "nom_en": "Train Pass",
+   "famille": "objet_cle_v3",
+   "classification": "progression",
+   "don": "aucun"
+  },
+  {
+   "cle": "voyage_dans_le_temps",
+   "id_ap": 59429142,
+   "nom_fr": "Voyage dans le temps",
+   "nom_en": "Time Travel",
+   "famille": "objet_cle_v3",
+   "classification": "progression",
+   "don": "aucun"
+  },
+  {
+   "cle": "invitation_ovide",
+   "id_ap": 59429248,
+   "nom_fr": "Invitation : Ovide",
+   "nom_en": "Invitation: Faysoff",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun",
+   "inventaire": false
+  },
+  {
+   "cle": "invitation_mythovni",
+   "id_ap": 59429249,
+   "nom_fr": "Invitation : Mythovni",
+   "nom_en": "Invitation: Failian",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun",
+   "inventaire": false
+  },
+  {
+   "cle": "invitation_jalouseriz",
+   "id_ap": 59429250,
+   "nom_fr": "Invitation : Jalouseriz",
+   "nom_en": "Invitation: Wotchagot",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun",
+   "inventaire": false
+  },
+  {
+   "cle": "invitation_fanfanfaron",
+   "id_ap": 59429251,
+   "nom_fr": "Invitation : Fanfanfaron",
+   "nom_en": "Invitation: Pride Shrimp",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun",
+   "inventaire": false
+  },
+  {
+   "cle": "invitation_egare_dare",
+   "id_ap": 59429252,
+   "nom_fr": "Invitation : Égare-dare",
+   "nom_en": "Invitation: No-Go Kart",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun",
+   "inventaire": false
+  },
+  {
+   "cle": "invitation_charivari",
+   "id_ap": 59429253,
+   "nom_fr": "Invitation : Charivari",
+   "nom_en": "Invitation: Mistank",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun",
+   "inventaire": false
+  },
+  {
+   "cle": "invitation_antonnerre",
+   "id_ap": 59429254,
+   "nom_fr": "Invitation : Antonnerre",
+   "nom_en": "Invitation: Zappary",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun",
+   "inventaire": false
+  },
+  {
+   "cle": "invitation_parantonn",
+   "id_ap": 59429255,
+   "nom_fr": "Invitation : Parantonn",
+   "nom_en": "Invitation: Frazzel",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun",
+   "inventaire": false
+  },
+  {
+   "cle": "invitation_yokoeil",
+   "id_ap": 59429256,
+   "nom_fr": "Invitation : Yokœil",
+   "nom_en": "Invitation: Boyclops",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun",
+   "inventaire": false
+  },
+  {
+   "cle": "invitation_couchtar",
+   "id_ap": 59429257,
+   "nom_fr": "Invitation : Couchtar",
+   "nom_en": "Invitation: Wydeawake",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun",
+   "inventaire": false
+  },
+  {
+   "cle": "invitation_noctambill",
+   "id_ap": 59429258,
+   "nom_fr": "Invitation : Noctambill",
+   "nom_en": "Invitation: Allnyta",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun",
+   "inventaire": false
+  },
+  {
+   "cle": "invitation_herbert",
+   "id_ap": 59429259,
+   "nom_fr": "Invitation : Herbert",
+   "nom_en": "Invitation: Herbiboy",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun",
+   "inventaire": false
+  },
+  {
+   "cle": "invitation_carnanova",
+   "id_ap": 59429260,
+   "nom_fr": "Invitation : Carnanova",
+   "nom_en": "Invitation: Carniboy",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun",
+   "inventaire": false
+  },
+  {
+   "cle": "invitation_comte_zapzap",
+   "id_ap": 59429261,
+   "nom_fr": "Invitation : Comte Zapzap",
+   "nom_en": "Invitation: Count Zapaway",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun",
+   "inventaire": false
+  },
+  {
+   "cle": "invitation_scoltine",
+   "id_ap": 59429262,
+   "nom_fr": "Invitation : Scoltine",
+   "nom_en": "Invitation: Irewig",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun",
+   "inventaire": false
+  },
+  {
+   "cle": "invitation_scolerique",
+   "id_ap": 59429263,
+   "nom_fr": "Invitation : Scolérique",
+   "nom_en": "Invitation: Firewig",
+   "famille": "invitation",
+   "classification": "utile",
+   "don": "aucun",
+   "inventaire": false
+  },
+  {
+   "cle": "grelot_gris",
+   "id_ap": 59429284,
+   "nom_fr": "Grelot gris",
+   "nom_en": "Dark Bell",
+   "famille": "medaillium",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x7BF24C3B"
+  },
+  {
+   "cle": "epee_legendaire",
+   "id_ap": 59429285,
+   "nom_fr": "Épée légendaire",
+   "nom_en": "Legendary Blade",
+   "famille": "medaillium",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x1A3A13A4"
+  },
+  {
+   "cle": "epee_maudite",
+   "id_ap": 59429286,
+   "nom_fr": "Épée maudite",
+   "nom_en": "Cursed Blade",
+   "famille": "medaillium",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x8333421E"
+  },
+  {
+   "cle": "epee_sacree",
+   "id_ap": 59429287,
+   "nom_fr": "Épée sacrée",
+   "nom_en": "Holy Blade",
+   "famille": "medaillium",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x845E8607"
+  },
+  {
+   "cle": "orbe_ghz",
+   "id_ap": 59429288,
+   "nom_fr": "Orbe GHz",
+   "nom_en": "GHz Orb",
+   "famille": "medaillium",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x1D57D7BD"
+  },
+  {
+   "cle": "cape_de_blizzard",
+   "id_ap": 59429289,
+   "nom_fr": "Cape de blizzard",
+   "nom_en": "Snowstorm Cloak",
+   "famille": "medaillium",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x14E19B96"
+  },
+  {
+   "cle": "costume_sable",
+   "id_ap": 59429290,
+   "nom_fr": "Costume sable",
+   "nom_en": "Sand Suit",
+   "famille": "medaillium",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x367A847E"
+  },
+  {
+   "cle": "eclat_demoniaque",
+   "id_ap": 59429291,
+   "nom_fr": "Éclat démon.",
+   "nom_en": "Shard of Evil",
+   "famille": "medaillium",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x734BD66A"
+  },
+  {
+   "cle": "revue_maudite",
+   "id_ap": 59429292,
+   "nom_fr": "Revue maudite",
+   "nom_en": "Cursed Journal",
+   "famille": "medaillium",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0xD874E552"
+  },
+  {
+   "cle": "poudre_jouvence",
+   "id_ap": 59429293,
+   "nom_fr": "Poudre jouvence",
+   "nom_en": "Ageless Powder",
+   "famille": "medaillium",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0xED2F43C9"
+  },
+  {
+   "cle": "piece_5_etoiles",
+   "id_ap": 59429294,
+   "nom_fr": "Pièce 5 étoiles",
+   "nom_en": "Five-Star Coin",
+   "famille": "piece",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0xCB567D2C"
+  },
+  {
+   "cle": "piece_frisson_fleur",
+   "id_ap": 59429295,
+   "nom_fr": "Pièce frisson (fleur)",
+   "nom_en": "Flower Excitement Coin",
+   "famille": "piece",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x35F5616A"
+  },
+  {
+   "cle": "piece_du_nord",
+   "id_ap": 59429296,
+   "nom_fr": "Pièce du nord",
+   "nom_en": "Traveler's Coin North",
+   "famille": "piece",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x60694E14"
+  },
+  {
+   "cle": "piece_du_nordet",
+   "id_ap": 59429297,
+   "nom_fr": "Pièce du nordet",
+   "nom_en": "Traveler's Coin Northeast",
+   "famille": "piece",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x176E7E82"
+  },
+  {
+   "cle": "piece_du_levant",
+   "id_ap": 59429298,
+   "nom_fr": "Pièce du levant",
+   "nom_en": "Traveler's Coin East",
+   "famille": "piece",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x8E672F38"
+  },
+  {
+   "cle": "piece_du_centre",
+   "id_ap": 59429299,
+   "nom_fr": "Pièce du centre",
+   "nom_en": "Traveler's Coin Central",
+   "famille": "piece",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0xF9601FAE"
+  },
+  {
+   "cle": "piece_du_ponant",
+   "id_ap": 59429300,
+   "nom_fr": "Pièce du ponant",
+   "nom_en": "Traveler's Coin West",
+   "famille": "piece",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x69DF023F"
+  },
+  {
+   "cle": "piece_des_montagnes",
+   "id_ap": 59429301,
+   "nom_fr": "Pièce des montagnes",
+   "nom_en": "Traveler's Coin Mountain",
+   "famille": "piece",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x1ED832A9"
+  },
+  {
+   "cle": "piece_du_sud",
+   "id_ap": 59429302,
+   "nom_fr": "Pièce du sud",
+   "nom_en": "Traveler's Coin South",
+   "famille": "piece",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x7E1FBB4C"
+  },
+  {
+   "cle": "piece_du_centre_ouest",
+   "id_ap": 59429303,
+   "nom_fr": "Pièce du centre-ouest",
+   "nom_en": "Traveler's Coin Midwest",
+   "famille": "piece",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x09188BDA"
+  },
+  {
+   "cle": "piece_des_iles",
+   "id_ap": 59429304,
+   "nom_fr": "Pièce des îles",
+   "nom_en": "Traveler's Coin Island",
+   "famille": "piece",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x9011DA60"
+  },
+  {
+   "cle": "super_pile_ou_passe",
+   "id_ap": 59429305,
+   "nom_fr": "Super pile ou passe",
+   "nom_en": "Select-A-Coin +",
+   "famille": "piece",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x21778140"
+  },
+  {
+   "cle": "sculpture_d_ours",
+   "id_ap": 59429306,
+   "nom_fr": "Sculpture d'ours",
+   "nom_en": "Carved Bear",
+   "famille": "fusion_regionale",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x104AD777"
+  },
+  {
+   "cle": "lanterne_carassin",
+   "id_ap": 59429307,
+   "nom_fr": "Lanterne carassin",
+   "nom_en": "Goldfish Lantern",
+   "famille": "fusion_regionale",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x674DE7E1"
+  },
+  {
+   "cle": "lanterne_du_maitre",
+   "id_ap": 59429308,
+   "nom_fr": "Lanterne du maître",
+   "nom_en": "Master's Lantern",
+   "famille": "fusion_regionale",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0xFE44B65B"
+  },
+  {
+   "cle": "embleme_d_or",
+   "id_ap": 59429309,
+   "nom_fr": "Emblème d'or",
+   "nom_en": "Gold Emblem",
+   "famille": "fusion_regionale",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x894386CD"
+  },
+  {
+   "cle": "moule_a_takoyaki",
+   "id_ap": 59429310,
+   "nom_fr": "Moule à takoyaki",
+   "nom_en": "Takoyaki Tray",
+   "famille": "fusion_regionale",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x1727136E"
+  },
+  {
+   "cle": "sable_des_dunes",
+   "id_ap": 59429311,
+   "nom_fr": "Sable des dunes",
+   "nom_en": "Dune Sand",
+   "famille": "fusion_regionale",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x602023F8"
+  },
+  {
+   "cle": "chapeau_de_paille",
+   "id_ap": 59429312,
+   "nom_fr": "Chapeau de paille",
+   "nom_en": "Vintage Parasol",
+   "famille": "fusion_regionale",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0xF9297242"
+  },
+  {
+   "cle": "statue_de_terre_cuite",
+   "id_ap": 59429313,
+   "nom_fr": "Statue de terre cuite",
+   "nom_en": "Terracotta Figure",
+   "famille": "fusion_regionale",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x8E2E42D4"
+  },
+  {
+   "cle": "hibiscus_rouge",
+   "id_ap": 59429314,
+   "nom_fr": "Hibiscus rouge",
+   "nom_en": "Red Hibiscus",
+   "famille": "fusion_regionale",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0x1E915F45"
+  },
+  {
+   "cle": "piece_bleu_ciel",
+   "id_ap": 59429315,
+   "nom_fr": "Pièce bleu ciel",
+   "nom_en": "Light-Blue Coin",
+   "famille": "piece",
+   "classification": "progression",
+   "don": "objet",
+   "hachage": "0xE35507D8"
+  },
+  {
+   "cle": "miroirs_progressifs",
+   "id_ap": 59429316,
+   "nom_fr": "Miroirs progressifs",
+   "nom_en": "Progressive Mirapo",
+   "famille": "objet_cle_v3",
+   "classification": "utile",
+   "don": "aucun"
+  },
+  {
+   "cle": "riz_dans_feuille",
+   "id_ap": 59429400,
+   "nom_fr": "Riz dans feuille",
+   "nom_en": "Leaf Rice Ball",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xF28C91C0"
+  },
+  {
+   "cle": "riz_ufs_saumon",
+   "id_ap": 59429401,
+   "nom_fr": "Riz œufs saumon",
+   "nom_en": "Roe Rice Ball",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x858BA156"
+  },
+  {
+   "cle": "sandwich",
+   "id_ap": 59429402,
+   "nom_fr": "Sandwich",
+   "nom_en": "Sandwich",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x6A47AA4D"
+  },
+  {
+   "cle": "patte_d_ours",
+   "id_ap": 59429403,
+   "nom_fr": "Patte d'ours",
+   "nom_en": "Custard Bread",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xF34EFBF7"
+  },
+  {
+   "cle": "pain_au_curry",
+   "id_ap": 59429404,
+   "nom_fr": "Pain au curry",
+   "nom_en": "Curry Bread",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x6D2A6E54"
+  },
+  {
+   "cle": "baguette",
+   "id_ap": 59429405,
+   "nom_fr": "Baguette",
+   "nom_en": "Baguette",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x8449CB61"
+  },
+  {
+   "cle": "blablagel",
+   "id_ap": 59429406,
+   "nom_fr": "Blablagel",
+   "nom_en": "Blehgel",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x1A2D5EC2"
+  },
+  {
+   "cle": "chewing_gum",
+   "id_ap": 59429407,
+   "nom_fr": "Chewing-gum",
+   "nom_en": "10p Gum",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x68011414"
+  },
+  {
+   "cle": "bonb_poisseux",
+   "id_ap": 59429408,
+   "nom_fr": "Bonb. poisseux",
+   "nom_en": "Gooey Candy",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xF10845AE"
+  },
+  {
+   "cle": "chips_geante",
+   "id_ap": 59429409,
+   "nom_fr": "Chips géante",
+   "nom_en": "Giant Cracker",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x860F7538"
+  },
+  {
+   "cle": "bonbons_fruits",
+   "id_ap": 59429410,
+   "nom_fr": "Bonbons fruits",
+   "nom_en": "Fruit Drops",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x186BE09B"
+  },
+  {
+   "cle": "granite",
+   "id_ap": 59429411,
+   "nom_fr": "Granité",
+   "nom_en": "Shaved Ice",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x6F6CD00D"
+  },
+  {
+   "cle": "pomme_d_amour",
+   "id_ap": 59429412,
+   "nom_fr": "Pomme d'amour",
+   "nom_en": "Candy Apple",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xF66581B7"
+  },
+  {
+   "cle": "lait",
+   "id_ap": 59429413,
+   "nom_fr": "Lait",
+   "nom_en": "Milk",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x69C37E23"
+  },
+  {
+   "cle": "cafe_au_lait",
+   "id_ap": 59429414,
+   "nom_fr": "Café au lait",
+   "nom_en": "Coffee Milk",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xF0CA2F99"
+  },
+  {
+   "cle": "lait_aux_fruits",
+   "id_ap": 59429415,
+   "nom_fr": "Lait aux fruits",
+   "nom_en": "Fruit Milk",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x87CD1F0F"
+  },
+  {
+   "cle": "lait_merveilleux",
+   "id_ap": 59429416,
+   "nom_fr": "Lait merveilleux",
+   "nom_en": "Amazing Milk",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x19A98AAC"
+  },
+  {
+   "cle": "spiritizer_y",
+   "id_ap": 59429417,
+   "nom_fr": "Spiritizer Y",
+   "nom_en": "Spiritizer Y",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x8282098A"
+  },
+  {
+   "cle": "voltxtreme",
+   "id_ap": 59429418,
+   "nom_fr": "VoltXtrême",
+   "nom_en": "VoltXtreme",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x1CE69C29"
+  },
+  {
+   "cle": "cheeseburger",
+   "id_ap": 59429419,
+   "nom_fr": "Cheeseburger",
+   "nom_en": "Cheeseburger",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xF447532B"
+  },
+  {
+   "cle": "double_burger",
+   "id_ap": 59429420,
+   "nom_fr": "Double burger",
+   "nom_en": "Double Burger",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x834063BD"
+  },
+  {
+   "cle": "burger_miam",
+   "id_ap": 59429421,
+   "nom_fr": "Burger Miam",
+   "nom_en": "Nom Burger",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x1D24F61E"
+  },
+  {
+   "cle": "ramen_minute",
+   "id_ap": 59429422,
+   "nom_fr": "Ramen minute",
+   "nom_en": "Ramen Cup",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x6ECAD6FF"
+  },
+  {
+   "cle": "ramen_au_poulet",
+   "id_ap": 59429423,
+   "nom_fr": "Ramen au poulet",
+   "nom_en": "Pork Ramen",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xF7C38745"
+  },
+  {
+   "cle": "ramen_deluxe",
+   "id_ap": 59429424,
+   "nom_fr": "Ramen deluxe",
+   "nom_en": "Deluxe Ramen",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x80C4B7D3"
+  },
+  {
+   "cle": "ramen_complets",
+   "id_ap": 59429425,
+   "nom_fr": "Ramen complets",
+   "nom_en": "Everything Ramen",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x1EA02270"
+  },
+  {
+   "cle": "maki_concombre",
+   "id_ap": 59429426,
+   "nom_fr": "Maki concombre",
+   "nom_en": "Cucumber Roll",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x659691C2"
+  },
+  {
+   "cle": "sushi_crevette",
+   "id_ap": 59429427,
+   "nom_fr": "Sushi crevette",
+   "nom_en": "Shrimp Sushi",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xFC9FC078"
+  },
+  {
+   "cle": "sushi_au_saumon",
+   "id_ap": 59429428,
+   "nom_fr": "Sushi au saumon",
+   "nom_en": "Salmon Sushi",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x8B98F0EE"
+  },
+  {
+   "cle": "sushi_thon_rouge",
+   "id_ap": 59429429,
+   "nom_fr": "Sushi thon rouge",
+   "nom_en": "Fatty Tuna Sushi",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x15FC654D"
+  },
+  {
+   "cle": "raviolis_chinois",
+   "id_ap": 59429430,
+   "nom_fr": "Raviolis chinois",
+   "nom_en": "Pot Stickers",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x6454FBF5"
+  },
+  {
+   "cle": "foie_a_l_oignon",
+   "id_ap": 59429431,
+   "nom_fr": "Foie à l'oignon",
+   "nom_en": "Liver & Chives",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xFD5DAA4F"
+  },
+  {
+   "cle": "omelette_crabe",
+   "id_ap": 59429432,
+   "nom_fr": "Omelette crabe",
+   "nom_en": "Crab Omelet",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x8A5A9AD9"
+  },
+  {
+   "cle": "crevette_piment",
+   "id_ap": 59429433,
+   "nom_fr": "Crevette piment",
+   "nom_en": "Chili Shrimp",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x143E0F7A"
+  },
+  {
+   "cle": "ragout_de_tofu",
+   "id_ap": 59429434,
+   "nom_fr": "Ragoût de tofu",
+   "nom_en": "Mapo Tofu",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x63393FEC"
+  },
+  {
+   "cle": "carotte",
+   "id_ap": 59429435,
+   "nom_fr": "Carotte",
+   "nom_en": "Carrot",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xD2FBCD28"
+  },
+  {
+   "cle": "concombre",
+   "id_ap": 59429436,
+   "nom_fr": "Concombre",
+   "nom_en": "Cucumber",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x4BF29C92"
+  },
+  {
+   "cle": "pousse_bambou",
+   "id_ap": 59429437,
+   "nom_fr": "Pousse bambou",
+   "nom_en": "Bamboo Shoot",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x3CF5AC04"
+  },
+  {
+   "cle": "matsutake",
+   "id_ap": 59429438,
+   "nom_fr": "Matsutake",
+   "nom_en": "Matsutake",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xA29139A7"
+  },
+  {
+   "cle": "cuisse_de_poulet",
+   "id_ap": 59429439,
+   "nom_fr": "Cuisse de poulet",
+   "nom_en": "Chicken Thigh",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xD0BD7371"
+  },
+  {
+   "cle": "morceau_de_lard",
+   "id_ap": 59429440,
+   "nom_fr": "Morceau de lard",
+   "nom_en": "Slab Bacon",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x49B422CB"
+  },
+  {
+   "cle": "langue_de_buf",
+   "id_ap": 59429441,
+   "nom_fr": "Langue de bœuf",
+   "nom_en": "Beef Tongue",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x3EB3125D"
+  },
+  {
+   "cle": "buf_persille",
+   "id_ap": 59429442,
+   "nom_fr": "Bœuf persillé",
+   "nom_en": "Marbled Beef",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xA0D787FE"
+  },
+  {
+   "cle": "maquereau_seche",
+   "id_ap": 59429443,
+   "nom_fr": "Maquereau séché",
+   "nom_en": "Dried Mackerel",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xD17F1946"
+  },
+  {
+   "cle": "seriole",
+   "id_ap": 59429444,
+   "nom_fr": "Sériole",
+   "nom_en": "Amberjack",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x487648FC"
+  },
+  {
+   "cle": "oursin_cru",
+   "id_ap": 59429445,
+   "nom_fr": "Oursin cru",
+   "nom_en": "Fresh Urchin",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x3F71786A"
+  },
+  {
+   "cle": "thon_1er_choix",
+   "id_ap": 59429446,
+   "nom_fr": "Thon 1er choix",
+   "nom_en": "Choice Tuna",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xA115EDC9"
+  },
+  {
+   "cle": "curry_de_poulet",
+   "id_ap": 59429447,
+   "nom_fr": "Curry de poulet",
+   "nom_en": "Chicken Curry",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xD4300FC3"
+  },
+  {
+   "cle": "curry_d_agneau",
+   "id_ap": 59429448,
+   "nom_fr": "Curry d'agneau",
+   "nom_en": "Lamb Curry",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x4D395E79"
+  },
+  {
+   "cle": "curry_de_la_mer",
+   "id_ap": 59429449,
+   "nom_fr": "Curry de la mer",
+   "nom_en": "Seafood Curry",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x3A3E6EEF"
+  },
+  {
+   "cle": "curry_du_chef",
+   "id_ap": 59429450,
+   "nom_fr": "Curry du chef",
+   "nom_en": "Buster Curry",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xA45AFB4C"
+  },
+  {
+   "cle": "curry_de_legumes",
+   "id_ap": 59429451,
+   "nom_fr": "Curry de légumes",
+   "nom_en": "Veggie Curry",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xD35DCBDA"
+  },
+  {
+   "cle": "cheesecake",
+   "id_ap": 59429452,
+   "nom_fr": "Cheesecake",
+   "nom_en": "Cheesecake",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xD5F265F4"
+  },
+  {
+   "cle": "fraisier",
+   "id_ap": 59429453,
+   "nom_fr": "Fraisier",
+   "nom_en": "Shortcake",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x4CFB344E"
+  },
+  {
+   "cle": "crepes_nappees",
+   "id_ap": 59429454,
+   "nom_fr": "Crêpes nappées",
+   "nom_en": "Royal Pancakes",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x3BFC04D8"
+  },
+  {
+   "cle": "grande_coupe_glac",
+   "id_ap": 59429455,
+   "nom_fr": "Grande coupe glac.",
+   "nom_en": "Jumbo Parfait",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xA598917B"
+  },
+  {
+   "cle": "galette_riz_sucree",
+   "id_ap": 59429456,
+   "nom_fr": "Galette riz sucrée",
+   "nom_en": "Sweet Rice Cake",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xD29FA1ED"
+  },
+  {
+   "cle": "beignet_farceur",
+   "id_ap": 59429457,
+   "nom_fr": "Beignet farceur",
+   "nom_en": "Spirit Doughnut",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x4B96F057"
+  },
+  {
+   "cle": "beignet_bouffi",
+   "id_ap": 59429458,
+   "nom_fr": "Beignet bouffi",
+   "nom_en": "Soul Doughnut",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x3C91C0C1"
+  },
+  {
+   "cle": "daikon_a_la_vapeur",
+   "id_ap": 59429459,
+   "nom_fr": "Daikon à la vapeur",
+   "nom_en": "Steamed Daikon",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xD7B4DBAD"
+  },
+  {
+   "cle": "uf_a_la_coque",
+   "id_ap": 59429460,
+   "nom_fr": "Œuf à la coque",
+   "nom_en": "Boiled Egg",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x4EBD8A17"
+  },
+  {
+   "cle": "brochettes_buf",
+   "id_ap": 59429461,
+   "nom_fr": "Brochettes bœuf",
+   "nom_en": "Beef Skewers",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x39BABA81"
+  },
+  {
+   "cle": "oden_de_luxe",
+   "id_ap": 59429462,
+   "nom_fr": "Oden de luxe",
+   "nom_en": "Top-Class Oden",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xA7DE2F22"
+  },
+  {
+   "cle": "nouilles_soba",
+   "id_ap": 59429463,
+   "nom_fr": "Nouilles soba",
+   "nom_en": "Soba Noodles",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xD676B19A"
+  },
+  {
+   "cle": "chips",
+   "id_ap": 59429464,
+   "nom_fr": "Chips",
+   "nom_en": "Potato Chips",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xDD2AF6A7"
+  },
+  {
+   "cle": "grignotes",
+   "id_ap": 59429465,
+   "nom_fr": "Grignotes",
+   "nom_en": "Tasty Nibbles",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x4423A71D"
+  },
+  {
+   "cle": "nachos_au_fromage",
+   "id_ap": 59429466,
+   "nom_fr": "Nachos au fromage",
+   "nom_en": "Cheesy Chips",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x3324978B"
+  },
+  {
+   "cle": "petits_pois_neige",
+   "id_ap": 59429467,
+   "nom_fr": "Petits pois neige",
+   "nom_en": "Snow-Pea Snack",
+   "famille": "nourriture",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xAD400228"
+  },
+  {
+   "cle": "bracelet_use",
+   "id_ap": 59429468,
+   "nom_fr": "Bracelet usé",
+   "nom_en": "Worn Bangle",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x4511AA26"
+  },
+  {
+   "cle": "bracelet_en_toc",
+   "id_ap": 59429469,
+   "nom_fr": "Bracelet en toc",
+   "nom_en": "Cheap Bracelet",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xDB753F85"
+  },
+  {
+   "cle": "bracelet_rocker",
+   "id_ap": 59429470,
+   "nom_fr": "Bracelet rocker",
+   "nom_en": "Rocker Wrist",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xDC18FB9C"
+  },
+  {
+   "cle": "bracelet_de_force",
+   "id_ap": 59429471,
+   "nom_fr": "Bracelet de force",
+   "nom_en": "Power Bracelet",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xAC720F13"
+  },
+  {
+   "cle": "bracelet_brute",
+   "id_ap": 59429472,
+   "nom_fr": "Bracelet brute",
+   "nom_en": "Brute Bracer",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xAB1FCB0A"
+  },
+  {
+   "cle": "bracelet_majest",
+   "id_ap": 59429473,
+   "nom_fr": "Bracelet majest.",
+   "nom_en": "Grand Bracelet",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x3CCD1282"
+  },
+  {
+   "cle": "bracelet_solaire",
+   "id_ap": 59429474,
+   "nom_fr": "Bracelet solaire",
+   "nom_en": "Sun Bracelet",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x357B5EA9"
+  },
+  {
+   "cle": "bracelet_de_comete",
+   "id_ap": 59429475,
+   "nom_fr": "Bracelet de comète",
+   "nom_en": "Comet Bracelet",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x4BCA2214"
+  },
+  {
+   "cle": "bracelet_obscur",
+   "id_ap": 59429476,
+   "nom_fr": "Bracelet obscur",
+   "nom_en": "Fiend Band",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x427C6E3F"
+  },
+  {
+   "cle": "bracelet_legend",
+   "id_ap": 59429477,
+   "nom_fr": "Bracelet légend.",
+   "nom_en": "Legend Bracelet",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x2B0DABF1"
+  },
+  {
+   "cle": "anneau_rouille",
+   "id_ap": 59429478,
+   "nom_fr": "Anneau rouillé",
+   "nom_en": "Rusty Ring",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x44D3C011"
+  },
+  {
+   "cle": "anneau_horrible",
+   "id_ap": 59429479,
+   "nom_fr": "Anneau horrible",
+   "nom_en": "Ugly Ring",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xDAB755B2"
+  },
+  {
+   "cle": "bague_mimi",
+   "id_ap": 59429480,
+   "nom_fr": "Bague mimi",
+   "nom_en": "Pretty Ring",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xDDDA91AB"
+  },
+  {
+   "cle": "anneau_arc_en_ciel",
+   "id_ap": 59429481,
+   "nom_fr": "Anneau arc-en-ciel",
+   "nom_en": "Rainbow Ring",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xADB06524"
+  },
+  {
+   "cle": "anneau_illusion",
+   "id_ap": 59429482,
+   "nom_fr": "Anneau illusion",
+   "nom_en": "Illusion Ring",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xAADDA13D"
+  },
+  {
+   "cle": "anneau_feerique",
+   "id_ap": 59429483,
+   "nom_fr": "Anneau féérique",
+   "nom_en": "Fairy Ring",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x3D0F78B5"
+  },
+  {
+   "cle": "anneau_lunaire",
+   "id_ap": 59429484,
+   "nom_fr": "Anneau lunaire",
+   "nom_en": "Lunar Ring",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x34B9349E"
+  },
+  {
+   "cle": "anneau_du_destin",
+   "id_ap": 59429485,
+   "nom_fr": "Anneau du destin",
+   "nom_en": "Ring of Fate",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x4A084823"
+  },
+  {
+   "cle": "anneau_obscur",
+   "id_ap": 59429486,
+   "nom_fr": "Anneau obscur",
+   "nom_en": "Fiend Ring",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x43BE0408"
+  },
+  {
+   "cle": "anneau_legendaire",
+   "id_ap": 59429487,
+   "nom_fr": "Anneau légendaire",
+   "nom_en": "Legend Ring",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x2ACFC1C6"
+  },
+  {
+   "cle": "amul_vieillotte",
+   "id_ap": 59429488,
+   "nom_fr": "Amul. vieillotte",
+   "nom_en": "Aged Charm",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x46957E48"
+  },
+  {
+   "cle": "amulette_antique",
+   "id_ap": 59429489,
+   "nom_fr": "Amulette antique",
+   "nom_en": "Old Charm",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xD8F1EBEB"
+  },
+  {
+   "cle": "amulette_runique",
+   "id_ap": 59429490,
+   "nom_fr": "Amulette runique",
+   "nom_en": "Runic Charm",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xDF9C2FF2"
+  },
+  {
+   "cle": "amul_protectrice",
+   "id_ap": 59429491,
+   "nom_fr": "Amul. protectrice",
+   "nom_en": "Protective Charm",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xAFF6DB7D"
+  },
+  {
+   "cle": "amulette_armure",
+   "id_ap": 59429492,
+   "nom_fr": "Amulette armure",
+   "nom_en": "Armor Charm",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xA89B1F64"
+  },
+  {
+   "cle": "amul_de_chance",
+   "id_ap": 59429493,
+   "nom_fr": "Amul. de chance",
+   "nom_en": "Lucky Charm",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x3F49C6EC"
+  },
+  {
+   "cle": "amulette_celeste",
+   "id_ap": 59429494,
+   "nom_fr": "Amulette céleste",
+   "nom_en": "Galaxy Charm",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x36FF8AC7"
+  },
+  {
+   "cle": "amulette_de_terre",
+   "id_ap": 59429495,
+   "nom_fr": "Amulette de terre",
+   "nom_en": "Earth Charm",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x484EF67A"
+  },
+  {
+   "cle": "amul_obscure",
+   "id_ap": 59429496,
+   "nom_fr": "Amul. obscure",
+   "nom_en": "Fiend Charm",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x41F8BA51"
+  },
+  {
+   "cle": "amul_legendaire",
+   "id_ap": 59429497,
+   "nom_fr": "Amul. légendaire",
+   "nom_en": "Legend Charm",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x28897F9F"
+  },
+  {
+   "cle": "badge_simple",
+   "id_ap": 59429498,
+   "nom_fr": "Badge simple",
+   "nom_en": "Simple Badge",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x4757147F"
+  },
+  {
+   "cle": "badge_noir",
+   "id_ap": 59429499,
+   "nom_fr": "Badge noir",
+   "nom_en": "Black Badge",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xD93381DC"
+  },
+  {
+   "cle": "badge_brillant",
+   "id_ap": 59429500,
+   "nom_fr": "Badge brillant",
+   "nom_en": "Shiny Badge",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xDE5E45C5"
+  },
+  {
+   "cle": "badge_mignon",
+   "id_ap": 59429501,
+   "nom_fr": "Badge mignon",
+   "nom_en": "Cute Badge",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xAE34B14A"
+  },
+  {
+   "cle": "badge_d_hermes",
+   "id_ap": 59429502,
+   "nom_fr": "Badge d'Hermès",
+   "nom_en": "Hermes Badge",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xA9597553"
+  },
+  {
+   "cle": "badge_de_l_aurore",
+   "id_ap": 59429503,
+   "nom_fr": "Badge de l'aurore",
+   "nom_en": "Aurora Badge",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x3E8BACDB"
+  },
+  {
+   "cle": "badge_etoiles",
+   "id_ap": 59429504,
+   "nom_fr": "Badge étoiles",
+   "nom_en": "Meteor Badge",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x373DE0F0"
+  },
+  {
+   "cle": "badge_de_foudre",
+   "id_ap": 59429505,
+   "nom_fr": "Badge de foudre",
+   "nom_en": "Lightning Badge",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x498C9C4D"
+  },
+  {
+   "cle": "badge_obscur",
+   "id_ap": 59429506,
+   "nom_fr": "Badge obscur",
+   "nom_en": "Fiend Badge",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x403AD066"
+  },
+  {
+   "cle": "badge_legendaire",
+   "id_ap": 59429507,
+   "nom_fr": "Badge légendaire",
+   "nom_en": "Legend Badge",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x294B15A8"
+  },
+  {
+   "cle": "cigatana",
+   "id_ap": 59429508,
+   "nom_fr": "Cigatana",
+   "nom_en": "Cicada Sword",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x421802FA"
+  },
+  {
+   "cle": "clochette_force",
+   "id_ap": 59429509,
+   "nom_fr": "Clochette force",
+   "nom_en": "Beefy Bell",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xDB115340"
+  },
+  {
+   "cle": "cloch_charme",
+   "id_ap": 59429510,
+   "nom_fr": "Cloch. charme",
+   "nom_en": "Spell Bell",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xAC1663D6"
+  },
+  {
+   "cle": "cloch_vigueur",
+   "id_ap": 59429511,
+   "nom_fr": "Cloch. vigueur",
+   "nom_en": "Tough Bell",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x3272F675"
+  },
+  {
+   "cle": "cloch_vitesse",
+   "id_ap": 59429512,
+   "nom_fr": "Cloch. vitesse",
+   "nom_en": "Speed Bell",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x4575C6E3"
+  },
+  {
+   "cle": "gour_sans_fond",
+   "id_ap": 59429513,
+   "nom_fr": "Gour. sans fond",
+   "nom_en": "Big Bottle",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xDC7C9759"
+  },
+  {
+   "cle": "eventail_de_tengu",
+   "id_ap": 59429514,
+   "nom_fr": "Éventail de tengu",
+   "nom_en": "Tengu Fan",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xAB7BA7CF"
+  },
+  {
+   "cle": "manteau_d_allegr",
+   "id_ap": 59429515,
+   "nom_fr": "Manteau d'allégr.",
+   "nom_en": "Cheery Coat",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x3BC4BA5E"
+  },
+  {
+   "cle": "batte_cloutee",
+   "id_ap": 59429516,
+   "nom_fr": "Batte cloutée",
+   "nom_en": "Nail Bat",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x4CC38AC8"
+  },
+  {
+   "cle": "baguettes_de_tamb",
+   "id_ap": 59429517,
+   "nom_fr": "Baguettes de tamb.",
+   "nom_en": "Drumsticks",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x5C6EF7A2"
+  },
+  {
+   "cle": "robovitamine_e",
+   "id_ap": 59429518,
+   "nom_fr": "Robovitamine E",
+   "nom_en": "Robovitamin E",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xC567A618"
+  },
+  {
+   "cle": "poignet_d_antonic",
+   "id_ap": 59429519,
+   "nom_fr": "Poignet d'Antonic",
+   "nom_en": "Burly's Wristband",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xB260968E"
+  },
+  {
+   "cle": "grelot_du_souvenir",
+   "id_ap": 59429520,
+   "nom_fr": "Grelot du souvenir",
+   "nom_en": "Memory Chime",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x22DF8B1F"
+  },
+  {
+   "cle": "bracelet_de_farceur",
+   "id_ap": 59429521,
+   "nom_fr": "Bracelet de farceur",
+   "nom_en": "Bony Band",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xB50D5297"
+  },
+  {
+   "cle": "bracelet_de_bouffi",
+   "id_ap": 59429522,
+   "nom_fr": "Bracelet de bouffi",
+   "nom_en": "Fleshy Band",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x2B69C734"
+  },
+  {
+   "cle": "lameliore",
+   "id_ap": 59429523,
+   "nom_fr": "Laméliore",
+   "nom_en": "Reversword",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x2C04032D"
+  },
+  {
+   "cle": "grigrififi",
+   "id_ap": 59429524,
+   "nom_fr": "Grigrififi",
+   "nom_en": "Turnabeads",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x5B0333BB"
+  },
+  {
+   "cle": "reflector",
+   "id_ap": 59429525,
+   "nom_fr": "Réflector",
+   "nom_en": "Reflector",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xC20A6201"
+  },
+  {
+   "cle": "boule_du_paradis",
+   "id_ap": 59429526,
+   "nom_fr": "Boule du paradis",
+   "nom_en": "Paradise Ball",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x55D8BB89"
+  },
+  {
+   "cle": "lettre_funeste",
+   "id_ap": 59429527,
+   "nom_fr": "Lettre funeste",
+   "nom_en": "Sinister Screed",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x43DA68CD"
+  },
+  {
+   "cle": "sabre_maudit",
+   "id_ap": 59429528,
+   "nom_fr": "Sabre maudit",
+   "nom_en": "Cursed Sword",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xDAD33977"
+  },
+  {
+   "cle": "baton_maudit",
+   "id_ap": 59429529,
+   "nom_fr": "Bâton maudit",
+   "nom_en": "Cursed Staff",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xADD409E1"
+  },
+  {
+   "cle": "bouclier_maudit",
+   "id_ap": 59429530,
+   "nom_fr": "Bouclier maudit",
+   "nom_en": "Cursed Shield",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x33B09C42"
+  },
+  {
+   "cle": "robe_maudite",
+   "id_ap": 59429531,
+   "nom_fr": "Robe maudite",
+   "nom_en": "Cursed Robe",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x44B7ACD4"
+  },
+  {
+   "cle": "ceinture_retenue",
+   "id_ap": 59429532,
+   "nom_fr": "Ceinture retenue",
+   "nom_en": "Restraint Belt",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x419CD694"
+  },
+  {
+   "cle": "coiffe_de_singe",
+   "id_ap": 59429533,
+   "nom_fr": "Coiffe de singe",
+   "nom_en": "Monkey Circlet",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xAF92B7B8"
+  },
+  {
+   "cle": "med_de_general",
+   "id_ap": 59429534,
+   "nom_fr": "Méd. de général",
+   "nom_en": "General's Medal",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xFDADCD43"
+  },
+  {
+   "cle": "med_de_colonel",
+   "id_ap": 59429535,
+   "nom_fr": "Méd. de colonel",
+   "nom_en": "Lt. Gen's Medal",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x64A49CF9"
+  },
+  {
+   "cle": "med_lt_colonel",
+   "id_ap": 59429536,
+   "nom_fr": "Méd. lt.-colonel",
+   "nom_en": "Maj. Gen. Medal",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x13A3AC6F"
+  },
+  {
+   "cle": "med_de_commdt",
+   "id_ap": 59429537,
+   "nom_fr": "Méd. de commdt",
+   "nom_en": "Colonel's Medal",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x8DC739CC"
+  },
+  {
+   "cle": "med_capitaine",
+   "id_ap": 59429538,
+   "nom_fr": "Méd. capitaine",
+   "nom_en": "Major's Medal",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xFAC0095A"
+  },
+  {
+   "cle": "med_lieutenant",
+   "id_ap": 59429539,
+   "nom_fr": "Méd. lieutenant",
+   "nom_en": "Captain's Medal",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x63C958E0"
+  },
+  {
+   "cle": "med_d_adjudant",
+   "id_ap": 59429540,
+   "nom_fr": "Méd. d'adjudant",
+   "nom_en": "CDR.'s Medal",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x14CE6876"
+  },
+  {
+   "cle": "med_de_caporal",
+   "id_ap": 59429541,
+   "nom_fr": "Méd. de caporal",
+   "nom_en": "Lt.'s Medal",
+   "famille": "equipement",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x847175E7"
+  },
+  {
+   "cle": "coups_secrets",
+   "id_ap": 59429542,
+   "nom_fr": "Coups secrets",
+   "nom_en": "Hidden Hits",
+   "famille": "livre",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x10A43EAE"
+  },
+  {
+   "cle": "tech_tip_top",
+   "id_ap": 59429543,
+   "nom_fr": "Tech. tip-top",
+   "nom_en": "Top Techniques",
+   "famille": "livre",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x89AD6F14"
+  },
+  {
+   "cle": "secrets_de_l_ame",
+   "id_ap": 59429544,
+   "nom_fr": "Secrets de l'âme",
+   "nom_en": "Soul Secrets",
+   "famille": "livre",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xFEAA5F82"
+  },
+  {
+   "cle": "la_vie_en_tete",
+   "id_ap": 59429545,
+   "nom_fr": "La vie en tête",
+   "nom_en": "A Serious Life",
+   "famille": "livre",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x1BF87993"
+  },
+  {
+   "cle": "pensez_karate",
+   "id_ap": 59429546,
+   "nom_fr": "Pensez Karaté",
+   "nom_en": "Think Karate",
+   "famille": "livre",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x82F12829"
+  },
+  {
+   "cle": "vivez_karate",
+   "id_ap": 59429547,
+   "nom_fr": "Vivez Karaté",
+   "nom_en": "Use Karate",
+   "famille": "livre",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xF5F618BF"
+  },
+  {
+   "cle": "dico_tech",
+   "id_ap": 59429548,
+   "nom_fr": "Dico-tech",
+   "nom_en": "Skill Compendium",
+   "famille": "livre",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x6B928D1C"
+  },
+  {
+   "cle": "techni_clopedie",
+   "id_ap": 59429549,
+   "nom_fr": "Techni-clopédie",
+   "nom_en": "Skill Encyclopedia",
+   "famille": "livre",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x1C95BD8A"
+  },
+  {
+   "cle": "la_def_de_a_a_z",
+   "id_ap": 59429550,
+   "nom_fr": "La déf. de A à Z",
+   "nom_en": "Get Guarding",
+   "famille": "livre",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x859CEC30"
+  },
+  {
+   "cle": "tout_sur_la_def",
+   "id_ap": 59429551,
+   "nom_fr": "Tout sur la déf.",
+   "nom_en": "Guard Gloriously",
+   "famille": "livre",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xF29BDCA6"
+  },
+  {
+   "cle": "docteur_tit_ange",
+   "id_ap": 59429552,
+   "nom_fr": "Docteur Tit'ange",
+   "nom_en": "Li'l Angel Heals",
+   "famille": "livre",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x6224C137"
+  },
+  {
+   "cle": "au_rev_tit_ange",
+   "id_ap": 59429553,
+   "nom_fr": "Au rev., Tit'ange",
+   "nom_en": "Bye, Li'l Angel",
+   "famille": "livre",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x1523F1A1"
+  },
+  {
+   "cle": "petite_teigne",
+   "id_ap": 59429554,
+   "nom_fr": "Petite teigne",
+   "nom_en": "The Pest's Quest",
+   "famille": "livre",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x75E47844"
+  },
+  {
+   "cle": "teigne_parfaite",
+   "id_ap": 59429555,
+   "nom_fr": "Teigne parfaite",
+   "nom_en": "The Perfect Pest",
+   "famille": "livre",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x02E348D2"
+  },
+  {
+   "cle": "secours_mag_7",
+   "id_ap": 59429556,
+   "nom_fr": "Secours mag #7",
+   "nom_en": "Support Life #7",
+   "famille": "livre",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x9BEA1968"
+  },
+  {
+   "cle": "sec_hors_serie",
+   "id_ap": 59429557,
+   "nom_fr": "Sec. hors-série",
+   "nom_en": "Support Special",
+   "famille": "livre",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xECED29FE"
+  },
+  {
+   "cle": "poupee_de_fer",
+   "id_ap": 59429558,
+   "nom_fr": "Poupée de fer",
+   "nom_en": "Iron Doll",
+   "famille": "objet_valeur",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x610CA016"
+  },
+  {
+   "cle": "poupee_bronze",
+   "id_ap": 59429559,
+   "nom_fr": "Poupée bronze",
+   "nom_en": "Bronze Doll",
+   "famille": "objet_valeur",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x11665499"
+  },
+  {
+   "cle": "poupee_d_argent",
+   "id_ap": 59429560,
+   "nom_fr": "Poupée d'argent",
+   "nom_en": "Silver Doll",
+   "famille": "objet_valeur",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x886F0523"
+  },
+  {
+   "cle": "poupee_d_or",
+   "id_ap": 59429561,
+   "nom_fr": "Poupée d'or",
+   "nom_en": "Golden Doll",
+   "famille": "objet_valeur",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0xFF6835B5"
+  },
+  {
+   "cle": "poupee_de_platine",
+   "id_ap": 59429562,
+   "nom_fr": "Poupée de platine",
+   "nom_en": "Platinum Doll",
+   "famille": "objet_valeur",
+   "classification": "remplissage",
+   "don": "objet",
+   "hachage": "0x160B9080"
+  },
+  {
+   "cle": "argent_1000",
+   "id_ap": 59429390,
+   "nom_fr": "10,00 €",
+   "nom_en": "€10.00",
+   "famille": "argent",
+   "classification": "remplissage",
+   "don": "argent",
+   "montant": 1000
+  },
+  {
+   "cle": "argent_2000",
+   "id_ap": 59429391,
+   "nom_fr": "20,00 €",
+   "nom_en": "€20.00",
+   "famille": "argent",
+   "classification": "remplissage",
+   "don": "argent",
+   "montant": 2000
+  },
+  {
+   "cle": "argent_5000",
+   "id_ap": 59429392,
+   "nom_fr": "50,00 €",
+   "nom_en": "€50.00",
+   "famille": "argent",
+   "classification": "remplissage",
+   "don": "argent",
+   "montant": 5000
+  },
+  {
+   "cle": "argent_20000",
+   "id_ap": 59429393,
+   "nom_fr": "200,00 €",
+   "nom_en": "€200.00",
+   "famille": "argent",
+   "classification": "remplissage",
+   "don": "argent",
+   "montant": 20000
+  },
+  {
+   "cle": "argent_100000",
+   "id_ap": 59429394,
+   "nom_fr": "1 000,00 €",
+   "nom_en": "€1,000.00",
+   "famille": "argent",
+   "classification": "remplissage",
+   "don": "argent",
+   "montant": 100000
+  },
+  {
+   "cle": "argent_200000",
+   "id_ap": 59429395,
+   "nom_fr": "2 000,00 €",
+   "nom_en": "€2,000.00",
+   "famille": "argent",
+   "classification": "remplissage",
+   "don": "argent",
+   "montant": 200000
+  },
+  {
+   "cle": "argent_500000",
+   "id_ap": 59429396,
+   "nom_fr": "5 000,00 €",
+   "nom_en": "€5,000.00",
+   "famille": "argent",
+   "classification": "remplissage",
+   "don": "argent",
+   "montant": 500000
+  },
+  {
+   "cle": "cle_donjon_portails_1",
+   "id_ap": 59429600,
+   "nom_fr": "Clé du donjon des portails (5 globes)",
+   "nom_en": "Gate Dungeon Key (5 orbs)",
+   "famille": "objet_cle_v3",
+   "classification": "progression",
+   "don": "aucun"
+  },
+  {
+   "cle": "cle_donjon_portails_2",
+   "id_ap": 59429601,
+   "nom_fr": "Clé du donjon des portails (10 globes)",
+   "nom_en": "Gate Dungeon Key (10 orbs)",
+   "famille": "objet_cle_v3",
+   "classification": "progression",
+   "don": "aucun"
+  },
+  {
+   "cle": "cle_donjon_portails_3",
+   "id_ap": 59429602,
+   "nom_fr": "Clé du donjon des portails (20 globes)",
+   "nom_en": "Gate Dungeon Key (20 orbs)",
+   "famille": "objet_cle_v3",
+   "classification": "progression",
+   "don": "aucun"
+  },
+  {
+   "cle": "cle_donjon_portails_4",
+   "id_ap": 59429603,
+   "nom_fr": "Clé du donjon des portails (30 globes)",
+   "nom_en": "Gate Dungeon Key (30 orbs)",
+   "famille": "objet_cle_v3",
+   "classification": "progression",
+   "don": "aucun"
+  },
+  {
+   "cle": "cle_donjon_portails_5",
+   "id_ap": 59429604,
+   "nom_fr": "Clé du donjon des portails (40 globes)",
+   "nom_en": "Gate Dungeon Key (40 orbs)",
+   "famille": "objet_cle_v3",
+   "classification": "progression",
+   "don": "aucun"
+  },
+  {
+   "cle": "piege_combat_surprise",
+   "id_ap": 59429620,
+   "nom_fr": "Piège : combat surprise",
+   "nom_en": "Surprise Battle Trap",
+   "famille": "piege",
+   "classification": "piege",
+   "don": "piege",
+   "piege": 0
+  },
+  {
+   "cle": "piege_perte_argent",
+   "id_ap": 59429621,
+   "nom_fr": "Piège : perte d'argent",
+   "nom_en": "Money Loss Trap",
+   "famille": "piege",
+   "classification": "piege",
+   "don": "piege",
+   "piege": 1
+  },
+  {
+   "cle": "piege_montre_brouillee",
+   "id_ap": 59429622,
+   "nom_fr": "Piège : montre brouillée",
+   "nom_en": "Watch Static Trap",
+   "famille": "piege",
+   "classification": "piege",
+   "don": "piege",
+   "piege": 2
+  },
+  {
+   "cle": "piege_pluie",
+   "id_ap": 59429623,
+   "nom_fr": "Piège : pluie",
+   "nom_en": "Rain Trap",
+   "famille": "piege",
+   "classification": "piege",
+   "don": "piege",
+   "piege": 3
+  },
+  {
+   "cle": "piege_pv_moitie",
+   "id_ap": 59429624,
+   "nom_fr": "Piège : PV à moitié",
+   "nom_en": "Half HP Trap",
+   "famille": "piege",
+   "classification": "piege",
+   "don": "piege",
+   "piege": 4
+  },
+  {
+   "cle": "piege_equipe_melangee",
+   "id_ap": 59429625,
+   "nom_fr": "Piège : équipe mélangée",
+   "nom_en": "Wheel Shuffle Trap",
+   "famille": "piege",
+   "classification": "piege",
+   "don": "piege",
+   "piege": 5
+  },
+  {
+   "cle": "piege_oni",
+   "id_ap": 59429627,
+   "nom_fr": "Piège : Oni",
+   "nom_en": "Oni Trap",
+   "famille": "piege",
+   "classification": "piege",
+   "don": "piege",
+   "piege": 7
+  },
+  {
+   "cle": "terrain_blasters_2",
+   "id_ap": 59429652,
+   "nom_fr": "Terrain : Crocho",
+   "nom_en": "Stage: Sproink",
+   "famille": "terrain_blasters",
+   "classification": "progression",
+   "don": "aucun"
+  },
+  {
+   "cle": "terrain_blasters_3",
+   "id_ap": 59429653,
+   "nom_fr": "Terrain : Triptyk",
+   "nom_en": "Stage: Slimamander",
+   "famille": "terrain_blasters",
+   "classification": "progression",
+   "don": "aucun"
+  },
+  {
+   "cle": "terrain_blasters_4",
+   "id_ap": 59429654,
+   "nom_fr": "Terrain : Carpitaine",
+   "nom_en": "Stage: SV Snaggerjag",
+   "famille": "terrain_blasters",
+   "classification": "progression",
+   "don": "aucun"
+  },
+  {
+   "cle": "terrain_blasters_5",
+   "id_ap": 59429655,
+   "nom_fr": "Terrain : Ogralos",
+   "nom_en": "Stage: Ogralus",
+   "famille": "terrain_blasters",
+   "classification": "progression",
+   "don": "aucun"
+  },
+  {
+   "cle": "terrain_blasters_6",
+   "id_ap": 59429656,
+   "nom_fr": "Terrain : McKraken",
+   "nom_en": "Stage: McKraken",
+   "famille": "terrain_blasters",
+   "classification": "progression",
+   "don": "aucun"
+  },
+  {
+   "cle": "terrain_blasters_7",
+   "id_ap": 59429657,
+   "nom_fr": "Terrain : Démophage",
+   "nom_en": "Stage: Demuncher",
+   "famille": "terrain_blasters",
+   "classification": "progression",
+   "don": "aucun"
+  },
+  {
+   "cle": "terrain_blasters_8",
+   "id_ap": 59429658,
+   "nom_fr": "Terrain : Orqanos",
+   "nom_en": "Stage: Orcanos",
+   "famille": "terrain_blasters",
+   "classification": "progression",
+   "don": "aucun"
+  },
+  {
+   "cle": "terrain_blasters_9",
+   "id_ap": 59429659,
+   "nom_fr": "Terrain : Lady Perpétua",
+   "nom_en": "Stage: Dame Dedtime",
+   "famille": "terrain_blasters",
+   "classification": "progression",
+   "don": "aucun"
+  },
+  {
+   "cle": "terrain_blasters_10",
+   "id_ap": 59429660,
+   "nom_fr": "Terrain : Potofeu",
+   "nom_en": "Stage: Wobblewok",
+   "famille": "terrain_blasters",
+   "classification": "progression",
+   "don": "aucun"
+  },
+  {
+   "cle": "terrain_blasters_11",
+   "id_ap": 59429661,
+   "nom_fr": "Terrain : Jiganyan",
+   "nom_en": "Stage: Rubeus J",
+   "famille": "terrain_blasters",
+   "classification": "progression",
+   "don": "aucun"
+  },
+  {
+   "cle": "terrain_blasters_12",
+   "id_ap": 59429662,
+   "nom_fr": "Terrain : Komak",
+   "nom_en": "Stage: Hardy Hound",
+   "famille": "terrain_blasters",
+   "classification": "progression",
+   "don": "aucun"
+  },
+  {
+   "cle": "terrain_blasters_13",
+   "id_ap": 59429663,
+   "nom_fr": "Terrain : Domniscian",
+   "nom_en": "Stage: Hinozall",
+   "famille": "terrain_blasters",
+   "classification": "progression",
+   "don": "aucun"
+  },
+  {
+   "cle": "multiplicateur_xp",
+   "id_ap": 59429664,
+   "nom_fr": "Multiplicateur d'XP",
+   "nom_en": "Progressive EXP Multiplier",
+   "famille": "multiplicateur_xp",
+   "classification": "utile",
+   "don": "aucun"
+  }
+ ],
+ "identifiants_reserves": [
+  {
+   "de": 59429268,
+   "a": 59429283,
+   "raison": "lot 14 : invitations de Pièce 5 étoiles, retirées au lot 20"
+  },
+  {
+   "de": 59429626,
+   "a": 59429626,
+   "raison": "lot 3 des pièges : piège 6 (envoûtement), abandonné"
+  },
+  {
+   "de": 59429650,
+   "a": 59429651,
+   "raison": "Blasters : terrains 0 et 1, ouverts d'office, sans objet"
+  }
+ ]
+}

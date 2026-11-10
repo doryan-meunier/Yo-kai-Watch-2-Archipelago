@@ -1,0 +1,521 @@
+diff --git a/Cargo.lock b/Cargo.lock
+index 66efe38..25747f4 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -3088,7 +3088,6 @@ dependencies = [
+ [[package]]
+ name = "recomp-abi"
+ version = "0.1.0"
+-source = "git+https://github.com/fearkov/3dsrecomp#c3f21f94ba50d688025febc8974ff348d471b587"
+ dependencies = [
+  "libloading",
+ ]
+@@ -3096,7 +3095,6 @@ dependencies = [
+ [[package]]
+ name = "recomp3ds"
+ version = "0.1.0"
+-source = "git+https://github.com/fearkov/3dsrecomp#c3f21f94ba50d688025febc8974ff348d471b587"
+ dependencies = [
+  "libc",
+  "recomp-abi",
+diff --git a/Cargo.toml b/Cargo.toml
+index df1678d..c9d5806 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -55,3 +55,9 @@ lto = "thin"
+ codegen-units = 4
+ panic = "unwind"
+ debug = 1
++
++# 3dsrecomp with the changes of the Yo-kai Watch 2 project (incremental
++# recompiling), cloned beside this folder by its tools/zakuro/construire.py
++[patch."https://github.com/fearkov/3dsrecomp"]
++recomp3ds = { path = "../3dsrecomp" }
++recomp-abi = { path = "../3dsrecomp/abi" }
+diff --git a/crates/zakuro-core/src/kernel/svc.rs b/crates/zakuro-core/src/kernel/svc.rs
+index a2fb6cc..fe7af20 100644
+--- a/crates/zakuro-core/src/kernel/svc.rs
++++ b/crates/zakuro-core/src/kernel/svc.rs
+@@ -82,6 +82,7 @@ pub fn dispatch(system: &mut System, number: u32) {
+         0x2B => get_process_info(system),
+         0x2D => connect_to_port(system),
+         0x32 => send_sync_request(system),
++        0x33 => open_process(system),
+         0x35 => get_process_id(system),
+         0x37 => get_thread_id(system),
+         0x38 => get_resource_limit(system),
+@@ -89,6 +90,7 @@ pub fn dispatch(system: &mut System, number: u32) {
+         0x3A => get_resource_limit_current_values(system),
+         0x3C => svc_break(system),
+         0x3D => output_debug_string(system),
++        0x70 => control_process_memory(system),
+         // cache maintenance.
+         0x54..=0x56 => {
+             system.cpu.regs[0] = 0;
+@@ -1044,6 +1046,34 @@ fn get_process_id(system: &mut System) {
+     system.cpu.regs[1] = system.kernel.process_id;
+ }
+ 
++/// svcOpenProcess(pid): a handle to the title's own process, the only one
++/// there is. code that makes its own memory executable (a mod's loader, as
++/// Magikoopa's) opens itself this way, svcControlProcessMemory refusing the
++/// pseudo-handle on the console.
++fn open_process(system: &mut System) {
++    let pid = system.cpu.regs[1];
++    if pid != system.kernel.process_id {
++        log::warn!("svcOpenProcess of process {pid}, not the title's");
++        system.cpu.regs[0] = errors::INVALID_HANDLE.0;
++        return;
++    }
++    let object = system.kernel.objects.insert(KObject::Process);
++    let handle = system.kernel.handles.create(&mut system.kernel.objects, object, "Process");
++    system.cpu.regs[0] = 0;
++    system.cpu.regs[1] = handle;
++}
++
++/// svcControlProcessMemory(process, addr0, addr1, size, operation,
++/// permissions): accepted as svcControlMemory's protection is, nothing
++/// enforces permissions yet (memory that reads can run).
++fn control_process_memory(system: &mut System) {
++    let operation = system.cpu.regs[4];
++    if operation != 6 {
++        log::warn!("svcControlProcessMemory with operation 0x{operation:X}, accepted without effect");
++    }
++    system.cpu.regs[0] = 0;
++}
++
+ fn get_resource_limit(system: &mut System) {
+     let _process = system.cpu.regs[1];
+     let object = system.kernel.objects.insert(KObject::ResourceLimit);
+diff --git a/crates/zakuro/src/cli.rs b/crates/zakuro/src/cli.rs
+index 4b1ea4f..044ed93 100644
+--- a/crates/zakuro/src/cli.rs
++++ b/crates/zakuro/src/cli.rs
+@@ -28,6 +28,11 @@ pub struct Options {
+     pub interpreter: bool,
+     /// play no sound.
+     pub mute: bool,
++    /// serve a GDB stub on this port of 127.0.0.1, for a tool that reads and
++    /// writes the game's memory.
++    pub gdb: Option<u16>,
++    /// recompile the game with its mods, then exit, without a window.
++    pub recompile: bool,
+ }
+ 
+ const USAGE: &str = "\
+@@ -58,6 +63,12 @@ options:
+   --interpreter                    interpret everything, even with recompiled
+                                    code around
+   --mute                           play no sound
++  --gdb <port>                     serve a GDB stub on 127.0.0.1:<port>
++                                   (memory reads and writes only)
++  --recompile                      recompile the game with its mods, with
++                                   the computer's C compiler or the Zig
++                                   Zakuro keeps (downloaded first if need
++                                   be), then exit
+   --data <dir>                     where saves live (default: the system's
+                                    place for data, ~/.local/share/zakuro or
+                                    %APPDATA%\\zakuro)
+@@ -82,6 +93,8 @@ pub fn parse() -> Result<Options, String> {
+         data: None,
+         interpreter: false,
+         mute: false,
++        gdb: None,
++        recompile: false,
+     };
+ 
+     let mut args = std::env::args().skip(1);
+@@ -126,6 +139,11 @@ pub fn parse() -> Result<Options, String> {
+             }
+             "--interpreter" => options.interpreter = true,
+             "--mute" => options.mute = true,
++            "--gdb" => {
++                let value = args.next().ok_or("--gdb needs a port")?;
++                options.gdb = Some(value.parse().map_err(|_| format!("'{value}' is not a port"))?);
++            }
++            "--recompile" => options.recompile = true,
+             "--profile" => options.profile = true,
+             "--test-pattern" => options.test_pattern = true,
+             other if other.starts_with('-') => {
+@@ -136,6 +154,10 @@ pub fn parse() -> Result<Options, String> {
+     }
+ 
+     options.rom = rom;
++    if options.recompile && options.rom.is_none() {
++        print!("{USAGE}");
++        return Err("--recompile needs a game".to_owned());
++    }
+     if options.headless.is_some() && options.rom.is_none() && !options.test_pattern {
+         print!("{USAGE}");
+         return Err("--headless needs a game".to_owned());
+diff --git a/crates/zakuro/src/gdb.rs b/crates/zakuro/src/gdb.rs
+new file mode 100644
+index 0000000..0fef57e
+--- /dev/null
++++ b/crates/zakuro/src/gdb.rs
+@@ -0,0 +1,242 @@
++//! a small GDB remote stub, enough for a tool that reads and writes the
++//! game's memory while it plays (the Yo-kai Watch 2 Archipelago client):
++//! `?`, the interrupt byte, `c`, `m`, `M` and `D`. packets are handled
++//! between frames, the game stopped or running.
++//!
++//! unlike Citra's and Azahar's stub, this one keeps listening when its
++//! client goes away, and the game runs on.
++
++use std::io::{ErrorKind, Read, Write};
++use std::net::{TcpListener, TcpStream};
++use std::time::{Duration, Instant};
++
++use zakuro_core::System;
++
++/// the largest block one `m` or `M` packet may carry.
++const MAX_BLOCK: usize = 0x1000;
++
++/// how long a stopped game waits for the next packet before going back to
++/// the window's events, so that it stays responsive while stopped.
++const STOPPED_WAIT: Duration = Duration::from_millis(30);
++
++pub struct Stub {
++    listener: TcpListener,
++    client: Option<TcpStream>,
++    buffer: Vec<u8>,
++    halted: bool,
++}
++
++impl Stub {
++    /// listens on 127.0.0.1:port.
++    pub fn listen(port: u16) -> std::io::Result<Stub> {
++        let listener = TcpListener::bind(("127.0.0.1", port))?;
++        listener.set_nonblocking(true)?;
++        log::info!("gdb: listening on 127.0.0.1:{port}");
++        Ok(Stub { listener, client: None, buffer: Vec::new(), halted: false })
++    }
++
++    /// the client stopped the game.
++    pub fn halted(&self) -> bool {
++        self.halted && self.client.is_some()
++    }
++
++    /// accepts a client and answers what it sent. while the game is stopped
++    /// it waits a little for more, so that a run of writes goes through in
++    /// one go instead of one a frame.
++    pub fn poll(&mut self, mut system: Option<&mut System>) {
++        if self.client.is_none() {
++            match self.listener.accept() {
++                Ok((stream, peer)) => {
++                    if stream.set_nonblocking(true).is_ok() {
++                        let _ = stream.set_nodelay(true);
++                        log::info!("gdb: client {peer} connected, the game stops until it continues");
++                        self.client = Some(stream);
++                        self.buffer.clear();
++                        // as Citra's stub does, the game stops when a client comes
++                        self.halted = true;
++                    }
++                }
++                Err(error) if error.kind() == ErrorKind::WouldBlock => {}
++                Err(error) => log::warn!("gdb: accept: {error}"),
++            }
++        }
++        let start = Instant::now();
++        loop {
++            let got = self.receive();
++            self.handle(system.as_deref_mut());
++            if self.client.is_none() {
++                self.halted = false;
++                return;
++            }
++            if !self.halted {
++                return;
++            }
++            if !got {
++                if start.elapsed() >= STOPPED_WAIT {
++                    return;
++                }
++                std::thread::sleep(Duration::from_micros(500));
++            }
++        }
++    }
++
++    /// reads what arrived, false when nothing did.
++    fn receive(&mut self) -> bool {
++        let Some(client) = &mut self.client else { return false };
++        let mut chunk = [0u8; 16384];
++        let mut got = false;
++        loop {
++            match client.read(&mut chunk) {
++                Ok(0) => {
++                    log::info!("gdb: client gone, the game runs on");
++                    self.client = None;
++                    return got;
++                }
++                Ok(n) => {
++                    self.buffer.extend_from_slice(&chunk[..n]);
++                    got = true;
++                }
++                Err(error) if error.kind() == ErrorKind::WouldBlock => return got,
++                Err(error) if error.kind() == ErrorKind::Interrupted => {}
++                Err(error) => {
++                    log::info!("gdb: client lost, {error}");
++                    self.client = None;
++                    return got;
++                }
++            }
++        }
++    }
++
++    /// answers every whole packet in the buffer.
++    fn handle(&mut self, mut system: Option<&mut System>) {
++        loop {
++            let Some(first) = self.buffer.first().copied() else { return };
++            match first {
++                // acknowledgements of what we sent
++                b'+' | b'-' => {
++                    self.buffer.remove(0);
++                }
++                // the interrupt byte, outside any packet
++                0x03 => {
++                    self.buffer.remove(0);
++                    self.halted = true;
++                    self.send("S05");
++                }
++                b'$' => {
++                    let Some(hash) = self.buffer.iter().position(|&b| b == b'#') else { return };
++                    if self.buffer.len() < hash + 3 {
++                        return;
++                    }
++                    let body = self.buffer[1..hash].to_vec();
++                    let sum = std::str::from_utf8(&self.buffer[hash + 1..hash + 3]).ok().and_then(|s| u8::from_str_radix(s, 16).ok());
++                    self.buffer.drain(..hash + 3);
++                    let ours = body.iter().fold(0u8, |acc, &b| acc.wrapping_add(b));
++                    if sum != Some(ours) {
++                        self.raw(b"-");
++                        continue;
++                    }
++                    self.raw(b"+");
++                    let reply = self.answer(&body, system.as_deref_mut());
++                    if let Some(reply) = reply {
++                        self.send(&reply);
++                    }
++                }
++                // anything else before a packet is noise
++                _ => {
++                    self.buffer.remove(0);
++                }
++            }
++        }
++    }
++
++    /// the reply to one packet, none for `c`, which answers only when the
++    /// game stops again.
++    fn answer(&mut self, body: &[u8], system: Option<&mut System>) -> Option<String> {
++        let text = String::from_utf8_lossy(body);
++        let command = body.first().copied().unwrap_or(0);
++        match command {
++            b'?' => Some("S05".to_owned()),
++            b'c' => {
++                self.halted = false;
++                None
++            }
++            b'D' => {
++                self.halted = false;
++                Some("OK".to_owned())
++            }
++            b'm' => Some(read(&text[1..], system)),
++            b'M' => Some(write(&text[1..], system)),
++            // registers, breakpoints and queries are not served
++            _ => Some(String::new()),
++        }
++    }
++
++    fn send(&mut self, reply: &str) {
++        let sum = reply.bytes().fold(0u8, |acc, b| acc.wrapping_add(b));
++        self.raw(format!("${reply}#{sum:02x}").as_bytes());
++    }
++
++    fn raw(&mut self, bytes: &[u8]) {
++        let Some(client) = &mut self.client else { return };
++        // the client reads as it goes, a blocking write of a reply is short
++        let _ = client.set_nonblocking(false);
++        let result = client.write_all(bytes);
++        let _ = client.set_nonblocking(true);
++        if let Err(error) = result {
++            log::info!("gdb: client lost, {error}");
++            self.client = None;
++        }
++    }
++}
++
++/// `addr,length`, in hexadecimal.
++fn range(text: &str) -> Option<(u32, usize)> {
++    let (addr, length) = text.split_once(',')?;
++    let addr = u32::from_str_radix(addr, 16).ok()?;
++    let length = usize::from_str_radix(length, 16).ok()?;
++    (length <= MAX_BLOCK).then_some((addr, length))
++}
++
++fn read(text: &str, system: Option<&mut System>) -> String {
++    let (Some((addr, length)), Some(system)) = (range(text), system) else { return "E01".to_owned() };
++    if length == 0 {
++        return String::new();
++    }
++    if !system.memory.is_readable(addr, length as u32) {
++        return "E00".to_owned();
++    }
++    let mut out = vec![0u8; length];
++    system.memory.read_bytes(addr, &mut out);
++    out.iter().map(|b| format!("{b:02x}")).collect()
++}
++
++fn write(text: &str, system: Option<&mut System>) -> String {
++    let Some((head, data)) = text.split_once(':') else { return "E01".to_owned() };
++    let (Some((addr, length)), Some(system)) = (range(head), system) else { return "E01".to_owned() };
++    if data.len() != 2 * length {
++        return "E01".to_owned();
++    }
++    let Some(bytes) = (0..length).map(|i| u8::from_str_radix(&data[2 * i..2 * i + 2], 16).ok()).collect::<Option<Vec<u8>>>() else {
++        return "E01".to_owned();
++    };
++    if length == 0 {
++        return "OK".to_owned();
++    }
++    if !system.memory.is_writable(addr, length as u32) {
++        return "E00".to_owned();
++    }
++    system.write_from_service(addr, &bytes);
++    "OK".to_owned()
++}
++
++#[cfg(test)]
++mod tests {
++    use super::range;
++
++    #[test]
++    fn ranges() {
++        assert_eq!(range("91c000,400"), Some((0x91C000, 0x400)));
++        assert_eq!(range("91c000,2000"), None);
++        assert_eq!(range("zz,4"), None);
++    }
++}
+diff --git a/crates/zakuro/src/lib.rs b/crates/zakuro/src/lib.rs
+index 7e882e8..e9373b6 100644
+--- a/crates/zakuro/src/lib.rs
++++ b/crates/zakuro/src/lib.rs
+@@ -5,6 +5,7 @@
+ mod audio;
+ mod camera;
+ mod cli;
++mod gdb;
+ mod gamepad;
+ mod gui;
+ mod input;
+@@ -107,12 +108,26 @@ pub fn run(linked: Option<Linked>) {
+         room_server: None,
+         room: None,
+         dlp_guest: None,
++        gdb: None,
+         dlp_own: None,
+         wireless_reboot: None,
+         maximized_before_full_screen: false,
+         resize_after_full_screen: false,
+     };
+ 
++    if app.options.recompile {
++        std::process::exit(recompile_from_command_line(&app));
++    }
++    if let Some(port) = app.options.gdb {
++        match gdb::Stub::listen(port) {
++            Ok(stub) => app.gdb = Some(stub),
++            Err(error) => {
++                eprintln!("zakuro: the GDB stub can't listen on port {port}: {error}");
++                std::process::exit(1);
++            }
++        }
++    }
++
+     if let Some(frames) = app.options.headless {
+         app.start();
+         if let Some(game) = &mut app.game {
+@@ -138,6 +153,58 @@ pub fn run(linked: Option<Linked>) {
+     }
+ }
+ 
++/// --recompile: recompiles the game with its mods in the data folder, as the
++/// library's Recompile does, printing how far along it is, and gives the
++/// exit code, 0 when the library is installed.
++fn recompile_from_command_line(app: &App) -> i32 {
++    let Some(rom) = app.options.rom.as_deref().map(Path::new) else { return 2 };
++    let title = match zakuro_fs::Title::load(rom) {
++        Ok(title) => title,
++        Err(error) => {
++            eprintln!("zakuro: {}: {error}", rom.display());
++            return 1;
++        }
++    };
++    let program_id = title.program_id();
++    let tools = zig::tools_dir(app.data_dir.as_deref());
++    let toolchain = match recomp3ds::compile::check(None) {
++        Ok(compiler) => Toolchain::Ready(compiler),
++        Err(error) => match tools.as_deref().and_then(zig::installed) {
++            Some(compiler) => Toolchain::Ready(compiler),
++            None => match tools {
++                Some(tools) if zig::download_size().is_some() && zig::can_download() => Toolchain::Download(tools),
++                _ => {
++                    eprintln!("zakuro: recompiling needs a C compiler: {error}");
++                    return 1;
++                }
++            },
++        },
++    };
++    let name = format!("{program_id:016X}");
++    let job = Job::start(rom, None, program_id, &name, app.data_dir.as_deref(), toolchain);
++    let mut last = String::new();
++    loop {
++        let stage = job.stage();
++        let line = match &stage {
++            Stage::Downloading(arrived) => format!("progress {:.0} downloading the compiler", 100.0 * arrived),
++            Stage::Generating => "progress 5 generating".to_owned(),
++            Stage::Compiling { done, total } => format!("progress {:.0} compiling {done} of {total}", 100.0 * stage.fraction()),
++            Stage::Installing => "progress 95 installing".to_owned(),
++            Stage::Done => "progress 100 done".to_owned(),
++            Stage::Failed(error) => format!("failed {error}"),
++        };
++        if line != last {
++            println!("{line}");
++            last = line;
++        }
++        match stage {
++            Stage::Done => return 0,
++            Stage::Failed(_) => return 1,
++            _ => std::thread::sleep(Duration::from_millis(200)),
++        }
++    }
++}
++
+ /// opens a folder in the system's file manager.
+ fn show_folder(folder: &Path) {
+     let program = if cfg!(windows) {
+@@ -398,6 +465,8 @@ struct App {
+     room: Option<zakuro_core::room::Connection>,
+     /// Download Play as a guest, while in a room with no game running.
+     dlp_guest: Option<zakuro_core::download_play::Guest>,
++    /// the GDB stub --gdb asks for.
++    gdb: Option<gdb::Stub>,
+     /// the player's own copy of the child joined for, played in place of
+     /// one sent.
+     dlp_own: Option<PathBuf>,
+@@ -1161,10 +1230,14 @@ impl App {
+         }
+         self.download_play();
+ 
++        if let Some(stub) = &mut self.gdb {
++            stub.poll(self.game.as_mut().map(|game| &mut game.system));
++        }
++        let halted = self.gdb.as_ref().is_some_and(gdb::Stub::halted);
+         // a game waiting on its keyboard waits for the user, not running
+         let typing = self.game.as_ref().is_some_and(|game| game.system.keyboard_request().is_some());
+         let playing =
+-            self.game.is_some() && !self.paused && !self.menus.menu_open && !self.menus.settings_open && !typing;
++            self.game.is_some() && !self.paused && !halted && !self.menus.menu_open && !self.menus.settings_open && !typing;
+         // Tab or a controller's right trigger, or the right stick's click
+         // while ZR has the trigger, whichever no button of the console's is on
+         let free = |button: gilrs::Button| self.settings.pad.map().iter().all(|&(_, bound)| bound != button);

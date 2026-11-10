@@ -1,0 +1,404 @@
+diff --git a/crates/zakuro-core/src/services/mod.rs b/crates/zakuro-core/src/services/mod.rs
+index 2997921..0d0e255 100644
+--- a/crates/zakuro-core/src/services/mod.rs
++++ b/crates/zakuro-core/src/services/mod.rs
+@@ -243,10 +243,13 @@ pub(crate) mod tests {
+         assert_eq!(is_registered(&mut system, 0x400), 1);
+     }
+ 
+-    /// local wireless has to fail the way it does with wireless switched
+-    /// off, the one failure every title is written to cope with.
++    /// with no room, local wireless starts, for a title to play alone in a
++    /// network of its own; Download Play, which needs another console, and
++    /// a local wireless command nothing answers still fail the way they do
++    /// with wireless switched off, the one failure every title is written
++    /// to cope with.
+     #[test]
+-    fn local_wireless_reports_wireless_off() {
++    fn local_wireless_starts_alone() {
+         let (mut system, buffer) = system_with_thread();
+         // InitializeWithVersion, the header the SDK sends.
+         buffer.set(&mut system.memory, 0, Header::new(0x001B, 12, 2).0);
+@@ -254,7 +257,11 @@ pub(crate) mod tests {
+ 
+         handle_request(&mut system, Target::service("nwm::UDS".into(), 0));
+ 
+-        assert_eq!(buffer.header(&mut system.memory), Header::new(0x001B, 1, 0));
++        assert_eq!(buffer.header(&mut system.memory), Header::new(0x001B, 1, 2));
++        assert_eq!(buffer.get(&mut system.memory, 1), 0);
++
++        buffer.set(&mut system.memory, 0, Header::new(0x0040, 0, 0).0);
++        handle_request(&mut system, Target::service("nwm::UDS".into(), 0));
+         assert_eq!(buffer.get(&mut system.memory, 1), 0xC941_1002);
+     }
+ 
+diff --git a/crates/zakuro-core/src/services/uds.rs b/crates/zakuro-core/src/services/uds.rs
+index 488128f..1232fb5 100644
+--- a/crates/zakuro-core/src/services/uds.rs
++++ b/crates/zakuro-core/src/services/uds.rs
+@@ -2,7 +2,8 @@
+ //! them and pass data, here through a room rather than the air, see room.
+ //! what goes between the consoles is Zakuro's own, none of the 802.11
+ //! frames or their encryption, except the beacons a title reads itself. with
+-//! no room, wireless is off, as when a player switches it off.
++//! no room, the console is alone: it can host a network only it is in, its
++//! scans find nothing and its joins time out.
+ 
+ use std::collections::VecDeque;
+ 
+@@ -230,12 +231,84 @@ impl UdsState {
+     }
+ }
+ 
++/// the address a console with no room hosts under, alone. locally
++/// administered, and never one a room hands out (those are 02:5A:4B:xx:xx:xx).
++const LOCAL_MAC: Mac = [0x02, 0x00, 0x00, 0x00, 0x00, 0x01];
++/// a failed answer is logged once a command and code in this many seconds.
++const FAILURE_LOG_SECONDS: u64 = 5;
++
+ pub fn handle(system: &mut System, buffer: &CommandBuffer, header: Header) -> bool {
+-    // with no room wireless is off, the way the offline answer has it,
+-    // unless a title already started on it in one
+-    if !system.services.uds.initialized && system.room.as_ref().is_none_or(|room| !room.open()) {
+-        return false;
++    // with no room local wireless still works, alone: a title can host a
++    // network only it is in (ykw2: Blasters played solo), scans find
++    // nothing and joins time out
++    let command = header.command_id();
++    // the node a command is about, read before the reply overwrites it
++    let node = match command {
++        0x0005 | 0x000D => Some(buffer.get(&mut system.memory, 1) as u16),
++        0x0017 => Some(buffer.get(&mut system.memory, 2) as u16),
++        _ => None,
++    };
++    let handled = handle_command(system, buffer, header);
++    // ConnectNetwork2's first answer is only what it says if the host never
++    // answers, the join logs its outcome itself
++    if handled && command != 0x001E {
++        let code = buffer.get(&mut system.memory, 1);
++        if code != 0 {
++            log_failure(system, command, node, code);
++        }
+     }
++    handled
++}
++
++/// whether a line keyed so is due, at most one each `seconds`, and how many
++/// went unlogged since the last one.
++fn due<K: std::hash::Hash + Eq + Send + 'static>(
++    table: &'static std::sync::Mutex<Option<std::collections::HashMap<K, (std::time::Instant, u32)>>>,
++    key: K,
++    seconds: u64,
++) -> Option<u32> {
++    let mut table = table.lock().ok()?;
++    let now = std::time::Instant::now();
++    let table = table.get_or_insert_with(std::collections::HashMap::new);
++    match table.get_mut(&key) {
++        Some((at, skipped)) if now.duration_since(*at).as_secs() < seconds => {
++            *skipped += 1;
++            None
++        }
++        Some((at, skipped)) => {
++            let missed = *skipped;
++            *at = now;
++            *skipped = 0;
++            Some(missed)
++        }
++        None => {
++            table.insert(key, (now, 0));
++            Some(0)
++        }
++    }
++}
++
++/// one line for an answer that is not a success, so a title that gives up
++/// on local wireless shows why in the log, without a line a frame.
++fn log_failure(system: &System, command: u16, node: Option<u16>, code: u32) {
++    use std::collections::HashMap;
++    use std::sync::Mutex;
++    use std::time::Instant;
++    static LAST: Mutex<Option<HashMap<(u16, u32), (Instant, u32)>>> = Mutex::new(None);
++    let Some(missed) = due(&LAST, (command, code), FAILURE_LOG_SECONDS) else { return };
++    let uds = &system.services.uds;
++    let node = node.map_or(String::new(), |node| format!(", node 0x{node:04X}"));
++    log::info!(
++        "uds: command 0x{command:04X}{node} answered 0x{code:08X} ({} time(s) since the last line), status {} as node {}, {} node(s), room {}",
++        missed + 1,
++        uds.status.status,
++        uds.status.node_id,
++        uds.status.total,
++        if system.room.as_ref().is_some_and(|room| room.open()) { "open" } else { "none" },
++    );
++}
++
++fn handle_command(system: &mut System, buffer: &CommandBuffer, header: Header) -> bool {
+     let command = header.command_id();
+     let word = |system: &mut System, index: u32| buffer.get(&mut system.memory, index);
+     match command {
+@@ -568,9 +641,8 @@ fn initialize(system: &mut System, node: Vec<u8>) -> ObjectId {
+ 
+ /// puts a network up, the console its host and first node.
+ fn host(system: &mut System, mut network: Vec<u8>, passphrase: Vec<u8>) -> u32 {
+-    let Some(mac) = system.room.as_ref().filter(|room| room.open()).map(|room| room.mac()) else {
+-        return result(NOT_AUTHORIZED, Summary::InvalidState, Level::Status);
+-    };
++    // with no room, a network no one else can find, the console alone in it
++    let mac = system.room.as_ref().filter(|room| room.open()).map_or(LOCAL_MAC, |room| room.mac());
+     let max = network[0x1D].clamp(2, MAX_NODES as u8);
+     network[0..6].copy_from_slice(&mac);
+     if network[6] == 0 {
+@@ -593,10 +665,51 @@ fn host(system: &mut System, mut network: Vec<u8>, passphrase: Vec<u8>) -> u32 {
+     uds.status.take_peers(&peers);
+     uds.next_beacon = Some(tick);
+     log::debug!("uds: hosting network {:08X} for up to {max}", uds.network_id());
+-    signal_status(system);
++    // the console tells the title its network is up a little after
++    // CreateNetwork2 returns, not during it: a title that waits for that
++    // news only once the call returned (Pia, ykw2's Blasters) never got it
++    // when it came first (observed and tried in the
++    // game). 50 ms after, and once more a second later
++    schedule_status(system, tick);
+     0
+ }
+ 
++/// when the status event of a network just put up is due, in cycles: the
++/// service's state is saved with the console's, this is not (at worst a
++/// state loaded before it is due signals it once, which any title copes with).
++/// kept by console (its address), two consoles in one program in the tests.
++static STATUS_DUE: std::sync::Mutex<Option<std::collections::HashMap<usize, Vec<u64>>>> = std::sync::Mutex::new(None);
++/// after CreateNetwork2, the two times the status event of the new network
++/// is signalled.
++const STATUS_AFTER_NANOS: [u64; 2] = [50_000_000, 1_000_000_000];
++
++fn schedule_status(system: &mut System, now: u64) {
++    let key = system as *const System as usize;
++    if let Ok(mut due) = STATUS_DUE.lock() {
++        due.get_or_insert_with(std::collections::HashMap::new).insert(key, STATUS_AFTER_NANOS.iter().map(|&nanos| now + nanos_to_ticks(nanos)).collect());
++    }
++}
++
++/// signals the status event of a network put up, once it is due.
++fn signal_due_status(system: &mut System) {
++    let now = system.cpu.cycles;
++    let key = system as *const System as usize;
++    let fire = match STATUS_DUE.lock() {
++        Ok(mut table) => match table.as_mut().and_then(|table| table.get_mut(&key)) {
++            Some(due) => {
++                let before = due.len();
++                due.retain(|&at| at > now);
++                before != due.len()
++            }
++            None => false,
++        },
++        Err(_) => false,
++    };
++    if fire && system.services.uds.initialized && system.services.uds.status.status == HOST {
++        signal_status(system);
++    }
++}
++
+ /// asks the host of a network to take the console in, the title waiting
+ /// until it answers or JOIN_NANOS go by.
+ fn join(system: &mut System, buffer: &CommandBuffer, network: Vec<u8>, passphrase: Vec<u8>, spectator: bool) {
+@@ -697,26 +810,34 @@ fn send_to(system: &mut System, to: u16, channel: u8, size: u32, flags: u8, poin
+     if !matches!(uds.status.status, HOST | CLIENT) {
+         return result(NOT_AUTHORIZED, Summary::InvalidState, Level::Status);
+     }
+-    if to == 0 || to == uds.status.node_id {
+-        return result(NOT_FOUND, Summary::WrongArgument, Level::Status);
+-    }
+     if size > MAX_SEND {
+         return result(TOO_LARGE, Summary::WrongArgument, Level::Usage);
+     }
+     let broadcast = to == BROADCAST_NODE || flags & 0x2 != 0;
++    // connected, the radio sends what it is given and a frame no node takes
++    // is simply lost: to the console itself, to node 0 or to a node that is
++    // not (or no longer) there, nothing goes out and the title is told it
++    // went, rather than a NOT_FOUND a title (Pia, ykw2) may take for the
++    // network failing [supposed, no console to compare with]
+     let mac = if broadcast {
+         BROADCAST
++    } else if to == 0 || to == uds.status.node_id {
++        return 0;
+     } else if to == HOST_NODE {
+         match uds.host {
+             Some(host) => host,
+-            None => return result(NOT_FOUND, Summary::WrongArgument, Level::Status),
++            None => return 0,
+         }
+     } else {
+         match uds.peers.iter().find(|peer| peer.node_id == to) {
+             Some(peer) => peer.mac,
+-            None => return result(NOT_FOUND, Summary::WrongArgument, Level::Status),
++            None => return 0,
+         }
+     };
++    // a network of the console alone has no one to send to
++    if uds.host == Some(LOCAL_MAC) {
++        return 0;
++    }
+     let message = Wireless::Data {
+         network_id: uds.network_id(),
+         channel,
+@@ -846,6 +967,7 @@ fn mac_text(mac: &Mac) -> String {
+ 
+ /// what came through the room, the beacon due, and a join that took too long.
+ pub fn tick(system: &mut System) {
++    signal_due_status(system);
+     let Some(room) = system.room.clone() else { return };
+     for (from, body) in room.receive() {
+         match postcard::from_bytes::<Wireless>(&body) {
+@@ -858,6 +980,11 @@ pub fn tick(system: &mut System) {
+     if !system.services.uds.initialized {
+         return;
+     }
++    // a network hosted with no room never had one to lose
++    let local = system.services.uds.host == Some(LOCAL_MAC);
++    if local {
++        return;
++    }
+     if !room.open() && system.services.uds.status.status != NOT_CONNECTED {
+         log::info!("uds: the room is gone, and the network with it");
+         end(system, NOT_CONNECTED, LOST);
+@@ -1168,13 +1295,134 @@ mod tests {
+         assert_eq!(client.services.uds.status.status, NOT_CONNECTED);
+     }
+ 
+-    /// with no room, wireless is off as it was.
+-    #[test]
+-    fn no_room_is_wireless_off() {
++    /// a system with no room, its title's buffers mapped as in console.
++    fn alone() -> (System, CommandBuffer) {
+         let (mut system, buffer) = system_with_thread();
+-        let mut words = vec![0x001B_0302, 0x1000];
+-        words.extend([0u32; 10]);
+-        words.extend([0x400, 0, 0]);
+-        assert_eq!(request(&mut system, &buffer, &words), zakuro_common::result::errors::UDS_WIRELESS_OFF.0);
++        let page = system.memory.phys.allocate(crate::memory::MemoryRegion::Application, 0x4000).unwrap();
++        system.memory.map(0x0800_0000, page.addr, 0x4000, crate::memory::Permission::RW, crate::memory::MemoryState::Private);
++        let tls = system.kernel.current().unwrap().tls;
++        system.memory.write_bytes(tls + 0x180, &Descriptor::static_buffer(0x1000, 0).to_le_bytes());
++        system.memory.write_bytes(tls + 0x184, &0x0800_3000u32.to_le_bytes());
++        (system, buffer)
++    }
++
++    fn host_network(system: &mut System, buffer: &CommandBuffer) -> u32 {
++        let mut network = vec![0u8; NETWORK_SIZE];
++        network[0x10..0x14].copy_from_slice(&0xABCDu32.to_be_bytes());
++        network[0x18..0x1C].copy_from_slice(&0x1122_3344u32.to_be_bytes());
++        network[0x1D] = 4;
++        system.memory.write_bytes(0x0800_0000, &network);
++        system.memory.write_bytes(0x0800_0200, b"password");
++        request(system, buffer, &[0x001D_0044, 8, Descriptor::static_buffer(0x108, 1), 0x0800_0000, Descriptor::static_buffer(8, 0), 0x0800_0200])
++    }
++
++    fn send(system: &mut System, buffer: &CommandBuffer, to: u16) -> u32 {
++        system.memory.write_bytes(0x0800_0800, b"data");
++        request(system, buffer, &[0x0017_0182, 0, to as u32, 1, 1, 4, 0, Descriptor::static_buffer(4, 0), 0x0800_0800])
++    }
++
++    /// with no room, a title hosts a network it is alone in (Blasters played
++    /// solo), sends into it, scans find nothing, and it stays up.
++    #[test]
++    fn no_room_hosts_alone() {
++        let (mut system, buffer) = alone();
++        initialize(&mut system, &buffer, 'H');
++        // out of a network, sending still fails
++        assert_ne!(send(&mut system, &buffer, BROADCAST_NODE), 0);
++        let event = system.services.uds.status_event.unwrap();
++        let signalled = |system: &System| match system.kernel.objects.get(event) {
++            Some(KObject::Event(event)) => event.signaled,
++            _ => panic!("no status event"),
++        };
++        // what Initialize signalled the title took
++        if let Some(KObject::Event(event)) = system.kernel.objects.get_mut(event) {
++            event.signaled = false;
++        }
++        assert_eq!(host_network(&mut system, &buffer), 0);
++        assert_eq!(system.services.uds.host, Some(LOCAL_MAC));
++        // the status event comes a while after CreateNetwork2, not during it
++        assert!(!signalled(&system), "not during CreateNetwork2");
++        system.cpu.cycles += nanos_to_ticks(20_000_000);
++        tick(&mut system);
++        assert!(!signalled(&system), "not 20 ms after");
++        system.cpu.cycles += nanos_to_ticks(40_000_000);
++        tick(&mut system);
++        assert!(signalled(&system), "50 ms after");
++        if let Some(KObject::Event(event)) = system.kernel.objects.get_mut(event) {
++            event.signaled = false;
++        }
++        system.cpu.cycles += nanos_to_ticks(1_000_000_000);
++        tick(&mut system);
++        assert!(signalled(&system), "and once more a second after");
++        assert_eq!(request(&mut system, &buffer, &[0x000B_0000]), 0);
++        let status: Vec<u32> = (2..14).map(|i| buffer.get(&mut system.memory, i)).collect();
++        assert_eq!(status[0], HOST);
++        assert_eq!(status[2] & 0xFFFF, HOST_NODE as u32, "node 1");
++        assert_eq!(status[11] & 0xFF, 1, "one node");
++        assert_eq!(status[11] >> 16, 1, "node 1 alone in the mask");
++        assert_eq!(request(&mut system, &buffer, &[0x0012_0100, 1, 0x5F4, 1, BROADCAST_NODE as u32]), 0);
++        for to in [BROADCAST_NODE, HOST_NODE, 0, 2] {
++            assert_eq!(send(&mut system, &buffer, to), 0, "to node {to}");
++        }
++        assert_eq!(request(&mut system, &buffer, &[0x0014_00C0, 1, 0x172, 0x5C8]), 0);
++        assert_eq!(buffer.get(&mut system.memory, 2), 0, "nothing came back");
++        // a scan finds no one
++        let mut scan = vec![0x000F_0404, 0x1000];
++        scan.extend([0u32; 13]);
++        scan[4] = 0xFFFF_FFFF;
++        scan[5] = 0xFFFF;
++        scan.extend([0xABCD, 7, 0, 0, (0x1000 << 4) | 12, 0x0800_1000]);
++        assert_eq!(request(&mut system, &buffer, &scan), 0);
++        let mut reply = [0u8; 12];
++        system.memory.read_bytes(0x0800_1000, &mut reply);
++        assert_eq!(u32::from_le_bytes(reply[8..12].try_into().unwrap()), 0, "no beacon");
++        tick(&mut system);
++        assert_eq!(system.services.uds.status.status, HOST, "still up");
++        assert_eq!(request(&mut system, &buffer, &[0x0008_0000]), 0, "DestroyNetwork");
++        assert_eq!(system.services.uds.status.status, NOT_CONNECTED);
++        assert_eq!(system.services.uds.host, None);
++    }
++
++    /// a failed answer goes through `log` at info, the level Zakuro writes
++    /// to zakuro.log when RUST_LOG says nothing (report::init).
++    #[test]
++    fn failures_are_logged_at_info() {
++        use std::sync::Mutex;
++        static LINES: Mutex<Vec<String>> = Mutex::new(Vec::new());
++        struct Capture;
++        impl log::Log for Capture {
++            fn enabled(&self, metadata: &log::Metadata) -> bool {
++                metadata.level() <= log::Level::Info
++            }
++            fn log(&self, record: &log::Record) {
++                if self.enabled(record.metadata()) {
++                    LINES.lock().unwrap().push(format!("{} {}", record.level(), record.args()));
++                }
++            }
++            fn flush(&self) {}
++        }
++        static CAPTURE: Capture = Capture;
++        let _ = log::set_logger(&CAPTURE);
++        log::set_max_level(log::LevelFilter::Info);
++        let (mut system, buffer) = alone();
++        initialize(&mut system, &buffer, 'L');
++        // PullPacket of a bind that is not there, which no other test does
++        assert_ne!(request(&mut system, &buffer, &[0x0014_00C0, 77, 0x172, 0x5C8]), 0);
++        let lines = LINES.lock().unwrap().clone();
++        assert!(lines.iter().any(|line| line.starts_with("INFO uds: command 0x0014 answered 0xC")), "{lines:?}");
++    }
++
++    /// in a network of a room, sending to the console itself, to node 0 or
++    /// to a node that is not there sends nothing and succeeds.
++    #[test]
++    fn sends_to_no_one_succeed() {
++        let (first, _second) = Link::pair();
++        let (mut host, buffer) = console(first);
++        initialize(&mut host, &buffer, 'H');
++        assert_eq!(host_network(&mut host, &buffer), 0);
++        assert_eq!(host.services.uds.host, Some(host.room.as_ref().unwrap().mac()));
++        for to in [HOST_NODE, 0, 5, BROADCAST_NODE] {
++            assert_eq!(send(&mut host, &buffer, to), 0, "to node {to}");
++        }
+     }
+ }

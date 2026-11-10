@@ -1,0 +1,13 @@
+Zakuro (https://github.com/fearkov/zakuro), émulateur 3DS sous licence MIT (LICENSE.txt),
+version adaptée au mod Yo-kai Watch 2 Archipelago : stub GDB (--gdb), recompilation avec le mod (--recompile),
+svcOpenProcess / svcControlProcessMemory, recompilation incrémentale, manettes lues par SDL, écrans collés à gauche ou à droite, sans fil local sans salon (Blasters joués seul). Modifications (dans le dépôt du mod) :
+tools/zakuro/0001-ykw2-gdb-recompile.patch puis tools/zakuro/0003-zakuro-manettes-sdl.patch puis tools/zakuro/0004-zakuro-ecrans-alignes.patch puis tools/zakuro/0005-zakuro-uds-solo.patch sur le commit 412900a5a020301da15c1cc382585e05a489a535 de Zakuro, et
+tools/zakuro/0002-3dsrecomp-recompilation-incrementale.patch sur 3dsrecomp (https://github.com/fearkov/3dsrecomp,
+licence MIT), que Zakuro contient. Aucune donnée du jeu : le jeu est lu dans la ROM du joueur et recompilé
+sur son ordinateur ; le code recompilé ne doit jamais être partagé.
+
+Manettes : lues par SDL 3 (https://libsdl.org, licence zlib, LICENSE-SDL.txt), compilé dans zakuro.exe (aucune
+DLL à côté). Pour vérifier ce que SDL voit de votre manette (boutons, sticks, gâchettes ; essayez aussi en
+cliquant sur une autre fenêtre, et avec Steam ouvert puis fermé) : double-cliquez sur tester_manette.cmd.
+Controllers: read through SDL 3 (zlib licence, LICENSE-SDL.txt), built into zakuro.exe (no DLL beside it). To
+check what SDL sees of your controller, double-click tester_manette.cmd.

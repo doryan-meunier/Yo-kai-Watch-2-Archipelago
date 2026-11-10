@@ -15,6 +15,8 @@ Version actuelle : **3.0.0**. La V3 remplace la V2.
 **Guides d'installation** : [français](docs/INSTALLATION_FR.md) · [English](docs/INSTALLATION_EN.md)
 **Notes de version** : [français](PATCHNOTES_FR.md) · [English](PATCHNOTES_EN.md)
 
+**Transparence** : mod écrit avec une IA, code source et licence MIT : voir [plus bas](#transparence--usage-de-lia-contenu-code-source).
+
 ### Téléchargements
 
 Un clic sur un lien lance le téléchargement :
@@ -118,8 +120,28 @@ Tout est expliqué pas à pas dans le [guide d'installation](docs/INSTALLATION_F
 | `Yo-kai Watch 2 (English) - EN (everything on).yaml` | YAML modèle du monde anglais : tout activé |
 | `docs/` | guides d'installation FR et EN |
 | `PATCHNOTES_FR.md`, `PATCHNOTES_EN.md` | tout ce qui change par rapport à la V2 |
+| `source/` | le code source du lanceur, du client et des APWorlds (voir « Transparence ») |
+| `LICENSE` | licence MIT |
 | `lanceur/` | le lanceur : `ykw2ap-exe-3.0.0.zip` (sans Python, recommandé, avec Zakuro), `ykw2ap-3.0.0.zip` (nécessite Python 3.11+) et `maj.json` (lu par la mise à jour automatique) |
 
+### Transparence : usage de l'IA, contenu, code source
+
+- **IA** : presque tout le code et la documentation de ce mod (lanceur, client, APWorlds et patch du jeu) ont été
+  écrits avec une IA (**Claude**, d'Anthropic), sous ma direction. Je décide de ce que fait le mod, j'essaie chaque
+  fonction en jeu, et une bêta avec des testeurs a précédé la sortie. Je ne suis pas développeur professionnel ;
+  le support et les corrections se font avec les mêmes outils.
+- **Contenu** : un lanceur et un client Archipelago (Python), deux APWorlds (français et anglais), un patch du code du
+  jeu **fabriqué chez le joueur** à partir de sa propre ROM, et une version adaptée de l'émulateur Zakuro (licence MIT).
+  Aucune donnée du jeu n'est distribuée.
+- **Sur votre ordinateur**, le lanceur : installe le patch dans le dossier de mods de l'émulateur (« Désinstaller » le
+  remet exactement comme avant), active la liaison GDB de l'émulateur seulement avec votre accord (pour dialoguer
+  avec le jeu), se connecte au serveur Archipelago que vous indiquez, et vérifie sur ce dépôt s'il existe une mise à
+  jour du lanceur.
+- **Code source** : le dossier [`source/`](source/) contient exactement les fichiers du lanceur `ykw2ap-3.0.0.zip`
+  (lanceur, client, APWorlds, installation), plus les modifications apportées à Zakuro (`source/zakuro/patches/`).
+  Seul le code source du patch du jeu n'est pas publié, parce qu'il est tiré du code du jeu lui-même ; le patch
+  est distribué sous forme de différences (`.bps`) contrôlées pour ne contenir aucun octet du jeu.
+- **Licence** : MIT (voir [`LICENSE`](LICENSE)), pour le code de ce projet.
 ### Ancienne version (V2 2.0.3)
 
 Une partie de la V2 déjà générée se joue aussi avec le lanceur de la V3. Les fichiers de la V2 ne sont plus
@@ -139,6 +161,8 @@ Current version: **3.0.0**. V3 replaces V2.
 
 **Setup guides**: [English](docs/INSTALLATION_EN.md) · [Français](docs/INSTALLATION_FR.md)
 **Patch notes**: [English](PATCHNOTES_EN.md) · [Français](PATCHNOTES_FR.md)
+
+**Disclosure**: mod written with AI, source code and MIT licence: see [below](#disclosure-ai-use-contents-source-code).
 
 ### Downloads
 
@@ -236,8 +260,27 @@ Everything is explained step by step in the [setup guide](docs/INSTALLATION_EN.m
 | `Yo-kai Watch 2 (English) - EN (everything on).yaml` | template YAML of the English world: everything on |
 | `docs/` | setup guides, EN and FR |
 | `PATCHNOTES_EN.md`, `PATCHNOTES_FR.md` | everything that changes from V2 |
+| `source/` | source code of the launcher, client and APWorlds (see "Disclosure") |
+| `LICENSE` | MIT licence |
 | `lanceur/` | the launcher: `ykw2ap-exe-3.0.0.zip` (no Python, recommended, with Zakuro), `ykw2ap-3.0.0.zip` (needs Python 3.11+) and `maj.json` (read by the automatic update) |
 
+### Disclosure: AI use, contents, source code
+
+- **AI**: almost all of the code and documentation of this mod (launcher, client, APWorlds and game patch) was written
+  with an AI (**Claude**, by Anthropic), under my direction. I decide what the mod does, I test every feature in game,
+  and a beta with testers came before the release. I am not a professional developer; support and fixes are done
+  with the same tools.
+- **Contents**: a launcher and an Archipelago client (Python), two APWorlds (French and English), a patch for the
+  game's code that is **built on the player's machine** from their own ROM, and an adapted build of the Zakuro
+  emulator (MIT licence). No game data is distributed.
+- **On your machine**, the launcher: installs the patch into the emulator's mods folder ("Uninstall" restores it
+  exactly), enables the emulator's GDB stub only with your consent (to talk to the game), connects to the Archipelago
+  server you enter, and checks this repository for launcher updates.
+- **Source code**: the [`source/`](source/) folder holds exactly the files of the `ykw2ap-3.0.0.zip` launcher
+  (launcher, client, APWorlds, installation), plus the changes made to Zakuro (`source/zakuro/patches/`). Only the
+  source of the game patch is not published, because it is derived from the game's own code; the patch is
+  distributed as differences (`.bps`) checked to contain no byte of the game.
+- **Licence**: MIT (see [`LICENSE`](LICENSE)), for this project's code.
 ### Previous version (V2 2.0.3)
 
 An already generated V2 game can also be played with the V3 launcher. The V2 files are no longer offered here; they

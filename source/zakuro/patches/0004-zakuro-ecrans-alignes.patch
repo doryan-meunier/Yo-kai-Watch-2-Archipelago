@@ -1,0 +1,691 @@
+diff --git a/crates/zakuro-gpu/src/backend/gl.rs b/crates/zakuro-gpu/src/backend/gl.rs
+index fe0bee2..f7af4a3 100644
+--- a/crates/zakuro-gpu/src/backend/gl.rs
++++ b/crates/zakuro-gpu/src/backend/gl.rs
+@@ -4,7 +4,7 @@ use std::collections::HashMap;
+ 
+ use glow::HasContext;
+ 
+-use super::{place, Overlay, OverlayVertex, PresentError, Presenter, ScreenFilter, ScreenImage, ScreenLayout, Shown, Stereo, StereoMode, Viewport};
++use super::{place_aligned, Overlay, OverlayVertex, PresentError, Presenter, ScreenAlign, ScreenFilter, ScreenImage, ScreenLayout, Shown, Stereo, StereoMode, Viewport};
+ 
+ const VERTEX_SHADER: &str = r#"#version 330 core
+ // a single oversized triangle covers the viewport with no vertex buffer.
+@@ -140,6 +140,7 @@ pub struct GlPresenter {
+     top_width: f32,
+     filter: ScreenFilter,
+     integer: bool,
++    align: ScreenAlign,
+     stereo: Stereo,
+ }
+ 
+@@ -210,6 +211,7 @@ impl GlPresenter {
+             top_width: super::TOP_WIDTH,
+             filter: ScreenFilter::default(),
+             integer: false,
++            align: ScreenAlign::default(),
+             stereo: Stereo::default(),
+         })
+     }
+@@ -336,7 +338,7 @@ impl Presenter for GlPresenter {
+             gl.bind_vertex_array(Some(self.vertex_array));
+         }
+ 
+-        for (viewport, shown) in place(self.window.0, self.window.1, self.arrangement, self.top_width, self.integer, self.stereo, has_right) {
++        for (viewport, shown) in place_aligned(self.window.0, self.window.1, self.arrangement, self.top_width, self.integer, self.align, self.stereo, has_right) {
+             match shown {
+                 Shown::Top if !top.is_empty() => self.draw_screen(0, viewport),
+                 Shown::Bottom if !bottom.is_empty() => self.draw_screen(1, viewport),
+@@ -370,6 +372,10 @@ impl Presenter for GlPresenter {
+         self.integer = integer;
+     }
+ 
++    fn set_align(&mut self, align: ScreenAlign) {
++        self.align = align;
++    }
++
+     fn set_stereo(&mut self, stereo: Stereo) {
+         self.stereo = stereo;
+     }
+diff --git a/crates/zakuro-gpu/src/backend/mod.rs b/crates/zakuro-gpu/src/backend/mod.rs
+index e2a2a79..d073b5b 100644
+--- a/crates/zakuro-gpu/src/backend/mod.rs
++++ b/crates/zakuro-gpu/src/backend/mod.rs
+@@ -105,6 +105,32 @@ pub enum ScreenLayout {
+     LargeTop,
+ }
+ 
++/// where the screens go across a window wider than they are, the room
++/// left over on the other side, say for another program's window next to
++/// them. a taller window still centers them up and down.
++#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
++pub enum ScreenAlign {
++    /// in the middle, room on both sides.
++    #[default]
++    Center,
++    /// against the window's left edge, the room on the right.
++    Left,
++    /// against the window's right edge, the room on the left.
++    Right,
++}
++
++impl ScreenAlign {
++    /// how far from the left edge screens free_width narrower than the
++    /// window start.
++    fn offset(self, free_width: f32) -> f32 {
++        match self {
++            ScreenAlign::Center => free_width / 2.0,
++            ScreenAlign::Left => 0.0,
++            ScreenAlign::Right => free_width,
++        }
++    }
++}
++
+ /// how the screens' pixels are drawn when scaled to the window.
+ #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+ pub enum ScreenFilter {
+@@ -161,13 +187,21 @@ const LARGE_TOP_BOTTOM: (u32, u32) = (160, 120);
+ /// a whole number when integer asks and the window has room. a screen that
+ /// does not show has no place.
+ pub fn layout(window_width: u32, window_height: u32, arrangement: ScreenLayout, top_w: f32, integer: bool) -> (Option<Viewport>, Option<Viewport>) {
++    layout_aligned(window_width, window_height, arrangement, top_w, integer, ScreenAlign::Center)
++}
++
++/// the same, the screens put across the window the way align says: the
++/// screens keep their sizes and their places relative to each other, the
++/// whole group only moves sideways. the touch screen's place comes from
++/// here too, so a touch lands where the bottom screen shows.
++pub fn layout_aligned(window_width: u32, window_height: u32, arrangement: ScreenLayout, top_w: f32, integer: bool, align: ScreenAlign) -> (Option<Viewport>, Option<Viewport>) {
+     let (total_width, total_height) = arrangement.size_f(top_w);
+ 
+     let mut scale = (window_width as f32 / total_width).min(window_height as f32 / total_height);
+     if integer && scale >= 1.0 {
+         scale = scale.floor();
+     }
+-    let mut offset_x = (window_width as f32 - total_width * scale) / 2.0;
++    let mut offset_x = align.offset(window_width as f32 - total_width * scale);
+     let mut offset_y = (window_height as f32 - total_height * scale) / 2.0;
+     if integer {
+         // whole pixels, or every texel would not get the same size
+@@ -261,6 +295,14 @@ pub enum Shown {
+ /// when the title drew a picture for the right eye, side by side shows the
+ /// left one's twice otherwise, so a 3D TV keeps its halves.
+ pub fn place(window_width: u32, window_height: u32, arrangement: ScreenLayout, top_width: f32, integer: bool, stereo: Stereo, right: bool) -> Vec<(Viewport, Shown)> {
++    place_aligned(window_width, window_height, arrangement, top_width, integer, ScreenAlign::Center, stereo, right)
++}
++
++/// the same, the screens put across the window, or across each half of it
++/// for side by side 3D, the way align says.
++#[allow(clippy::too_many_arguments)]
++pub fn place_aligned(window_width: u32, window_height: u32, arrangement: ScreenLayout, top_width: f32, integer: bool, align: ScreenAlign, stereo: Stereo, right: bool) -> Vec<(Viewport, Shown)> {
++    let layout = |width, height, arrangement, top_width, integer| layout_aligned(width, height, arrangement, top_width, integer, align);
+     let screens = |(top, bottom): (Option<Viewport>, Option<Viewport>), eye: Shown| {
+         top.map(|viewport| (viewport, eye)).into_iter().chain(bottom.map(|viewport| (viewport, Shown::Bottom)))
+     };
+@@ -329,6 +371,10 @@ pub trait Presenter {
+     /// numbers, from the next frame on.
+     fn set_scaling(&mut self, filter: ScreenFilter, integer: bool);
+ 
++    /// where the screens go across a window wider than they are, from the
++    /// next frame on.
++    fn set_align(&mut self, align: ScreenAlign);
++
+     /// how the 3D shows from the next frame on.
+     fn set_stereo(&mut self, stereo: Stereo);
+ }
+@@ -412,6 +458,189 @@ mod tests {
+         assert_eq!(ScreenLayout::TopOnly.size(wide), (427, 240));
+     }
+ 
++    const LAYOUTS: [ScreenLayout; 5] =
++        [ScreenLayout::Stacked, ScreenLayout::SideBySide, ScreenLayout::LargeTop, ScreenLayout::TopOnly, ScreenLayout::BottomOnly];
++    const WINDOWS: [(u32, u32); 8] = [(1920, 1080), (2560, 1080), (3440, 1440), (800, 960), (1000, 480), (1366, 768), (801, 481), (300, 200)];
++    const TOPS: [f32; 3] = [TOP_WIDTH, 240.0 * 16.0 / 9.0, 560.0];
++
++    /// the old layout, copied as it was before alignment came in, to hold
++    /// the default to it.
++    fn centred_before(window_width: u32, window_height: u32, arrangement: ScreenLayout, top_w: f32, integer: bool) -> (Option<Viewport>, Option<Viewport>) {
++        let (total_width, total_height) = arrangement.size_f(top_w);
++
++        let mut scale = (window_width as f32 / total_width).min(window_height as f32 / total_height);
++        if integer && scale >= 1.0 {
++            scale = scale.floor();
++        }
++        let mut offset_x = (window_width as f32 - total_width * scale) / 2.0;
++        let mut offset_y = (window_height as f32 - total_height * scale) / 2.0;
++        if integer {
++            // whole pixels, or every texel would not get the same size
++            offset_x = offset_x.floor();
++            offset_y = offset_y.floor();
++        }
++
++        let top = (arrangement != ScreenLayout::BottomOnly).then_some(Viewport {
++            x: offset_x,
++            y: offset_y,
++            width: top_w * scale,
++            height: 240.0 * scale,
++        });
++        let bottom = match arrangement {
++            // the bottom screen is narrower, so it is centered under the top one.
++            ScreenLayout::Stacked => Some(Viewport {
++                x: offset_x + (total_width - 320.0) / 2.0 * scale,
++                y: offset_y + 240.0 * scale,
++                width: 320.0 * scale,
++                height: 240.0 * scale,
++            }),
++            ScreenLayout::SideBySide => Some(Viewport {
++                x: offset_x + top_w * scale,
++                y: offset_y,
++                width: 320.0 * scale,
++                height: 240.0 * scale,
++            }),
++            ScreenLayout::LargeTop => {
++                // half the top screen's scale, a whole number of it when the
++                // screens are scaled by whole numbers
++                let half = (LARGE_TOP_BOTTOM.0 as f32 / 320.0) * scale;
++                let small = if integer && half >= 1.0 { half.floor() } else { half };
++                Some(Viewport {
++                    x: offset_x + top_w * scale,
++                    y: offset_y + 240.0 * scale - 240.0 * small,
++                    width: 320.0 * small,
++                    height: 240.0 * small,
++                })
++            }
++            ScreenLayout::TopOnly => None,
++            ScreenLayout::BottomOnly => Some(Viewport {
++                x: offset_x,
++                y: offset_y,
++                width: 320.0 * scale,
++                height: 240.0 * scale,
++            }),
++        };
++        (top, bottom)
++    }
++
++    /// centred is the default and gives the places it always gave, for
++    /// every layout, top screen shape and whole number scaling.
++    #[test]
++    fn centred_is_the_default_and_unchanged() {
++        assert_eq!(ScreenAlign::default(), ScreenAlign::Center);
++        for (width, height) in WINDOWS {
++            for arrangement in LAYOUTS {
++                for top_w in TOPS {
++                    for integer in [false, true] {
++                        let centred = layout_aligned(width, height, arrangement, top_w, integer, ScreenAlign::Center);
++                        assert_eq!(centred, layout(width, height, arrangement, top_w, integer));
++                        assert_eq!(centred, centred_before(width, height, arrangement, top_w, integer));
++                    }
++                }
++            }
++        }
++        // the figures of the first test, worked out by hand
++        let (top, bottom) = layout_aligned(1000, 480, ScreenLayout::Stacked, TOP_WIDTH, false, ScreenAlign::Center);
++        assert_eq!((top.unwrap().x, bottom.unwrap().x), (300.0, 340.0));
++    }
++
++    /// left and right move the whole group of screens against that edge,
++    /// keeping their sizes, their heights and their places relative to each
++    /// other; a window as wide as the screens leaves nothing to move.
++    #[test]
++    fn left_and_right_put_the_screens_against_an_edge() {
++        for (width, height) in WINDOWS {
++            for arrangement in LAYOUTS {
++                for top_w in TOPS {
++                    for integer in [false, true] {
++                        let what = format!("{width}x{height} {arrangement:?} {top_w} {integer}");
++                        let centred = layout_aligned(width, height, arrangement, top_w, integer, ScreenAlign::Center);
++                        let left = layout_aligned(width, height, arrangement, top_w, integer, ScreenAlign::Left);
++                        let right = layout_aligned(width, height, arrangement, top_w, integer, ScreenAlign::Right);
++                        let screens = |(top, bottom): (Option<Viewport>, Option<Viewport>)| top.into_iter().chain(bottom).collect::<Vec<_>>();
++                        let (c, l, r) = (screens(centred), screens(left), screens(right));
++                        assert_eq!(c.len(), l.len());
++                        assert_eq!(c.len(), r.len());
++                        let min_x = |s: &[Viewport]| s.iter().map(|v| v.x).fold(f32::INFINITY, f32::min);
++                        let max_x = |s: &[Viewport]| s.iter().map(|v| v.x + v.width).fold(f32::NEG_INFINITY, f32::max);
++                        // against the edges
++                        assert_eq!(min_x(&l), 0.0, "{what}");
++                        let total = arrangement.size_f(top_w).0;
++                        let scale = c.iter().map(|v| v.height / 240.0).fold(0.0, f32::max);
++                        let free = width as f32 - total * scale;
++                        let wanted_right = if integer { free.floor() } else { free };
++                        // (rounded down to a whole pixel for whole number scaling, the
++                        // free room worked out here may be a hair off)
++                        let slack = if integer { 1.0 } else { 1e-3 };
++                        assert!((min_x(&r) - wanted_right).abs() <= slack, "{what}: {} vs {wanted_right}", min_x(&r));
++                        assert!(max_x(&r) <= width as f32 + 1e-3, "{what}");
++                        if !integer {
++                            assert!((max_x(&r) - width as f32).abs() < 1e-2, "{what}");
++                        }
++                        // only moved sideways, all by the same amount
++                        for side in [&l, &r] {
++                            let shift = side[0].x - c[0].x;
++                            for (moved, before) in side.iter().zip(&c) {
++                                assert_eq!((moved.y, moved.width, moved.height), (before.y, before.width, before.height), "{what}");
++                                assert!((moved.x - before.x - shift).abs() < 1e-3, "{what}");
++                            }
++                            // the group starts on a whole pixel for whole number
++                            // scaling, as centred
++                            if integer {
++                                assert!(min_x(side).fract() == 0.0 && side[0].y.fract() == 0.0, "{what}");
++                            }
++                        }
++                        // the room left over, all on the other side
++                        // (whole number scaling may round the small screen of the big top
++                        // one down, short of the group's edge)
++                        assert!(max_x(&l) <= total * scale + 1e-2, "{what}");
++                        if !integer {
++                            assert!((max_x(&l) - total * scale).abs() < 1e-2, "{what}");
++                        }
++                    }
++                }
++            }
++        }
++    }
++
++    /// worked out by hand: a 1920x1080 window, top over bottom, 2.25 times.
++    #[test]
++    fn the_alignments_by_hand() {
++        let at = |align| {
++            let (top, bottom) = layout_aligned(1920, 1080, ScreenLayout::Stacked, TOP_WIDTH, false, align);
++            let (top, bottom) = (top.unwrap(), bottom.unwrap());
++            (top.x, top.width, bottom.x, bottom.y, bottom.width)
++        };
++        assert_eq!(at(ScreenAlign::Center), (510.0, 900.0, 600.0, 540.0, 720.0));
++        assert_eq!(at(ScreenAlign::Left), (0.0, 900.0, 90.0, 540.0, 720.0));
++        assert_eq!(at(ScreenAlign::Right), (1020.0, 900.0, 1110.0, 540.0, 720.0));
++        // side by side in an ultrawide window, whole numbers: 4 times
++        let (top, bottom) = layout_aligned(3440, 1440, ScreenLayout::SideBySide, TOP_WIDTH, true, ScreenAlign::Right);
++        let (top, bottom) = (top.unwrap(), bottom.unwrap());
++        assert_eq!((top.x, top.y, top.width), (560.0, 240.0, 1600.0));
++        assert_eq!((bottom.x, bottom.width), (2160.0, 1280.0));
++        // a window taller than wide still centres up and down
++        let (top, _) = layout_aligned(800, 960, ScreenLayout::TopOnly, TOP_WIDTH, false, ScreenAlign::Right);
++        assert_eq!((top.unwrap().x, top.unwrap().y), (0.0, 240.0));
++    }
++
++    /// side by side 3D puts the screens against the same edge of each
++    /// half, so the two eyes stay lined up; with no 3D, placing follows the
++    /// layout's alignment.
++    #[test]
++    fn the_alignment_goes_through_placing() {
++        let off = Stereo::default();
++        let places = place_aligned(1920, 1080, ScreenLayout::Stacked, TOP_WIDTH, false, ScreenAlign::Left, off, false);
++        assert_eq!(places[0].0.x, 0.0);
++        assert_eq!(place(1920, 1080, ScreenLayout::Stacked, TOP_WIDTH, false, off, false),
++                   place_aligned(1920, 1080, ScreenLayout::Stacked, TOP_WIDTH, false, ScreenAlign::Center, off, false));
++        let sbs = Stereo { mode: StereoMode::SideBySide, swap: false };
++        let places = place_aligned(3840, 1080, ScreenLayout::Stacked, TOP_WIDTH, false, ScreenAlign::Right, sbs, true);
++        assert_eq!(places.len(), 4);
++        assert_eq!(places[0].0.x + 1920.0, places[2].0.x);
++        assert_eq!(places[0].0.x + places[0].0.width, 1920.0);
++    }
++
+     /// the screens each stereo mode draws, from which picture and where.
+     #[test]
+     fn the_stereo_modes_place_the_eyes() {
+diff --git a/crates/zakuro-gpu/src/backend/vulkan.rs b/crates/zakuro-gpu/src/backend/vulkan.rs
+index 041fe71..cdec957 100644
+--- a/crates/zakuro-gpu/src/backend/vulkan.rs
++++ b/crates/zakuro-gpu/src/backend/vulkan.rs
+@@ -8,7 +8,7 @@ use ash::vk;
+ use raw_window_handle::{HasDisplayHandle, HasWindowHandle};
+ 
+ use super::vulkan_overlay::OverlayPainter;
+-use super::{place, GpuScreen, Overlay, PresentError, Presenter, ScreenFilter, ScreenImage, ScreenLayout, Shown, Stereo, StereoMode, Viewport};
++use super::{place_aligned, GpuScreen, Overlay, PresentError, Presenter, ScreenAlign, ScreenFilter, ScreenImage, ScreenLayout, Shown, Stereo, StereoMode, Viewport};
+ use crate::raster::hardware::{can_render, render_device};
+ use crate::SharedDevice;
+ 
+@@ -124,6 +124,7 @@ pub struct VulkanPresenter {
+     top_width: f32,
+     filter: ScreenFilter,
+     integer: bool,
++    align: ScreenAlign,
+     stereo: Stereo,
+     /// set when the swapchain no longer matches the window.
+     stale: bool,
+@@ -409,6 +410,7 @@ impl VulkanPresenter {
+             top_width: super::TOP_WIDTH,
+             filter: ScreenFilter::default(),
+             integer: false,
++            align: ScreenAlign::default(),
+             stereo: Stereo::default(),
+             stale: false,
+         };
+@@ -776,7 +778,7 @@ impl VulkanPresenter {
+                     Some((self.gpu_sets[self.frame][index], [x, y, width, height, left, top, right, bottom]))
+                 }
+             };
+-            let places = place(self.extent.width, self.extent.height, self.arrangement, self.top_width, self.integer, self.stereo, right);
++            let places = place_aligned(self.extent.width, self.extent.height, self.arrangement, self.top_width, self.integer, self.align, self.stereo, right);
+             for (viewport, shown) in places {
+                 let index = match shown {
+                     Shown::Top | Shown::Both => 0,
+@@ -969,6 +971,10 @@ impl Presenter for VulkanPresenter {
+         self.integer = integer;
+     }
+ 
++    fn set_align(&mut self, align: ScreenAlign) {
++        self.align = align;
++    }
++
+     fn set_stereo(&mut self, stereo: Stereo) {
+         self.stereo = stereo;
+     }
+diff --git a/crates/zakuro-gpu/src/lib.rs b/crates/zakuro-gpu/src/lib.rs
+index 943f843..718f76f 100644
+--- a/crates/zakuro-gpu/src/lib.rs
++++ b/crates/zakuro-gpu/src/lib.rs
+@@ -22,7 +22,7 @@ pub mod texture;
+ use format::ColorFormat;
+ pub use interpolation::Matches;
+ use registers::*;
+-pub use backend::{layout, place, GpuScreen, Overlay, OverlayMesh, OverlayTexture, OverlayVertex, PresentError, Presenter, ScreenFilter, ScreenImage, ScreenLayout, Shown, Stereo, StereoMode, Viewport};
++pub use backend::{layout, layout_aligned, place, place_aligned, GpuScreen, Overlay, OverlayMesh, OverlayTexture, OverlayVertex, PresentError, Presenter, ScreenAlign, ScreenFilter, ScreenImage, ScreenLayout, Shown, Stereo, StereoMode, Viewport};
+ pub use renderer::{DrawCall, Renderer, RendererKind, SoftwareRenderer};
+ #[cfg(feature = "vulkan")]
+ pub use device::SharedDevice;
+diff --git a/crates/zakuro/src/lib.rs b/crates/zakuro/src/lib.rs
+index b9c6133..b044a15 100644
+--- a/crates/zakuro/src/lib.rs
++++ b/crates/zakuro/src/lib.rs
+@@ -28,7 +28,7 @@ use winit::window::{Fullscreen, Window, WindowId};
+ 
+ use zakuro_common::Screen;
+ use zakuro_core::{loader, Config, FrameOutcome, System};
+-use zakuro_gpu::{layout, GpuScreen, Overlay, PresentError, RendererKind, ScreenImage};
++use zakuro_gpu::{layout_aligned, GpuScreen, Overlay, PresentError, RendererKind, ScreenAlign, ScreenImage, ScreenLayout};
+ 
+ use gui::Gui;
+ use input::Keyboard;
+@@ -557,6 +557,7 @@ impl ApplicationHandler for App {
+                 backend.set_layout(self.layout.screens());
+                 backend.set_top_width(self.settings.top_shape.width());
+                 backend.set_scaling(self.settings.filter.screens(), self.settings.integer_scale);
++                backend.set_align(self.settings.screen_alignment.screens());
+                 backend.set_stereo(self.settings.stereo());
+                 self.gui = Some(Gui::new(&window));
+                 self.window = Some(window);
+@@ -852,18 +853,16 @@ impl App {
+     fn touch(&mut self) {
+         let Some(window) = &self.window else { return };
+         let size = window.inner_size();
+-        let (_, bottom) = layout(size.width, size.height, self.layout.screens(), self.top_shape.width(), self.settings.integer_scale);
+-        // with the top screen alone there is nothing to touch
+-        let Some(bottom) = bottom else {
+-            self.keyboard.touch(None);
+-            return;
+-        };
+-        let x = self.cursor.0 - bottom.x;
+-        let y = self.cursor.1 - bottom.y;
+-        let inside = x >= 0.0 && y >= 0.0 && x < bottom.width && y < bottom.height;
+-        self.keyboard.touch((self.mouse_down && inside).then(|| {
+-            ((x / bottom.width * 320.0) as u16, (y / bottom.height * 240.0) as u16)
+-        }));
++        // the bottom screen where the presenter draws it, alignment included
++        let point = touch_point(
++            (size.width, size.height),
++            self.cursor,
++            self.layout.screens(),
++            self.top_shape.width(),
++            self.settings.integer_scale,
++            self.settings.screen_alignment.screens(),
++        );
++        self.keyboard.touch(if self.mouse_down { point } else { None });
+     }
+ 
+     /// tilts the console while the right button is held, toward where the
+@@ -960,6 +959,7 @@ impl App {
+         if let Some(backend) = &mut self.backend {
+             backend.set_top_width(self.settings.top_shape.width());
+             backend.set_scaling(self.settings.filter.screens(), self.settings.integer_scale);
++            backend.set_align(self.settings.screen_alignment.screens());
+             backend.set_stereo(self.settings.stereo());
+         }
+         let scale = if self.options.scale.is_none() { self.settings.scale.max(1) } else { self.scale };
+@@ -1705,6 +1705,19 @@ fn shown_right(system: &mut System) -> Option<(zakuro_core::Screen, Option<GpuSc
+     system.read_right_eye_scaled().map(|screen| (screen, None))
+ }
+ 
++/// the touch screen's pixel under a pointer at cursor, in window pixels,
++/// with the screens laid out as the presenter draws them. none off the
++/// bottom screen, or with the top screen alone, there being nothing to
++/// touch.
++fn touch_point(window: (u32, u32), cursor: (f32, f32), arrangement: ScreenLayout, top_width: f32, integer: bool, align: ScreenAlign) -> Option<(u16, u16)> {
++    let (_, bottom) = layout_aligned(window.0, window.1, arrangement, top_width, integer, align);
++    let bottom = bottom?;
++    let x = cursor.0 - bottom.x;
++    let y = cursor.1 - bottom.y;
++    let inside = x >= 0.0 && y >= 0.0 && x < bottom.width && y < bottom.height;
++    inside.then(|| ((x / bottom.width * 320.0) as u16, (y / bottom.height * 240.0) as u16))
++}
++
+ /// keeps the renderer kind referenced even when a backend feature is off.
+ const _: RendererKind = RendererKind::Software;
+ 
+@@ -1723,4 +1736,70 @@ mod tests {
+         assert!(!skips_showing(true, false, true, 0), "on time");
+         assert!(!skips_showing(false, true, true, 0), "paused");
+     }
++
++    const LAYOUTS: [ScreenLayout; 5] =
++        [ScreenLayout::Stacked, ScreenLayout::SideBySide, ScreenLayout::LargeTop, ScreenLayout::TopOnly, ScreenLayout::BottomOnly];
++    const ALIGNS: [ScreenAlign; 3] = [ScreenAlign::Center, ScreenAlign::Left, ScreenAlign::Right];
++
++    /// a pointer over a touch screen pixel's middle, wherever the screens
++    /// are put, touches that very pixel, and nothing outside the screen.
++    #[test]
++    fn a_touch_lands_on_the_pixel_under_the_pointer_wherever_the_screens_are() {
++        let windows = [(1920, 1080), (2560, 1080), (800, 960), (1000, 480), (1366, 768), (3840, 1600), (300, 200)];
++        for window in windows {
++            for arrangement in LAYOUTS {
++                for top_width in [400.0, 240.0 * 16.0 / 9.0, 560.0] {
++                    for integer in [false, true] {
++                        for align in ALIGNS {
++                            let (_, bottom) = layout_aligned(window.0, window.1, arrangement, top_width, integer, align);
++                            let point = |cursor| touch_point(window, cursor, arrangement, top_width, integer, align);
++                            let Some(bottom) = bottom else {
++                                assert_eq!(point((window.0 as f32 / 2.0, window.1 as f32 / 2.0)), None);
++                                continue;
++                            };
++                            let what = format!("{window:?} {arrangement:?} {top_width} {integer} {align:?}");
++                            for (px, py) in [(0u16, 0u16), (319, 239), (160, 120), (17, 203), (300, 5)] {
++                                let cursor = (
++                                    bottom.x + (px as f32 + 0.5) * bottom.width / 320.0,
++                                    bottom.y + (py as f32 + 0.5) * bottom.height / 240.0,
++                                );
++                                assert_eq!(point(cursor), Some((px, py)), "{what} pixel {px},{py}");
++                            }
++                            // just outside each edge
++                            for cursor in [
++                                (bottom.x - 0.5, bottom.y + 1.0),
++                                (bottom.x + bottom.width + 0.5, bottom.y + 1.0),
++                                (bottom.x + 1.0, bottom.y - 0.5),
++                                (bottom.x + 1.0, bottom.y + bottom.height + 0.5),
++                            ] {
++                                assert_eq!(point(cursor), None, "{what} {cursor:?}");
++                            }
++                        }
++                    }
++                }
++            }
++        }
++    }
++
++    /// the bottom screen moved to an edge is touched where it now shows:
++    /// a 1920x1080 window, top over bottom at 2.25 times, 900 pixels wide.
++    #[test]
++    fn the_touch_screen_moves_with_the_screens() {
++        let at = |align, x, y| touch_point((1920, 1080), (x, y), ScreenLayout::Stacked, 400.0, false, align);
++        // centred, the bottom screen spans 600 to 1320 across, from 540 down
++        assert_eq!(at(ScreenAlign::Center, 600.0, 540.0), Some((0, 0)));
++        assert_eq!(at(ScreenAlign::Center, 100.0, 600.0), None);
++        // to the left, 90 to 810: most of where the centred one was is now off it
++        assert_eq!(at(ScreenAlign::Left, 90.0, 540.0), Some((0, 0)));
++        assert_eq!(at(ScreenAlign::Left, 1000.0, 600.0), None);
++        assert_eq!(at(ScreenAlign::Left, 809.9, 1079.9), Some((319, 239)));
++        // to the right, 1110 to 1830
++        assert_eq!(at(ScreenAlign::Right, 1110.0, 540.0), Some((0, 0)));
++        assert_eq!(at(ScreenAlign::Right, 700.0, 600.0), None);
++        assert_eq!(at(ScreenAlign::Right, 1829.9, 1079.9), Some((319, 239)));
++        // the same pointer, the same touch screen pixel, wherever it is
++        for (align, from) in [(ScreenAlign::Center, 600.0), (ScreenAlign::Left, 90.0), (ScreenAlign::Right, 1110.0)] {
++            assert_eq!(at(align, from + 360.0, 810.0), Some((160, 120)));
++        }
++    }
+ }
+diff --git a/crates/zakuro/src/menus.rs b/crates/zakuro/src/menus.rs
+index 6366bca..52c8267 100644
+--- a/crates/zakuro/src/menus.rs
++++ b/crates/zakuro/src/menus.rs
+@@ -11,7 +11,7 @@ use zakuro_core::services::keyboard::Request;
+ use crate::library::{Library, ICON_SIZE};
+ use crate::recompile::{Job, Stage};
+ use crate::gamepad::button_name;
+-use crate::settings::{CameraSource, Filter, Keys, Language, PadButtons, Renderer, Screens, Settings, Stereo3d, TopShape};
++use crate::settings::{CameraSource, Filter, Keys, Language, PadButtons, Renderer, ScreenAlignment, Screens, Settings, Stereo3d, TopShape};
+ 
+ /// what the user asked for.
+ #[derive(Debug, Clone, PartialEq)]
+@@ -708,6 +708,13 @@ impl Menus {
+                 .on_hover_text("How the screens' pixels look scaled up: smooth, sharp with soft edges, or plain squares.");
+                 ui.checkbox(&mut settings.integer_scale, "Scale by whole numbers only")
+                     .on_hover_text("Every pixel gets the same size, with a border around the screens.");
++                egui::ComboBox::from_label("Screens' place").selected_text(settings.screen_alignment.name()).show_ui(ui, |ui| {
++                    for alignment in ScreenAlignment::ALL {
++                        ui.selectable_value(&mut settings.screen_alignment, alignment, alignment.name());
++                    }
++                })
++                .response
++                .on_hover_text("Where the screens go in a window wider than they are, full screen too: in the middle, or against the left or right edge to leave the room on the other side, for another window next to them.");
+                 egui::ComboBox::from_label("Top screen shape").selected_text(settings.top_shape.name()).show_ui(ui, |ui| {
+                     for shape in TopShape::ALL {
+                         ui.selectable_value(&mut settings.top_shape, shape, shape.name());
+diff --git a/crates/zakuro/src/present.rs b/crates/zakuro/src/present.rs
+index 3e4fc4e..b07978b 100644
+--- a/crates/zakuro/src/present.rs
++++ b/crates/zakuro/src/present.rs
+@@ -102,6 +102,14 @@ impl Backend {
+         }
+     }
+ 
++    pub fn set_align(&mut self, align: zakuro_gpu::ScreenAlign) {
++        match self {
++            Backend::OpenGl { presenter, .. } => presenter.set_align(align),
++            Backend::Vulkan(presenter) => presenter.set_align(align),
++            Backend::None => {}
++        }
++    }
++
+     pub fn set_stereo(&mut self, stereo: zakuro_gpu::Stereo) {
+         match self {
+             Backend::OpenGl { presenter, .. } => presenter.set_stereo(stereo),
+diff --git a/crates/zakuro/src/settings.rs b/crates/zakuro/src/settings.rs
+index d57bbcd..9c050ee 100644
+--- a/crates/zakuro/src/settings.rs
++++ b/crates/zakuro/src/settings.rs
+@@ -68,6 +68,37 @@ impl Screens {
+     }
+ }
+ 
++/// where the screens go across a window wider than they are, to leave the
++/// room on one side, for another program's window next to them say.
++#[derive(Debug, Clone, Copy, PartialEq, Eq, Default, Serialize, Deserialize)]
++#[serde(rename_all = "snake_case")]
++pub enum ScreenAlignment {
++    #[default]
++    Center,
++    Left,
++    Right,
++}
++
++impl ScreenAlignment {
++    pub const ALL: [ScreenAlignment; 3] = [ScreenAlignment::Center, ScreenAlignment::Left, ScreenAlignment::Right];
++
++    pub fn name(self) -> &'static str {
++        match self {
++            ScreenAlignment::Center => "Centered",
++            ScreenAlignment::Left => "Against the left edge",
++            ScreenAlignment::Right => "Against the right edge",
++        }
++    }
++
++    pub fn screens(self) -> zakuro_gpu::ScreenAlign {
++        match self {
++            ScreenAlignment::Center => zakuro_gpu::ScreenAlign::Center,
++            ScreenAlignment::Left => zakuro_gpu::ScreenAlign::Left,
++            ScreenAlignment::Right => zakuro_gpu::ScreenAlign::Right,
++        }
++    }
++}
++
+ /// how the screens' pixels look scaled up to the window.
+ #[derive(Debug, Clone, Copy, PartialEq, Eq, Default, Serialize, Deserialize)]
+ #[serde(rename_all = "snake_case")]
+@@ -472,6 +503,10 @@ pub struct Settings {
+     pub filter: Filter,
+     /// scale the screens by whole numbers only, leaving a border.
+     pub integer_scale: bool,
++    /// where the screens go across a wider window. a Zakuro without it
++    /// ignores the field, as any it does not know.
++    #[serde(deserialize_with = "or_default")]
++    pub screen_alignment: ScreenAlignment,
+     /// how wide the top screen shows.
+     #[serde(deserialize_with = "or_default")]
+     pub top_shape: TopShape,
+@@ -524,6 +559,7 @@ impl Default for Settings {
+             layout: Screens::Stacked,
+             filter: Filter::Smooth,
+             integer_scale: false,
++            screen_alignment: ScreenAlignment::Center,
+             top_shape: TopShape::Console,
+             stereo: Stereo3d::Off,
+             depth_3d: 50,
+@@ -627,8 +663,14 @@ mod tests {
+ 
+     #[test]
+     fn settings_come_back_as_they_were_saved() {
+-        let mut settings =
+-            Settings { games: Some("/games".into()), show_fps: true, layout: Screens::TopOnly, language: Language::German, ..Settings::default() };
++        let mut settings = Settings {
++            games: Some("/games".into()),
++            show_fps: true,
++            layout: Screens::TopOnly,
++            language: Language::German,
++            screen_alignment: ScreenAlignment::Right,
++            ..Settings::default()
++        };
+         settings.keys.a = KeyCode::KeyK;
+         settings.pad.a = Button::South;
+         let text = toml::to_string_pretty(&settings).unwrap();
+@@ -653,6 +695,30 @@ mod tests {
+         assert_eq!(settings.layout, Screens::Stacked);
+     }
+ 
++    /// the alignment is saved under its own name, and one this build does
++    /// not know, or of the wrong type, keeps the others rather than losing
++    /// the whole file.
++    #[test]
++    fn the_screen_alignment_is_kept_and_read_safely() {
++        let text = toml::to_string_pretty(&Settings { screen_alignment: ScreenAlignment::Left, ..Settings::default() }).unwrap();
++        assert!(text.contains("screen_alignment = \"left\""), "{text}");
++        assert!(toml::to_string_pretty(&Settings::default()).unwrap().contains("screen_alignment = \"center\""));
++        let values = [
++            ("\"right\"", ScreenAlignment::Right),
++            ("\"left\"", ScreenAlignment::Left),
++            ("\"center\"", ScreenAlignment::Center),
++            ("\"top\"", ScreenAlignment::Center),
++            ("3", ScreenAlignment::Center),
++            ("true", ScreenAlignment::Center),
++        ];
++        for (value, wanted) in values {
++            let settings: Settings = toml::from_str(&format!("show_fps = true\nscreen_alignment = {value}\n")).unwrap();
++            assert!(settings.show_fps, "{value}");
++            assert_eq!(settings.screen_alignment, wanted, "{value}");
++        }
++        assert_eq!(toml::from_str::<Settings>("show_fps = true\n").unwrap().screen_alignment, ScreenAlignment::Center);
++    }
++
+     #[test]
+     fn layouts_go_round() {
+         let mut layout = Screens::Stacked;
